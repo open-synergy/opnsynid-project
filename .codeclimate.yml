@@ -5,3 +5,5 @@ exclude_paths:
 - "__unported__/*"
 - "*/__openerp__.py"   # because this is fed to eval
 - "*/migrations/*"     # without OpenUpgrade, repetitions can be necessary
+codecov:
+  token: dfe4eab7-1b1e-42f3-9937-1750bae19947
