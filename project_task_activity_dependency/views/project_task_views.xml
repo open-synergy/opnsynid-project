@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="projecttask_view_form" model="ir.ui.view">
+    <field name="name">project.task form</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+            <page name="dependency" string="Dependencies">
+                <group name="dependency_1" string="Predecessor" colspan="4" col="2">
+                    <field name="predecessor_ids" colspan="2" nolabel="1">
+                        <tree editable="top">
+                            <field name="predecessor_task_id" domain="[('project_id','=',parent.project_id)]"/>
+                            <field name="dependency_type"/>
+                            <field name="predecessor_task_stage_id" string="Task Stage"/>
+                            <field name="predecessor_task_state" string="Task State"/>
+                        </tree>
+                    </field>
+                </group>
+                <group name="dependency_2" string="Sucessor" colspan="4" col="2">
+                    <field name="sucessor_ids" colspan="2" nolabel="1">
+                        <tree editable="top">
+                            <field name="task_id" domain="[('project_id','=',parent.project_id)]" string="Sucessor Task"/>
+                            <field name="dependency_type"/>
+                            <field name="task_stage_id"/>
+                            <field name="task_state"/>
+                        </tree>
+                    </field>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
