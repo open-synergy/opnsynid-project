@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="project_project_view_form" model="ir.ui.view">
+    <field name="name">project.project form</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+            <page name="schedule" string="Schedule">
+                <group name="schedule_1" colspan="4" col="2">
+                    <group name="schedule_1_1" colspan="1" col="2" string="Baseline Start">
+                        <field name="start_schedule_base_on"/>
+                        <field name="manual_baseline_start" attrs="{'invisible':[('start_schedule_base_on', '!=', 'manual')]}"/>
+                        <field name="baseline_start_project_id" attrs="{'invisible':[('start_schedule_base_on', '=', 'manual')]}"/>
+                        <field name="baseline_start_task_id" attrs="{'invisible':[('start_schedule_base_on', '=', 'manual')]}" domain="[('project_id','=',baseline_start_project_id)]"/>
+                        <label for="start_offset"/>
+                        <div>
+                            <field name="start_offset" class="oe_inline"/>
+                            <field name="start_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
+                        </div>
+                        <field name="baseline_start"/>
+                    </group>
+                    <group name="schedule_1_2" colspan="1" col="2" string="Baseline Finish">
+                        <field name="finish_schedule_base_on"/>
+                        <field name="manual_baseline_finish" attrs="{'invisible':[('finish_schedule_base_on', '!=', 'manual')]}"/>
+                        <field name="baseline_finish_project_id" attrs="{'invisible':[('finish_schedule_base_on', '=', 'manual')]}"/>
+                        <field name="baseline_finish_task_id" attrs="{'invisible':[('finish_schedule_base_on', '=', 'manual')]}" domain="[('project_id','=',baseline_finish_project_id)]"/>
+                        <label for="finish_offset"/>
+                        <div>
+                            <field name="finish_offset" class="oe_inline"/>
+                            <field name="finish_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
+                        </div>
+                        <field name="baseline_finish"/>
+                    </group>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+<record id="project_project_view_tree" model="ir.ui.view">
+    <field name="name">project.project tree</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.view_project"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='planned_hours']" position="before">
+                <field name="baseline_start"/>
+                <field name="baseline_finish"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>

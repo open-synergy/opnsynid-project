@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+<record id="project_task_schedule_computation_view_tree" model="ir.ui.view">
+    <field name="name">project.task_schedule_computation tree</field>
+    <field name="model">project.task_schedule_computation</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="code"/>
+        </tree>
+    </field>
+</record>
+
+<record id="project_task_schedule_computation_view_form" model="ir.ui.view">
+    <field name="name">project.task_schedule_computation form</field>
+    <field name="model">project.task_schedule_computation</field>
+    <field name="arch" type="xml">
+        <form>
+            <group name="top" colspan="4" col="2">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </group>
+            <notebook>
+                <page name="code" string="Python Code">
+                    <group name="code_1" colspan="4" col="2">
+                        <field name="python_code" nolabel="1" colspan="2"/>
+                    </group>
+                </page>
+                <page name="note" string="Note">
+                    <field name="note" nolabel="1"/>
+                </page>
+            </notebook>
+        </form>
+    </field>
+</record>
+
+<record id="project_task_schedule_computation_action" model="ir.actions.act_window">
+    <field name="name">Task Schedule Computation</field>
+    <field name="res_model">project.task_schedule_computation</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+    id="project_task_schedule_computation_menu"
+    name="Task Schedule Computation"
+    parent="base.menu_definitions"
+    action="project_task_schedule_computation_action"
+    sequence="1" />
+</data>
+</openerp>
