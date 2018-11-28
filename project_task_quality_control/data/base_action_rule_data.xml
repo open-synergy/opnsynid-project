@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="compute_task_qc_action_rule" model="base.action.rule">
+    <field name="name">Compute Task QC</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="kind">on_write</field>
+    <field name="filter_pre_id" ref="before_task_open_filter"/>
+    <field name="filter_id" ref="after_task_open_filter"/>
+    <field name="server_action_ids" eval="[(4, ref('project_task_quality_control.compute_task_qc_actions_server'))]"/>
+</record>
+
+</data>
+</openerp>

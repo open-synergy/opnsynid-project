@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+<record id="project_category_main_view_form" model="ir.ui.view">
+    <field name="name">project.category.main form</field>
+    <field name="model">project.category.main</field>
+    <field name="inherit_id" ref="project_task_category_view.project_category_main_view_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook" position="inside">
+                <page name="qc" string="Quality Control">
+                    <field name="qc_question_ids" nolabel="1" colspan="4">
+                        <tree>
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="min_value"/>
+                            <field name="max_value"/>
+                            <field name="qc_value_ids"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+</data>
+</openerp>
