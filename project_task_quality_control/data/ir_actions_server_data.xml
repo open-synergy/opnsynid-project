@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="compute_task_qc_actions_server" model="ir.actions.server">
+    <field name="name">Compute Task QC</field>
+    <field name="sequence" eval="5"/>
+    <field name="type">ir.actions.server</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="condition">True</field>
+    <field name="state">code</field>
+    <field name="code">
+ids = env.context.get("active_ids", [])
+for task in model.browse(ids):
+    task.qc_question_ids.unlink()
+    task.write({"qc_question_ids": task.categ_id._prepare_qc_question()})
+</field>
+</record>
+
+
+
+</data>
+</openerp>
