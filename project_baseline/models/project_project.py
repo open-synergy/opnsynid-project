@@ -29,9 +29,13 @@ class ProjectProject(models.Model):
             if project.start_schedule_base_on == "manual":
                 baseline_start = project.manual_baseline_start
             elif project.start_schedule_base_on == "project_start":
-                pass
+                baseline_start = project.baseline_start_project_id and \
+                    project.baseline_start_project_id.baseline_start or \
+                    False
             elif project.start_schedule_base_on == "project_finish":
-                pass
+                baseline_start = project.baseline_start_project_id and \
+                    project.baseline_start_project_id.baseline_finish or \
+                    False
             elif project.start_schedule_base_on == "task_start":
                 baseline_start = project.baseline_start_task_id and \
                     project.baseline_start_task_id.baseline_start or \
@@ -44,9 +48,13 @@ class ProjectProject(models.Model):
             if project.finish_schedule_base_on == "manual":
                 baseline_finish = project.manual_baseline_finish
             elif project.finish_schedule_base_on == "project_start":
-                pass
+                baseline_finish = project.baseline_finish_project_id and \
+                    project.baseline_finish_project_id.baseline_start or \
+                    False
             elif project.finish_schedule_base_on == "project_finish":
-                pass
+                baseline_finish = project.baseline_finish_project_id and \
+                    project.baseline_finish_project_id.baseline_finish or \
+                    False
             elif project.finish_schedule_base_on == "task_start":
                 baseline_finish = project.baseline_finish_task_id and \
                     project.baseline_finish_task_id.baseline_start or \

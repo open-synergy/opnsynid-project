@@ -4,7 +4,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Project Baseline",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.2.0",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
     "category": "Project Management",
