@@ -29,9 +29,13 @@ class ProjectTask(models.Model):
             if task.start_schedule_base_on == "manual":
                 baseline_start = task.manual_baseline_start
             elif task.start_schedule_base_on == "project_start":
-                pass
+                baseline_start = task.baseline_start_project_id and \
+                    task.baseline_start_project_id.baseline_start or \
+                    False
             elif task.start_schedule_base_on == "project_finish":
-                pass
+                baseline_start = task.baseline_start_project_id and \
+                    task.baseline_start_project_id.baseline_finish or \
+                    False
             elif task.start_schedule_base_on == "task_start":
                 baseline_start = task.baseline_start_task_id and \
                     task.baseline_start_task_id.baseline_start or \
@@ -44,9 +48,13 @@ class ProjectTask(models.Model):
             if task.finish_schedule_base_on == "manual":
                 baseline_finish = task.manual_baseline_finish
             elif task.finish_schedule_base_on == "project_start":
-                pass
+                baseline_finish = task.baseline_finish_project_id and \
+                    task.baseline_finish_project_id.baseline_start or \
+                    False
             elif task.finish_schedule_base_on == "project_finish":
-                pass
+                baseline_finish = task.baseline_finish_project_id and \
+                    task.baseline_finish_project_id.baseline_finish or \
+                    False
             elif task.finish_schedule_base_on == "task_start":
                 baseline_finish = task.baseline_finish_task_id and \
                     task.baseline_finish_task_id.baseline_start or \
@@ -108,6 +116,8 @@ class ProjectTask(models.Model):
             ("project_start", "Project Baseline Start"),
             ("project_finish", "Project Baseline Finish"),
         ],
+        required=True,
+        default="manual",
     )
     baseline_start_task_id = fields.Many2one(
         string="Task Based Schedule",
@@ -127,6 +137,8 @@ class ProjectTask(models.Model):
             ("project_start", "Project Baseline Start"),
             ("project_finish", "Project Baseline Finish"),
         ],
+        required=True,
+        default="manual",
     )
     baseline_finish_task_id = fields.Many2one(
         string="Task Based Schedule",
