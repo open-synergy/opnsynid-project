@@ -13,10 +13,10 @@
                     <group name="schedule_1_1" colspan="1" col="2" string="Baseline Start">
                         <field name="start_schedule_base_on"/>
                         <field name="manual_baseline_start" attrs="{'invisible':[('start_schedule_base_on', '!=', 'manual')]}"/>
-                        <field name="baseline_start_project_id" attrs="{'invisible':[('start_schedule_base_on', '=', 'manual')]}"/>
-                        <field name="baseline_start_task_id" attrs="{'invisible':[('start_schedule_base_on', '=', 'manual')]}" domain="[('project_id','=',baseline_start_project_id)]"/>
-                        <label for="start_offset"/>
-                        <div>
+                        <field name="baseline_start_project_id" attrs="{'invisible':['|', ('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"/>
+                        <field name="baseline_start_task_id" attrs="{'invisible':['|', ('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}" domain="[('project_id','=',baseline_start_project_id)]"/>
+                        <label for="start_offset" attrs="{'invisible':['|', ('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"/>
+                        <div attrs="{'invisible':['|', ('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}">
                             <field name="start_offset" class="oe_inline"/>
                             <field name="start_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
                         </div>
@@ -25,10 +25,10 @@
                     <group name="schedule_1_2" colspan="1" col="2" string="Baseline Finish">
                         <field name="finish_schedule_base_on"/>
                         <field name="manual_baseline_finish" attrs="{'invisible':[('finish_schedule_base_on', '!=', 'manual')]}"/>
-                        <field name="baseline_finish_project_id" attrs="{'invisible':[('finish_schedule_base_on', '=', 'manual')]}"/>
-                        <field name="baseline_finish_task_id" attrs="{'invisible':[('finish_schedule_base_on', '=', 'manual')]}" domain="[('project_id','=',baseline_finish_project_id)]"/>
-                        <label for="finish_offset"/>
-                        <div>
+                        <field name="baseline_finish_project_id" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"/>
+                        <field name="baseline_finish_task_id" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}" domain="[('project_id','=',baseline_finish_project_id)]"/>
+                        <label for="finish_offset" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"/>
+                        <div attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}">
                             <field name="finish_offset" class="oe_inline"/>
                             <field name="finish_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
                         </div>

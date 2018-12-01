@@ -116,6 +116,8 @@ class ProjectProject(models.Model):
             ("project_start", "Project Baseline Start"),
             ("project_finish", "Project Baseline Finish"),
         ],
+        required=True,
+        default="manual",
     )
     baseline_start_task_id = fields.Many2one(
         string="Task Based Schedule",
@@ -135,6 +137,8 @@ class ProjectProject(models.Model):
             ("project_start", "Project Baseline Start"),
             ("project_finish", "Project Baseline Finish"),
         ],
+        required=True,
+        default="manual",
     )
     baseline_finish_task_id = fields.Many2one(
         string="Task Based Schedule",
