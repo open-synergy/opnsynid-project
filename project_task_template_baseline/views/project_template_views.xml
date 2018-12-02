@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+<record id="project_template_view_form" model="ir.ui.view">
+    <field name="name">project.template form</field>
+    <field name="model">project.template</field>
+    <field name="inherit_id" ref="project_task_template.project_template_view_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='task_template_ids']/form//notebook" position="inside">
+                <page name="schedule" string="Schedule">
+                    <group name="schedule_1" colspan="4" col="2">
+                        <group name="schedule_1_1" colspan="1" col="2" string="Baseline Start">
+                            <field name="start_schedule_base_on"/>
+                            <field name="baseline_start_task_id" attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"/>
+                            <label for="start_offset" attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"/>
+                            <div attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}">
+                                <field name="start_offset" class="oe_inline"/>
+                                <field name="start_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
+                            </div>
+                        </group>
+                        <group name="schedule_1_2" colspan="1" col="2" string="Baseline Finish">
+                            <field name="finish_schedule_base_on"/>
+                            <field name="baseline_finish_task_id" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"/>
+                            <label for="finish_offset" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"/>
+                            <div attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}">
+                                <field name="finish_offset" class="oe_inline"/>
+                                <field name="finish_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
