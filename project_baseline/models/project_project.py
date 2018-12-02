@@ -19,8 +19,13 @@ class ProjectProject(models.Model):
         "baseline_start_task_id.baseline_finish",
         "baseline_finish_task_id.baseline_start",
         "baseline_finish_task_id.baseline_finish",
+        "baseline_start_project_id.baseline_start",
+        "baseline_start_project_id.baseline_finish",
+        "baseline_finish_project_id.baseline_start",
+        "baseline_finish_project_id.baseline_finish",
         "start_offset_uom_id", "start_offset",
         "finish_offset_uom_id", "finish_offset",
+        "manual_baseline_start", "manual_baseline_finish",
     )
     def _compute_baseline(self):
         company_uom = self.env.user.company_id.project_time_mode_id
@@ -97,14 +102,116 @@ class ProjectProject(models.Model):
             project.baseline_start = baseline_start
             project.baseline_finish = baseline_finish
 
+    @api.multi
+    @api.depends(
+        "start_schedule_base_on",
+        "baseline_start_task_id", "baseline_start_project_id",
+        "baseline_start_task_id.baseline_start",
+        "baseline_start_task_id.baseline_finish",
+        "baseline_start_project_id.baseline_start",
+        "baseline_start_project_id.baseline_finish",
+        "start_offset_uom_id", "start_offset",
+        "manual_baseline_start",
+    )
+    def _compute_baseline_start(self):
+        company_uom = self.env.user.company_id.project_time_mode_id
+        for project in self:
+            baseline_start = False
+            if project.start_schedule_base_on == "manual":
+                baseline_start = project.manual_baseline_start
+            elif project.start_schedule_base_on == "project_start":
+                baseline_start = project.baseline_start_project_id and \
+                    project.baseline_start_project_id.baseline_start or \
+                    False
+            elif project.start_schedule_base_on == "project_finish":
+                baseline_start = project.baseline_start_project_id and \
+                    project.baseline_start_project_id.baseline_finish or \
+                    False
+            elif project.start_schedule_base_on == "task_start":
+                baseline_start = project.baseline_start_task_id and \
+                    project.baseline_start_task_id.baseline_start or \
+                    False
+            elif project.start_schedule_base_on == "task_finish":
+                baseline_start = project.baseline_start_task_id and \
+                    project.baseline_start_task_id.baseline_finish or \
+                    False
+
+            if baseline_start:
+                dt_base_start = datetime.strptime(
+                    baseline_start, "%Y-%m-%d %H:%M:%S")
+                start_offset = 0.0
+
+                if project.start_offset_uom_id:
+                    start_offset = self.env["product.uom"]._compute_qty_obj(
+                        from_unit=project.start_offset_uom_id,
+                        qty=project.start_offset,
+                        to_unit=company_uom,
+                    )
+                dt_start = dt_base_start + relativedelta(hours=+start_offset)
+                baseline_start = dt_start.strftime("%Y-%m-%d %H:%M:%S")
+
+            project.baseline_start = baseline_start
+
+    @api.multi
+    @api.depends(
+        "finish_schedule_base_on",
+        "baseline_finish_task_id", "baseline_finish_project_id",
+        "baseline_finish_task_id.baseline_start",
+        "baseline_finish_task_id.baseline_finish",
+        "baseline_finish_project_id.baseline_start",
+        "baseline_finish_project_id.baseline_finish",
+        "finish_offset_uom_id", "finish_offset",
+        "manual_baseline_finish",
+    )
+    def _compute_baseline_finish(self):
+        company_uom = self.env.user.company_id.project_time_mode_id
+        for project in self:
+            baseline_finish = False
+            if project.finish_schedule_base_on == "manual":
+                baseline_finish = project.manual_baseline_finish
+            elif project.finish_schedule_base_on == "project_start":
+                baseline_finish = project.baseline_finish_project_id and \
+                    project.baseline_finish_project_id.baseline_start or \
+                    False
+            elif project.finish_schedule_base_on == "project_finish":
+                baseline_finish = project.baseline_finish_project_id and \
+                    project.baseline_finish_project_id.baseline_finish or \
+                    False
+            elif project.finish_schedule_base_on == "task_start":
+                baseline_finish = project.baseline_finish_task_id and \
+                    project.baseline_finish_task_id.baseline_start or \
+                    False
+            elif project.finish_schedule_base_on == "task_finish":
+                baseline_finish = project.baseline_finish_task_id and \
+                    project.baseline_finish_task_id.baseline_finish or \
+                    False
+
+            if baseline_finish:
+
+                dt_base_finish = datetime.strptime(
+                    baseline_finish, "%Y-%m-%d %H:%M:%S")
+                finish_offset = 0.0
+
+                if project.finish_offset_uom_id:
+                    finish_offset = self.env["product.uom"]._compute_qty_obj(
+                        from_unit=project.finish_offset_uom_id,
+                        qty=project.finish_offset,
+                        to_unit=company_uom,
+                    )
+                dt_finish = dt_base_finish + \
+                    relativedelta(hours=+finish_offset)
+                baseline_finish = dt_finish.strftime("%Y-%m-%d %H:%M:%S")
+
+            project.baseline_finish = baseline_finish
+
     baseline_start = fields.Datetime(
         string="Baseline Start",
-        compute="_compute_baseline",
+        compute="_compute_baseline_start",
         store=True,
     )
     baseline_finish = fields.Datetime(
         string="Baseline Finish",
-        compute="_compute_baseline",
+        compute="_compute_baseline_finish",
         store=True,
     )
     start_schedule_base_on = fields.Selection(
