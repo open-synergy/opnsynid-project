@@ -12,20 +12,19 @@ class ProjectTask(models.Model):
 
     @api.multi
     @api.depends(
-        "start_schedule_base_on", "finish_schedule_base_on",
+        "start_schedule_base_on",
         "baseline_start_task_id", "baseline_start_project_id",
-        "baseline_finish_task_id", "baseline_finish_project_id",
         "baseline_start_task_id.baseline_start",
         "baseline_start_task_id.baseline_finish",
-        "baseline_finish_task_id.baseline_start",
-        "baseline_finish_task_id.baseline_finish",
+        "baseline_start_project_id.baseline_start",
+        "baseline_start_project_id.baseline_finish",
         "start_offset_uom_id", "start_offset",
-        "finish_offset_uom_id", "finish_offset",
+        "manual_baseline_start",
     )
-    def _compute_baseline(self):
+    def _compute_baseline_start(self):
         company_uom = self.env.user.company_id.project_time_mode_id
         for task in self:
-            baseline_start = baseline_finish = False
+            baseline_start = False
             if task.start_schedule_base_on == "manual":
                 baseline_start = task.manual_baseline_start
             elif task.start_schedule_base_on == "project_start":
@@ -44,6 +43,38 @@ class ProjectTask(models.Model):
                 baseline_start = task.baseline_start_task_id and \
                     task.baseline_start_task_id.baseline_finish or \
                     False
+
+            if baseline_start:
+                dt_base_start = datetime.strptime(
+                    baseline_start, "%Y-%m-%d %H:%M:%S")
+                start_offset = 0.0
+
+                if task.start_offset_uom_id:
+                    start_offset = self.env["product.uom"]._compute_qty_obj(
+                        from_unit=task.start_offset_uom_id,
+                        qty=task.start_offset,
+                        to_unit=company_uom,
+                    )
+                dt_start = dt_base_start + relativedelta(hours=+start_offset)
+                baseline_start = dt_start.strftime("%Y-%m-%d %H:%M:%S")
+
+            task.baseline_start = baseline_start
+
+    @api.multi
+    @api.depends(
+        "finish_schedule_base_on",
+        "baseline_finish_task_id", "baseline_finish_project_id",
+        "baseline_finish_task_id.baseline_start",
+        "baseline_finish_task_id.baseline_finish",
+        "baseline_finish_project_id.baseline_start",
+        "baseline_finish_project_id.baseline_finish",
+        "finish_offset_uom_id", "finish_offset",
+        "manual_baseline_finish",
+    )
+    def _compute_baseline_finish(self):
+        company_uom = self.env.user.company_id.project_time_mode_id
+        for task in self:
+            baseline_finish = False
 
             if task.finish_schedule_base_on == "manual":
                 baseline_finish = task.manual_baseline_finish
@@ -64,20 +95,6 @@ class ProjectTask(models.Model):
                     task.baseline_finish_task_id.baseline_finish or \
                     False
 
-            if baseline_start:
-                dt_base_start = datetime.strptime(
-                    baseline_start, "%Y-%m-%d %H:%M:%S")
-                start_offset = 0.0
-
-                if task.start_offset_uom_id:
-                    start_offset = self.env["product.uom"]._compute_qty_obj(
-                        from_unit=task.start_offset_uom_id,
-                        qty=task.start_offset,
-                        to_unit=company_uom,
-                    )
-                dt_start = dt_base_start + relativedelta(hours=+start_offset)
-                baseline_start = dt_start.strftime("%Y-%m-%d %H:%M:%S")
-
             if baseline_finish:
 
                 dt_base_finish = datetime.strptime(
@@ -94,17 +111,16 @@ class ProjectTask(models.Model):
                     relativedelta(hours=+finish_offset)
                 baseline_finish = dt_finish.strftime("%Y-%m-%d %H:%M:%S")
 
-            task.baseline_start = baseline_start
             task.baseline_finish = baseline_finish
 
     baseline_start = fields.Datetime(
         string="Baseline Start",
-        compute="_compute_baseline",
+        compute="_compute_baseline_start",
         store=True,
     )
     baseline_finish = fields.Datetime(
         string="Baseline Finish",
-        compute="_compute_baseline",
+        compute="_compute_baseline_finish",
         store=True,
     )
     start_schedule_base_on = fields.Selection(
