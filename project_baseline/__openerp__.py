@@ -4,7 +4,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Project Baseline",
-    "version": "8.0.1.4.0",
+    "version": "8.0.1.5.0",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
     "category": "Project Management",
@@ -13,6 +13,11 @@
     "depends": [
         "project"
     ],
+    "external_dependencies": {
+        "python": [
+            "pandas",
+        ],
+    },
     "data": [
         "views/project_task_views.xml",
         "views/project_project_views.xml",
