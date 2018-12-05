@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+<record id="project_reference_document_type_view_form" model="ir.ui.view">
+    <field name="name">project.reference_document_type form</field>
+    <field name="model">project.reference_document_type</field>
+    <field name="arch" type="xml">
+        <form>
+            <group name="main" colspan="4" col="2">
+                <field name="name"/>
+                <field name="active"/>
+            </group>
+            <notebook colspan="4">
+                <page name="note" string="Note">
+                    <field name="note"/>
+                </page>
+            </notebook>
+        </form>
+    </field>
+</record>
+
+<record id="project_reference_document_type_view_tree" model="ir.ui.view">
+    <field name="name">project.reference_document_type tree</field>
+    <field name="model">project.reference_document_type</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="project_reference_document_type_view_search" model="ir.ui.view">
+    <field name="name">project.reference_document_type search</field>
+    <field name="model">project.reference_document_type</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+        </search>
+    </field>
+</record>
+
+<record id="project_reference_document_type_action" model="ir.actions.act_window">
+    <field name="name">Document Reference Type</field>
+    <field name="res_model">project.reference_document_type</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="project_reference_document_type_view_search"/>
+</record>
+
+<menuitem
+    id="project_reference_document_type_menu"
+    name="Reference Document Type"
+    parent="base.menu_definitions"
+    action="project_reference_document_type_action"
+    sequence="1"/>
+
+
+</data>
+</openerp>
