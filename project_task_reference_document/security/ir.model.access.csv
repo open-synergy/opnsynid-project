@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_reference_document_type_employee,project.reference_document_type - All Employee,model_project_reference_document_type,base.group_user,1,1,1,1
+project_task_reference_document_employee,project.task_reference_document - All Employee,model_project_task_reference_document,base.group_user,1,1,1,1
