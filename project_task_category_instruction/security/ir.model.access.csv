@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_category_main_instruction,project.category_main_instruction - All Employee,model_project_category_main_instruction,base.group_user,1,1,1,1
