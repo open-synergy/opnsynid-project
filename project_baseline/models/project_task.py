@@ -29,7 +29,7 @@ class ProjectTask(models.Model):
         "manual_baseline_start",
         "project_id",
         "project_id.project_timezone",
-        "project_id.working_schedule_id",
+        "project_id.resource_calendar_id",
     )
     def _compute_baseline_start(self):
         company_uom = self.env.user.company_id.project_time_mode_id
@@ -101,7 +101,7 @@ class ProjectTask(models.Model):
         "manual_baseline_finish",
         "project_id",
         "project_id.project_timezone",
-        "project_id.working_schedule_id",
+        "project_id.resource_calendar_id",
     )
     def _compute_baseline_finish(self):
         company_uom = self.env.user.company_id.project_time_mode_id

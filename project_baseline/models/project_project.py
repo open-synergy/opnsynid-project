@@ -28,7 +28,7 @@ class ProjectProject(models.Model):
         "baseline_start_project_id.baseline_finish",
         "start_offset_uom_id", "start_offset",
         "manual_baseline_start",
-        "project_timezone", "working_schedule_id",
+        "project_timezone", "resource_calendar_id",
     )
     def _compute_baseline_start(self):
         company_uom = self.env.user.company_id.project_time_mode_id
@@ -98,7 +98,7 @@ class ProjectProject(models.Model):
         "baseline_finish_project_id.baseline_finish",
         "finish_offset_uom_id", "finish_offset",
         "manual_baseline_finish",
-        "project_timezone", "working_schedule_id",
+        "project_timezone", "resource_calendar_id",
     )
     def _compute_baseline_finish(self):
         company_uom = self.env.user.company_id.project_time_mode_id
@@ -230,10 +230,6 @@ class ProjectProject(models.Model):
     finish_offset_uom_id = fields.Many2one(
         string="Finish Offset UoM",
         comodel_name="product.uom",
-    )
-    working_schedule_id = fields.Many2one(
-        string="Working Schedule",
-        comodel_name="resource.calendar",
     )
     project_timezone = fields.Selection(
         string="Timezone",

@@ -10,7 +10,6 @@
         <xpath expr="//notebook" position="inside">
             <page name="schedule" string="Schedule">
                 <group name="schedule_2" colspan="4" col="2">
-                    <field name="working_schedule_id"/>
                     <field name="project_timezone"/>
                 </group>
                 <group name="schedule_1" colspan="4" col="2">
