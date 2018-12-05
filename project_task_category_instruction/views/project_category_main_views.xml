@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="project_category_main_view_form" model="ir.ui.view">
+    <field name="name">project.category.main form</field>
+    <field name="model">project.category.main</field>
+    <field name="inherit_id" ref="project_task_category_view.project_category_main_view_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook" position="inside">
+                <page name="instruction" string="Instructions">
+                    <group name="instruction_1" colspan="4" col="2">
+                        <field name="instruction_ids" colspan="2" nolabel="1">
+                            <tree editable="top">
+                                <field name="name"/>
+                                <field name="instruction_url" widget="url"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
