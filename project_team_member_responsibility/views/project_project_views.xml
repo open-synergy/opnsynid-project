@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="project_project_view_form" model="ir.ui.view">
+    <field name="name">project.project form</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='members']" position="after">
+                <group name="member_responsibilty" string="Team Member Functions">
+                    <field name="user_product_ids" nolabel="1"/>
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
