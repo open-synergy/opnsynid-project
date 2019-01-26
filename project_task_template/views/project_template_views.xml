@@ -7,7 +7,7 @@
     <field name="arch" type="xml">
         <form>
             <header>
-                <button name="create_project" string="Create Project" type="object"/>
+                <button name="%(project_create_project_from_template_action)d" string="Create Project" type="action"/>
             </header>
             <sheet>
                 <div class="oe_right oe_button_box" style="width: 300px;" name="buttons">
