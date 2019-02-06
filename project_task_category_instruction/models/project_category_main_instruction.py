@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2018 OpenSynergy Indonesia
+# Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields
@@ -13,6 +13,7 @@ class ProjectCategoryMainInstruction(models.Model):
         string="Task Category",
         comodel_name="project.category.main",
         required=True,
+        ondelete="cascade",
     )
     name = fields.Char(
         string="Instruction",
