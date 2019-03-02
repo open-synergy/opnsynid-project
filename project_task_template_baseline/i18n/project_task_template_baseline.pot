@@ -1,0 +1,106 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_template_baseline
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_template_baseline
+#: view:project.template:project_task_template_baseline.project_template_view_form
+msgid "Baseline Finish"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,finish_offset:0
+msgid "Baseline Finish Offset"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: view:project.template:project_task_template_baseline.project_template_view_form
+msgid "Baseline Start"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,start_offset:0
+msgid "Baseline Start Offset"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: model:ir.model,name:project_task_template_baseline.model_project_task_template
+msgid "Email Thread"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,finish_offset_uom_id:0
+msgid "Finish Offset UoM"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,finish_schedule_base_on:0
+msgid "Finish Schedule Based On"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: selection:project.task_template,finish_schedule_base_on:0
+#: selection:project.task_template,start_schedule_base_on:0
+msgid "Manual"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: selection:project.task_template,finish_schedule_base_on:0
+#: selection:project.task_template,start_schedule_base_on:0
+msgid "Project Baseline Finish"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: selection:project.task_template,finish_schedule_base_on:0
+#: selection:project.task_template,start_schedule_base_on:0
+msgid "Project Baseline Start"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: view:project.template:project_task_template_baseline.project_template_view_form
+msgid "Schedule"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,start_offset_uom_id:0
+msgid "Start Offset UoM"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,start_schedule_base_on:0
+msgid "Start Schedule Based On"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: model:ir.model,name:project_task_template_baseline.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: field:project.task_template,baseline_finish_task_id:0
+#: field:project.task_template,baseline_start_task_id:0
+msgid "Task Based Schedule"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: selection:project.task_template,finish_schedule_base_on:0
+#: selection:project.task_template,start_schedule_base_on:0
+msgid "Task Baseline Finish"
+msgstr ""
+
+#. module: project_task_template_baseline
+#: selection:project.task_template,finish_schedule_base_on:0
+#: selection:project.task_template,start_schedule_base_on:0
+msgid "Task Baseline Start"
+msgstr ""
+
