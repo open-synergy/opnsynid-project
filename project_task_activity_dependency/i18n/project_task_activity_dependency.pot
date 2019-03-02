@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_activity_dependency
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: view:project.task:project_task_activity_dependency.projecttask_view_form
+msgid "Dependencies"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,dependency_type:0
+msgid "Dependency Type"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: selection:project.task_dependency,dependency_type:0
+msgid "Finish-To-Finish"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: selection:project.task_dependency,dependency_type:0
+msgid "Finish-To-Start"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: code:addons/project_task_activity_dependency/models/project_task.py:42
+#, python-format
+msgid "Please finish/cancel all predecessors with finish-to-finish dependency"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: code:addons/project_task_activity_dependency/models/project_task.py:33
+#, python-format
+msgid "Please finish/cancel all predecessors with finish-to-start dependency"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: code:addons/project_task_activity_dependency/models/project_task.py:38
+#, python-format
+msgid "Please start/finish/cancel all predecessors with start-to-finish dependency"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: code:addons/project_task_activity_dependency/models/project_task.py:29
+#, python-format
+msgid "Please start/finish/cancel all predecessors with start-to-start dependency"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: view:project.task:project_task_activity_dependency.projecttask_view_form
+#: field:project.task,predecessor_ids:0
+msgid "Predecessor"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,predecessor_task_id:0
+msgid "Predecessor Task"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,predecessor_task_stage_id:0
+msgid "Predecessor Task Stage"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: field:project.task_dependency,predecessor_task_state:0
+msgid "Predecessor Task State"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: selection:project.task_dependency,dependency_type:0
+msgid "Start-To-Finish"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: selection:project.task_dependency,dependency_type:0
+msgid "Start-To-Start"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: view:project.task:project_task_activity_dependency.projecttask_view_form
+#: field:project.task,sucessor_ids:0
+msgid "Sucessor"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: view:project.task:project_task_activity_dependency.projecttask_view_form
+msgid "Sucessor Task"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: model:ir.model,name:project_task_activity_dependency.model_project_task
+#: field:project.task_dependency,task_id:0
+msgid "Task"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: view:project.task:project_task_activity_dependency.projecttask_view_form
+#: field:project.task_dependency,task_stage_id:0
+msgid "Task Stage"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: view:project.task:project_task_activity_dependency.projecttask_view_form
+#: field:project.task_dependency,task_state:0
+msgid "Task State"
+msgstr ""
+
+#. module: project_task_activity_dependency
+#: code:addons/project_task_activity_dependency/models/project_task_dependency.py:83
+#, python-format
+msgid "You can not select itself for predecessor/sucessor"
+msgstr ""
+
