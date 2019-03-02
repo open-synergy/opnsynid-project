@@ -1,0 +1,25 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_template_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_template_category
+#: field:project.task_template,categ_id:0
+msgid "Category"
+msgstr ""
+
+#. module: project_task_template_category
+#: model:ir.model,name:project_task_template_category.model_project_task_template
+msgid "Email Thread"
+msgstr ""
+
