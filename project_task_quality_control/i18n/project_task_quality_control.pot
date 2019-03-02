@@ -1,0 +1,239 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_quality_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question_value,active:0
+msgid "Active"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.filters,name:project_task_quality_control.after_task_open_filter
+msgid "After Task Open"
+msgstr ""
+
+#. module: project_task_quality_control
+#: view:project.category_main_qc_question:project_task_quality_control.project_category_main_qc_question_view_form
+msgid "Answer"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.filters,name:project_task_quality_control.before_task_open_filter
+msgid "Before Task Open"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.model,name:project_task_quality_control.model_project_category_main
+msgid "Category of project's task, issue, ..."
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.actions.server,name:project_task_quality_control.compute_task_qc_actions_server
+msgid "Compute Task QC"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question_value,ok:0
+msgid "Correct Answer"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,create_uid:0
+#: field:project.category_main_qc_question_value,create_uid:0
+#: field:project.task_qc_question,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,create_date:0
+#: field:project.category_main_qc_question_value,create_date:0
+#: field:project.task_qc_question,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question_value,description:0
+msgid "Description"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,display_name:0
+#: field:project.category_main_qc_question_value,display_name:0
+#: field:project.task_qc_question,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,id:0
+#: field:project.category_main_qc_question_value,id:0
+#: field:project.task_qc_question,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,__last_update:0
+#: field:project.category_main_qc_question_value,__last_update:0
+#: field:project.task_qc_question,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,write_uid:0
+#: field:project.category_main_qc_question_value,write_uid:0
+#: field:project.task_qc_question,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,write_date:0
+#: field:project.category_main_qc_question_value,write_date:0
+#: field:project.task_qc_question,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,max_value:0
+#: field:project.task_qc_question,max_value:0
+msgid "Max. Value"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,min_value:0
+#: field:project.task_qc_question,min_value:0
+msgid "Min. Value"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,notes:0
+#: field:project.task_qc_question,notes:0
+msgid "Notes"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.task_qc_question,possible_qc_value_ids:0
+msgid "Posible Values"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,task_category_id:0
+msgid "Project Task Category"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.model,name:project_task_quality_control.model_project_category_main_qc_question
+msgid "Project Task Category QC Question"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.model,name:project_task_quality_control.model_project_category_main_qc_question_value
+msgid "Project Task Category QC Question Value"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.model,name:project_task_quality_control.model_project_task_qc_question
+msgid "Project Task QC Question"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.task,qc_pass:0
+msgid "QC Passed?"
+msgstr ""
+
+#. module: project_task_quality_control
+#: selection:project.category_main_qc_question,type:0
+#: selection:project.task_qc_question,question_type:0
+msgid "Qualitative"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.task_qc_question,qualitative_value_id:0
+msgid "Qualitative Value"
+msgstr ""
+
+#. module: project_task_quality_control
+#: view:project.category.main:project_task_quality_control.project_category_main_view_form
+#: view:project.task:project_task_quality_control.project_task_view_form
+msgid "Quality Control"
+msgstr ""
+
+#. module: project_task_quality_control
+#: selection:project.category_main_qc_question,type:0
+#: selection:project.task_qc_question,question_type:0
+msgid "Quantitative"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.task_qc_question,quantitative_value:0
+msgid "Quantitative Value"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,name:0
+#: field:project.category_main_qc_question_value,question_id:0
+#: field:project.task_qc_question,name:0
+msgid "Question"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category.main,qc_question_ids:0
+#: field:project.task,qc_question_ids:0
+msgid "Questions"
+msgstr ""
+
+#. module: project_task_quality_control
+#: code:addons/project_task_quality_control/models/project_task.py:59
+#, python-format
+msgid "Report does not pass qc check"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,sequence:0
+#: field:project.task_qc_question,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.task_qc_question,success:0
+msgid "Success?"
+msgstr ""
+
+#. module: project_task_quality_control
+#: model:ir.model,name:project_task_quality_control.model_project_task
+#: field:project.task_qc_question,task_id:0
+msgid "Task"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,type:0
+#: field:project.task_qc_question,question_type:0
+msgid "Type"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,uom_id:0
+#: field:project.task_qc_question,uom_id:0
+msgid "UoM"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.task_qc_question,valid_values:0
+msgid "Valid Values"
+msgstr ""
+
+#. module: project_task_quality_control
+#: field:project.category_main_qc_question,qc_value_ids:0
+#: field:project.category_main_qc_question_value,name:0
+msgid "Value"
+msgstr ""
+
