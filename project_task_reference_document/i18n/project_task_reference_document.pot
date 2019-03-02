@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_reference_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,active:0
+msgid "Active"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.task_reference_document,attachment_id:0
+msgid "Attachment"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,create_uid:0
+#: field:project.task_reference_document,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,create_date:0
+#: field:project.task_reference_document,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,display_name:0
+#: field:project.task_reference_document,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.task,document_reference_ids:0
+msgid "Document Reference"
+msgstr ""
+
+#. module: project_task_reference_document
+#: model:ir.actions.act_window,name:project_task_reference_document.project_reference_document_type_action
+msgid "Document Reference Type"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.task_reference_document,type_id:0
+msgid "Document Type"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,id:0
+#: field:project.task_reference_document,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,__last_update:0
+#: field:project.task_reference_document,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,write_uid:0
+#: field:project.task_reference_document,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_task_reference_document
+#: field:project.reference_document_type,write_date:0
+#: field:project.task_reference_document,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_task_reference_document
+#: view:project.reference_document_type:project_task_reference_document.project_reference_document_type_view_form
+#: field:project.reference_document_type,note:0
+msgid "Note"
+msgstr ""
+
+#. module: project_task_reference_document
+#: view:project.task:project_task_reference_document.project_task_view_form
+msgid "Reference Document"
+msgstr ""
+
+#. module: project_task_reference_document
+#: model:ir.ui.menu,name:project_task_reference_document.project_reference_document_type_menu
+#: field:project.reference_document_type,name:0
+msgid "Reference Document Type"
+msgstr ""
+
+#. module: project_task_reference_document
+#: model:ir.model,name:project_task_reference_document.model_project_task
+#: field:project.task_reference_document,task_id:0
+msgid "Task"
+msgstr ""
+
