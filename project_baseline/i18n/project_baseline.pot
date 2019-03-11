@@ -22,6 +22,30 @@ msgid "Baseline Finish"
 msgstr ""
 
 #. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Finish By Day"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Finish By Month"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Finish By Week"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Finish By Year"
+msgstr ""
+
+#. module: project_baseline
 #: field:project.project,finish_offset:0
 #: field:project.task,finish_offset:0
 msgid "Baseline Finish Offset"
@@ -33,6 +57,30 @@ msgstr ""
 #: view:project.task:project_baseline.project_task_view_form
 #: field:project.task,baseline_start:0
 msgid "Baseline Start"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Start By Day"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Start By Month"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Start By Week"
+msgstr ""
+
+#. module: project_baseline
+#: view:project.project:project_baseline.project_project_view_search
+#: view:project.task:project_baseline.project_task_view_search
+msgid "Baseline Start By Year"
 msgstr ""
 
 #. module: project_baseline
