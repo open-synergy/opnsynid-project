@@ -71,5 +71,25 @@
     </field>
 </record>
 
+<record id="project_project_view_search" model="ir.ui.view">
+    <field name="name">project.project search</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.view_project_project_filter"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group/filter[@name='Parent']" position="after">
+                <filter name="grp_baseline_start_year" string="Baseline Start By Year" context="{'group_by':'baseline_start:year'}"/>
+                <filter name="grp_baseline_start_month" string="Baseline Start By Month" context="{'group_by':'baseline_start:month'}"/>
+                <filter name="grp_baseline_start_week" string="Baseline Start By Week" context="{'group_by':'baseline_start:week'}"/>
+                <filter name="grp_baseline_start_day" string="Baseline Start By Day" context="{'group_by':'baseline_start:day'}"/>
+                <filter name="grp_baseline_finish_year" string="Baseline Finish By Year" context="{'group_by':'baseline_finish:year'}"/>
+                <filter name="grp_baseline_finish_month" string="Baseline Finish By Month" context="{'group_by':'baseline_finish:month'}"/>
+                <filter name="grp_baseline_finish_week" string="Baseline Finish By Week" context="{'group_by':'baseline_finish:week'}"/>
+                <filter name="grp_baseline_finish_day" string="Baseline Finish By Day" context="{'group_by':'baseline_finish:day'}"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
 </data>
 </openerp>
