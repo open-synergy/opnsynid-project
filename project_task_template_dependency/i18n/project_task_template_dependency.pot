@@ -24,6 +24,7 @@ msgid "Created on"
 msgstr ""
 
 #. module: project_task_template_dependency
+#: view:project.task_template:project_task_template_dependency.project_task_template_view_form
 #: view:project.template:project_task_template_dependency.project_template_view_form
 msgid "Dependencies"
 msgstr ""
@@ -74,6 +75,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: project_task_template_dependency
+#: view:project.task_template:project_task_template_dependency.project_task_template_view_form
 #: field:project.task_template,predecessor_ids:0
 #: view:project.template:project_task_template_dependency.project_template_view_form
 msgid "Predecessor"
@@ -95,12 +97,14 @@ msgid "Start-To-Start"
 msgstr ""
 
 #. module: project_task_template_dependency
+#: view:project.task_template:project_task_template_dependency.project_task_template_view_form
 #: field:project.task_template,sucessor_ids:0
 #: view:project.template:project_task_template_dependency.project_template_view_form
 msgid "Sucessor"
 msgstr ""
 
 #. module: project_task_template_dependency
+#: view:project.task_template:project_task_template_dependency.project_task_template_view_form
 #: view:project.template:project_task_template_dependency.project_template_view_form
 msgid "Sucessor Task"
 msgstr ""
