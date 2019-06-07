@@ -20,6 +20,7 @@ msgid "Active"
 msgstr ""
 
 #. module: project_task_template
+#: view:project.task_template:project_task_template.project_task_template_view_search
 #: field:project.task_template,user_id:0
 msgid "Assigned To"
 msgstr ""
@@ -87,6 +88,11 @@ msgstr ""
 #. module: project_task_template
 #: view:project.create_project_from_template:project_task_template.project_create_project_from_template_view_form
 msgid "Generate"
+msgstr ""
+
+#. module: project_task_template
+#: view:project.task_template:project_task_template.project_task_template_view_search
+msgid "Group By.."
 msgstr ""
 
 #. module: project_task_template
@@ -170,6 +176,7 @@ msgid "Messages and communication history"
 msgstr ""
 
 #. module: project_task_template
+#: view:project.task_template:project_task_template.project_task_template_view_form
 #: field:project.task_template,note:0
 #: view:project.template:project_task_template.project_template_view_form
 #: field:project.template,note:0
@@ -207,6 +214,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_task_template.project_template_action
 #: model:ir.ui.menu,name:project_task_template.project_template_menu
 #: field:project.create_project_from_template,project_template_id:0
+#: view:project.task_template:project_task_template.project_task_template_view_search
 #: field:project.task_template,project_template_id:0
 msgid "Project Template"
 msgstr ""
@@ -218,6 +226,7 @@ msgid "Public project"
 msgstr ""
 
 #. module: project_task_template
+#: view:project.task_template:project_task_template.project_task_template_view_search
 #: field:project.task_template,reviewer_id:0
 msgid "Reviewer"
 msgstr ""
@@ -245,6 +254,13 @@ msgid "Task Stages"
 msgstr ""
 
 #. module: project_task_template
+#: model:ir.ui.menu,name:project_task_template.project_task_template_menu
+msgid "Task Template"
+msgstr ""
+
+#. module: project_task_template
+#: model:ir.actions.act_window,name:project_task_template.project_task_template_action
+#: model:ir.actions.act_window,name:project_task_template.project_task_template_project_action
 #: view:project.template:project_task_template.project_template_view_form
 #: field:project.template,task_template_ids:0
 msgid "Task Templates"
