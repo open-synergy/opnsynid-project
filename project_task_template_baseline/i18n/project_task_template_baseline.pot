@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_task_template_baseline
+#: view:project.task_template:project_task_template_baseline.project_task_template_view_form
 #: view:project.template:project_task_template_baseline.project_template_view_form
 msgid "Baseline Finish"
 msgstr ""
@@ -24,6 +25,7 @@ msgid "Baseline Finish Offset"
 msgstr ""
 
 #. module: project_task_template_baseline
+#: view:project.task_template:project_task_template_baseline.project_task_template_view_form
 #: view:project.template:project_task_template_baseline.project_template_view_form
 msgid "Baseline Start"
 msgstr ""
@@ -55,18 +57,7 @@ msgid "Manual"
 msgstr ""
 
 #. module: project_task_template_baseline
-#: selection:project.task_template,finish_schedule_base_on:0
-#: selection:project.task_template,start_schedule_base_on:0
-msgid "Project Baseline Finish"
-msgstr ""
-
-#. module: project_task_template_baseline
-#: selection:project.task_template,finish_schedule_base_on:0
-#: selection:project.task_template,start_schedule_base_on:0
-msgid "Project Baseline Start"
-msgstr ""
-
-#. module: project_task_template_baseline
+#: view:project.task_template:project_task_template_baseline.project_task_template_view_form
 #: view:project.template:project_task_template_baseline.project_template_view_form
 msgid "Schedule"
 msgstr ""
