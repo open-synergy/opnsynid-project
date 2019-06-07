@@ -23,3 +23,8 @@ msgstr ""
 msgid "Email Thread"
 msgstr ""
 
+#. module: project_task_template_category
+#: view:project.task_template:project_task_template_category.project_task_template_view_search
+msgid "Task Category"
+msgstr ""
+
