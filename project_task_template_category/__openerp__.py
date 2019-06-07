@@ -4,7 +4,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Project Template - Task Category Integration",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
     "category": "Project Management",
@@ -17,5 +17,6 @@
     ],
     "data": [
         "views/project_template_views.xml",
+        "views/project_task_template_views.xml",
     ],
 }
