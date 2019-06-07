@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+<record id="project_task_template_view_form" model="ir.ui.view">
+    <field name="name">project.task_template form</field>
+    <field name="model">project.task_template</field>
+    <field name="arch" type="xml">
+        <form>
+            <header>
+
+            </header>
+            <sheet>
+                <div class="oe_right oe_button_box" style="width: 300px;" name="buttons">
+                </div>
+                <div class="oe_left" style="width: 500px;">
+                    <div class="oe_title" style="width: 500px;">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                </div>
+                <group name="group_1" colspan="4" col="2">
+                    <group name="group_1_1" colspan="1" col="2">
+                        <field name="active"/>
+                        <field name="sequence"/>
+                        <field name="project_template_id" invisible="context.get('hide_project_template',False)"/>
+                    </group>
+                    <group name="group_1_1" colspan="1" col="2">
+                        <field name="user_id"/>
+                        <field name="reviewer_id"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="note" string="Note">
+                        <field name="note" colspan="4" nolabel="1"/>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="project_task_template_view_tree" model="ir.ui.view">
+    <field name="name">project.task_template tree</field>
+    <field name="model">project.task_template</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="sequence" widget="handle"/>
+            <field name="name"/>
+            <field name="project_template_id" invisible="context.get('hide_project_template',False)"/>
+            <field name="user_id"/>
+            <field name="reviewer_id"/>
+        </tree>
+    </field>
+</record>
+
+<record id="project_task_template_view_search" model="ir.ui.view">
+    <field name="name">project.task_template search</field>
+    <field name="model">project.task_template</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="name"/>
+            <field name="project_template_id" invisible="context.get('hide_project_template',False)"/>
+            <field name="user_id"/>
+            <field name="reviewer_id"/>
+            <group name="group_by" string="Group By..">
+                <filter name="grp_project_template" string="Project Template" context="{'group_by':'project_template_id'}" invisible="context.get('hide_project_template',False)"/>
+                <filter name="grp_user" string="Assigned To" context="{'group_by':'user_id'}"/>
+                <filter name="grp_reviewer" string="Reviewer" context="{'group_by':'reviewer_id'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="project_task_template_action" model="ir.actions.act_window">
+    <field name="name">Task Templates</field>
+    <field name="res_model">project.task_template</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="project_task_template_view_search"/>
+</record>
+
+<menuitem
+    id="project_task_template_menu"
+    name="Task Template"
+    parent="base.menu_definitions"
+    action="project_task_template_action"
+    sequence="2"/>
+
+<record id="project_task_template_project_action" model="ir.actions.act_window">
+    <field name="name">Task Templates</field>
+    <field name="res_model">project.task_template</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('project_template_id','=',active_id)]</field>
+    <field name="context">{'default_project_template_id':active_id, 'hide_project_template':1}</field>
+    <field name="search_view_id" ref="project_task_template_view_search"/>
+</record>
+
+
+</data>
+</openerp>
