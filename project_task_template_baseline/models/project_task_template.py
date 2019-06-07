@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2018 OpenSynergy Indonesia
+# Copyright 2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields
@@ -14,8 +14,6 @@ class ProjectTaskTemplate(models.Model):
             ("manual", "Manual"),
             ("task_start", "Task Baseline Start"),
             ("task_finish", "Task Baseline Finish"),
-            ("project_start", "Project Baseline Start"),
-            ("project_finish", "Project Baseline Finish"),
         ],
         required=True,
         default="manual",
@@ -30,8 +28,6 @@ class ProjectTaskTemplate(models.Model):
             ("manual", "Manual"),
             ("task_start", "Task Baseline Start"),
             ("task_finish", "Task Baseline Finish"),
-            ("project_start", "Project Baseline Start"),
-            ("project_finish", "Project Baseline Finish"),
         ],
         required=True,
         default="manual",
