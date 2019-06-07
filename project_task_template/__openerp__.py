@@ -4,7 +4,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Project Template",
-    "version": "8.0.1.1.0",
+    "version": "8.0.1.2.0",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
     "category": "Project Management",
@@ -16,6 +16,7 @@
     "data": [
         "security/ir.model.access.csv",
         "wizards/create_project_from_template.xml",
+        "views/project_task_template_views.xml",
         "views/project_template_views.xml",
         "views/project_project_views.xml",
         "views/project_task_views.xml",
