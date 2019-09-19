@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_workflow_policy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_workflow_policy
+#: field:project.template,project_cancel_grp_ids:0
+msgid "Allowed to Cancel Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.template,project_close_grp_ids:0
+msgid "Allowed to Close Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.template,project_new_grp_ids:0
+msgid "Allowed to New Project Based on Template"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.template,project_pending_grp_ids:0
+msgid "Allowed to Pending"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.template,project_reopen_grp_ids:0
+msgid "Allowed to Re-Open Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.template,project_reset_grp_ids:0
+msgid "Allowed to Reset as Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.template,project_set_template_grp_ids:0
+msgid "Allowed to Set as Template"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,cancel_ok:0
+msgid "Can Cancel"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,close_ok:0
+msgid "Can Close Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,new_ok:0
+msgid "Can New Project Based on Template"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,pending_ok:0
+msgid "Can Pending"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,reopen_ok:0
+msgid "Can Re-Open Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,reset_ok:0
+msgid "Can Reset as Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: field:project.project,set_template_ok:0
+msgid "Can Set as Template"
+msgstr ""
+
+#. module: project_workflow_policy
+#: model:ir.model,name:project_workflow_policy.model_project_template
+msgid "Email Thread"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "Policy"
+msgstr ""
+
+#. module: project_workflow_policy
+#: model:ir.model,name:project_workflow_policy.model_project_project
+#: view:project.template:project_workflow_policy.project_template_view_form
+msgid "Project"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.template:project_workflow_policy.project_template_view_form
+msgid "Workflow Policy"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','!=', 'open'),('pending_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','!=', 'open'),('set_template_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','!=', 'pending'),('reopen_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','!=', 'template'),('new_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','!=', 'template'),('reset_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','not in', ['cancelled','close']),('reopen_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','not in', ['open','pending']),('cancel_ok','=',False)]}"
+msgstr ""
+
+#. module: project_workflow_policy
+#: view:project.project:project_workflow_policy.project_project_form_views
+msgid "{'invisible':['|',('state','not in', ['open','pending']),('close_ok','=',False)]}"
+msgstr ""
+
