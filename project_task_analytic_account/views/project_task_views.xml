@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+<record id="project_task_view_form" model="ir.ui.view">
+    <field name="name">project.task form</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="analytic_account_id" invisible="1"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+</data>
+</openerp>
