@@ -20,16 +20,14 @@ class ProjectTask(models.Model):
 
     @api.model
     def name_search(self, name="", args=None, operator="ilike", limit=100):
+        res = super(ProjectTask, self)\
+            .name_search(name=name, args=args, operator=operator, limit=limit)
         args = list(args or [])
         if name:
-            search_name = name
-            if operator != "=":
-                search_name = "%s%%" % name
             task_ids = self.search(
-                [("code", operator, search_name)] + args,
+                ["|", ("code", operator, name), ("name", operator, name)] + args,
                 limit=limit
             )
-            if task_ids.ids:
+            if task_ids:
                 return task_ids.name_get()
-        return super(ProjectTask, self)\
-            .name_search(name=name, args=args, operator=operator, limit=limit)
+        return res
