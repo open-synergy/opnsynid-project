@@ -26,10 +26,13 @@ class ProjectProject(models.Model):
             .name_search(name=name, args=args, operator=operator, limit=limit)
         args = list(args or [])
         if name:
-            project_ids = self.search(
-                ["|", ("code", operator, name), ("name", operator, name)] + args,
-                limit=limit
-            )
+            criteria = [
+                "|",
+                ("code", operator, name),
+                ("name", operator, name)
+            ]
+            criteria = criteria + args
+            project_ids = self.search(criteria, limit=limit)
             if project_ids:
                 return project_ids.name_get()
         return res
