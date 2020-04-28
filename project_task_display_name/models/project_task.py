@@ -24,10 +24,13 @@ class ProjectTask(models.Model):
             .name_search(name=name, args=args, operator=operator, limit=limit)
         args = list(args or [])
         if name:
-            task_ids = self.search(
-                ["|", ("code", operator, name), ("name", operator, name)] + args,
-                limit=limit
-            )
+            criteria = [
+                "|",
+                ("code", operator, name),
+                ("name", operator, name)
+            ]
+            criteria = criteria + args
+            task_ids = self.search(criteria, limit=limit)
             if task_ids:
                 return task_ids.name_get()
         return res
