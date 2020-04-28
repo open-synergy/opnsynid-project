@@ -11,6 +11,12 @@
             <page name="schedule" string="Schedule">
                 <group name="schedule_2" colspan="4" col="2">
                     <field name="project_timezone"/>
+                    <label for="working_time_from" string="Working Time"/>
+                    <div>
+                        <field name="working_time_from" widget="float_time" class="oe_inline"/> -
+                        <field name="working_time_to" widget="float_time" class="oe_inline"/>
+                    </div>
+                    <field name="working_day_ids" widget="many2many_tags"/>
                 </group>
                 <group name="schedule_1" colspan="4" col="2">
                     <group name="schedule_1_1" colspan="1" col="2" string="Baseline Start">

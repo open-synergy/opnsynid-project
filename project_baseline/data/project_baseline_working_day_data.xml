@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="project_baseline_working_day_sun" model="project.baseline.working_day">
+            <field name="code">Sun</field>
+            <field name="name">Sunday</field>
+        </record>
+
+        <record id="project_baseline_working_day_mon" model="project.baseline.working_day">
+            <field name="code">Mon</field>
+            <field name="name">Monday</field>
+        </record>
+
+        <record id="project_baseline_working_day_tue" model="project.baseline.working_day">
+            <field name="code">Tue</field>
+            <field name="name">Tuesday</field>
+        </record>
+
+        <record id="project_baseline_working_day_wed" model="project.baseline.working_day">
+            <field name="code">Wed</field>
+            <field name="name">Wednesday</field>
+        </record>
+
+        <record id="project_baseline_working_day_thu" model="project.baseline.working_day">
+            <field name="code">Thu</field>
+            <field name="name">Thursday</field>
+        </record>
+
+        <record id="project_baseline_working_day_fri" model="project.baseline.working_day">
+            <field name="code">Fri</field>
+            <field name="name">Friday</field>
+        </record>
+
+        <record id="project_baseline_working_day_sat" model="project.baseline.working_day">
+            <field name="code">Sat</field>
+            <field name="name">Saturday</field>
+        </record>
+    </data>
+</openerp>

@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 # Copyright 2018 OpenSynergy Indonesia
+# Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from openerp import api, models, fields
 from pytz import timezone
 import logging
@@ -20,16 +21,20 @@ class ProjectTask(models.Model):
     @api.multi
     @api.depends(
         "start_schedule_base_on",
-        "baseline_start_task_id", "baseline_start_project_id",
+        "baseline_start_task_id",
+        "baseline_start_project_id",
         "baseline_start_task_id.baseline_start",
         "baseline_start_task_id.baseline_finish",
         "baseline_start_project_id.baseline_start",
         "baseline_start_project_id.baseline_finish",
-        "start_offset_uom_id", "start_offset",
+        "start_offset_uom_id",
+        "start_offset",
         "manual_baseline_start",
         "project_id",
         "project_id.project_timezone",
-        "project_id.resource_calendar_id",
+        "project_id.working_time_from",
+        "project_id.working_time_to",
+        "project_id.working_day_ids",
     )
     def _compute_baseline_start(self):
         company_uom = self.env.user.company_id.project_time_mode_id
@@ -80,9 +85,21 @@ class ProjectTask(models.Model):
                         start_offset_minutes = abs(
                             int((start_offset % 1.0) * 60))
 
-                dt_start = dt_base_start + \
-                    pd.tseries.offsets.BusinessHour(start_offset_hours) + \
-                    pd.tseries.offsets.Minute(start_offset_minutes)
+                working_time = task.project_id._get_working_time()
+                working_day = task.project_id._get_working_day()
+                holiday = task.project_id._get_holiday() or None
+
+                cbh = pd.tseries.offsets.CustomBusinessHour(
+                    n = start_offset_hours,
+                    start = working_time["conv_hour_from"],
+                    end = working_time["conv_hour_to"],
+                    weekmask = working_day,
+                    holidays = holiday,
+                )
+
+                dt_start = dt_base_start + cbh + pd.tseries.offsets.Minute(
+                    start_offset_minutes)
+
                 dt_start = dt_start.to_pydatetime()
                 dt_start = dt_start.astimezone(timezone("UTC"))
                 baseline_start = dt_start.strftime("%Y-%m-%d %H:%M:%S")
@@ -92,16 +109,20 @@ class ProjectTask(models.Model):
     @api.multi
     @api.depends(
         "finish_schedule_base_on",
-        "baseline_finish_task_id", "baseline_finish_project_id",
+        "baseline_finish_task_id",
+        "baseline_finish_project_id",
         "baseline_finish_task_id.baseline_start",
         "baseline_finish_task_id.baseline_finish",
         "baseline_finish_project_id.baseline_start",
         "baseline_finish_project_id.baseline_finish",
-        "finish_offset_uom_id", "finish_offset",
+        "finish_offset_uom_id",
+        "finish_offset",
         "manual_baseline_finish",
         "project_id",
         "project_id.project_timezone",
-        "project_id.resource_calendar_id",
+        "project_id.working_time_from",
+        "project_id.working_time_to",
+        "project_id.working_day_ids",
     )
     def _compute_baseline_finish(self):
         company_uom = self.env.user.company_id.project_time_mode_id
@@ -131,7 +152,6 @@ class ProjectTask(models.Model):
                     False
 
             if baseline_finish:
-
                 dt_base_finish = datetime.strptime(
                     baseline_finish, "%Y-%m-%d %H:%M:%S")
                 dt_base_finish = timezone("UTC").localize(dt_base_finish)
@@ -153,9 +173,20 @@ class ProjectTask(models.Model):
                         finish_offset_minutes = abs(
                             int((finish_offset % 1.0) * 60))
 
-                dt_finish = dt_base_finish + \
-                    pd.tseries.offsets.BusinessHour(finish_offset_hours) + \
-                    pd.tseries.offsets.Minute(finish_offset_minutes)
+                working_time = task.project_id._get_working_time()
+                working_day = task.project_id._get_working_day()
+                holiday = task.project_id._get_holiday() or None
+
+                cbh = pd.tseries.offsets.CustomBusinessHour(
+                    n = finish_offset_hours,
+                    start = working_time["conv_hour_from"],
+                    end = working_time["conv_hour_to"],
+                    weekmask = working_day,
+                    holidays = holiday,
+                )
+                dt_finish = dt_base_finish + cbh + pd.tseries.offsets.Minute(
+                    finish_offset_minutes)
+
                 dt_finish = dt_finish.to_pydatetime()
                 dt_finish = dt_finish.astimezone(timezone("UTC"))
                 baseline_finish = dt_finish.strftime("%Y-%m-%d %H:%M:%S")
