@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="project_project_form_views" model="ir.ui.view">
+            <field name="name">project.project.policy.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project_workflow_policy.project_project_form_views"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='privacy_visibility']" position="after">
+                        <field name="project_stage_no_restrict_group_ids" widget="many2many_tags"/>
+                    </xpath>
+                    <xpath expr="//field[@name='cancel_ok']" position="after">
+                        <field name="no_restrict_ok"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>
