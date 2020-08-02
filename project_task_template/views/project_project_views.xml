@@ -10,6 +10,10 @@
         <xpath expr="//field[@name='user_id']" position="after">
             <field name="project_template_id"/>
         </xpath>
+
+        <xpath expr="//field[@name='state']" position="before">
+            <button name="create_task_from_template" string="Create Task from Template" type="object" states="draft,open"/>
+        </xpath>
     </field>
 </record>
 
