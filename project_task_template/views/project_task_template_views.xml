@@ -29,6 +29,7 @@
                     <group name="group_1_1" colspan="1" col="2">
                         <field name="user_id"/>
                         <field name="reviewer_id"/>
+                        <field name="planned_hours" widget="float_time"/>
                     </group>
                 </group>
                 <notebook>

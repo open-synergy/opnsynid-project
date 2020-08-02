@@ -27,6 +27,9 @@ class ProjectTaskTemplate(models.Model):
         string="Reviewer",
         comodel_name="res.users",
     )
+    planned_hours = fields.Float(
+        string="Planned Hours",
+    )
     active = fields.Boolean(
         string="Active",
         required=True,
@@ -53,4 +56,5 @@ class ProjectTaskTemplate(models.Model):
             self.reviewer_id.id or False,
             "task_template_id": self.id,
             "project_id": project_id,
+            "planned_hours": self.planned_hours,
         }
