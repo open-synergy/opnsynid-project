@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record id="projecttask_view_form" model="ir.ui.view">
+    <field name="name">project.task form</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='stage_id']" position="before">
+            <button name="create_accrue_income_move" string="Create Accrue Income" type="object" attrs="{'invisible':[('accrue_income_move_id','!=',False)]}"/>
+            <button name="delete_accrue_income_move" string="Delete Accrue Income" type="object" attrs="{'invisible':[('accrue_income_move_id','=',False)]}"/>
+            <button name="create_accrue_expense_move" string="Create Accrue Expense" type="object" attrs="{'invisible':[('accrue_expense_move_id','!=',False)]}"/>
+            <button name="delete_accrue_expense_move" string="Delete Accrue Expense" type="object" attrs="{'invisible':[('accrue_expense_move_id','=',False)]}"/>
+        </xpath>
+        <xpath expr="//notebook" position="inside">
+            <page name="accrue" string="Accrue Income &amp; Expense">
+                <group name="accrue_income" string="Accrue Income" colspan="4" col="2">
+                    <group name="accrue_income_1" colspan="1" col="2">
+                        <field name="accrue_income_ok"/>
+                        <field name="accrue_income_effective_date" string="Effective Date"/>
+                        <field name="accrue_income_move_id" string="# Accounting Entry"/>
+                        <field name="accrue_income_journal_policy_id" string="Journal Policy"/>
+                        <field name="accrue_income_debit_account_policy_id" string="Debit Account Policy"/>
+                        <field name="accrue_income_credit_account_policy_id" string="Credit Account Policy"/>
+                        <field name="accrue_income_qty_policy_id" string="Qty. Policy"/>
+                        <field name="accrue_income_price_policy_id" string="Price Unit Policy"/>
+                        <field name="accrue_income_debit_account_id" string="Debit Account"/>
+                        <field name="accrue_income_credit_account_id" string="Credit Account"/>
+                        <field name="accrue_income_journal_id" string="Journal"/>
+                    </group>
+                    <group name="accrue_income_2" colspan="1" col="2">
+                        <field name="accrue_income_price_unit" string="Price Unit"/>
+                        <label for="accrue_income_qty" string="Qty"/>
+                        <div>
+                            <field name="accrue_income_qty" class="oe_inline"/>
+                            <field name="accrue_income_uom_id" class="oe_inline"/>
+                        </div>
+                        <field name="accrue_income_total" string="Total"/>
+                    </group>
+                </group>
+                <group name="accrue_expense" string="Accrue Expense" colspan="4" col="2">
+                    <group name="accrue_expense_1" colspan="1" col="2">
+                        <field name="accrue_expense_ok"/>
+                        <field name="accrue_expense_effective_date" string="Effective Date"/>
+                        <field name="accrue_expense_move_id" string="# Accounting Entry"/>
+                        <field name="accrue_expense_journal_policy_id" string="Journal Policy"/>
+                        <field name="accrue_expense_debit_account_policy_id" string="Debit Account Policy"/>
+                        <field name="accrue_expense_credit_account_policy_id" string="Credit Account Policy"/>
+                        <field name="accrue_expense_qty_policy_id" string="Qty. Policy"/>
+                        <field name="accrue_expense_price_policy_id" string="Price Unit Policy"/>
+                        <field name="accrue_expense_debit_account_id" string="Debit Account"/>
+                        <field name="accrue_expense_credit_account_id" string="Credit Account"/>
+                        <field name="accrue_expense_journal_id" string="Journal"/>
+                    </group>
+                    <group name="accrue_exxpense_2" colspan="1" col="2">
+                        <field name="accrue_expense_price_unit" string="Price Unit"/>
+                        <label for="accrue_expense_qty" string="Qty"/>
+                        <div>
+                            <field name="accrue_expense_qty" class="oe_inline"/>
+                            <field name="accrue_expense_uom_id" class="oe_inline"/>
+                        </div>
+                        <field name="accrue_expense_total" string="Total"/>
+                    </group>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
