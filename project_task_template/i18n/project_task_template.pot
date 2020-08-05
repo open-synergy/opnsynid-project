@@ -42,6 +42,11 @@ msgid "Create Project From Template"
 msgstr ""
 
 #. module: project_task_template
+#: view:project.project:project_task_template.project_project_view_form
+msgid "Create Task from Template"
+msgstr ""
+
+#. module: project_task_template
 #: field:project.create_project_from_template,create_uid:0
 #: field:project.task_template,create_uid:0
 #: field:project.template,create_uid:0
@@ -176,6 +181,12 @@ msgid "Messages and communication history"
 msgstr ""
 
 #. module: project_task_template
+#: code:addons/project_task_template/models/project_project.py:47
+#, python-format
+msgid "No project template defined"
+msgstr ""
+
+#. module: project_task_template
 #: view:project.task_template:project_task_template.project_task_template_view_form
 #: field:project.task_template,note:0
 #: view:project.template:project_task_template.project_template_view_form
@@ -187,6 +198,11 @@ msgstr ""
 #: field:project.create_project_from_template,project_parent_id:0
 #: field:project.template,project_parent_id:0
 msgid "Parent Project"
+msgstr ""
+
+#. module: project_task_template
+#: field:project.task_template,planned_hours:0
+msgid "Planned Hours"
 msgstr ""
 
 #. module: project_task_template
