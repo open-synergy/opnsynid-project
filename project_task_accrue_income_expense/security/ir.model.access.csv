@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_task_accrue_account_policy_employee,project.accrue_account_policy - Employee,model_project_task_accrue_account_policy,base.group_user,1,1,1,1
+project_task_accrue_account_policy_all,project.accrue_account_policy - All,model_project_task_accrue_account_policy,,1,0,0,0
+project_task_accrue_qty_policy_employee,project.accrue_qty_policy - Employee,model_project_task_accrue_qty_policy,base.group_user,1,1,1,1
+project_task_accrue_qty_policy_all,project.accrue_qty_policy - All,model_project_task_accrue_qty_policy,,1,0,0,0
+project_task_accrue_price_policy_employee,project.accrue_price_policy - Employee,model_project_task_accrue_price_policy,base.group_user,1,1,1,1
+project_task_accrue_price_policy_all,project.accrue_price_policy - All,model_project_task_accrue_price_policy,,1,0,0,0
+project_task_accrue_journal_policy_employee,project.accrue_journal_policy - Employee,model_project_task_accrue_journal_policy,base.group_user,1,1,1,1
+project_task_accrue_journal_policy_all,project.accrue_journal_policy - All,model_project_task_accrue_journal_policy,,1,0,0,0
