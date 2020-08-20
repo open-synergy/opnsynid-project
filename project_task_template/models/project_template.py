@@ -58,6 +58,18 @@ class ProjectTemplate(models.Model):
             self, project_name=False, project_parent_id=False,
             partner_id=False):
         self.ensure_one()
+        project = self._create_project(
+            project_name=project_name,
+            project_parent_id=project_parent_id,
+            partner_id=partner_id
+        )
+        return self._prepare_open_project(project)
+
+    @api.multi
+    def _create_project(
+            self, project_name=False, project_parent_id=False,
+            partner_id=False):
+        self.ensure_one()
         obj_project = self.env["project.project"]
         project = obj_project.create(
             self._prepare_project_data(
@@ -72,7 +84,7 @@ class ProjectTemplate(models.Model):
             task.write(
                 task._prepare_post_task_data()
             )
-        return self._prepare_open_project(project)
+        return project
 
     @api.multi
     def _prepare_project_data(
