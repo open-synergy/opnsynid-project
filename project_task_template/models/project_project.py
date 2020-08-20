@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright 2018 OpenSynergy Indonesia
+# Copyright 2018-2020 OpenSynergy Indonesia
+# Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api, _
@@ -7,6 +8,7 @@ from openerp.exceptions import Warning as UserError
 
 
 class ProjectProject(models.Model):
+    _name = "project.project"
     _inherit = "project.project"
 
     project_template_id = fields.Many2one(
