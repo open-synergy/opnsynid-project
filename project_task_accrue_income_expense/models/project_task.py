@@ -439,6 +439,12 @@ class ProjectTask(models.Model):
     @api.onchange(
         "project_id",
     )
+    def onchange_accrue_expense_ok(self):
+        self.accrue_expense_ok = self.project_id.accrue_expense_ok
+
+    @api.onchange(
+        "project_id",
+    )
     def onchange_accrue_expense_journal_policy_id(self):
         self.accrue_expense_journal_policy_id = False
         if self.project_id:
@@ -480,6 +486,12 @@ class ProjectTask(models.Model):
         if self.project_id:
             self.accrue_expense_qty_policy_id = \
                 self.project_id.accrue_expense_qty_policy_id
+
+    @api.onchange(
+        "project_id",
+    )
+    def onchange_accrue_income_ok(self):
+        self.accrue_income_ok = self.project_id.accrue_income_ok
 
     @api.onchange(
         "accrue_income_journal_policy_id",
