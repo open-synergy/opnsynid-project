@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_timebox_employee,project.timebox - Employee,model_project_timebox,base.group_user,1,1,1,1
+project_timebox_all,project.timebox - All,model_project_timebox,,1,0,0,0
