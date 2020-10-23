@@ -50,3 +50,39 @@ class ProjectTask(models.Model):
         compute="_compute_timebox",
         store=True,
     )
+
+    @api.depends(
+        "timebox_ids",
+        "timebox_ids.date_start",
+        "timebox_ids.date_stop",
+    )
+    @api.multi
+    def _compute_timebox_initial(self):
+        for document in self:
+            timebox_initial_id = False
+            timebox_initial_date_start = False
+            timebox_initial_date_stop = False
+            if len(document.timebox_ids) > 0:
+                timebox_initial_id = document.timebox_ids[0]
+                timebox_initial_date_start = timebox_initial_id.date_start
+                timebox_initial_date_stop = timebox_initial_id.date_stop
+            document.timebox_initial_id = timebox_initial_id
+            document.timebox_initial_date_start = timebox_initial_date_start
+            document.timebox_initial_date_stop = timebox_initial_date_stop
+
+    timebox_initial_id = fields.Many2one(
+        string="Timebox Initial ID",
+        comodel_name="project.timebox",
+        compute="_compute_timebox_initial",
+        store=True,
+    )
+    timebox_initial_date_start = fields.Date(
+        stting="Timebox Initial Date Start",
+        compute="_compute_timebox_initial",
+        store=True,
+    )
+    timebox_initial_date_stop = fields.Date(
+        stting="Timebox Initial Date Stop",
+        compute="_compute_timebox_initial",
+        store=True,
+    )
