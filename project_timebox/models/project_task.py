@@ -41,12 +41,12 @@ class ProjectTask(models.Model):
         store=True,
     )
     timebox_date_start = fields.Date(
-        stting="Timebox Date Start",
+        string="Timebox Date Start",
         compute="_compute_timebox",
         store=True,
     )
     timebox_date_stop = fields.Date(
-        stting="Timebox Date Stop",
+        string="Timebox Date Stop",
         compute="_compute_timebox",
         store=True,
     )
@@ -77,12 +77,16 @@ class ProjectTask(models.Model):
         store=True,
     )
     timebox_initial_date_start = fields.Date(
-        stting="Timebox Initial Date Start",
+        string="Timebox Initial Date Start",
         compute="_compute_timebox_initial",
         store=True,
     )
     timebox_initial_date_stop = fields.Date(
-        stting="Timebox Initial Date Stop",
+        string="Timebox Initial Date Stop",
         compute="_compute_timebox_initial",
         store=True,
+    )
+    on_running_timebox = fields.Boolean(
+        string="On Running Timebox",
+        readonly=True,
     )

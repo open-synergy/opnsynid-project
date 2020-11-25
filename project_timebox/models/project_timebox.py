@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright 2018 OpenSynergy Indonesia
+# Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning as UserError
 
 
 class ProjectTimebox(models.Model):
@@ -33,3 +35,85 @@ class ProjectTimebox(models.Model):
         string="Date Stop",
         required=True,
     )
+    state = fields.Selection(
+        string="State",
+        selection=[
+            ("new", "New"),
+            ("open", "On Progress"),
+            ("done", "Done"),
+        ],
+        default="new",
+    )
+
+    @api.multi
+    def action_open(self):
+        for document in self:
+            document.write(document._prepare_open_data())
+            document._set_on_running_timebox()
+
+    @api.multi
+    def _prepare_open_data(self):
+        self.ensure_one()
+        return {
+            "state": "open",
+        }
+
+    @api.multi
+    def _get_running_timebox(self):
+        self.ensure_one()
+        obj_project_task = self.env["project.task"]
+        task_ids = obj_project_task.search([]).filtered(
+            lambda r: r.timebox_ids.id == self.id)
+        return task_ids
+
+    @api.multi
+    def _set_on_running_timebox(self):
+        self.ensure_one()
+        task_ids = self._get_running_timebox()
+        if task_ids:
+            task_ids.write({"on_running_timebox": True})
+
+    @api.multi
+    def _set_off_running_timebox(self):
+        self.ensure_one()
+        task_ids = self._get_running_timebox()
+        if task_ids:
+            task_ids.write({"on_running_timebox": False})
+
+    @api.multi
+    def action_done(self):
+        for document in self:
+            document.write(document._prepare_done_data())
+            document._set_off_running_timebox()
+
+    @api.multi
+    def _prepare_done_data(self):
+        self.ensure_one()
+        return {
+            "state": "done",
+        }
+
+    @api.multi
+    def action_restart(self):
+        for document in self:
+            document.write(document._prepare_restart_data())
+            document._set_off_running_timebox()
+
+    @api.multi
+    def _prepare_restart_data(self):
+        self.ensure_one()
+        return {
+            "state": "new",
+        }
+
+    @api.constrains(
+        "state",
+    )
+    def _check_open_timebox(self):
+        strWarning = _("Only 1 timebox can be opened")
+        check_timebox =\
+            self.search([
+                ("state", "=", "open"),
+            ])
+        if len(check_timebox) > 1:
+            raise UserError(strWarning)
