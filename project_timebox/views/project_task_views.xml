@@ -11,6 +11,7 @@
     <field name="inherit_id" ref="project.view_task_form2"/>
     <field name="arch" type="xml">
         <xpath expr="//field[@name='categ_ids']" position="after">
+            <field name="on_running_timebox"/>
             <field name="timebox_ids" widget="many2many_tags"/>
             <separator string="Initial Timebox" colspan="4"/>
             <field name="timebox_initial_id" string="Timebox"/>
@@ -33,6 +34,8 @@
             <field name="timebox_latest_id"/>
         </xpath>
         <xpath expr="//filter[@name='project']" position="before">
+            <filter name="filter_running_timebox_true" string="Running Timebox True" domain="[('on_running_timebox','!=',0)]"/>
+            <filter name="filter_running_timebox_false" string="Running Timebox False" domain="[('on_running_timebox','=',0)]"/>
             <filter string="Timebox" name="filter_timebox_latest_id" context="{'group_by':'timebox_latest_id'}"/>
             <filter name="grp_timebox_date_stop_day" string="Timebox Date Stop by Day" context="{'group_by':'timebox_date_stop:day'}"/>
             <filter name="grp_timebox_date_stop_week" string="Timebox Date Stop by Week" context="{'group_by':'timebox_date_stop:week'}"/>

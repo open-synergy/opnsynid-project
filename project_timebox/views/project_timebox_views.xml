@@ -6,7 +6,12 @@
     <field name="model">project.timebox</field>
     <field name="arch" type="xml">
         <form>
-            <header/>
+            <header>
+                <button name="action_open" type="object" string="Open" attrs="{'invisible':[('state','!=','new')]}" confirm="Open Timebox. Are you sure?"/>
+                <button name="action_done" type="object" string="Done" attrs="{'invisible':[('state','!=','open')]}" confirm="Finish Timebox. Are you sure?"/>
+                <button name="action_restart" type="object" string="Restart" class="oe_highlight" attrs="{'invisible':[('state','=','new')]}" confirm="Restart Timebox. Are you sure?"/>
+                <field name="state" widget="statusbar" statusbar_visible="new,open,done"/>
+            </header>
             <sheet>
                 <div class="oe_right oe_button_box" style="width: 300px;" name="buttons">
                 </div>
@@ -43,6 +48,7 @@
             <field name="code"/>
             <field name="date_start"/>
             <field name="date_stop"/>
+            <field name="state"/>
         </tree>
     </field>
 </record>
