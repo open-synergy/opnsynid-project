@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 OpenSynergy Indonesia
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -35,6 +34,13 @@ class ProjectTimebox(models.Model):
         string="Date Stop",
         required=True,
     )
+    task_ids = fields.Many2many(
+        string="Timeboxes",
+        comodel_name="project.task",
+        relation="rel_timebox_2_task",
+        column1="timebox_id",
+        column2="task_id",
+    )
     state = fields.Selection(
         string="State",
         selection=[
@@ -59,26 +65,14 @@ class ProjectTimebox(models.Model):
         }
 
     @api.multi
-    def _get_running_timebox(self):
-        self.ensure_one()
-        obj_project_task = self.env["project.task"]
-        task_ids = obj_project_task.search([]).filtered(
-            lambda r: r.timebox_ids.id == self.id)
-        return task_ids
-
-    @api.multi
     def _set_on_running_timebox(self):
         self.ensure_one()
-        task_ids = self._get_running_timebox()
-        if task_ids:
-            task_ids.write({"on_running_timebox": True})
+        self.task_ids.write({"on_running_timebox": True})
 
     @api.multi
     def _set_off_running_timebox(self):
         self.ensure_one()
-        task_ids = self._get_running_timebox()
-        if task_ids:
-            task_ids.write({"on_running_timebox": False})
+        self.task_ids.write({"on_running_timebox": False})
 
     @api.multi
     def action_done(self):
@@ -111,9 +105,11 @@ class ProjectTimebox(models.Model):
     )
     def _check_open_timebox(self):
         strWarning = _("Only 1 timebox can be opened")
-        check_timebox =\
-            self.search([
-                ("state", "=", "open"),
-            ])
-        if len(check_timebox) > 1:
-            raise UserError(strWarning)
+        obj_timebox = self.env["project.timebox"]
+        for document in self:
+            if document.state == "open":
+                check_timebox = obj_timebox.search(
+                    [("state", "=", "open"), ("id", "!=", document.id)]
+                )
+                if len(check_timebox) > 0:
+                    raise UserError(strWarning)
