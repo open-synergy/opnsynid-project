@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 OpenSynergy Indonesia
+     Copyright 2020 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+<data>
+
+<record id="project_project_view_form" model="ir.ui.view">
+    <field name="name">project.project form</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project" />
+    <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+            <page
+                        name="project_completion"
+                        string="Project Completion Revenue Recognition"
+                    >
+                <group name="project_completion_1" colspan="4" col="2">
+                    <field name="revenue_recognition_on_project_completion" />
+                    <field name="project_completion_journal_id" string="Journal" />
+                    <field name="project_completion_date" string="Date" />
+                    <field
+                                name="project_completion_entry_id"
+                                string="# Accounting Entry"
+                            />
+                </group>
+                <group
+                            name="project_completion_4"
+                            string="CIP Move Lines"
+                            colspan="4"
+                            col="2"
+                        >
+                    <field name="cip_account_move_line_ids" nolabel="1" colspan="2" />
+                </group>
+                <group
+                            name="project_completion_5"
+                            string="Billing CIP Move Lines"
+                            colspan="4"
+                            col="2"
+                        >
+                    <field
+                                name="billing_cip_account_move_line_ids"
+                                nolabel="1"
+                                colspan="2"
+                            />
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+
+</data>
+</openerp>

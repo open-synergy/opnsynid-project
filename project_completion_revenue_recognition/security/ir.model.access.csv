@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_cost_account_mapping_employee,project.cost_account_mapping - Employee,model_project_cost_account_mapping,base.group_user,1,1,1,1
+project_cost_account_mapping_all,project.cost_account_mapping - All,model_project_cost_account_mapping,,1,0,0,0
+project_revenue_account_mapping_employee,project.revenue_account_mapping - Employee,model_project_revenue_account_mapping,base.group_user,1,1,1,1
+project_revenue_account_mapping_all,project.revenue_account_mapping - All,model_project_revenue_account_mapping,,1,0,0,0
+project_template_cost_account_mapping_employee,project.template_cost_account_mapping - Employee,model_project_template_cost_account_mapping,base.group_user,1,1,1,1
+project_template_cost_account_mapping_all,project.template_cost_account_mapping - All,model_project_template_cost_account_mapping,,1,0,0,0
+project_template_revenue_account_mapping_employee,project.template_revenue_account_mapping - Employee,model_project_template_revenue_account_mapping,base.group_user,1,1,1,1
+project_template_revenue_account_mapping_all,project.template_revenue_account_mapping - All,model_project_template_revenue_account_mapping,,1,0,0,0
