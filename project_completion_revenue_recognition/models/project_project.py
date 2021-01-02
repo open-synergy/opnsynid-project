@@ -108,7 +108,10 @@ class ProjectProject(models.Model):
     @api.multi
     def _delete_project_completion_move(self):
         self.ensure_one()
+        move = self.project_completion_entry_id
         self.write({"project_completion_entry_id": False})
+        if move:
+            move.unlink()
 
     @api.multi
     def _create_project_completion_move(self):
