@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+<data>
+<record id="project_template_view_form" model="ir.ui.view">
+    <field name="name">project.template form</field>
+    <field name="model">project.template</field>
+    <field name="inherit_id" ref="project_task_template.project_template_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook" position="inside">
+                <page
+                            name="general_account_policy"
+                            string="General Account Substitution"
+                        >
+                    <group name="general_account_policy_1" colspan="4" col="2">
+                        <field name="general_account_substitution_ids" nolabel="1">
+                            <tree editable="top">
+                                <field name="product_id" />
+                                <field name="income_general_account_id" />
+                                <field name="expense_general_account_id" />
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
