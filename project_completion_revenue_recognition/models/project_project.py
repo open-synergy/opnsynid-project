@@ -307,3 +307,22 @@ class ProjectProject(models.Model):
             raise UserError(error_msg)
 
         return result
+
+    @api.onchange(
+        "project_template_id",
+    )
+    def onchange_project_completion_journal_id(self):
+        self.project_completion_journal_id = False
+
+        if self.project_template_id:
+            self.project_completion_journal_id = (
+                self.project_template_id.project_completion_journal_id
+            )
+
+    @api.onchange(
+        "project_template_id",
+    )
+    def onchange_revenue_recognition_on_project_completion(self):
+        self.revenue_recognition_on_project_completion = (
+            self.project_template_id.revenue_recognition_on_project_completion
+        )
