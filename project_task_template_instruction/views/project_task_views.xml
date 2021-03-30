@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="projecttask_view_form" model="ir.ui.view">
+        <field name="name">project.task.tmpl.instruction.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='instruction_1']" position="after">
+                <group name="instruction_2" string="Instructions Based on Task Template" colspan="4" col="2">
+                    <field name="task_tmpl_instruction_ids" colspan="2" nolabel="1">
+                        <tree>
+                            <field name="name"/>
+                            <field name="instruction_url" widget="url"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
