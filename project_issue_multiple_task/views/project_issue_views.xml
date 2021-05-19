@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+
+<record id="project_issue_view_form" model="ir.ui.view">
+    <field name="name">project.issue.mutiple.task.form</field>
+    <field name="model">project.issue</field>
+    <field name="inherit_id" ref="project_issue.project_issue_form_view" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook" position="inside">
+                <page string="Tasks">
+                    <field name="task_ids" groups="base.group_user" />
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
