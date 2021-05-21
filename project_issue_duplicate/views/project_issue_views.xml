@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+
+    <record id="project_issue_view_form" model="ir.ui.view">
+        <field name="name">project.issue.duplicate.form</field>
+        <field name="model">project.issue</field>
+        <field name="inherit_id" ref="project_issue.project_issue_form_view" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//notebook" position="inside">
+                    <page name="duplicate_issue" string="Duplicate Issues">
+                        <group name="duplicate_issue_1" colspan="4" col="2">
+                            <field name="duplicate_issue_id" />
+                        </group>
+                        <group
+                                name="duplicate_issue_2"
+                                string="Duplicate Issues"
+                                colspan="4"
+                                col="2"
+                            >
+                            <field name="duplicate_issue_ids" nolabel="1" colspan="2" />
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</data>
+</openerp>
