@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+
+<record id="project_issue_view_form" model="ir.ui.view">
+    <field name="name">project.issue.mutiple.task.timebox.form</field>
+    <field name="model">project.issue</field>
+    <field name="inherit_id" ref="project_issue.project_issue_form_view" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook" position="inside">
+                <page name="timebox" string="Timebox">
+                    <group name="timebox_1" colspan="4" col="2">
+                        <group
+                                    name="timebox_1_1"
+                                    string="Initial Timebox"
+                                    colspan="1"
+                                    col="2"
+                                >
+                            <field name="timebox_initial_id" string="Timebox" />
+                            <field
+                                        name="timebox_initial_date_start"
+                                        string="Timebox Date Start"
+                                    />
+                            <field
+                                        name="timebox_initial_date_stop"
+                                        string="Timebox Date Stop"
+                                    />
+                        </group>
+                        <group
+                                    name="timebox_1_2"
+                                    string="Latest Timebox"
+                                    colspan="1"
+                                    col="2"
+                                >
+                            <field name="timebox_latest_id" string="Timebox" />
+                            <field
+                                        name="timebox_latest_date_start"
+                                        string="Timebox Date Start"
+                                    />
+                            <field
+                                        name="timebox_latest_date_stop"
+                                        string="Timebox Date Stop"
+                                    />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
