@@ -113,3 +113,43 @@ class ProjectTimebox(models.Model):
                 )
                 if len(check_timebox) > 0:
                     raise UserError(strWarning)
+
+    @api.constrains(
+        "date_start",
+        "date_stop"
+    )
+    def _check_date(self):
+        strWarning = _("Date Start Must less Than Date Stop")
+        for document in self:
+            if document.date_start > document.date_stop:
+                raise UserError(strWarning)
+
+    @api.constrains(
+        "date_start",
+    )
+    def _check_date_start(self):
+        strWarning = _("Date Start Cannot Overlap")
+        obj_timebox = self.env["project.timebox"]
+        for document in self:
+            check_date = obj_timebox.search(
+                [("date_start", "<=", document.date_start),
+                ("date_stop", ">=", document.date_start),
+                ("id", "!=", document.id)]
+            )
+            if len(check_date) > 0:
+                raise UserError(strWarning)
+
+    @api.constrains(
+        "date_stop",
+    )
+    def _check_date_stop(self):
+        strWarning = _("Date Stop Cannot Overlap")
+        obj_timebox = self.env["project.timebox"]
+        for document in self:
+            check_date = obj_timebox.search(
+                [("date_start", "<=", document.date_stop),
+                ("date_stop", ">=", document.date_stop),
+                ("id", "!=", document.id)]
+            )
+            if len(check_date) > 0:
+                raise UserError(strWarning)
