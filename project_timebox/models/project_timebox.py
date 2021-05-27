@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2018 OpenSynergy Indonesia
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -131,11 +132,11 @@ class ProjectTimebox(models.Model):
         strWarning = _("Date Start Cannot Overlap")
         obj_timebox = self.env["project.timebox"]
         for document in self:
-            check_date = obj_timebox.search(
-                [("date_start", "<=", document.date_start),
+            check_date = obj_timebox.search([
+                ("date_start", "<=", document.date_start),
                 ("date_stop", ">=", document.date_start),
-                ("id", "!=", document.id)]
-            )
+                ("id", "!=", document.id)
+            ])
             if len(check_date) > 0:
                 raise UserError(strWarning)
 
