@@ -147,10 +147,10 @@ class ProjectTimebox(models.Model):
         strWarning = _("Date Stop Cannot Overlap")
         obj_timebox = self.env["project.timebox"]
         for document in self:
-            check_date = obj_timebox.search(
-                [("date_start", "<=", document.date_stop),
+            check_date = obj_timebox.search([
+                ("date_start", "<=", document.date_stop),
                 ("date_stop", ">=", document.date_stop),
-                ("id", "!=", document.id)]
-            )
+                ("id", "!=", document.id)
+            ])
             if len(check_date) > 0:
                 raise UserError(strWarning)
