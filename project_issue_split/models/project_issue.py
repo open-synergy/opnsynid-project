@@ -13,6 +13,7 @@ class ProjectIssue(models.Model):
         string="Split Issue",
         comodel_name="project.issue",
     )
+    
     split_issue_ids = fields.One2many(
         string="List Split Issue",
         comodel_name="project.issue",
