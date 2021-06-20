@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+        <!--
+        Project Timebox
+        -->
+
+        <record id="timebox_1" model="project.timebox">
+            <field eval="'TB 01/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 01/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-01-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-01-31'" name="date_stop" />
+        </record>
+        <record id="timebox_2" model="project.timebox">
+            <field eval="'TB 02/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 02/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-02-01'" name="date_start" />
+            <!-- for the last day of February, we have to compute the day before March 1st -->
+            <field
+                eval="(DateTime.today().replace(month=3, day=1) - timedelta(days=1)).strftime('%Y-%m-%d')"
+                name="date_stop"
+            />
+        </record>
+        <record id="timebox_3" model="project.timebox">
+            <field eval="'TB 03/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 03/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-03-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-03-31'" name="date_stop" />
+        </record>
+        <record id="timebox_4" model="project.timebox">
+            <field eval="'TB 04/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 04/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-04-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-04-30'" name="date_stop" />
+        </record>
+        <record id="timebox_5" model="project.timebox">
+            <field eval="'TB 05/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 05/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-05-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-05-31'" name="date_stop" />
+        </record>
+        <record id="timebox_6" model="project.timebox">
+            <field eval="'TB 06/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 06/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-06-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-06-30'" name="date_stop" />
+        </record>
+        <record id="timebox_7" model="project.timebox">
+            <field eval="'TB 07/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 07/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-07-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-07-31'" name="date_stop" />
+        </record>
+        <record id="timebox_8" model="project.timebox">
+            <field eval="'TB 08/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 08/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-08-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-08-31'" name="date_stop" />
+        </record>
+        <record id="timebox_9" model="project.timebox">
+            <field eval="'TB 09/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 09/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-09-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-09-30'" name="date_stop" />
+        </record>
+        <record id="timebox_10" model="project.timebox">
+            <field eval="'TB 10/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 10/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-10-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-10-31'" name="date_stop" />
+        </record>
+        <record id="timebox_11" model="project.timebox">
+            <field eval="'TB 11/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 11/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-11-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-11-30'" name="date_stop" />
+        </record>
+        <record id="timebox_12" model="project.timebox">
+            <field eval="'TB 12/'+time.strftime('%Y')" name="code" />
+            <field eval="'X TB 12/'+time.strftime('%Y')" name="name" />
+            <field eval="time.strftime('%Y')+'-12-01'" name="date_start" />
+            <field eval="time.strftime('%Y')+'-12-31'" name="date_stop" />
+        </record>
+
+    </data>
+</openerp>
