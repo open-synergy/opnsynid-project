@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+<data>
+    <record id="project_project_assignment_letter_view_form" model="ir.ui.view">
+        <field name="name">project.project_assignment_letter form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//notebook" position="inside">
+                    <page name="project_assignment_letter" string="Assignment Letter">
+                        <group name="assignment_letter" colspan="4" col="2">
+                            <group name="assignment_letter_1" colspan="4" col="2">
+                                <field name="assignment_letter_sequence_id" />
+                            </group>
+                            <group
+                                    name="assignment_letter_2"
+                                    string="Workflow Policy"
+                                    colspan="4"
+                                    col="2"
+                                >
+                                <field
+                                        name="assignment_letter_confirm_grp_ids"
+                                        widget="many2many_tags"
+                                    />
+                                <field
+                                        name="assignment_letter_cancel_grp_ids"
+                                        widget="many2many_tags"
+                                    />
+                                <field
+                                        name="assignment_letter_restart_grp_ids"
+                                        widget="many2many_tags"
+                                    />
+                                <field
+                                        name="assignment_letter_restart_validation_grp_ids"
+                                        widget="many2many_tags"
+                                    />
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</data>
+</openerp>
