@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_assignment_letter_employee,project_assignment_letter - user,model_project_assignment_letter,base.group_user,1,1,1,1
+project_assignment_letter_all,project_assignment_letter - all,model_project_assignment_letter,,1,0,0,0
