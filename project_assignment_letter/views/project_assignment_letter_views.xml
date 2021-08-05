@@ -215,7 +215,11 @@
                     </div>
                     <group name="group_1" colspan="4" col="2">
                         <group name="group_1_1" colspan="1" col="2">
-                            <field name="project_id" />
+                            <field
+                                    name="project_id"
+                                    domain="[('state','in',['draft','new','open'])]"
+                                    options='{"no_open": True, "no_create": True}'
+                                />
                             <field name="signee_id" />
                             <field
                                     name="company_id"
@@ -226,9 +230,14 @@
                             <field name="date" />
                         </group>
                     </group>
+                    <!-- Filter hanya task milik project yg bersangkutan yg bisa dipilih -->
                     <notebook colspan="4">
                         <page name="task" string="Task">
-                            <field name="task_ids" />
+                            <field
+                                    name="task_ids"
+                                    widget="many2many"
+                                    domain="[('project_id','=',project_id)]"
+                                />
                         </page>
                         <page string="Reviews" name="tier_validation">
                             <group name="tier_validation_1" colspan="4" col="2">
@@ -285,7 +294,7 @@
     </record>
 
     <record id="project_assignment_letter_action" model="ir.actions.act_window">
-        <field name="name">Assignment Letter</field>
+        <field name="name">Assignment Letters</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">project.assignment_letter</field>
         <field name="view_type">form</field>
@@ -300,7 +309,7 @@
 
     <menuitem
             id="project_assignment_letter_menu"
-            name="Assignment Letter"
+            name="Assignment Letters"
             parent="project.menu_project_management"
             action="project_assignment_letter_action"
             sequence="10"

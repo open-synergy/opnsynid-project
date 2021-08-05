@@ -12,4 +12,5 @@ class ProjectTask(models.Model):
     assignment_letter_id = fields.Many2one(
         string="Assignment Letter",
         comodel_name="project.assignment_letter",
+        readonly=True,
     )

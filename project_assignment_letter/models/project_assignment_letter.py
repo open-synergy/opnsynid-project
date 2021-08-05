@@ -8,7 +8,7 @@ from openerp.exceptions import Warning as UserError
 
 class ProjectAssignmentLetter(models.Model):
     _name = "project.assignment_letter"
-    _description = "ProjectAssignmentLetter"
+    _description = "Project Assignment Letter"
     _inherit = [
         "mail.thread",
         "tier.validation",
@@ -18,10 +18,6 @@ class ProjectAssignmentLetter(models.Model):
     ]
     _state_from = ["draft", "confirm"]
     _state_to = ["valid"]
-
-    @api.model
-    def _default_company_id(self):
-        return self.env.user.company_id.id
 
     @api.multi
     @api.depends(
@@ -76,7 +72,6 @@ class ProjectAssignmentLetter(models.Model):
         string="Company",
         comodel_name="res.company",
         required=True,
-        default=lambda self: self._default_company_id(),
         readonly=True,
         related="project_id.company_id",
     )
@@ -84,7 +79,7 @@ class ProjectAssignmentLetter(models.Model):
         string="Task",
         comodel_name="project.task",
         inverse_name="assignment_letter_id",
-        readonly=True,
+        readonly=False,
     )
     state = fields.Selection(
         string="State",
