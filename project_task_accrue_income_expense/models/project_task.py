@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, models, fields, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -10,26 +10,18 @@ class ProjectTask(models.Model):
     _name = "project.task"
     _inherit = "project.task"
 
-    @api.depends(
-        "accrue_income_price_unit",
-        "accrue_income_qty"
-    )
+    @api.depends("accrue_income_price_unit", "accrue_income_qty")
     @api.multi
     def _compute_accrue_income_total(self):
         for document in self:
-            result = document.accrue_income_price_unit * \
-                document.accrue_income_qty
+            result = document.accrue_income_price_unit * document.accrue_income_qty
             document.accrue_income_total = result
 
-    @api.depends(
-        "accrue_expense_price_unit",
-        "accrue_expense_qty"
-    )
+    @api.depends("accrue_expense_price_unit", "accrue_expense_qty")
     @api.multi
     def _compute_accrue_expense_total(self):
         for document in self:
-            result = document.accrue_expense_price_unit * \
-                document.accrue_expense_qty
+            result = document.accrue_expense_price_unit * document.accrue_expense_qty
             document.accrue_expense_total = result
 
     accrue_expense_ok = fields.Boolean(
@@ -392,8 +384,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_journal_id(self):
         self.accrue_expense_journal_id = False
         if self.accrue_expense_journal_policy_id:
-            result = self.accrue_expense_journal_policy_id.\
-                _compute_value(self)
+            result = self.accrue_expense_journal_policy_id._compute_value(self)
             self.accrue_expense_journal_id = result
 
     @api.onchange(
@@ -402,8 +393,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_debit_account_id(self):
         self.accrue_expense_debit_account_id = False
         if self.accrue_expense_debit_account_policy_id:
-            result = self.accrue_expense_debit_account_policy_id.\
-                _compute_value(self)
+            result = self.accrue_expense_debit_account_policy_id._compute_value(self)
             self.accrue_expense_debit_account_id = result
 
     @api.onchange(
@@ -412,8 +402,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_credit_account_id(self):
         self.accrue_expense_credit_account_id = False
         if self.accrue_expense_credit_account_policy_id:
-            result = self.accrue_expense_credit_account_policy_id.\
-                _compute_value(self)
+            result = self.accrue_expense_credit_account_policy_id._compute_value(self)
             self.accrue_expense_credit_account_id = result
 
     @api.onchange(
@@ -422,8 +411,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_qty(self):
         self.accrue_expense_qty = 0.0
         if self.accrue_expense_qty_policy_id:
-            result = self.accrue_expense_qty_policy_id.\
-                _compute_value(self)
+            result = self.accrue_expense_qty_policy_id._compute_value(self)
             self.accrue_expense_qty = result
 
     @api.onchange(
@@ -432,8 +420,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_price_unit(self):
         self.accrue_expense_price_unit = 0.0
         if self.accrue_expense_price_policy_id:
-            result = self.accrue_expense_price_policy_id.\
-                _compute_value(self)
+            result = self.accrue_expense_price_policy_id._compute_value(self)
             self.accrue_expense_price_unit = result
 
     @api.onchange(
@@ -448,8 +435,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_journal_policy_id(self):
         self.accrue_expense_journal_policy_id = False
         if self.project_id:
-            self.accrue_expense_journal_policy_id = \
+            self.accrue_expense_journal_policy_id = (
                 self.project_id.accrue_expense_journal_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -457,8 +445,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_debit_account_policy_id(self):
         self.accrue_expense_debit_account_policy_id = False
         if self.project_id:
-            self.accrue_expense_debit_account_policy_id = \
+            self.accrue_expense_debit_account_policy_id = (
                 self.project_id.accrue_expense_debit_account_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -466,8 +455,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_credit_account_policy_id(self):
         self.accrue_expense_credit_account_policy_id = False
         if self.project_id:
-            self.accrue_expense_credit_account_policy_id = \
+            self.accrue_expense_credit_account_policy_id = (
                 self.project_id.accrue_expense_credit_account_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -475,8 +465,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_price_policy_id(self):
         self.accrue_expense_price_policy_id = False
         if self.project_id:
-            self.accrue_expense_price_policy_id = \
+            self.accrue_expense_price_policy_id = (
                 self.project_id.accrue_expense_price_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -484,8 +475,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_expense_qty_policy_id(self):
         self.accrue_expense_qty_policy_id = False
         if self.project_id:
-            self.accrue_expense_qty_policy_id = \
+            self.accrue_expense_qty_policy_id = (
                 self.project_id.accrue_expense_qty_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -499,8 +491,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_journal_id(self):
         self.accrue_income_journal_id = False
         if self.accrue_income_journal_policy_id:
-            result = self.accrue_income_journal_policy_id.\
-                _compute_value(self)
+            result = self.accrue_income_journal_policy_id._compute_value(self)
             self.accrue_income_journal_id = result
 
     @api.onchange(
@@ -509,8 +500,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_debit_account_id(self):
         self.accrue_income_debit_account_id = False
         if self.accrue_income_debit_account_policy_id:
-            result = self.accrue_income_debit_account_policy_id.\
-                _compute_value(self)
+            result = self.accrue_income_debit_account_policy_id._compute_value(self)
             self.accrue_income_debit_account_id = result
 
     @api.onchange(
@@ -519,8 +509,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_credit_account_id(self):
         self.accrue_income_credit_account_id = False
         if self.accrue_income_credit_account_policy_id:
-            result = self.accrue_income_credit_account_policy_id.\
-                _compute_value(self)
+            result = self.accrue_income_credit_account_policy_id._compute_value(self)
             self.accrue_income_credit_account_id = result
 
     @api.onchange(
@@ -529,8 +518,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_qty(self):
         self.accrue_income_qty = 0.0
         if self.accrue_income_qty_policy_id:
-            result = self.accrue_income_qty_policy_id.\
-                _compute_value(self)
+            result = self.accrue_income_qty_policy_id._compute_value(self)
             self.accrue_income_qty = result
 
     @api.onchange(
@@ -539,8 +527,7 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_price_unit(self):
         self.accrue_income_price_unit = 0.0
         if self.accrue_income_price_policy_id:
-            result = self.accrue_income_price_policy_id.\
-                _compute_value(self)
+            result = self.accrue_income_price_policy_id._compute_value(self)
             self.accrue_income_price_unit = result
 
     @api.onchange(
@@ -549,8 +536,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_journal_policy_id(self):
         self.accrue_income_journal_policy_id = False
         if self.project_id:
-            self.accrue_income_journal_policy_id = \
+            self.accrue_income_journal_policy_id = (
                 self.project_id.accrue_income_journal_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -558,8 +546,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_debit_account_policy_id(self):
         self.accrue_income_debit_account_policy_id = False
         if self.project_id:
-            self.accrue_income_debit_account_policy_id = \
+            self.accrue_income_debit_account_policy_id = (
                 self.project_id.accrue_income_debit_account_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -567,8 +556,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_credit_account_policy_id(self):
         self.accrue_income_credit_account_policy_id = False
         if self.project_id:
-            self.accrue_income_credit_account_policy_id = \
+            self.accrue_income_credit_account_policy_id = (
                 self.project_id.accrue_income_credit_account_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -576,8 +566,9 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_price_policy_id(self):
         self.accrue_income_price_policy_id = False
         if self.project_id:
-            self.accrue_income_price_policy_id = \
+            self.accrue_income_price_policy_id = (
                 self.project_id.accrue_income_price_policy_id
+            )
 
     @api.onchange(
         "project_id",
@@ -585,5 +576,6 @@ class ProjectTask(models.Model):
     def onchange_accrue_income_qty_policy_id(self):
         self.accrue_income_qty_policy_id = False
         if self.project_id:
-            self.accrue_income_qty_policy_id = \
+            self.accrue_income_qty_policy_id = (
                 self.project_id.accrue_income_qty_policy_id
+            )

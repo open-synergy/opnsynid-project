@@ -3,7 +3,7 @@
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, models, fields
+from openerp import api, fields, models
 
 
 class ProjectTaskTemplate(models.Model):
@@ -51,10 +51,8 @@ class ProjectTaskTemplate(models.Model):
         return {
             "name": self.name,
             "sequence": self.sequence,
-            "user_id": self.user_id and
-            self.user_id.id or False,
-            "reviewer_id": self.reviewer_id and
-            self.reviewer_id.id or False,
+            "user_id": self.user_id and self.user_id.id or False,
+            "reviewer_id": self.reviewer_id and self.reviewer_id.id or False,
             "task_template_id": self.id,
             "project_id": project_id,
             "planned_hours": self.planned_hours,

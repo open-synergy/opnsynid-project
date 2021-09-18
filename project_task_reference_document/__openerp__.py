@@ -10,9 +10,7 @@
     "category": "Project Management",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "project"
-    ],
+    "depends": ["project"],
     "data": [
         "security/ir.model.access.csv",
         "views/project_reference_document_type_views.xml",

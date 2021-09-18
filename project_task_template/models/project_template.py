@@ -2,7 +2,7 @@
 # Copyright 2018-2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, models, fields, _
+from openerp import _, api, fields, models
 
 
 class ProjectTemplate(models.Model):
@@ -55,41 +55,37 @@ class ProjectTemplate(models.Model):
 
     @api.multi
     def create_project(
-            self, project_name=False, project_parent_id=False,
-            partner_id=False):
+        self, project_name=False, project_parent_id=False, partner_id=False
+    ):
         self.ensure_one()
         project = self._create_project(
             project_name=project_name,
             project_parent_id=project_parent_id,
-            partner_id=partner_id
+            partner_id=partner_id,
         )
         return self._prepare_open_project(project)
 
     @api.multi
     def _create_project(
-            self, project_name=False, project_parent_id=False,
-            partner_id=False):
+        self, project_name=False, project_parent_id=False, partner_id=False
+    ):
         self.ensure_one()
         obj_project = self.env["project.project"]
         project = obj_project.create(
-            self._prepare_project_data(
-                project_name, project_parent_id, partner_id
-            ),
+            self._prepare_project_data(project_name, project_parent_id, partner_id),
         )
         for task_template in self.task_template_ids:
             self.env["project.task"].create(
                 task_template._prepare_task_data(project.id)
             )
         for task in project.tasks:
-            task.write(
-                task._prepare_post_task_data()
-            )
+            task.write(task._prepare_post_task_data())
         return project
 
     @api.multi
     def _prepare_project_data(
-            self, project_name=False, project_parent_id=False,
-            partner_id=False):
+        self, project_name=False, project_parent_id=False, partner_id=False
+    ):
         self.ensure_one()
         name = project_name or self.name
         parent_id = project_parent_id or self.project_parent_id.id

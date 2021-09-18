@@ -3,7 +3,7 @@
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class CreateProjectFromTemplate(models.TransientModel):
@@ -37,4 +37,5 @@ class CreateProjectFromTemplate(models.TransientModel):
         return self.project_template_id.create_project(
             self.name or False,
             self.project_parent_id and self.project_parent_id.id or False,
-            self.partner_id and self.partner_id.id or False)
+            self.partner_id and self.partner_id.id or False,
+        )

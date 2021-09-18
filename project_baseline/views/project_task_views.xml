@@ -1,38 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 <data>
 
 <record id="project_task_view_form" model="ir.ui.view">
     <field name="name">project.task form</field>
     <field name="model">project.task</field>
-    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="inherit_id" ref="project.view_task_form2" />
     <field name="arch" type="xml">
         <xpath expr="//notebook" position="inside">
             <page name="schedule" string="Schedule">
                 <group name="schedule_1" colspan="4" col="2">
-                    <group name="schedule_1_1" colspan="1" col="2" string="Baseline Start">
-                        <field name="start_schedule_base_on"/>
-                        <field name="manual_baseline_start" attrs="{'invisible':[('start_schedule_base_on', '!=', 'manual')]}"/>
-                        <field name="baseline_start_project_id" attrs="{'invisible':['|', ('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"/>
-                        <field name="baseline_start_task_id" attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}" domain="[('project_id','=',baseline_start_project_id)]"/>
-                        <label for="start_offset" attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"/>
-                        <div attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}">
-                            <field name="start_offset" class="oe_inline"/>
-                            <field name="start_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
+                    <group
+                                name="schedule_1_1"
+                                colspan="1"
+                                col="2"
+                                string="Baseline Start"
+                            >
+                        <field name="start_schedule_base_on" />
+                        <field
+                                    name="manual_baseline_start"
+                                    attrs="{'invisible':[('start_schedule_base_on', '!=', 'manual')]}"
+                                />
+                        <field
+                                    name="baseline_start_project_id"
+                                    attrs="{'invisible':['|', ('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"
+                                />
+                        <field
+                                    name="baseline_start_task_id"
+                                    attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"
+                                    domain="[('project_id','=',baseline_start_project_id)]"
+                                />
+                        <label
+                                    for="start_offset"
+                                    attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"
+                                />
+                        <div
+                                    attrs="{'invisible':['|',('start_schedule_base_on', '=', 'manual'),('start_schedule_base_on', '=', False)]}"
+                                >
+                            <field name="start_offset" class="oe_inline" />
+                            <field
+                                        name="start_offset_uom_id"
+                                        class="oe_line"
+                                        domain="[('category_id','=',%(product.uom_categ_wtime)d)]"
+                                    />
                         </div>
-                        <field name="baseline_start"/>
+                        <field name="baseline_start" />
                     </group>
-                    <group name="schedule_1_2" colspan="1" col="2" string="Baseline Finish">
-                        <field name="finish_schedule_base_on"/>
-                        <field name="manual_baseline_finish" attrs="{'invisible':[('finish_schedule_base_on', '!=', 'manual')]}"/>
-                        <field name="baseline_finish_project_id" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"/>
-                        <field name="baseline_finish_task_id" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}" domain="[('project_id','=',baseline_finish_project_id)]"/>
-                        <label for="finish_offset" attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"/>
-                        <div attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}">
-                            <field name="finish_offset" class="oe_inline"/>
-                            <field name="finish_offset_uom_id" class="oe_line" domain="[('category_id','=',%(product.uom_categ_wtime)d)]"/>
+                    <group
+                                name="schedule_1_2"
+                                colspan="1"
+                                col="2"
+                                string="Baseline Finish"
+                            >
+                        <field name="finish_schedule_base_on" />
+                        <field
+                                    name="manual_baseline_finish"
+                                    attrs="{'invisible':[('finish_schedule_base_on', '!=', 'manual')]}"
+                                />
+                        <field
+                                    name="baseline_finish_project_id"
+                                    attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"
+                                />
+                        <field
+                                    name="baseline_finish_task_id"
+                                    attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"
+                                    domain="[('project_id','=',baseline_finish_project_id)]"
+                                />
+                        <label
+                                    for="finish_offset"
+                                    attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"
+                                />
+                        <div
+                                    attrs="{'invisible':['|', ('finish_schedule_base_on', '=', 'manual'),('finish_schedule_base_on', '=', False)]}"
+                                >
+                            <field name="finish_offset" class="oe_inline" />
+                            <field
+                                        name="finish_offset_uom_id"
+                                        class="oe_line"
+                                        domain="[('category_id','=',%(product.uom_categ_wtime)d)]"
+                                    />
                         </div>
-                        <field name="baseline_finish"/>
+                        <field name="baseline_finish" />
                     </group>
                 </group>
             </page>
@@ -43,12 +91,12 @@
 <record id="project_task_view_tree" model="ir.ui.view">
     <field name="name">project.task tree</field>
     <field name="model">project.task</field>
-    <field name="inherit_id" ref="project.view_task_tree2"/>
+    <field name="inherit_id" ref="project.view_task_tree2" />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//field[@name='total_hours']" position="before">
-                <field name="baseline_start"/>
-                <field name="baseline_finish"/>
+                <field name="baseline_start" />
+                <field name="baseline_finish" />
             </xpath>
         </data>
     </field>
@@ -57,7 +105,7 @@
 <record id="project_task_view_gantt" model="ir.ui.view">
     <field name="name">project.task gantt</field>
     <field name="model">project.task</field>
-    <field name="inherit_id" ref="project.view_task_gantt"/>
+    <field name="inherit_id" ref="project.view_task_gantt" />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//gantt" position="attributes">
@@ -71,18 +119,50 @@
 <record id="project_task_view_search" model="ir.ui.view">
     <field name="name">project.task search</field>
     <field name="model">project.task</field>
-    <field name="inherit_id" ref="project.view_task_search_form"/>
+    <field name="inherit_id" ref="project.view_task_search_form" />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//group/filter[@name='Stage']" position="after">
-                <filter name="grp_baseline_start_year" string="Baseline Start By Year" context="{'group_by':'baseline_start:year'}"/>
-                <filter name="grp_baseline_start_month" string="Baseline Start By Month" context="{'group_by':'baseline_start:month'}"/>
-                <filter name="grp_baseline_start_week" string="Baseline Start By Week" context="{'group_by':'baseline_start:week'}"/>
-                <filter name="grp_baseline_start_day" string="Baseline Start By Day" context="{'group_by':'baseline_start:day'}"/>
-                <filter name="grp_baseline_finish_year" string="Baseline Finish By Year" context="{'group_by':'baseline_finish:year'}"/>
-                <filter name="grp_baseline_finish_month" string="Baseline Finish By Month" context="{'group_by':'baseline_finish:month'}"/>
-                <filter name="grp_baseline_finish_week" string="Baseline Finish By Week" context="{'group_by':'baseline_finish:week'}"/>
-                <filter name="grp_baseline_finish_day" string="Baseline Finish By Day" context="{'group_by':'baseline_finish:day'}"/>
+                <filter
+                            name="grp_baseline_start_year"
+                            string="Baseline Start By Year"
+                            context="{'group_by':'baseline_start:year'}"
+                        />
+                <filter
+                            name="grp_baseline_start_month"
+                            string="Baseline Start By Month"
+                            context="{'group_by':'baseline_start:month'}"
+                        />
+                <filter
+                            name="grp_baseline_start_week"
+                            string="Baseline Start By Week"
+                            context="{'group_by':'baseline_start:week'}"
+                        />
+                <filter
+                            name="grp_baseline_start_day"
+                            string="Baseline Start By Day"
+                            context="{'group_by':'baseline_start:day'}"
+                        />
+                <filter
+                            name="grp_baseline_finish_year"
+                            string="Baseline Finish By Year"
+                            context="{'group_by':'baseline_finish:year'}"
+                        />
+                <filter
+                            name="grp_baseline_finish_month"
+                            string="Baseline Finish By Month"
+                            context="{'group_by':'baseline_finish:month'}"
+                        />
+                <filter
+                            name="grp_baseline_finish_week"
+                            string="Baseline Finish By Week"
+                            context="{'group_by':'baseline_finish:week'}"
+                        />
+                <filter
+                            name="grp_baseline_finish_day"
+                            string="Baseline Finish By Day"
+                            context="{'group_by':'baseline_finish:day'}"
+                        />
             </xpath>
         </data>
     </field>

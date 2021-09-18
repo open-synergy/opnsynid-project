@@ -10,11 +10,6 @@
     "category": "Project Management",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "project_stage_state"
-    ],
-    "data": [
-        "security/ir.model.access.csv",
-        "views/project_task_views.xml"
-    ],
+    "depends": ["project_stage_state"],
+    "data": ["security/ir.model.access.csv", "views/project_task_views.xml"],
 }

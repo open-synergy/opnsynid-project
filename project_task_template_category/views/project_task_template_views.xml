@@ -1,14 +1,17 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <openerp>
 <data>
 <record id="project_task_template_view_form" model="ir.ui.view">
     <field name="name">project.task_template form</field>
     <field name="model">project.task_template</field>
-    <field name="inherit_id" ref="project_task_template.project_task_template_view_form"/>
+    <field
+                name="inherit_id"
+                ref="project_task_template.project_task_template_view_form"
+            />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//field[@name='sequence']" position="after">
-                <field name="categ_id"/>
+                <field name="categ_id" />
             </xpath>
         </data>
     </field>
@@ -17,11 +20,14 @@
 <record id="project_task_template_view_tree" model="ir.ui.view">
     <field name="name">project.task_template tree</field>
     <field name="model">project.task_template</field>
-    <field name="inherit_id" ref="project_task_template.project_task_template_view_tree"/>
+    <field
+                name="inherit_id"
+                ref="project_task_template.project_task_template_view_tree"
+            />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//field[@name='name']" position="after">
-                <field name="categ_id"/>
+                <field name="categ_id" />
             </xpath>
         </data>
     </field>
@@ -30,14 +36,21 @@
 <record id="project_task_template_view_search" model="ir.ui.view">
     <field name="name">project.task_template search</field>
     <field name="model">project.task_template</field>
-    <field name="inherit_id" ref="project_task_template.project_task_template_view_search"/>
+    <field
+                name="inherit_id"
+                ref="project_task_template.project_task_template_view_search"
+            />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//field[@name='reviewer_id']" position="after">
-                <field name="categ_id"/>
+                <field name="categ_id" />
             </xpath>
             <xpath expr="//filter[@name='grp_reviewer']" position="after">
-                <filter name="grp_categ" string="Task Category" context="{'group_by':'categ_id'}"/>
+                <filter
+                            name="grp_categ"
+                            string="Task Category"
+                            context="{'group_by':'categ_id'}"
+                        />
             </xpath>
         </data>
     </field>

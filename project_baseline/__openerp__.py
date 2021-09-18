@@ -10,9 +10,7 @@
     "category": "Project Management",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "project"
-    ],
+    "depends": ["project"],
     "external_dependencies": {
         "python": [
             "pandas",

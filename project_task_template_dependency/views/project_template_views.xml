@@ -1,27 +1,37 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <openerp>
 <data>
 <record id="project_template_view_form" model="ir.ui.view">
     <field name="name">project.template form</field>
     <field name="model">project.template</field>
-    <field name="inherit_id" ref="project_task_template.project_template_view_form"/>
+    <field name="inherit_id" ref="project_task_template.project_template_view_form" />
     <field name="arch" type="xml">
         <data>
-            <xpath expr="//field[@name='task_template_ids']/form//notebook" position="inside">
+            <xpath
+                        expr="//field[@name='task_template_ids']/form//notebook"
+                        position="inside"
+                    >
                 <page name="dependency" string="Dependencies">
                     <group name="dependency_1" string="Predecessor" colspan="4" col="2">
                         <field name="predecessor_ids" colspan="2" nolabel="1">
                             <tree editable="top">
-                                <field name="predecessor_task_id" domain="[('project_template_id','=',parent.project_template_id)]"/>
-                                <field name="dependency_type"/>
+                                <field
+                                            name="predecessor_task_id"
+                                            domain="[('project_template_id','=',parent.project_template_id)]"
+                                        />
+                                <field name="dependency_type" />
                             </tree>
                         </field>
                     </group>
                     <group name="dependency_2" string="Sucessor" colspan="4" col="2">
                         <field name="sucessor_ids" colspan="2" nolabel="1">
                             <tree editable="top">
-                                <field name="task_id" domain="[('project_template_id','=',parent.project_template_id)]" string="Sucessor Task"/>
-                                <field name="dependency_type"/>
+                                <field
+                                            name="task_id"
+                                            domain="[('project_template_id','=',parent.project_template_id)]"
+                                            string="Sucessor Task"
+                                        />
+                                <field name="dependency_type" />
                             </tree>
                         </field>
                     </group>

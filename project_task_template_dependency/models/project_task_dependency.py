@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, models, fields, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -39,5 +39,4 @@ class ProjectTaskTemplateDependency(models.Model):
     )
     def check_no_same_task(self):
         if self.task_id == self.predecessor_task_id:
-            raise UserError(
-                _("You can not select itself for predecessor/sucessor"))
+            raise UserError(_("You can not select itself for predecessor/sucessor"))

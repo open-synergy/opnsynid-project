@@ -2,10 +2,12 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime
-from openerp import api, models, fields
-from pytz import timezone
 import logging
+from datetime import datetime
+
+from openerp import api, fields, models
+from pytz import timezone
+
 _logger = logging.getLogger(__name__)
 
 try:
@@ -20,12 +22,14 @@ class ProjectTask(models.Model):
     @api.multi
     @api.depends(
         "start_schedule_base_on",
-        "baseline_start_task_id", "baseline_start_project_id",
+        "baseline_start_task_id",
+        "baseline_start_project_id",
         "baseline_start_task_id.baseline_start",
         "baseline_start_task_id.baseline_finish",
         "baseline_start_project_id.baseline_start",
         "baseline_start_project_id.baseline_finish",
-        "start_offset_uom_id", "start_offset",
+        "start_offset_uom_id",
+        "start_offset",
         "manual_baseline_start",
         "project_id",
         "project_id.project_timezone",
@@ -42,25 +46,32 @@ class ProjectTask(models.Model):
             if task.start_schedule_base_on == "manual":
                 baseline_start = task.manual_baseline_start
             elif task.start_schedule_base_on == "project_start":
-                baseline_start = task.baseline_start_project_id and \
-                    task.baseline_start_project_id.baseline_start or \
-                    False
+                baseline_start = (
+                    task.baseline_start_project_id
+                    and task.baseline_start_project_id.baseline_start
+                    or False
+                )
             elif task.start_schedule_base_on == "project_finish":
-                baseline_start = task.baseline_start_project_id and \
-                    task.baseline_start_project_id.baseline_finish or \
-                    False
+                baseline_start = (
+                    task.baseline_start_project_id
+                    and task.baseline_start_project_id.baseline_finish
+                    or False
+                )
             elif task.start_schedule_base_on == "task_start":
-                baseline_start = task.baseline_start_task_id and \
-                    task.baseline_start_task_id.baseline_start or \
-                    False
+                baseline_start = (
+                    task.baseline_start_task_id
+                    and task.baseline_start_task_id.baseline_start
+                    or False
+                )
             elif task.start_schedule_base_on == "task_finish":
-                baseline_start = task.baseline_start_task_id and \
-                    task.baseline_start_task_id.baseline_finish or \
-                    False
+                baseline_start = (
+                    task.baseline_start_task_id
+                    and task.baseline_start_task_id.baseline_finish
+                    or False
+                )
 
             if baseline_start:
-                dt_base_start = datetime.strptime(
-                    baseline_start, "%Y-%m-%d %H:%M:%S")
+                dt_base_start = datetime.strptime(baseline_start, "%Y-%m-%d %H:%M:%S")
                 dt_base_start = timezone("UTC").localize(dt_base_start)
                 dt_base_start = dt_base_start.astimezone(timezone(tz))
                 dt_base_start = pd.Timestamp(dt_base_start)
@@ -77,12 +88,13 @@ class ProjectTask(models.Model):
                     )
                     start_offset_hours = int(start_offset)
                     if abs(start_offset % 1.0) > 0:
-                        start_offset_minutes = abs(
-                            int((start_offset % 1.0) * 60))
+                        start_offset_minutes = abs(int((start_offset % 1.0) * 60))
 
-                dt_start = dt_base_start + \
-                    pd.tseries.offsets.BusinessHour(start_offset_hours) + \
-                    pd.tseries.offsets.Minute(start_offset_minutes)
+                dt_start = (
+                    dt_base_start
+                    + pd.tseries.offsets.BusinessHour(start_offset_hours)
+                    + pd.tseries.offsets.Minute(start_offset_minutes)
+                )
                 dt_start = dt_start.to_pydatetime()
                 dt_start = dt_start.astimezone(timezone("UTC"))
                 baseline_start = dt_start.strftime("%Y-%m-%d %H:%M:%S")
@@ -92,12 +104,14 @@ class ProjectTask(models.Model):
     @api.multi
     @api.depends(
         "finish_schedule_base_on",
-        "baseline_finish_task_id", "baseline_finish_project_id",
+        "baseline_finish_task_id",
+        "baseline_finish_project_id",
         "baseline_finish_task_id.baseline_start",
         "baseline_finish_task_id.baseline_finish",
         "baseline_finish_project_id.baseline_start",
         "baseline_finish_project_id.baseline_finish",
-        "finish_offset_uom_id", "finish_offset",
+        "finish_offset_uom_id",
+        "finish_offset",
         "manual_baseline_finish",
         "project_id",
         "project_id.project_timezone",
@@ -114,26 +128,33 @@ class ProjectTask(models.Model):
             if task.finish_schedule_base_on == "manual":
                 baseline_finish = task.manual_baseline_finish
             elif task.finish_schedule_base_on == "project_start":
-                baseline_finish = task.baseline_finish_project_id and \
-                    task.baseline_finish_project_id.baseline_start or \
-                    False
+                baseline_finish = (
+                    task.baseline_finish_project_id
+                    and task.baseline_finish_project_id.baseline_start
+                    or False
+                )
             elif task.finish_schedule_base_on == "project_finish":
-                baseline_finish = task.baseline_finish_project_id and \
-                    task.baseline_finish_project_id.baseline_finish or \
-                    False
+                baseline_finish = (
+                    task.baseline_finish_project_id
+                    and task.baseline_finish_project_id.baseline_finish
+                    or False
+                )
             elif task.finish_schedule_base_on == "task_start":
-                baseline_finish = task.baseline_finish_task_id and \
-                    task.baseline_finish_task_id.baseline_start or \
-                    False
+                baseline_finish = (
+                    task.baseline_finish_task_id
+                    and task.baseline_finish_task_id.baseline_start
+                    or False
+                )
             elif task.finish_schedule_base_on == "task_finish":
-                baseline_finish = task.baseline_finish_task_id and \
-                    task.baseline_finish_task_id.baseline_finish or \
-                    False
+                baseline_finish = (
+                    task.baseline_finish_task_id
+                    and task.baseline_finish_task_id.baseline_finish
+                    or False
+                )
 
             if baseline_finish:
 
-                dt_base_finish = datetime.strptime(
-                    baseline_finish, "%Y-%m-%d %H:%M:%S")
+                dt_base_finish = datetime.strptime(baseline_finish, "%Y-%m-%d %H:%M:%S")
                 dt_base_finish = timezone("UTC").localize(dt_base_finish)
                 dt_base_finish = dt_base_finish.astimezone(timezone(tz))
                 dt_base_finish = pd.Timestamp(dt_base_finish)
@@ -150,12 +171,13 @@ class ProjectTask(models.Model):
                     )
                     finish_offset_hours = int(finish_offset)
                     if abs(finish_offset % 1.0) > 0:
-                        finish_offset_minutes = abs(
-                            int((finish_offset % 1.0) * 60))
+                        finish_offset_minutes = abs(int((finish_offset % 1.0) * 60))
 
-                dt_finish = dt_base_finish + \
-                    pd.tseries.offsets.BusinessHour(finish_offset_hours) + \
-                    pd.tseries.offsets.Minute(finish_offset_minutes)
+                dt_finish = (
+                    dt_base_finish
+                    + pd.tseries.offsets.BusinessHour(finish_offset_hours)
+                    + pd.tseries.offsets.Minute(finish_offset_minutes)
+                )
                 dt_finish = dt_finish.to_pydatetime()
                 dt_finish = dt_finish.astimezone(timezone("UTC"))
                 baseline_finish = dt_finish.strftime("%Y-%m-%d %H:%M:%S")

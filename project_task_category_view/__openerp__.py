@@ -10,10 +10,6 @@
     "category": "Project Management",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "project_task_category"
-    ],
-    "data": [
-        "views/project_category_main_views.xml"
-    ],
+    "depends": ["project_task_category"],
+    "data": ["views/project_category_main_views.xml"],
 }
