@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2021 PT. Simetri Sinergi Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0) -->
 <openerp>
@@ -6,13 +6,16 @@
         <record id="project_template_view_form" model="ir.ui.view">
             <field name="name">project.template.custome.info.form</field>
             <field name="model">project.template</field>
-            <field name="inherit_id" ref="project_task_template.project_template_view_form"/>
+            <field
+                name="inherit_id"
+                ref="project_task_template.project_template_view_form"
+            />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='project_parent_id']" position="after">
                     <field
-                                name="project_custom_info_template_id"
-                                domain="[('model','=','project.project')]"
-                            />
+                        name="project_custom_info_template_id"
+                        domain="[('model','=','project.project')]"
+                    />
                 </xpath>
             </field>
         </record>

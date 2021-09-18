@@ -1,35 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 <data>
 
 <record id="project_project_view_form" model="ir.ui.view">
     <field name="name">project.project form</field>
     <field name="model">project.project</field>
-    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="inherit_id" ref="project.edit_project" />
     <field name="arch" type="xml">
         <data>
             <xpath expr="//notebook" position="inside">
                 <page name="accrue" string="Accrue Income &amp; Expense">
-                    <group name="accrue_income" string="Accrue Income" colspan="4" col="2">
+                    <group
+                                name="accrue_income"
+                                string="Accrue Income"
+                                colspan="4"
+                                col="2"
+                            >
                         <group name="accrue_income_1" colspan="1" col="2">
-                            <field name="accrue_income_ok"/>
-                            <field name="accrue_income_journal_policy_id" string="Journal Policy"/>
-                            <field name="accrue_income_debit_account_policy_id" string="Debit Account Policy"/>
-                            <field name="accrue_income_credit_account_policy_id" string="Credit Account Policy"/>
-                            <field name="accrue_income_qty_policy_id" string="Qty. Policy"/>
-                            <field name="accrue_income_price_policy_id" string="Price Unit Policy"/>
+                            <field name="accrue_income_ok" />
+                            <field
+                                        name="accrue_income_journal_policy_id"
+                                        string="Journal Policy"
+                                    />
+                            <field
+                                        name="accrue_income_debit_account_policy_id"
+                                        string="Debit Account Policy"
+                                    />
+                            <field
+                                        name="accrue_income_credit_account_policy_id"
+                                        string="Credit Account Policy"
+                                    />
+                            <field
+                                        name="accrue_income_qty_policy_id"
+                                        string="Qty. Policy"
+                                    />
+                            <field
+                                        name="accrue_income_price_policy_id"
+                                        string="Price Unit Policy"
+                                    />
                         </group>
                         <group name="accrue_income_2" colspan="1" col="2">
                         </group>
                     </group>
-                    <group name="accrue_expense" string="Accrue Expense" colspan="4" col="2">
+                    <group
+                                name="accrue_expense"
+                                string="Accrue Expense"
+                                colspan="4"
+                                col="2"
+                            >
                         <group name="accrue_expense_1" colspan="1" col="2">
-                            <field name="accrue_expense_ok"/>
-                            <field name="accrue_expense_journal_policy_id" string="Journal Policy"/>
-                            <field name="accrue_expense_debit_account_policy_id" string="Debit Account Policy"/>
-                            <field name="accrue_expense_credit_account_policy_id" string="Credit Account Policy"/>
-                            <field name="accrue_expense_qty_policy_id" string="Qty. Policy"/>
-                            <field name="accrue_expense_price_policy_id" string="Price Unit Policy"/>
+                            <field name="accrue_expense_ok" />
+                            <field
+                                        name="accrue_expense_journal_policy_id"
+                                        string="Journal Policy"
+                                    />
+                            <field
+                                        name="accrue_expense_debit_account_policy_id"
+                                        string="Debit Account Policy"
+                                    />
+                            <field
+                                        name="accrue_expense_credit_account_policy_id"
+                                        string="Credit Account Policy"
+                                    />
+                            <field
+                                        name="accrue_expense_qty_policy_id"
+                                        string="Qty. Policy"
+                                    />
+                            <field
+                                        name="accrue_expense_price_policy_id"
+                                        string="Price Unit Policy"
+                                    />
                         </group>
                         <group name="accrue_exxpense_2" colspan="1" col="2">
                         </group>

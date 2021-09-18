@@ -14,13 +14,11 @@ class ProjectTask(models.Model):
         project_id = vals.get("project_id", False)
 
         if project_id:
-            criteria = [
-                ("id", "=", project_id)
-            ]
+            criteria = [("id", "=", project_id)]
             project = obj_project.search(criteria)
             if project.task_sequence_id:
-                sequence = self.env["ir.sequence"].\
-                    next_by_id(
-                        project.task_sequence_id.id)
+                sequence = self.env["ir.sequence"].next_by_id(
+                    project.task_sequence_id.id
+                )
                 vals["code"] = sequence
         return super(ProjectTask, self).create(vals)

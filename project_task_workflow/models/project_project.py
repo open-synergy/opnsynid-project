@@ -2,7 +2,7 @@
 # Copyright 2020 OpenSynergy Indonesia
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -36,5 +36,6 @@ class ProjectProject(models.Model):
         self.project_stage_no_restrict_group_ids = False
         if self.project_template_id:
             project_template_id = self.project_template_id
-            self.project_stage_no_restrict_group_ids =\
+            self.project_stage_no_restrict_group_ids = (
                 project_template_id.template_stage_no_restrict_group_ids.ids
+            )

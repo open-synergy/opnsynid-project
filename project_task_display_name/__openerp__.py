@@ -8,9 +8,6 @@
     "author": "PT. Simetri Sinergi Indonesia, OpenSynergy Indonesia",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "project_task_code"
-    ],
-    "data": [
-    ],
+    "depends": ["project_task_code"],
+    "data": [],
 }

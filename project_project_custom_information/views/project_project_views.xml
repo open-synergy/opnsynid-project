@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2021 PT. Simetri Sinergi Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0) -->
 <openerp>
@@ -6,7 +6,7 @@
         <record id="project_project_form_views" model="ir.ui.view">
             <field name="name">project.project.policy.form</field>
             <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="inherit_id" ref="project.edit_project" />
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//notebook" position="inside">
@@ -15,21 +15,21 @@
                                 <label for="custom_info_template_id" />
                                 <div>
                                     <field
-                                                name="custom_info_template_id"
-                                                options='{"no_quick_create": True}'
-                                            />
+                                        name="custom_info_template_id"
+                                        options='{"no_quick_create": True}'
+                                    />
                                 </div>
                                 <field
-                                            name="custom_info_ids"
-                                            colspan="4"
-                                            nolabel="1"
-                                            context="{'embed': True, 'tree_view_ref': 'base_custom_information.custom_info_value_tree_editable'}"
-                                        />
+                                    name="custom_info_ids"
+                                    colspan="4"
+                                    nolabel="1"
+                                    context="{'embed': True, 'tree_view_ref': 'base_custom_information.custom_info_value_tree_editable'}"
+                                />
                                 <button
-                                            name="button_update_info"
-                                            type="object"
-                                            string="Update"
-                                        />
+                                    name="button_update_info"
+                                    type="object"
+                                    string="Update"
+                                />
                             </group>
                         </page>
                     </xpath>

@@ -3,7 +3,7 @@
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -22,7 +22,7 @@ class ProjectProject(models.Model):
         obj_task = self.env["project.task"]
         criteria = [
             ("project_id", "=", self.id),
-            ("task_template_id", "=", task_template.id)
+            ("task_template_id", "=", task_template.id),
         ]
         tasks = obj_task.search(criteria)
         if len(tasks) > 0:
@@ -55,9 +55,6 @@ class ProjectProject(models.Model):
     def _unlink_task_with_template(self):
         self.ensure_one()
         obj_task = self.env["project.task"]
-        criteria = [
-            ("project_id", "=", self.id),
-            ("task_template_id", "!=", False)
-        ]
+        criteria = [("project_id", "=", self.id), ("task_template_id", "!=", False)]
         tasks = obj_task.search(criteria)
         tasks.unlink()

@@ -11,9 +11,7 @@
     "category": "Project Management",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "project"
-    ],
+    "depends": ["project"],
     "data": [
         "security/ir.model.access.csv",
         "wizards/create_project_from_template.xml",

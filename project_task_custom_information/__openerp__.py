@@ -17,6 +17,6 @@
     ],
     "data": [
         "views/project_task_custom_information_views.xml",
-        "views/project_category_main_views.xml"
+        "views/project_category_main_views.xml",
     ],
 }
