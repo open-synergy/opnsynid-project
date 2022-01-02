@@ -43,6 +43,9 @@ class ProjectProject(models.Model):
         for task_template in self.project_template_id.task_template_ids:
             obj_task.create(task_template._prepare_task_data(self.id))
 
+        for task in self.tasks:
+            task.write(task._prepare_post_task_data())
+
     @api.multi
     def _check_template(self):
         self.ensure_one()
