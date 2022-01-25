@@ -5,7 +5,7 @@
 {
     "name": "Project Task Activity Dependency",
     "version": "8.0.1.0.0",
-    "website": "https://opensynergy-indonesia.com",
+    "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia",
     "category": "Project Management",
     "license": "AGPL-3",

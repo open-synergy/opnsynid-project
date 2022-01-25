@@ -5,7 +5,7 @@
 {
     "name": "Project Baseline",
     "version": "8.0.1.7.0",
-    "website": "https://opensynergy-indonesia.com",
+    "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia",
     "category": "Project Management",
     "license": "AGPL-3",
