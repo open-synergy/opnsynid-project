@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+<data>
+
+<record id="project_task_view_form" model="ir.ui.view">
+    <field name="name">project.task.working.time.form</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='planned_hours']" position="after">
+            <field
+                        name="review_planned_hours"
+                        widget="float_time"
+                        groups="project.group_time_work_estimation_tasks"
+                    />
+        </xpath>
+        <xpath expr="//field[@name='planned_hours']" position="attributes">
+            <attribute name="onchange">0</attribute>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
