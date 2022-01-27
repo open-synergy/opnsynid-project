@@ -192,7 +192,7 @@ msgid "Questions"
 msgstr ""
 
 #. module: project_task_quality_control
-#: code:addons/project_task_quality_control/models/project_task.py:59
+#: code:addons/project_task_quality_control/models/project_task.py:56
 #, python-format
 msgid "Report does not pass qc check"
 msgstr ""
