@@ -1,0 +1,506 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_accrue_income_expense
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "# Accounting Entry"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_move_id:0
+msgid "# Accrue Expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_move_id:0
+msgid "# Accrue Income"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:346
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:356
+#, python-format
+msgid "%s accrue expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:283
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:293
+#, python-format
+msgid "%s accrue income"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.ui.menu,name:project_task_accrue_income_expense.project_task_accrue_account_policy_menu
+msgid "Account Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.ui.menu,name:project_task_accrue_income_expense.project_task_accrue_configuration_menu
+msgid "Accrue Entry"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Accrue Expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_credit_account_id:0
+msgid "Accrue Expense Credit Account"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_expense_credit_account_policy_id:0
+#: field:project.task,accrue_expense_credit_account_policy_id:0
+msgid "Accrue Expense Credit Account Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_debit_account_id:0
+msgid "Accrue Expense Debit Account"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_expense_debit_account_policy_id:0
+#: field:project.task,accrue_expense_debit_account_policy_id:0
+msgid "Accrue Expense Debit Account Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_effective_date:0
+msgid "Accrue Expense Effective Date"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_journal_id:0
+msgid "Accrue Expense Journal"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_expense_journal_policy_id:0
+#: field:project.task,accrue_expense_journal_policy_id:0
+msgid "Accrue Expense Journal Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_expense_price_policy_id:0
+#: field:project.task,accrue_expense_price_policy_id:0
+msgid "Accrue Expense Price Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_price_unit:0
+msgid "Accrue Expense Price Unit"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_qty:0
+msgid "Accrue Expense Qty"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_expense_qty_policy_id:0
+#: field:project.task,accrue_expense_qty_policy_id:0
+msgid "Accrue Expense Qty Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_total:0
+msgid "Accrue Expense Total"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_expense_uom_id:0
+msgid "Accrue Expense UoM"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Accrue Income"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Accrue Income & Expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_credit_account_id:0
+msgid "Accrue Income Credit Account"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_income_credit_account_policy_id:0
+#: field:project.task,accrue_income_credit_account_policy_id:0
+msgid "Accrue Income Credit Account Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_debit_account_id:0
+msgid "Accrue Income Debit Account"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_income_debit_account_policy_id:0
+#: field:project.task,accrue_income_debit_account_policy_id:0
+msgid "Accrue Income Debit Account Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_effective_date:0
+msgid "Accrue Income Effective Date"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_journal_id:0
+msgid "Accrue Income Journal"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_income_journal_policy_id:0
+#: field:project.task,accrue_income_journal_policy_id:0
+msgid "Accrue Income Journal Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_income_price_policy_id:0
+#: field:project.task,accrue_income_price_policy_id:0
+msgid "Accrue Income Price Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_price_unit:0
+msgid "Accrue Income Price Unit"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_qty:0
+msgid "Accrue Income Qty"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_income_qty_policy_id:0
+#: field:project.task,accrue_income_qty_policy_id:0
+msgid "Accrue Income Qty Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_total:0
+msgid "Accrue Income Total"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task,accrue_income_uom_id:0
+msgid "Accrue Income UoM"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,active:0
+#: field:project.task_accrue_journal_policy,active:0
+#: field:project.task_accrue_price_policy,active:0
+#: field:project.task_accrue_qty_policy,active:0
+msgid "Active"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_expense_ok:0
+#: field:project.task,accrue_expense_ok:0
+msgid "Can Generate Accrue Expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.project,accrue_income_ok:0
+#: field:project.task,accrue_income_ok:0
+msgid "Can Generate Accrue Income"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,code:0
+#: field:project.task_accrue_journal_policy,code:0
+#: field:project.task_accrue_price_policy,code:0
+#: field:project.task_accrue_qty_policy,code:0
+msgid "Code"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,computation_method:0
+#: field:project.task_accrue_journal_policy,computation_method:0
+#: field:project.task_accrue_price_policy,computation_method:0
+#: field:project.task_accrue_qty_policy,computation_method:0
+msgid "Computation Method"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Create Accrue Expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Create Accrue Income"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,create_uid:0
+#: field:project.task_accrue_journal_policy,create_uid:0
+#: field:project.task_accrue_price_policy,create_uid:0
+#: field:project.task_accrue_qty_policy,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,create_date:0
+#: field:project.task_accrue_journal_policy,create_date:0
+#: field:project.task_accrue_price_policy,create_date:0
+#: field:project.task_accrue_qty_policy,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Credit Account"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Credit Account Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Debit Account"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Debit Account Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Delete Accrue Expense"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Delete Accrue Income"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,display_name:0
+#: field:project.task_accrue_journal_policy,display_name:0
+#: field:project.task_accrue_price_policy,display_name:0
+#: field:project.task_accrue_qty_policy,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Effective Date"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,id:0
+#: field:project.task_accrue_journal_policy,id:0
+#: field:project.task_accrue_price_policy,id:0
+#: field:project.task_accrue_qty_policy,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Journal"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.ui.menu,name:project_task_accrue_income_expense.project_task_accrue_journal_policy_menu
+msgid "Journal Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Journal Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,__last_update:0
+#: field:project.task_accrue_journal_policy,__last_update:0
+#: field:project.task_accrue_price_policy,__last_update:0
+#: field:project.task_accrue_qty_policy,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,write_uid:0
+#: field:project.task_accrue_journal_policy,write_uid:0
+#: field:project.task_accrue_price_policy,write_uid:0
+#: field:project.task_accrue_qty_policy,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,write_date:0
+#: field:project.task_accrue_journal_policy,write_date:0
+#: field:project.task_accrue_price_policy,write_date:0
+#: field:project.task_accrue_qty_policy,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:376
+#, python-format
+msgid "No accrue expense credit account defined"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:367
+#, python-format
+msgid "No accrue expense debit account defined"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:338
+#, python-format
+msgid "No accrue expense journal defined"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:313
+#, python-format
+msgid "No accrue income credit account defined"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:304
+#, python-format
+msgid "No accrue income debit account defined"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: code:addons/project_task_accrue_income_expense/models/project_task.py:275
+#, python-format
+msgid "No accrue income journal defined"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task_accrue_account_policy:project_task_accrue_income_expense.project_task_accrue_account_policy_view_form
+#: field:project.task_accrue_account_policy,note:0
+#: view:project.task_accrue_journal_policy:project_task_accrue_income_expense.project_task_accrue_journal_policy_view_form
+#: field:project.task_accrue_journal_policy,note:0
+#: view:project.task_accrue_price_policy:project_task_accrue_income_expense.project_task_accrue_price_policy_view_form
+#: field:project.task_accrue_price_policy,note:0
+#: view:project.task_accrue_qty_policy:project_task_accrue_income_expense.project_task_accrue_qty_policy_view_form
+#: field:project.task_accrue_qty_policy,note:0
+msgid "Note"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: field:project.task_accrue_account_policy,name:0
+#: field:project.task_accrue_journal_policy,name:0
+#: field:project.task_accrue_price_policy,name:0
+#: field:project.task_accrue_qty_policy,name:0
+msgid "Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.ui.menu,name:project_task_accrue_income_expense.project_task_accrue_price_policy_menu
+msgid "Price Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Price Unit"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Price Unit Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.model,name:project_task_accrue_income_expense.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task_accrue_account_policy:project_task_accrue_income_expense.project_task_accrue_account_policy_view_form
+#: selection:project.task_accrue_account_policy,computation_method:0
+#: field:project.task_accrue_account_policy,python_code:0
+#: view:project.task_accrue_journal_policy:project_task_accrue_income_expense.project_task_accrue_journal_policy_view_form
+#: selection:project.task_accrue_journal_policy,computation_method:0
+#: field:project.task_accrue_journal_policy,python_code:0
+#: view:project.task_accrue_price_policy:project_task_accrue_income_expense.project_task_accrue_price_policy_view_form
+#: selection:project.task_accrue_price_policy,computation_method:0
+#: field:project.task_accrue_price_policy,python_code:0
+#: view:project.task_accrue_qty_policy:project_task_accrue_income_expense.project_task_accrue_qty_policy_view_form
+#: selection:project.task_accrue_qty_policy,computation_method:0
+#: field:project.task_accrue_qty_policy,python_code:0
+msgid "Python Code"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Qty"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.ui.menu,name:project_task_accrue_income_expense.project_task_accrue_qty_policy_menu
+msgid "Qty Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.project:project_task_accrue_income_expense.project_project_view_form
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Qty. Policy"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.model,name:project_task_accrue_income_expense.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.actions.act_window,name:project_task_accrue_income_expense.project_task_accrue_account_policy_action
+msgid "Task Accrue Account Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.actions.act_window,name:project_task_accrue_income_expense.project_task_accrue_journal_policy_action
+msgid "Task Accrue Journal Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.actions.act_window,name:project_task_accrue_income_expense.project_task_accrue_price_policy_action
+msgid "Task Accrue Price Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: model:ir.actions.act_window,name:project_task_accrue_income_expense.project_task_accrue_qty_policy_action
+msgid "Task Accrue Qty Policies"
+msgstr ""
+
+#. module: project_task_accrue_income_expense
+#: view:project.task:project_task_accrue_income_expense.projecttask_view_form
+msgid "Total"
+msgstr ""
+
