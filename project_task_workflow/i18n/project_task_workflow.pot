@@ -35,26 +35,6 @@ msgid "Email Thread"
 msgstr ""
 
 #. module: project_task_workflow
-#: field:project.project,amount_invoiced:0
-msgid "Invoiced Amount"
-msgstr ""
-
-#. module: project_task_workflow
-#: help:project.project,amount_max:0
-msgid "Keep empty if this contract is not limited to a total fixed price."
-msgstr ""
-
-#. module: project_task_workflow
-#: field:project.project,amount_max:0
-msgid "Max. Invoice Price"
-msgstr ""
-
-#. module: project_task_workflow
-#: field:project.project,pricelist_id:0
-msgid "Pricelist"
-msgstr ""
-
-#. module: project_task_workflow
 #: model:ir.model,name:project_task_workflow.model_project_project
 msgid "Project"
 msgstr ""
@@ -73,25 +53,5 @@ msgstr ""
 #. module: project_task_workflow
 #: model:ir.model,name:project_task_workflow.model_project_task_type
 msgid "Task Stage"
-msgstr ""
-
-#. module: project_task_workflow
-#: help:project.project,pricelist_id:0
-msgid "The product to invoice is defined on the employee form, the price will be deducted by this pricelist on the product."
-msgstr ""
-
-#. module: project_task_workflow
-#: field:project.project,to_invoice:0
-msgid "Timesheet Invoicing Ratio"
-msgstr ""
-
-#. module: project_task_workflow
-#: help:project.project,amount_invoiced:0
-msgid "Total invoiced"
-msgstr ""
-
-#. module: project_task_workflow
-#: help:project.project,to_invoice:0
-msgid "You usually invoice 100% of the timesheets. But if you mix fixed price and timesheet invoicing, you may use another ratio. For instance, if you do a 20% advance invoice (fixed price, based on a sales order), you should invoice the rest on timesheet with a 80% ratio."
 msgstr ""
 
