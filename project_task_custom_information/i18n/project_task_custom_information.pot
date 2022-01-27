@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_custom_information
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_custom_information
+#: model:ir.model,name:project_task_custom_information.model_project_category_main
+msgid "Category of project's task, issue, ..."
+msgstr ""
+
+#. module: project_task_custom_information
+#: field:project.category.main,category_custom_info_template_id:0
+msgid "Custom Info Template"
+msgstr ""
+
+#. module: project_task_custom_information
+#: view:project.task:project_task_custom_information.project_task_custom_information_view_form
+msgid "Custom Information"
+msgstr ""
+
+#. module: project_task_custom_information
+#: field:project.task,custom_info_template_id:0
+msgid "Custom Information Template"
+msgstr ""
+
+#. module: project_task_custom_information
+#: field:project.task,custom_info_ids:0
+msgid "Custom Properties"
+msgstr ""
+
+#. module: project_task_custom_information
+#: model:ir.model,name:project_task_custom_information.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_task_custom_information
+#: view:project.task:project_task_custom_information.project_task_custom_information_view_form
+msgid "Update"
+msgstr ""
+
