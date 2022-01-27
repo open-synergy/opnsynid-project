@@ -116,7 +116,7 @@ msgid "Task"
 msgstr ""
 
 #. module: project_task_template_dependency
-#: code:addons/project_task_template_dependency/models/project_task_dependency.py:43
+#: code:addons/project_task_template_dependency/models/project_task_dependency.py:42
 #, python-format
 msgid "You can not select itself for predecessor/sucessor"
 msgstr ""
