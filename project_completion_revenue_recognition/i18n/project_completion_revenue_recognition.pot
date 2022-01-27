@@ -1,0 +1,227 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_completion_revenue_recognition
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_completion_revenue_recognition
+#: view:project.project:project_completion_revenue_recognition.project_project_view_form
+msgid "# Accounting Entry"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.template,allowed_billing_cip_account_ids:0
+msgid "Allowed Billing CIP Accounts"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.template,allowed_cip_account_ids:0
+msgid "Allowed CIP Accounts"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: view:project.project:project_completion_revenue_recognition.project_project_view_form
+msgid "Billing CIP Move Lines"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.revenue_account_mapping,billing_cip_account_id:0
+#: field:project.template_revenue_account_mapping,billing_cip_account_id:0
+msgid "Billing on CIP Account"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,billing_cip_account_move_line_ids:0
+msgid "Billing on CIP Journal Item"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,cip_account_id:0
+#: field:project.template_cost_account_mapping,cip_account_id:0
+msgid "CIP Account"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,cip_account_move_line_ids:0
+msgid "CIP Journal Item"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: view:project.project:project_completion_revenue_recognition.project_project_view_form
+msgid "CIP Move Lines"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,cost_account_id:0
+#: field:project.template_cost_account_mapping,cost_account_id:0
+msgid "Cost Account"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,cost_account_mapping_ids:0
+#: view:project.template:project_completion_revenue_recognition.project_template_view_form
+#: field:project.template,cost_account_mapping_ids:0
+msgid "Cost Account Mapping"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,create_uid:0
+#: field:project.revenue_account_mapping,create_uid:0
+#: field:project.template_cost_account_mapping,create_uid:0
+#: field:project.template_revenue_account_mapping,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,create_date:0
+#: field:project.revenue_account_mapping,create_date:0
+#: field:project.template_cost_account_mapping,create_date:0
+#: field:project.template_revenue_account_mapping,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: view:project.project:project_completion_revenue_recognition.project_project_view_form
+msgid "Date"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,display_name:0
+#: field:project.revenue_account_mapping,display_name:0
+#: field:project.template_cost_account_mapping,display_name:0
+#: field:project.template_revenue_account_mapping,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: model:ir.model,name:project_completion_revenue_recognition.model_project_template
+msgid "Email Thread"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,id:0
+#: field:project.revenue_account_mapping,id:0
+#: field:project.template_cost_account_mapping,id:0
+#: field:project.template_revenue_account_mapping,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: view:project.project:project_completion_revenue_recognition.project_project_view_form
+msgid "Journal"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,__last_update:0
+#: field:project.revenue_account_mapping,__last_update:0
+#: field:project.template_cost_account_mapping,__last_update:0
+#: field:project.template_revenue_account_mapping,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,write_uid:0
+#: field:project.revenue_account_mapping,write_uid:0
+#: field:project.template_cost_account_mapping,write_uid:0
+#: field:project.template_revenue_account_mapping,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.cost_account_mapping,write_date:0
+#: field:project.revenue_account_mapping,write_date:0
+#: field:project.template_cost_account_mapping,write_date:0
+#: field:project.template_revenue_account_mapping,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:246
+#, python-format
+msgid "No expense account defined"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:129
+#, python-format
+msgid "No project completion journal defined"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:282
+#, python-format
+msgid "No revenue account defined"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: model:ir.model,name:project_completion_revenue_recognition.model_project_project
+#: field:project.cost_account_mapping,project_id:0
+#: field:project.revenue_account_mapping,project_id:0
+msgid "Project"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:177
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:193
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:210
+#: code:addons/project_completion_revenue_recognition/models/project_project.py:226
+#, python-format
+msgid "Project %s completion"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,project_completion_entry_id:0
+msgid "Project Completion Accounting Entry"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,project_completion_date:0
+msgid "Project Completion Date"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,project_completion_journal_id:0
+#: field:project.template,project_completion_journal_id:0
+msgid "Project Completion Journal"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: view:project.project:project_completion_revenue_recognition.project_project_view_form
+#: view:project.template:project_completion_revenue_recognition.project_template_view_form
+msgid "Project Completion Revenue Recognition"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.template_cost_account_mapping,project_template_id:0
+#: field:project.template_revenue_account_mapping,project_template_id:0
+msgid "Project Template"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,revenue_recognition_on_project_completion:0
+#: field:project.template,revenue_recognition_on_project_completion:0
+msgid "Recognize Project When Project Close"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.revenue_account_mapping,revenue_account_id:0
+#: field:project.template_revenue_account_mapping,revenue_account_id:0
+msgid "Revenue Account"
+msgstr ""
+
+#. module: project_completion_revenue_recognition
+#: field:project.project,revenue_account_mapping_ids:0
+#: view:project.template:project_completion_revenue_recognition.project_template_view_form
+#: field:project.template,revenue_account_mapping_ids:0
+msgid "Revenue Account Mapping"
+msgstr ""
+
