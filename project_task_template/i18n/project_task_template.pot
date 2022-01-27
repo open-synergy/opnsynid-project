@@ -181,7 +181,7 @@ msgid "Messages and communication history"
 msgstr ""
 
 #. module: project_task_template
-#: code:addons/project_task_template/models/project_project.py:47
+#: code:addons/project_task_template/models/project_project.py:52
 #, python-format
 msgid "No project template defined"
 msgstr ""
