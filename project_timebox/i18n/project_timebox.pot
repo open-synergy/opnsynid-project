@@ -1,0 +1,314 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_timebox
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_timebox
+#: field:project.timebox,active:0
+msgid "Active"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,code:0
+msgid "Code"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,date_start:0
+msgid "Date Start"
+msgstr ""
+
+#. module: project_timebox
+#: code:addons/project_timebox/models/project_timebox.py:129
+#, python-format
+msgid "Date Start Cannot Overlap"
+msgstr ""
+
+#. module: project_timebox
+#: code:addons/project_timebox/models/project_timebox.py:120
+#, python-format
+msgid "Date Start Must less Than Date Stop"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,date_stop:0
+msgid "Date Stop"
+msgstr ""
+
+#. module: project_timebox
+#: code:addons/project_timebox/models/project_timebox.py:146
+#, python-format
+msgid "Date Stop Cannot Overlap"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_timebox
+#: selection:project.timebox,state:0
+msgid "Done"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Finish"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Finish Timebox. Are you sure?"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_form
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Initial Timebox"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Initial Timebox Date Stop by Day"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Initial Timebox Date Stop by Month"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Initial Timebox Date Stop by Week"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Initial Timebox Date Stop by Year"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_date_stop:0
+msgid "Lates Timebox Date Stop"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_form
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Latest Timebox"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_date_start:0
+msgid "Latest Timebox Date Start"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_latest_id:0
+msgid "Letest Timebox"
+msgstr ""
+
+#. module: project_timebox
+#: selection:project.timebox,state:0
+msgid "New"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+#: field:project.timebox,note:0
+msgid "Note"
+msgstr ""
+
+#. module: project_timebox
+#: selection:project.timebox,state:0
+msgid "On Progress"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+#: field:project.task,on_running_timebox:0
+msgid "On Running Timebox"
+msgstr ""
+
+#. module: project_timebox
+#: code:addons/project_timebox/models/project_timebox.py:108
+#, python-format
+msgid "Only 1 timebox can be opened"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Restart"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Restart Timebox. Are you sure?"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Start"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Start Timebox. Are you sure?"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.timebox,state:0
+msgid "State"
+msgstr ""
+
+#. module: project_timebox
+#: model:ir.model,name:project_timebox.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.timebox:project_timebox.project_timebox_view_form
+msgid "Tasks"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_form
+#: field:project.timebox,name:0
+msgid "Timebox"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_form
+msgid "Timebox Date Start"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_form
+msgid "Timebox Date Stop"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Timebox Date Stop by Day"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Timebox Date Stop by Month"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Timebox Date Stop by Week"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Timebox Date Stop by Year"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_initial_id:0
+msgid "Timebox Initial"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_initial_date_start:0
+msgid "Timebox Initial Date Start"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_initial_date_stop:0
+msgid "Timebox Initial Date Stop"
+msgstr ""
+
+#. module: project_timebox
+#: model:ir.actions.act_window,name:project_timebox.project_timebox_action
+#: model:ir.ui.menu,name:project_timebox.project_timebox_menu
+#: field:project.task,timebox_ids:0
+#: field:project.timebox,task_ids:0
+msgid "Timeboxes"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_form
+#: view:project.task:project_timebox.project_task_view_search
+#: field:project.task,timebox_upcoming_id:0
+msgid "Upcoming Timebox"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_upcoming_date_start:0
+msgid "Upcoming Timebox Date Start"
+msgstr ""
+
+#. module: project_timebox
+#: field:project.task,timebox_upcoming_date_stop:0
+msgid "Upcoming Timebox Date Stop"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Upcoming Timebox Date Stop by Day"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Upcoming Timebox Date Stop by Month"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Upcoming Timebox Date Stop by Week"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "Upcoming Timebox Date Stop by Year"
+msgstr ""
+
+#. module: project_timebox
+#: view:project.task:project_timebox.project_task_view_search
+msgid "With Upcoming Timebox"
+msgstr ""
+
