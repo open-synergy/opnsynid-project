@@ -69,19 +69,19 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: project_task_activity_dependency
-#: code:addons/project_task_activity_dependency/models/project_task.py:42
+#: code:addons/project_task_activity_dependency/models/project_task.py:48
 #, python-format
 msgid "Please finish/cancel all predecessors with finish-to-finish dependency"
 msgstr ""
 
 #. module: project_task_activity_dependency
-#: code:addons/project_task_activity_dependency/models/project_task.py:33
+#: code:addons/project_task_activity_dependency/models/project_task.py:35
 #, python-format
 msgid "Please finish/cancel all predecessors with finish-to-start dependency"
 msgstr ""
 
 #. module: project_task_activity_dependency
-#: code:addons/project_task_activity_dependency/models/project_task.py:38
+#: code:addons/project_task_activity_dependency/models/project_task.py:42
 #, python-format
 msgid "Please start/finish/cancel all predecessors with start-to-finish dependency"
 msgstr ""
@@ -153,7 +153,7 @@ msgid "Task State"
 msgstr ""
 
 #. module: project_task_activity_dependency
-#: code:addons/project_task_activity_dependency/models/project_task_dependency.py:83
+#: code:addons/project_task_activity_dependency/models/project_task_dependency.py:82
 #, python-format
 msgid "You can not select itself for predecessor/sucessor"
 msgstr ""
