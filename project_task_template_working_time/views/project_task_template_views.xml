@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<openerp>
+<data>
+<record id="project_task_template_view_form" model="ir.ui.view">
+    <field name="name">project.task_template form</field>
+    <field name="model">project.task_template</field>
+    <field
+                name="inherit_id"
+                ref="project_task_template.project_task_template_view_form"
+            />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='planned_hours']" position="after">
+                <field name="review_planned_hours" widget="float_time" />
+            </xpath>
+        </data>
+    </field>
+</record>
+</data>
+</openerp>
