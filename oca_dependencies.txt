@@ -18,3 +18,4 @@ web https://github.com/OCA/web 8.0
 opnsynid-server-tools https://github.com/open-synergy/opnsynid-server-tools.git 8.0
 opnsynid-account-analytic https://github.com/open-synergy/opnsynid-account-analytic.git 8.0
 timesheet https://github.com/OCA/timesheet.git 8.0
+ssi-mixin https://github.com/open-synergy/ssi-mixin.git 8.0
