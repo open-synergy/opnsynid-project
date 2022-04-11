@@ -128,6 +128,11 @@ msgid "Cancelled By"
 msgstr ""
 
 #. module: project_assignment_letter
+#: help:project.project,use_timesheets:0
+msgid "Check this field if this project manages timesheets"
+msgstr ""
+
+#. module: project_assignment_letter
 #: view:project.assignment_letter:project_assignment_letter.project_assignment_letter_view_search
 #: field:project.assignment_letter,company_id:0
 msgid "Company"
@@ -438,6 +443,11 @@ msgstr ""
 #. module: project_assignment_letter
 #: field:project.project,to_invoice:0
 msgid "Timesheet Invoicing Ratio"
+msgstr ""
+
+#. module: project_assignment_letter
+#: field:project.project,use_timesheets:0
+msgid "Timesheets"
 msgstr ""
 
 #. module: project_assignment_letter
