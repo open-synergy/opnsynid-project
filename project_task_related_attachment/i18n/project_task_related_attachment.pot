@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_related_attachment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_related_attachment
+#: field:project.task,allowed_related_attachment_template_ids:0
+msgid "Allowed Related Attachment Template"
+msgstr ""
+
+#. module: project_task_related_attachment
+#: view:project.task:project_task_related_attachment.project_task_form_views
+msgid "Related Attachment"
+msgstr ""
+
+#. module: project_task_related_attachment
+#: field:project.task,related_attachment_template_id:0
+msgid "Related Attachment Template"
+msgstr ""
+
+#. module: project_task_related_attachment
+#: field:project.task,related_attachment_ids:0
+msgid "Related Attachments"
+msgstr ""
+
+#. module: project_task_related_attachment
+#: model:ir.model,name:project_task_related_attachment.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_task_related_attachment
+#: view:project.task:project_task_related_attachment.project_task_form_views
+msgid "Template"
+msgstr ""
+
