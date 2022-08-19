@@ -29,7 +29,7 @@ class ProjectTemplate(models.Model):
     )
     active = fields.Boolean(
         string="Active",
-        required=True,
+        required=False,
         default=True,
     )
     task_type_ids = fields.Many2many(
