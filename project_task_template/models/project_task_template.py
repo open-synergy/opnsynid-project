@@ -33,7 +33,7 @@ class ProjectTaskTemplate(models.Model):
     )
     active = fields.Boolean(
         string="Active",
-        required=True,
+        required=False,
         default=True,
     )
     sequence = fields.Integer(

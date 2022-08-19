@@ -5,7 +5,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Project Template",
-    "version": "8.0.1.3.2",
+    "version": "8.0.1.4.0",
     "website": "https://simetri-sinergi.id",
     "author": "PT. Simetri Sinergi Indonesia,OpenSynergy Indonesia",
     "category": "Project Management",
