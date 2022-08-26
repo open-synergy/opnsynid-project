@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+
+<record id="project_issue_view_form" model="ir.ui.view">
+    <field name="name">project.issue.mutiple.task.form</field>
+    <field name="model">project.issue</field>
+    <field
+                name="inherit_id"
+                ref="project_issue_multiple_task.project_issue_view_form"
+            />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='task_ids']" position="after">
+                <group name="task_1" colspan="4" col="2">
+                    <field name="task_count" />
+                    <field name="task_draft_count" />
+                    <field name="task_open_count" />
+                    <field name="task_done_count" />
+                    <field name="task_pending_count" />
+                    <field name="task_no_state_count" />
+                    <field name="task_done" />
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
