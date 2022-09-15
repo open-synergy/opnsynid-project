@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<odoo>
+<data>
+<record id="task_timebox_view_form" model="ir.ui.view">
+    <field name="name">task.timebox form</field>
+    <field name="model">task.timebox</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//header" position="inside">
+                <button
+                            name="action_open"
+                            type="object"
+                            string="Start"
+                            attrs="{'invisible':[('state','!=','new')]}"
+                            confirm="Start Timebox. Are you sure?"
+                        />
+                <button
+                            name="action_done"
+                            type="object"
+                            string="Finish"
+                            attrs="{'invisible':[('state','=','done')]}"
+                            confirm="Finish Timebox. Are you sure?"
+                        />
+                <button
+                            name="action_restart"
+                            type="object"
+                            string="Restart"
+                            class="oe_highlight"
+                            attrs="{'invisible':[('state','=','new')]}"
+                            confirm="Restart Timebox. Are you sure?"
+                        />
+                <field
+                            name="state"
+                            widget="statusbar"
+                            statusbar_visible="new,open,done"
+                        />
+            </xpath>
+            <xpath expr="//field[@name='active']" position="after">
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//page[@name='note']" position="before">
+                    <page name="task" string="Tasks">
+                        <field name="task_ids" />
+                    </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="task_timebox_view_tree" model="ir.ui.view">
+    <field name="name">task.timebox tree</field>
+    <field name="model">task.timebox</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="state" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="task_timebox_view_search" model="ir.ui.view">
+    <field name="name">task.timebox search</field>
+    <field name="model">task.timebox</field>
+    <field
+                name="inherit_id"
+                ref="ssi_master_data_mixin.mixin_master_data_view_search"
+            />
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="task_timebox_action" model="ir.actions.act_window">
+    <field name="name">Timeboxes</field>
+    <field name="res_model">task.timebox</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="task_timebox_view_search" />
+</record>
+
+<menuitem
+            id="task_timebox_menu"
+            name="Timeboxes"
+            parent="project.menu_project_config"
+            action="task_timebox_action"
+        />
+
+
+</data>
+</odoo>

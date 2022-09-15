@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 OpenSynergy Indonesia
+     Copyright 2020 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+<data>
+
+<record id="project_task_view_form" model="ir.ui.view">
+    <field name="name">project.task form</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='date_deadline']" position="after">
+            <field name="on_running_timebox" />
+            <field name="timebox_ids" widget="many2many_tags" />
+        </xpath>
+        <xpath expr="//notebook" position="inside">
+            <page name="timebox" string="Timebox">
+                <group name="timebox_1" colspan="4" col="2">
+                    <group
+                                name="timebox_1_1"
+                                string="Initial Timebox"
+                                colspan="1"
+                                col="2"
+                            >
+                        <field name="timebox_initial_id" string="Timebox" />
+                        <field
+                                    name="timebox_initial_date_start"
+                                    string="Timebox Date Start"
+                                />
+                        <field
+                                    name="timebox_initial_date_end"
+                                    string="Timebox Date Stop"
+                                />
+                    </group>
+                    <group
+                                name="timebox_1_2"
+                                string="Latest Timebox"
+                                colspan="1"
+                                col="2"
+                            >
+                        <field name="timebox_latest_id" string="Timebox" />
+                        <field name="timebox_date_start" string="Timebox Date Start" />
+                        <field name="timebox_date_end" string="Timebox Date Stop" />
+                    </group>
+                    <group
+                                name="timebox_1_3"
+                                string="Upcoming Timebox"
+                                colspan="1"
+                                col="2"
+                            >
+                        <field name="timebox_upcoming_id" string="Timebox" />
+                        <field
+                                    name="timebox_upcoming_date_start"
+                                    string="Timebox Date Start"
+                                />
+                        <field
+                                    name="timebox_upcoming_date_end"
+                                    string="Timebox Date Stop"
+                                />
+                    </group>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+<record id="project_task_view_search" model="ir.ui.view">
+    <field name="name">project.task search</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_search_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='stage_id']" position="after">
+            <field name="timebox_latest_id" />
+        </xpath>
+        <xpath expr="//group" position="before">
+            <filter
+                        name="on_running_timebox"
+                        string="On Running Timebox"
+                        domain="[('on_running_timebox','=',True)]"
+                    />
+            <filter
+                        name="upcoming_timebox"
+                        string="With Upcoming Timebox"
+                        domain="[('timebox_upcoming_id','!=',False)]"
+                    />
+        </xpath>
+        <xpath expr="//filter[@name='project']" position="before">
+            <filter
+                        string="Initial Timebox"
+                        name="filter_timebox_initial_id"
+                        context="{'group_by':'timebox_initial_id'}"
+                    />
+            <filter
+                        name="grp_timebox_initial_date_end_day"
+                        string="Initial Timebox Date Stop by Day"
+                        context="{'group_by':'timebox_initial_date_end:day'}"
+                    />
+            <filter
+                        name="grp_timebox_initial_date_end_week"
+                        string="Initial Timebox Date Stop by Week"
+                        context="{'group_by':'timebox_initial_date_end:week'}"
+                    />
+            <filter
+                        name="grp_timebox_initial_date_end_month"
+                        string="Initial Timebox Date Stop by Month"
+                        context="{'group_by':'timebox_initial_date_end:month'}"
+                    />
+            <filter
+                        name="grp_timebox_initial_date_end_year"
+                        string="Initial Timebox Date Stop by Year"
+                        context="{'group_by':'timebox_initial_date_end:year'}"
+                    />
+            <filter
+                        string="Upcoming Timebox"
+                        name="filter_timebox_upcoming_id"
+                        context="{'group_by':'timebox_upcoming_id'}"
+                    />
+            <filter
+                        name="grp_timebox_upcoming_date_end_day"
+                        string="Upcoming Timebox Date Stop by Day"
+                        context="{'group_by':'timebox_upcoming_date_end:day'}"
+                    />
+            <filter
+                        name="grp_timebox_upcoming_date_end_week"
+                        string="Upcoming Timebox Date Stop by Week"
+                        context="{'group_by':'timebox_upcoming_date_end:week'}"
+                    />
+            <filter
+                        name="grp_timebox_upcoming_date_end_month"
+                        string="Upcoming Timebox Date Stop by Month"
+                        context="{'group_by':'timebox_upcoming_date_end:month'}"
+                    />
+            <filter
+                        name="grp_timebox_upcoming_date_end_year"
+                        string="Upcoming Timebox Date Stop by Year"
+                        context="{'group_by':'timebox_upcoming_date_end:year'}"
+                    />
+            <filter
+                        string="Latest Timebox"
+                        name="filter_timebox_latest_id"
+                        context="{'group_by':'timebox_latest_id'}"
+                    />
+            <filter
+                        name="grp_timebox_date_end_day"
+                        string="Timebox Date Stop by Day"
+                        context="{'group_by':'timebox_date_end:day'}"
+                    />
+            <filter
+                        name="grp_timebox_date_end_week"
+                        string="Timebox Date Stop by Week"
+                        context="{'group_by':'timebox_date_end:week'}"
+                    />
+            <filter
+                        name="grp_timebox_date_end_month"
+                        string="Timebox Date Stop by Month"
+                        context="{'group_by':'timebox_date_end:month'}"
+                    />
+            <filter
+                        name="grp_timebox_date_end_year"
+                        string="Timebox Date Stop by Year"
+                        context="{'group_by':'timebox_date_end:year'}"
+                    />
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
