@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<record id="project_task_view_search" model="ir.ui.view">
+     <field name="name">project.task search</field>
+     <field name="model">project.task</field>
+     <field name="inherit_id" ref="project.view_task_search_form" />
+     <field name="mode">extension</field>
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//field[@name='name']" position="after">
+                    <field name="project_manager_id" />
+               </xpath>
+               <xpath expr="//filter[@name='stage']" position="after">
+                    <filter
+                        name="grp_project_manager_id"
+                        string="Type"
+                        context="{'group_by': 'project_manager_id'}"
+                    />
+               </xpath>
+          </data>
+     </field>
+</record>
+
+<record id="project_task_view_tree" model="ir.ui.view">
+     <field name="name">project.task tree</field>
+     <field name="model">project.task</field>
+     <field name="inherit_id" ref="project.view_task_tree2" />
+     <field name="mode">extension</field>
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="project_manager_id" />
+               </xpath>
+          </data>
+     </field>
+</record>
+
+<record id="project_task_view_form" model="ir.ui.view">
+     <field name="name">project.task form</field>
+     <field name="model">project.task</field>
+     <field name="inherit_id" ref="project.view_task_form2" />
+     <field name="mode">extension</field>
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//field[@name='project_id']" position="before">
+                    <field name="project_manager_id" />
+               </xpath>
+          </data>
+     </field>
+</record>
+</odoo>
