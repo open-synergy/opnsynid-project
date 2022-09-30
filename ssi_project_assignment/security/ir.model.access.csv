@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_role_all,project.role - all,model_project_role,,1,0,0,0
+access_project_role_configurator,project.role - configurator,model_project_role,,1,1,1,1
+access_project_assignment_all,project.assignment - all,model_project_assignment,,1,0,0,0
+access_project_assignment_viewer,project.assignment - viewer,model_project_assignment,project_assignment_viewer_group,1,0,0,0
+access_project_assignment_user,service.contract - user,model_project_assignment,project_assignment_user_group,1,1,1,1
