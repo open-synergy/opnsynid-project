@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<record id="project_module_category" model="ir.module.category">
+    <field name="name">Project</field>
+</record>
+
+<record id="project_workflow_module_category" model="ir.module.category">
+    <field name="name">Project - Workflow</field>
+    <field name="parent_id" ref="project_module_category" />
+</record>
+
+<record id="project_configurator_module_category" model="ir.module.category">
+    <field name="name">Project - Configurator</field>
+    <field name="parent_id" ref="project_module_category" />
+</record>
+
+<record id="project_wizard_module_category" model="ir.module.category">
+    <field name="name">Project - Wizard</field>
+    <field name="parent_id" ref="project_module_category" />
+</record>
+
+<record id="project_data_ownership_module_category" model="ir.module.category">
+    <field name="name">Project - Data Ownership</field>
+    <field name="parent_id" ref="project_module_category" />
+</record>
+</odoo>
