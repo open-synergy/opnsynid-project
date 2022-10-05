@@ -87,8 +87,10 @@
 <menuitem
             id="task_timebox_menu"
             name="Timeboxes"
-            parent="project.menu_project_config"
+            parent="ssi_project.menu_task_root_configuration"
             action="task_timebox_action"
+            groups="task_timebox_configurator_group"
+            sequence="10"
         />
 
 

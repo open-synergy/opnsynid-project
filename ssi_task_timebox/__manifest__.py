@@ -4,7 +4,7 @@
 
 {
     "name": "Task Timebox",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
@@ -15,6 +15,7 @@
         "ssi_duration_mixin",
     ],
     "data": [
+        "security/res_group_data.xml",
         "security/ir.model.access.csv",
         "views/task_timebox_views.xml",
         "views/project_task_views.xml",
