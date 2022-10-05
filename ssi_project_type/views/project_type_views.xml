@@ -54,7 +54,9 @@
     <menuitem
         id="menu_project_type"
         name="Types"
-        parent="project.menu_project_config"
+        parent="ssi_project.menu_project_root_configuration"
         action="project_type_action"
+        groups="project_type_configurator_group"
+        sequence="10"
     />
 </odoo>
