@@ -54,7 +54,8 @@
     <menuitem
         id="menu_project_role"
         name="Roles"
-        parent="project.menu_project_config"
+        parent="ssi_project.menu_project_root_configuration"
         action="project_role_action"
+        groups="project_role_configurator_group"
     />
 </odoo>
