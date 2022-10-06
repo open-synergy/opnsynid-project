@@ -46,15 +46,17 @@
     </record>
 
     <record id="task_type_action" model="ir.actions.act_window">
-          <field name="name">Types</field>
+          <field name="name">Task Types</field>
           <field name="res_model">task.type</field>
           <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem
         id="menu_task_type"
-        name="Task Types"
-        parent="project.menu_project_config"
+        name="Types"
+        parent="ssi_project.menu_task_root_configuration"
         action="task_type_action"
+        groups="task_type_configurator_group"
+        sequence="10"
     />
 </odoo>
