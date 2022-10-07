@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<record id="demo_project_role1" model="project.role">
+    <field name="name">Senior Consultant - (test)</field>
+    <field name="code">X001</field>
+</record>
+
+<record id="demo_project_role2" model="project.role">
+    <field name="name">Junior Consultant - (test)</field>
+    <field name="code">X002</field>
+</record>
+
+<record id="demo_project_role3" model="project.role">
+    <field name="name">QA Officer - (test)</field>
+    <field name="code">X003</field>
+</record>
+
+<record id="demo_project_role4" model="project.role">
+    <field name="name">Administration - (test)</field>
+    <field name="code">X004</field>
+</record>
+
+
+</odoo>

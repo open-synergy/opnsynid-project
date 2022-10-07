@@ -4,7 +4,7 @@
 
 {
     "name": "Project Assignment",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.2.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
@@ -28,9 +28,12 @@
         "data/ir_sequence_data.xml",
         "data/sequence_template_data.xml",
         "data/policy_template_data.xml",
+        "views/project_project_views.xml",
         "views/project_role_views.xml",
         "views/project_assignment_views.xml",
         "views/project_project_views.xml",
     ],
-    "demo": [],
+    "demo": [
+        "demo/project_role_demo.xml",
+    ],
 }
