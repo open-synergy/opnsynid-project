@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<menuitem
+        action="project.open_task_type_form"
+        id="project.menu_project_config_project"
+        name="Stages"
+        parent="menu_project_root_configuration"
+        sequence="3"
+        groups="project_stage_configurator_group"
+    />
+</odoo>

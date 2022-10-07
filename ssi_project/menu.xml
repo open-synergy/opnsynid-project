@@ -16,4 +16,9 @@
         parent="project.menu_project_config"
         sequence="2"
     />
+
+<!-- Hide menu -->
+<record id="project.menu_main_pm" model="ir.ui.menu">
+  <field name="groups_id" eval="[(6, 0, [])]" />
+</record>
 </odoo>

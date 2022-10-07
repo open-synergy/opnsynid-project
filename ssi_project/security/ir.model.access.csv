@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_stage_all,project.task.type - all,project.model_project_task_type,,1,0,0,0
+access_project_stage_configurator,project.task.type - configurator,project.model_project_task_type,project_stage_configurator_group,1,1,1,1
+access_project_tag_all,project.tags - all,project.model_project_tags,,1,0,0,0
+access_project_tag_configurator,project.tags - configurator,project.model_project_tags,project_tag_configurator_group,1,1,1,1
+access_project_project_all,project.project - all,project.model_project_project,,1,0,0,0
+access_project_project_viewer,project.project - viewer,project.model_project_project,project_viewer_group,1,0,0,0
+access_project_project_user,project.project - user,project.model_project_project,project_user_group,1,1,1,1
+access_project_task_all,project.task - all,project.model_project_task,,1,0,0,0
+access_project_task_viewer,project.task - viewer,project.model_project_task,task_viewer_group,1,0,0,0
+access_project_task_user,project.task - user,project.model_project_task,task_user_group,1,1,1,1

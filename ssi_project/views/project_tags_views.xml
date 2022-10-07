@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<menuitem
+        action="project.project_tags_action"
+        id="project.menu_project_tags_act"
+        parent="menu_project_root_configuration"
+        groups="project_tag_configurator_group"
+    />
+</odoo>
