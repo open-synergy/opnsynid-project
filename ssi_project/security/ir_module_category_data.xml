@@ -26,4 +26,30 @@
     <field name="name">Project - Data Ownership</field>
     <field name="parent_id" ref="project_module_category" />
 </record>
+
+<!-- Workflow -->
+<record id="pm_workflow_module_category" model="ir.module.category">
+    <field name="name">Project</field>
+    <field name="parent_id" ref="project_workflow_module_category" />
+    <field name="sequence">4</field>
+</record>
+
+<record id="task_workflow_module_category" model="ir.module.category">
+    <field name="name">Task</field>
+    <field name="parent_id" ref="project_workflow_module_category" />
+    <field name="sequence">4</field>
+</record>
+
+<!-- Data Ownership -->
+<record id="pm_data_ownership_module_category" model="ir.module.category">
+    <field name="name">Project</field>
+    <field name="parent_id" ref="project_data_ownership_module_category" />
+    <field name="sequence">4</field>
+</record>
+
+<record id="task_data_ownership_module_category" model="ir.module.category">
+    <field name="name">Task</field>
+    <field name="parent_id" ref="project_data_ownership_module_category" />
+    <field name="sequence">4</field>
+</record>
 </odoo>

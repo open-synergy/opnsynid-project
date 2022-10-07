@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<!-- Configurator -->
+<record id="project_stage_configurator_group" model="res.groups">
+    <field name="name">Project Stage</field>
+    <field name="category_id" ref="ssi_project.project_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<record id="project_tag_configurator_group" model="res.groups">
+    <field name="name">Project Tag</field>
+    <field name="category_id" ref="ssi_project.project_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- Project Workflow -->
+<record id="project_viewer_group" model="res.groups">
+    <field name="name">Viewer</field>
+    <field name="category_id" ref="pm_workflow_module_category" />
+</record>
+
+<record id="project_user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="pm_workflow_module_category" />
+    <field name="implied_ids" eval="[(4, ref('project_viewer_group'))]" />
+</record>
+
+<record id="project_validator_group" model="res.groups">
+    <field name="name">Validator</field>
+    <field name="category_id" ref="pm_workflow_module_category" />
+    <field name="implied_ids" eval="[(4, ref('project_user_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- Task Workflow -->
+<record id="task_viewer_group" model="res.groups">
+    <field name="name">Viewer</field>
+    <field name="category_id" ref="task_workflow_module_category" />
+</record>
+
+<record id="task_user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="task_workflow_module_category" />
+    <field name="implied_ids" eval="[(4, ref('task_viewer_group'))]" />
+</record>
+
+<record id="task_validator_group" model="res.groups">
+    <field name="name">Validator</field>
+    <field name="category_id" ref="task_workflow_module_category" />
+    <field name="implied_ids" eval="[(4, ref('task_user_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- Project Data Ownership -->
+<record id="project_company_group" model="res.groups">
+    <field name="name">Company</field>
+    <field name="category_id" ref="pm_data_ownership_module_category" />
+</record>
+
+<record id="project_company_child_group" model="res.groups">
+    <field name="name">Company and All Child Companies</field>
+    <field name="category_id" ref="pm_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('project_company_group'))]" />
+</record>
+
+<record id="project_all_group" model="res.groups">
+    <field name="name">All</field>
+    <field name="category_id" ref="pm_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('project_company_child_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<!-- Task Data Ownership -->
+<record id="task_project_group" model="res.groups">
+    <field name="name">Project</field>
+    <field name="category_id" ref="task_data_ownership_module_category" />
+</record>
+
+<record id="task_company_group" model="res.groups">
+    <field name="name">Company</field>
+    <field name="category_id" ref="task_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('task_project_group'))]" />
+</record>
+
+<record id="task_company_child_group" model="res.groups">
+    <field name="name">Company and All Child Companies</field>
+    <field name="category_id" ref="task_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('task_company_group'))]" />
+</record>
+
+<record id="task_all_group" model="res.groups">
+    <field name="name">All</field>
+    <field name="category_id" ref="task_data_ownership_module_category" />
+    <field name="implied_ids" eval="[(4, ref('task_company_child_group'))]" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+</odoo>

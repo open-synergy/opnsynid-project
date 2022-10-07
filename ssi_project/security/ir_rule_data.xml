@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<!-- Project -->
+<record id="project_internal_user_rule" model="ir.rule">
+    <field name="name">Project - Responsible to own data</field>
+    <field name="model_id" ref="project.model_project_project" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      ('user_id','=',user.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="project_company_rule" model="ir.rule">
+    <field name="name">Project - Responsible to company data</field>
+    <field name="model_id" ref="project.model_project_project" />
+    <field name="groups" eval="[(4, ref('project_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="project_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >Project - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="project.model_project_project" />
+    <field name="groups" eval="[(4, ref('project_company_child_group'))]" />
+    <field name="domain_force">[('company_id','in',user.company_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="project_all_rule" model="ir.rule">
+    <field name="name">Project - Responsible to all data</field>
+    <field name="model_id" ref="project.model_project_project" />
+    <field name="groups" eval="[(4, ref('project_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="project.project_comp_rule" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<record id="project.project_project_manager_rule" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<record id="project.project_public_members_rule" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<record id="project.project_project_rule_portal" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<!-- Task -->
+<record id="task_internal_user_rule" model="ir.rule">
+    <field name="name">Task - Responsible to own data</field>
+    <field name="model_id" ref="project.model_project_task" />
+    <field name="groups" eval="[(4, ref('base.group_user'))]" />
+    <field name="domain_force">[
+      ('user_id','=',user.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="task_project_rule" model="ir.rule">
+    <field name="name">Task - Responsible to own project data</field>
+    <field name="model_id" ref="project.model_project_task" />
+    <field name="groups" eval="[(4, ref('task_project_group'))]" />
+    <field name="domain_force">[
+      ('manager_id','=',user.id),
+    ]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="task_company_rule" model="ir.rule">
+    <field name="name">Task - Responsible to company data</field>
+    <field name="model_id" ref="project.model_project_task" />
+    <field name="groups" eval="[(4, ref('task_company_group'))]" />
+    <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="task_company_child_rule" model="ir.rule">
+    <field
+            name="name"
+        >Task - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="project.model_project_task" />
+    <field name="groups" eval="[(4, ref('task_company_child_group'))]" />
+    <field name="domain_force">[('company_id','in',user.company_ids.ids)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="task_all_rule" model="ir.rule">
+    <field name="name">Task - Responsible to all data</field>
+    <field name="model_id" ref="project.model_project_task" />
+    <field name="groups" eval="[(4, ref('task_all_group'))]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+    <field name="perm_unlink" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+</record>
+
+<record id="project.task_comp_rule" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<record id="project.task_visibility_rule" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<record id="project.project_manager_all_project_tasks_rule" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+
+<record id="project.project_task_rule_portal" model="ir.rule">
+    <field name="active" eval="0" />
+</record>
+</odoo>
