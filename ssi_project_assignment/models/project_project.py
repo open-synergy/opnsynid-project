@@ -25,7 +25,7 @@ class ProjectProject(models.Model):
         for record in self:
             result = record.assignment_ids.filtered(
                 lambda r: r.state in ["open", "done", "terminate"]
-            ).mapped("user_id")
+            ).mapped("asignee_id")
             record.team_ids = result.ids
 
     team_ids = fields.Many2many(
