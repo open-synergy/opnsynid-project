@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_batch_assignment_all,project.batch_assignment - all,model_project_batch_assignment,,1,0,0,0
+access_project_batch_assignment_viewer,project.batch_assignment - viewer,model_project_batch_assignment,project_batch_assignment_viewer_group,1,0,0,0
+access_project_batch_assignment_user,project.batch_assignment - user,model_project_batch_assignment,project_batch_assignment_user_group,1,1,1,1
+access_project_batch_assignment_assignee_all,project.batch_assignment_assignee - all,model_project_batch_assignment_assignee,,1,0,0,0
+access_project_batch_assignment_assignee_viewer,project.batch_assignment_assignee - viewer,model_project_batch_assignment_assignee,project_batch_assignment_viewer_group,1,0,0,0
+access_project_batch_assignment_assignee_user,project.batch_assignment_assignee - user,model_project_batch_assignment_assignee,project_batch_assignment_user_group,1,1,1,1
