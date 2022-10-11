@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<record id="project_batch_assignment_view_search" model="ir.ui.view">
+    <field name="name">project.batch_assignment - search</field>
+    <field name="model">project.batch_assignment</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="project_batch_assignment_view_tree" model="ir.ui.view">
+    <field name="name">project.batch_assignment -tree</field>
+    <field name="model">project.batch_assignment</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="project_id" />
+                <field name="date_assign" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="project_batch_assignment_view_form" model="ir.ui.view">
+    <field name="name">project.batch_assignment - form</field>
+    <field name="model">project.batch_assignment</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@name='header_left']" position="inside">
+                <field name="project_id" />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="date_assign" />
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="assignee" string="Assignee(s)">
+                    <group name="assignee_1" colspan="4" col="2">
+                        <field name="assignee_ids" nolabel="1" colspan="2">
+                            <tree editable="top">
+                                <field name="assignee_id" />
+                                <field name="role_id" />
+                                <field name="assignment_id" />
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="project_batch_assignment_action" model="ir.actions.act_window">
+    <field name="name">Project Batch Assignments</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">project.batch_assignment</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="project_batch_assignment_menu"
+        name="Batch Assignments"
+        parent="project.menu_main_pm"
+        action="project_batch_assignment_action"
+        groups="project_batch_assignment_viewer_group"
+        sequence="4"
+    />
+
+</odoo>
