@@ -12,7 +12,22 @@
           <data>
                <xpath expr="//notebook" position="inside">
                     <page name="team" string="Teams">
-                         <field name="team_ids" />
+                         <group
+                            name="team_1"
+                            string="All Team Member(s)"
+                            colspan="4"
+                            col="2"
+                        >
+                              <field name="team_ids" />
+                         </group>
+                         <group
+                            name="team_2"
+                            string="Active Team Member(s)"
+                            colspan="4"
+                            col="2"
+                        >
+                              <field name="active_team_ids" />
+                         </group>
                     </page>
                </xpath>
           </data>
