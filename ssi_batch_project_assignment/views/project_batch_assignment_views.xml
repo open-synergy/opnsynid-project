@@ -54,6 +54,7 @@
                     <group name="assignee_1" colspan="4" col="2">
                         <field name="assignee_ids" nolabel="1" colspan="2">
                             <tree editable="top">
+                                <field name="sequence" widget="handle" />
                                 <field name="assignee_id" />
                                 <field name="role_id" />
                                 <field name="assignment_id" />
