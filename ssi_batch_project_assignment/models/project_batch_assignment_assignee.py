@@ -8,7 +8,13 @@ from odoo import fields, models
 class ProjectBatchAssignmentAssignee(models.Model):
     _name = "project.batch_assignment_assignee"
     _description = "Project Batch Assignment Asignee"
+    _order = "sequence, id"
 
+    sequence = fields.Integer(
+        string="Sequence",
+        required=True,
+        default=5,
+    )
     batch_id = fields.Many2one(
         string="# Batch",
         comodel_name="project.batch_assignment",
