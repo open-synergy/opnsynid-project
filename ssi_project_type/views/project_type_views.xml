@@ -46,7 +46,7 @@
     </record>
 
     <record id="project_type_action" model="ir.actions.act_window">
-          <field name="name">Types</field>
+          <field name="name">Project Types</field>
           <field name="res_model">project.type</field>
           <field name="view_mode">tree,form</field>
     </record>
