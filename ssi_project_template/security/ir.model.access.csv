@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_template_all,project.template - all,model_project_template,,1,0,0,0
+access_project_template_configurator,project.template - configurator,model_project_template,project_template_configurator_group,1,1,1,1
+access_task_template_all,task.template - all,model_task_template,,1,0,0,0
+access_task_template_configurator,task.template - configurator,model_task_template,task_template_configurator_group,1,1,1,1
