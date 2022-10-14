@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<record id="demo_project_template1" model="project.template">
+    <field name="name">Base - (test)</field>
+    <field name="code">X001</field>
+    <field
+            name="task_template_ids"
+            eval="[(6, 0, [ref('ssi_project_template.demo_task_template1'),ref('ssi_project_template.demo_task_template2'),ref('ssi_project_template.demo_task_template3'),ref('ssi_project_template.demo_task_template4')])]"
+        />
+</record>
+
+<record id="demo_project_template2" model="project.template">
+    <field name="name">Consultation - (test)</field>
+    <field name="code">X002</field>
+    <field name="parent_id" ref="demo_project_template1" />
+</record>
+</odoo>
