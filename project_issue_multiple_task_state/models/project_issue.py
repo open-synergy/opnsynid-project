@@ -41,6 +41,7 @@ class ProjectIssue(models.Model):
             record.task_open_count = task_open_count
             record.task_done_count = task_done_count
             record.task_no_state_count = task_no_state_count
+            record.task_pending_count = task_pending_count
             record.task_done = task_done
 
     task_count = fields.Integer(
