@@ -23,3 +23,7 @@ class ProjectTemplate(models.Model):
         string="Parent",
         comodel_name="project.template",
     )
+    type_id = fields.Many2one(
+        string="Project Type",
+        comodel_name="project.type",
+    )
