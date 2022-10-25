@@ -2,7 +2,7 @@
 # Copyright 2022 PT. Simetri Sinergi Indonesia
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -13,6 +13,15 @@ class ProjectProject(models.Model):
         string="Template",
         comodel_name="project.template",
     )
+
+    @api.onchange(
+        "template_id",
+    )
+    def onchange_type_id(self):
+        self.type_id = False
+
+        if self.template_id and self.template_id.type_id:
+            self.type_id = self.template_id.type_id
 
     def action_create_task_from_template(self):
         for record in self:
