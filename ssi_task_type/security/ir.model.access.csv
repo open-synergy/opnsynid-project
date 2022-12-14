@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_task_type_all,task.type - all,model_task_type,,1,0,0,0
 access_task_type_configurator,task.type - configuration,model_task_type,task_type_configurator_group,1,1,1,1
+access_task_type_category_all,task.type_category - all,model_task_type_category,,1,0,0,0
+access_task_type_category_configurator,task.type_category - configuration,model_task_type_category,task_type_category_configurator_group,1,1,1,1

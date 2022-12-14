@@ -13,3 +13,9 @@ class ProjectTask(models.Model):
         string="Type",
         comodel_name="task.type",
     )
+    type_category_id = fields.Many2one(
+        string="Type Category",
+        comodel_name="task.type_category",
+        related="type_id.category_id",
+        store=True,
+    )

@@ -11,4 +11,13 @@
             eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
         />
 </record>
+
+<record id="task_type_category_configurator_group" model="res.groups">
+    <field name="name">Task Type Category</field>
+    <field name="category_id" ref="ssi_project.project_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
 </odoo>
