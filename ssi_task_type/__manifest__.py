@@ -4,7 +4,7 @@
 
 {
     "name": "Task Type",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.2.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
@@ -17,6 +17,7 @@
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
         "views/task_type_views.xml",
+        "views/task_type_category_views.xml",
         "views/project_task_views.xml",
     ],
     "demo": [],

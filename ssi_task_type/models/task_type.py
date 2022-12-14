@@ -2,7 +2,7 @@
 # Copyright 2022 PT. Simetri Sinergi Indonesia
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import models
+from odoo import fields, models
 
 
 class TaskType(models.Model):
@@ -11,3 +11,8 @@ class TaskType(models.Model):
         "mixin.master_data",
     ]
     _description = "Task Type"
+
+    category_id = fields.Many2one(
+        string="Category",
+        comodel_name="task.type_category",
+    )

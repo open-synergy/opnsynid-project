@@ -5,4 +5,5 @@
 from . import (
     task_type,
     project_task,
+    task_type_category,
 )
