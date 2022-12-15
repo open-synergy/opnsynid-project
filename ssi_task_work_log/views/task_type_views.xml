@@ -23,7 +23,23 @@
     <field name="arch" type="xml">
         <data>
             <xpath expr="//field[@name='category_id']" position="after">
-                <field name="work_estimation" widget="float_time" />
+
+            </xpath>
+            <xpath expr="//page[1]" position="before">
+                <page name="work_log" string="Work Log">
+                    <group name="work_log1" colspan="4" col="2">
+                        <field name="work_estimation" widget="float_time" />
+                        <field
+                                name="work_log_analytic_account_ids"
+                                widget="many2many_tags"
+                            />
+                        <field
+                                name="work_log_analytic_group_ids"
+                                widget="many2many_tags"
+                            />
+                        <field name="match_aa_partner" />
+                    </group>
+                </page>
             </xpath>
         </data>
     </field>
