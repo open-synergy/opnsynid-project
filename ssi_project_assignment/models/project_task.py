@@ -14,24 +14,6 @@ class ProjectProject(models.Model):
         comodel_name="project.assignment",
         inverse_name="project_id",
     )
-    active_assignment_ids = fields.One2many(
-        string="Active Assignments",
-        comodel_name="project.assignment",
-        inverse_name="project_id",
-        domain=[
-            ("state", "=", "open"),
-        ],
-        readonly=True,
-    )
-    all_assignment_ids = fields.One2many(
-        string="All Assignments",
-        comodel_name="project.assignment",
-        inverse_name="project_id",
-        domain=[
-            ("state", "in", ["open", "done", "terminate"]),
-        ],
-        readonly=True,
-    )
 
     @api.depends(
         "assignment_ids",
