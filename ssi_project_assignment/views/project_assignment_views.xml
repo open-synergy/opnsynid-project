@@ -26,7 +26,7 @@
         <data>
             <xpath expr="//field[@name='display_name']" position="after">
                 <field name="project_id" />
-                <field name="asignee_id" />
+                <field name="asignee_id" widget="many2one_avatar" />
                 <field name="role_id" />
                 <field name="date_assign" />
                 <field name="date_start" />
@@ -45,7 +45,7 @@
         <data>
             <xpath expr="//group[@name='header_left']" position="inside">
                 <field name="project_id" />
-                <field name="asignee_id" />
+                <field name="asignee_id" widget="many2one_avatar" />
                 <field name="role_id" />
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
