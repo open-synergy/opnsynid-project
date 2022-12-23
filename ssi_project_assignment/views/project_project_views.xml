@@ -18,7 +18,11 @@
                             colspan="4"
                             col="2"
                         >
-                              <field name="team_ids" />
+                              <field
+                                name="team_ids"
+                                nolabel="1"
+                                widget="many2many_tags_avatar"
+                            />
                          </group>
                          <group
                             name="team_2"
@@ -26,8 +30,28 @@
                             colspan="4"
                             col="2"
                         >
-                              <field name="active_team_ids" />
+                              <field
+                                name="active_team_ids"
+                                nolabel="1"
+                                widget="many2many_tags_avatar"
+                            />
                          </group>
+                    </page>
+                    <page name="assignment" string="Assignments">
+                         <group
+                            name="active_assignment"
+                            colspan="4"
+                            col="2"
+                            string="Active"
+                        />
+                         <field name="active_assignment_ids" />
+                         <group
+                            name="all_assignment"
+                            colspan="4"
+                            col="2"
+                            string="All"
+                        />
+                         <field name="all_assignment_ids" />
                     </page>
                </xpath>
           </data>
