@@ -140,3 +140,10 @@ class ProjectAssignment(models.Model):
         ]
         res += policy_field
         return res
+
+    @api.onchange(
+        "project_id",
+    )
+    def onchange_policy_template_id(self):
+        template_id = self._get_template_policy()
+        self.policy_template_id = template_id
