@@ -4,6 +4,8 @@
 
 from . import (
     project_project,
+    project_task,
     project_role,
     project_assignment,
+    task_type,
 )
