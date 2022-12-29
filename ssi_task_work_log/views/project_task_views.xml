@@ -16,24 +16,28 @@
                         string="Estimation"
                         widget="float_time"
                         optional="show"
+                        sum="Total Estimation"
                     />
                     <field
                         name="total_work"
                         string="Total"
                         widget="float_time"
                         optional="show"
+                        sum="Total Work"
                     />
                     <field
                         name="remaining_work"
                         string="Remaining"
                         widget="float_time"
                         optional="show"
+                        sum="Total Remaing"
                     />
                     <field
                         name="excess_work"
                         string="Excess"
                         widget="float_time"
                         optional="show"
+                        sum="Total Excess"
                     />
                </xpath>
           </data>
