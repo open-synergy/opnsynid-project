@@ -5,48 +5,52 @@
 from odoo import api, fields, models
 
 
-class ProjectProject(models.Model):
-    _name = "project.project"
-    _inherit = "project.project"
+class ProjectTask(models.Model):
+    _name = "project.task"
+    _inherit = "project.task"
 
-    assignment_ids = fields.One2many(
-        string="Assignments",
-        comodel_name="project.assignment",
-        inverse_name="project_id",
+    role_id = fields.Many2one(
+        string="Role",
+        comodel_name="project.role",
+        ondelete="restrict",
     )
 
     @api.depends(
-        "assignment_ids",
-        "assignment_ids.project_id",
-        "assignment_ids.user_id",
-        "assignment_ids.state",
+        "type_id",
+        "role_id",
     )
-    def _compute_team_ids(self):
+    def _compute_allowed_user_ids(self):
+        User = self.env["res.users"]
         for record in self:
-            result = record.assignment_ids.filtered(
-                lambda r: r.state in ["open", "done", "terminate"]
-            ).mapped("asignee_id")
-            result_active = record.assignment_ids.filtered(
-                lambda r: r.state == "open"
-            ).mapped("asignee_id")
-            record.team_ids = result.ids
-            record.active_team_ids = result_active.ids
+            result = User.search([]).ids
+            if record.type_id and self.role_id and self.type_id.restrict_assignment:
+                result = (
+                    record.project_id.active_assignment_ids.filtered(
+                        lambda r: r.role_id.id == record.role_id.id
+                    )
+                    .mapped("user_id")
+                    .ids
+                )
+            record.allowed_user_ids = result
 
-    team_ids = fields.Many2many(
-        string="Team(s)",
+    allowed_user_ids = fields.Many2many(
+        string="Allowed Users",
         comodel_name="res.users",
-        relation="rel_project_to_team",
-        column1="project_id",
-        column2="user_id",
-        compute="_compute_team_ids",
-        store=True,
+        compute="_compute_allowed_user_ids",
+        store=False,
     )
-    active_team_ids = fields.Many2many(
-        string="Active Team(s)",
-        comodel_name="res.users",
-        relation="rel_project_to_active_team",
-        column1="project_id",
-        column2="user_id",
-        compute="_compute_team_ids",
-        store=True,
+
+    @api.onchange(
+        "type_id",
     )
+    def onchange_role_id(self):
+        self.role_id = False
+        if self.type_id.role_id:
+            self.role_id = self.type_id.role_id
+
+    @api.onchange(
+        "type_id",
+        "role_id",
+    )
+    def onchange_user_id(self):
+        self.user_id = False

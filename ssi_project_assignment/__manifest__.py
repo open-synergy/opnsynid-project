@@ -4,13 +4,13 @@
 
 {
     "name": "Project Assignment",
-    "version": "14.0.1.6.0",
+    "version": "14.0.2.0.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
     "installable": True,
     "depends": [
-        "ssi_project",
+        "ssi_project_template",
         "ssi_master_data_mixin",
         "ssi_transaction_confirm_mixin",
         "ssi_transaction_open_mixin",
@@ -32,6 +32,8 @@
         "views/project_role_views.xml",
         "views/project_assignment_views.xml",
         "views/project_project_views.xml",
+        "views/project_task_views.xml",
+        "views/task_type_views.xml",
     ],
     "demo": [
         "demo/project_role_demo.xml",
