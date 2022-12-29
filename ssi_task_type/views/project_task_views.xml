@@ -52,9 +52,11 @@
      <field name="mode">extension</field>
      <field name="arch" type="xml">
           <data>
-               <xpath expr="//field[@name='project_id']" position="before">
+               <xpath expr="//field[@name='project_id']" position="after">
+                    <separator string="Task Type" colspan="2" />
                     <field name="type_id" />
                     <field name="type_category_id" />
+                    <xpath expr="//field[@name='tag_ids']" position="move" />
                </xpath>
           </data>
      </field>
