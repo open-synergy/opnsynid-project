@@ -8,6 +8,7 @@
      <field name="model">project.task</field>
      <field name="inherit_id" ref="project.view_task_form2" />
      <field name="mode">extension</field>
+     <field name="priority" eval="10" />
      <field name="arch" type="xml">
           <data>
                <xpath expr="//field[@name='project_id']" position="after">
