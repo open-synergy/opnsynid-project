@@ -45,7 +45,7 @@
      <field name="mode">extension</field>
      <field name="arch" type="xml">
           <data>
-               <xpath expr="//field[@name='project_id']" position="before">
+               <xpath expr="//field[@name='type_id']" position="before">
                     <field name="template_id" />
                </xpath>
           </data>
