@@ -86,3 +86,21 @@ class TaskTimebox(models.Model):
                 )
                 if len(check_timebox) > 0:
                     raise UserError(strWarning)
+
+    def find_next(self):
+        self.ensure_one()
+        result = False
+        criteria = [("date_start", ">", self.date_start), ("id", "!=", self.id)]
+        timeboxes = self.search(criteria)
+        if len(timeboxes) > 0:
+            result = timeboxes[0]
+        return result
+
+    def find_previous(self):
+        self.ensure_one()
+        result = False
+        criteria = [("date_start", "<", self.date_start), ("id", "!=", self.id)]
+        timeboxes = self.search(criteria)
+        if len(timeboxes) > 0:
+            result = timeboxes[0]
+        return result

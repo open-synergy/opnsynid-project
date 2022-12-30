@@ -2,7 +2,8 @@
 # Copyright 2020 PT. Simetri Sinergi Indonesia
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class ProjectTask(models.Model):
@@ -123,3 +124,49 @@ class ProjectTask(models.Model):
         compute="_compute_timebox",
         store=True,
     )
+
+    def action_move_to_next(self):
+        for record in self:
+            record._move_to_next()
+
+    def action_move_to_previous(self):
+        for record in self:
+            record._move_to_previous()
+
+    def _move_to_next(self):
+        self.ensure_one()
+        current_upcoming_timebox = self.timebox_upcoming_id
+        next_timebox = current_upcoming_timebox.find_next()
+        if not next_timebox:
+            error_message = _(
+                """
+            Context: Move task to next timebox
+            Database ID: %s
+            Problem: No timebox
+            Solution: Create timebox
+            """
+                % (self.id)
+            )
+            raise ValidationError(error_message)
+        timeboxes = self.timebox_ids
+        timeboxes = timeboxes + next_timebox - current_upcoming_timebox
+        self.write({"timebox_ids": [(6, 0, timeboxes.ids)]})
+
+    def _move_to_previous(self):
+        self.ensure_one()
+        current_upcoming_timebox = self.timebox_upcoming_id
+        previous_timebox = current_upcoming_timebox.find_previous()
+        if not previous_timebox:
+            error_message = _(
+                """
+            Context: Move task to previous timebox
+            Database ID: %s
+            Problem: No timebox
+            Solution: Create timebox
+            """
+                % (self.id)
+            )
+            raise ValidationError(error_message)
+        timeboxes = self.timebox_ids
+        timeboxes = timeboxes + previous_timebox - current_upcoming_timebox
+        self.write({"timebox_ids": [(6, 0, timeboxes.ids)]})

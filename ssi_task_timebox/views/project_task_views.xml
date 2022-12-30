@@ -4,6 +4,33 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <openerp>
 <data>
+<record id="project_task_view_kanban" model="ir.ui.view">
+     <field name="name">project.task kanban</field>
+     <field name="model">project.task</field>
+     <field name="inherit_id" ref="project.view_task_kanban" />
+     <field name="mode">extension</field>
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//a[@type='delete']" position="after">
+                    <div role="separator" class="dropdown-divider" />
+                    <a
+                            t-if="widget.editable"
+                            role="menuitem"
+                            class="dropdown-item"
+                            name="action_move_to_previous"
+                            type="object"
+                        >Move to Previous</a>
+                    <a
+                            t-if="widget.editable"
+                            role="menuitem"
+                            class="dropdown-item"
+                            name="action_move_to_next"
+                            type="object"
+                        >Move to Next</a>
+               </xpath>
+          </data>
+     </field>
+</record>
 
 <record id="project_task_view_form" model="ir.ui.view">
     <field name="name">project.task form</field>
