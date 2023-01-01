@@ -71,6 +71,7 @@
           <data>
                <xpath expr="//t[@t-if='record.partner_id.value']" position="after">
                     <t t-if="record.type_id">
+                         <br />
                          <field name="type_id" />
                     </t>
                </xpath>
