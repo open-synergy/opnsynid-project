@@ -31,3 +31,10 @@ class TaskType(models.Model):
         column1="type_id",
         column2="analytic_group_id",
     )
+    work_log_product_ids = fields.Many2many(
+        string="Work Log Products",
+        comodel_name="product.product",
+        relation="rel_task_type_2_work_log_product",
+        column1="type_id",
+        column2="product_id",
+    )

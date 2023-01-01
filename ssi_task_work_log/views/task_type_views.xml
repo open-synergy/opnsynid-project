@@ -32,10 +32,17 @@
                         <field
                                 name="work_log_analytic_account_ids"
                                 widget="many2many_tags"
+                                string="Analytic Accounts"
                             />
                         <field
                                 name="work_log_analytic_group_ids"
                                 widget="many2many_tags"
+                                string="Analytic Groups"
+                            />
+                        <field
+                                name="work_log_product_ids"
+                                widget="many2many_tags"
+                                string="Products"
                             />
                         <field name="match_aa_partner" />
                     </group>
