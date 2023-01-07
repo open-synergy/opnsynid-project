@@ -62,7 +62,7 @@
     <field name="arch" type="xml">
         <xpath expr="//group" position="before">
             <separator />
-            <filter name="state_new" string="New" domain="[('state','=','new')]" />
+            <filter name="state_new" string="New" domain="[('state','=','draft')]" />
             <filter
                     name="state_open"
                     string="In Progress"
