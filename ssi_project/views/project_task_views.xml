@@ -3,6 +3,19 @@
      Copyright 2022 PT. Simetri Sinergi Indonesia
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
+<record id="project_task_view_kanban" model="ir.ui.view">
+     <field name="name">project.task kanban</field>
+     <field name="model">project.task</field>
+     <field name="inherit_id" ref="project.view_task_kanban" />
+     <field name="priority" eval="10" />
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//field[@name='kanban_state']" position="before">
+                    <field name="dependency_state" widget="state_selection" />
+               </xpath>
+          </data>
+     </field>
+</record>
 <record id="project_task_view_form" model="ir.ui.view">
      <field name="name">project.task form</field>
      <field name="model">project.task</field>
@@ -19,6 +32,24 @@
                     <xpath expr="//field[@name='date_deadline']" position="move" />
                     <separator string="Assignment" colspan="2" />
                     <xpath expr="//field[@name='user_id']" position="move" />
+               </xpath>
+               <xpath expr="//notebook" position="inside">
+                    <page name="dependency" string="Dependency">
+                         <group name="dependency1" colspan="4" col="2">
+                              <field name="dependency_state" widget="state_selection" />
+                         </group>
+                         <field name="predecessor_ids">
+                              <tree editable="top">
+                                   <field name="project_id" />
+                                   <field
+                                    name="predecessor_task_id"
+                                    domain="[('project_id','=',project_id)]"
+                                />
+                                   <field name="dependency_type" />
+                                   <field name="predecessor_task_stage_id" />
+                              </tree>
+                         </field>
+                    </page>
                </xpath>
           </data>
      </field>
