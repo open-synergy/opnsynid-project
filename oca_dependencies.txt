@@ -12,5 +12,6 @@
 # sale-workflow https://github.com/OCA/sale-workflow
 #
 # To provide both the URL and a branch, use:
+oca-project https://github.com/oca/project.git 14.0
 ssi-mixin https://github.com/open-synergy/ssi-mixin.git 14.0
 opnsynid-hr-timesheet https://github.com/open-synergy/opnsynid-hr-timesheet.git 14.0
