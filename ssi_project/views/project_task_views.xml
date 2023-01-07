@@ -55,6 +55,26 @@
      </field>
 </record>
 
+<record id="project_task_view_search" model="ir.ui.view">
+    <field name="name">project.task search</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_search_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//group" position="before">
+            <filter
+                    name="blocked"
+                    string="Blocked By Dependency"
+                    domain="[('dependency_state','=','blocked')]"
+                />
+            <filter
+                    name="not_blocked"
+                    string="Not Blocked By Dependency"
+                    domain="[('dependency_state','!=','blocked')]"
+                />
+        </xpath>
+    </field>
+</record>
+
 
 <menuitem
         name="Tasks"
