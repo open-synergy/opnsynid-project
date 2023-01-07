@@ -53,6 +53,7 @@
 <record id="task_timebox_view_tree" model="ir.ui.view">
     <field name="name">task.timebox tree</field>
     <field name="model">task.timebox</field>
+    <field name="mode">primary</field>
     <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
     <field name="arch" type="xml">
         <data>
@@ -68,6 +69,7 @@
 <record id="task_timebox_view_search" model="ir.ui.view">
     <field name="name">task.timebox search</field>
     <field name="model">task.timebox</field>
+    <field name="mode">primary</field>
     <field
                 name="inherit_id"
                 ref="ssi_master_data_mixin.mixin_master_data_view_search"

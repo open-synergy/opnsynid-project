@@ -124,6 +124,10 @@ class ProjectTask(models.Model):
         compute="_compute_timebox",
         store=True,
     )
+    move_forward = fields.Boolean(
+        string="Move Forward",
+        default=True,
+    )
 
     def action_move_to_next(self):
         for record in self:

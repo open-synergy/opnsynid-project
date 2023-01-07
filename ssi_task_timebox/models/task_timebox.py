@@ -54,6 +54,7 @@ class TaskTimebox(models.Model):
     def action_done(self):
         for document in self:
             document.write(document._prepare_done_data())
+            document._move_forward_task()
             document._set_off_running_timebox()
 
     def _prepare_done_data(self):
@@ -104,3 +105,14 @@ class TaskTimebox(models.Model):
         if len(timeboxes) > 0:
             result = timeboxes[0]
         return result
+
+    def _move_forward_task(self):
+        self.ensure_one()
+        Task = self.env["project.task"]
+        criteria = [
+            ("move_forward", "=", True),
+            ("state", "in", ["draft", "open", "pending"]),
+            ("id", "in", self.task_ids.ids),
+        ]
+        next_timebox = self.find_next()
+        Task.search(criteria).write({"timebox_ids": [(4, next_timebox.id)]})
