@@ -101,6 +101,7 @@
             <field name="timebox_latest_id" />
         </xpath>
         <xpath expr="//group" position="before">
+            <separator />
             <filter
                         name="on_running_timebox"
                         string="On Running Timebox"
