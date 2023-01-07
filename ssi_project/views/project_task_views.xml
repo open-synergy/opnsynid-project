@@ -62,6 +62,25 @@
     <field name="arch" type="xml">
         <xpath expr="//group" position="before">
             <separator />
+            <filter name="state_new" string="New" domain="[('state','=','new')]" />
+            <filter
+                    name="state_open"
+                    string="In Progress"
+                    domain="[('state','=','open')]"
+                />
+            <filter name="state_done" string="Done" domain="[('state','=','done')]" />
+            <filter
+                    name="state_pending"
+                    string="Pending"
+                    domain="[('state','=','pending')]"
+                />
+            <filter
+                    name="state_cancel"
+                    string="Cancel"
+                    domain="[('state','=','cancelled')]"
+                />
+
+            <separator />
             <filter
                     name="blocked"
                     string="Blocked By Dependency"
