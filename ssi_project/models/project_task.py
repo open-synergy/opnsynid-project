@@ -10,6 +10,11 @@ class ProjectTask(models.Model):
     _name = "project.task"
     _inherit = "project.task"
 
+    instruction_ids = fields.One2many(
+        string="Task Instructions",
+        comodel_name="task.instruction",
+        inverse_name="task_id",
+    )
     predecessor_ids = fields.One2many(
         string="Predecessor",
         comodel_name="task.dependency",

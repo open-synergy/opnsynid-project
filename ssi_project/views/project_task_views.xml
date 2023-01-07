@@ -50,6 +50,21 @@
                               </tree>
                          </field>
                     </page>
+                    <page name="instruction" string="Instruction">
+                         <group
+                            name="task_instruction"
+                            string="Task"
+                            colspan="4"
+                            col="2"
+                        />
+                         <field name="instruction_ids">
+                              <tree editable="top">
+                                   <field name="sequence" widget="handle" />
+                                   <field name="name" />
+                                   <field name="url" widget="url" />
+                              </tree>
+                         </field>
+                    </page>
                </xpath>
           </data>
      </field>
