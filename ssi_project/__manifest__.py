@@ -4,13 +4,13 @@
 
 {
     "name": "Project Extension",
-    "version": "14.0.1.5.0",
+    "version": "14.0.1.6.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
     "installable": True,
     "depends": [
-        "project",
+        "project_stage_state",
     ],
     "data": [
         "security/ir_module_category_data.xml",
