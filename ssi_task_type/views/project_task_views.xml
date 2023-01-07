@@ -58,6 +58,16 @@
                     <field name="type_category_id" />
                     <xpath expr="//field[@name='tag_ids']" position="move" />
                </xpath>
+               <xpath expr="//field[@name='instruction_ids']" position="after">
+                    <group name="type_instruction" string="Type" colspan="4" col="2" />
+                    <field name="type_instruction_ids">
+                         <tree>
+                              <field name="sequence" widget="handle" />
+                              <field name="name" />
+                              <field name="url" widget="url" />
+                         </tree>
+                    </field>
+               </xpath>
           </data>
      </field>
 </record>

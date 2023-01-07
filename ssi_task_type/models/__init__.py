@@ -6,4 +6,5 @@ from . import (
     task_type,
     project_task,
     task_type_category,
+    task_type_instruction,
 )

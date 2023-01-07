@@ -16,3 +16,8 @@ class TaskType(models.Model):
         string="Category",
         comodel_name="task.type_category",
     )
+    instruction_ids = fields.One2many(
+        string="Task Type Instructions",
+        comodel_name="task_type.instruction",
+        inverse_name="type_id",
+    )

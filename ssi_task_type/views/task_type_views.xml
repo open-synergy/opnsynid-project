@@ -47,6 +47,17 @@
                 <xpath expr="//field[@name='active']" position="after">
                     <field name="category_id" />
                 </xpath>
+                <xpath expr="//page[1]" position="before">
+                    <page name="instruction" string="Instruction">
+                         <field name="instruction_ids">
+                              <tree editable="top">
+                                   <field name="sequence" widget="handle" />
+                                   <field name="name" />
+                                   <field name="url" widget="url" />
+                              </tree>
+                         </field>
+                    </page>
+                </xpath>
             </data>
         </field>
     </record>
