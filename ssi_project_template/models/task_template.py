@@ -29,12 +29,17 @@ class TaskTemplate(models.Model):
         Task = self.env["project.task"]
         Task.create(self._prepare_task_creation(project))
 
+    def _get_user(self, project):
+        self.ensure_one()
+        return self.user_id
+
     def _prepare_task_creation(self, project):
         self.ensure_one()
+        user = self._get_user(project)
         return {
             "name": self.name,
             "type_id": self.type_id and self.type_id.id or False,
-            "user_id": self.user_id and self.user_id.id or False,
+            "user_id": user and user.id or False,
             "project_id": project.id,
             "template_id": self.id,
             "description": self.description,
