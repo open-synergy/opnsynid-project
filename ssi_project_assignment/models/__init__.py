@@ -8,4 +8,5 @@ from . import (
     project_role,
     project_assignment,
     task_type,
+    task_template,
 )
