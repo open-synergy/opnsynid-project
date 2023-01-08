@@ -20,6 +20,9 @@ class TaskTemplate(models.Model):
         string="Assigned To",
         comodel_name="res.users",
     )
+    description = fields.Html(
+        string="Description",
+    )
 
     def _create_task(self, project):
         self.ensure_one()
@@ -34,4 +37,5 @@ class TaskTemplate(models.Model):
             "user_id": self.user_id and self.user_id.id or False,
             "project_id": project.id,
             "template_id": self.id,
+            "description": self.description,
         }

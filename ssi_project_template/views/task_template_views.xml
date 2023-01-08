@@ -48,6 +48,11 @@
                     <field name="type_id" />
                     <field name="user_id" />
                 </xpath>
+                <xpath expr="//page[1]" position="before">
+                    <page name="description" string="Description">
+                        <field name="description" />
+                    </page>
+                </xpath>
             </data>
         </field>
     </record>
