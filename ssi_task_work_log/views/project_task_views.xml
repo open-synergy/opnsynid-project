@@ -3,6 +3,25 @@
      Copyright 2022 PT. Simetri Sinergi Indonesia
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
+<record id="project_task_view_form" model="ir.ui.view">
+     <field name="name">project.task form</field>
+     <field name="model">project.task</field>
+     <field name="inherit_id" ref="project.view_task_form2" />
+     <field name="mode">extension</field>
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//notebook" position="inside">
+                    <page name="work_log_analytic" string="Work Log Analytics">
+                         <field
+                            name="work_log_analytic_account_ids"
+                            widget="many2many_tags"
+                        />
+                    </page>
+               </xpath>
+          </data>
+     </field>
+</record>
+
 <record id="project_task_view_tree" model="ir.ui.view">
      <field name="name">project.task tree</field>
      <field name="model">project.task</field>

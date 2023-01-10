@@ -2,7 +2,7 @@
 # Copyright 2022 PT. Simetri Sinergi Indonesia
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0-standalone.html).
 
-from odoo import api, models
+from odoo import api, fields, models
 
 
 class ProjectTask(models.Model):
@@ -12,6 +12,14 @@ class ProjectTask(models.Model):
         "mixin.work_object",
     ]
     _work_log_create_page = True
+
+    work_log_analytic_account_ids = fields.Many2many(
+        string="Work Log Analytic Account",
+        comodel_name="account.analytic.account",
+        relation="rel_task_2_work_log_aa",
+        column1="task_id",
+        column2="analytic_account_id",
+    )
 
     @api.onchange(
         "type_id",
