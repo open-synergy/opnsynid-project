@@ -38,6 +38,7 @@
                          <group name="dependency1" colspan="4" col="2">
                               <field name="dependency_state" widget="state_selection" />
                          </group>
+                         <separator string="Predecessors" />
                          <field name="predecessor_ids">
                               <tree editable="top">
                                    <field name="project_id" />
@@ -47,6 +48,20 @@
                                 />
                                    <field name="dependency_type" />
                                    <field name="predecessor_task_stage_id" />
+                              </tree>
+                         </field>
+                         <separator string="Sucessors" />
+                         <field
+                            name="sucessor_ids"
+                            create="false"
+                            edit="false"
+                            delete="false"
+                        >
+                              <tree>
+                                   <field name="project_id" />
+                                   <field name="task_id" />
+                                   <field name="dependency_type" />
+                                   <field name="task_stage_id" />
                               </tree>
                          </field>
                     </page>
