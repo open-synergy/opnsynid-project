@@ -53,6 +53,7 @@ class ProjectTask(models.Model):
 
             if record.state == "draft":
                 criteria = [
+                    ("task_id", "=", record.id),
                     ("dependency_type", "in", ["start_start", "finish_start"]),
                 ]
                 count_all = TaskDependency.search_count(criteria)
@@ -66,6 +67,7 @@ class ProjectTask(models.Model):
                     result = "blocked"
             elif record.state == "open":
                 criteria = [
+                    ("task_id", "=", record.id),
                     ("dependency_type", "=", "start_finish"),
                 ]
                 count_all = TaskDependency.search_count(criteria)
@@ -78,6 +80,7 @@ class ProjectTask(models.Model):
                 else:
                     result = "blocked"
                 criteria = [
+                    ("task_id", "=", record.id),
                     ("dependency_type", "=", "finish_finish"),
                 ]
                 count_all = TaskDependency.search_count(criteria)
