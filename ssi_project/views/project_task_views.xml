@@ -54,6 +54,9 @@
                     <xpath expr="//field[@name='user_id']" position="move" />
                </xpath>
                <xpath expr="//notebook" position="inside">
+                    <page name="specification" string="Specification">
+                         <field name="specification" widget="ace" />
+                    </page>
                     <page name="dependency" string="Dependency">
                          <group name="dependency1" colspan="4" col="2">
                               <field name="dependency_state" widget="state_selection" />
