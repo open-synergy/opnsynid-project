@@ -10,6 +10,9 @@ class ProjectTask(models.Model):
     _name = "project.task"
     _inherit = "project.task"
 
+    specification = fields.Text(
+        string="Specification",
+    )
     instruction_ids = fields.One2many(
         string="Task Instructions",
         comodel_name="task.instruction",
