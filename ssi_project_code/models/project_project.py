@@ -35,3 +35,12 @@ class ProjectProject(models.Model):
         return super(ProjectProject, self)._name_search(
             name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid
         )
+
+    def name_get(self):
+        res = []
+        for document in self:
+            name = document.name
+            if document.code:
+                name = "[" + document.code + "] " + name
+            res.append((document.id, name))
+        return res
