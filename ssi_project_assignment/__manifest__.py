@@ -34,6 +34,7 @@
         "views/project_project_views.xml",
         "views/project_task_views.xml",
         "views/task_type_views.xml",
+        "views/project_assignment_portal_templates.xml",
     ],
     "demo": [
         "demo/project_role_demo.xml",
