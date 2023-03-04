@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<template id="task_mixin_template">
+    <page name="task" string="Related Task(s)">
+        <group name="task" colspan="4" col="2">
+            <field name="need_task" />
+            <field name="total_task" />
+            <field name="task_draft_count" />
+            <field name="task_open_count" />
+            <field name="task_done_count" />
+            <field name="task_pending_count" />
+            <field name="task_no_state_count" />
+            <field name="task_done" />
+        </group>
+        <group name="timebox_1" colspan="4" col="2">
+            <group name="timebox_1_1" string="Initial Timebox" colspan="1" col="2">
+                <field name="timebox_initial_id" string="Timebox" />
+                <field name="timebox_initial_date_start" string="Timebox Date Start" />
+                <field name="timebox_initial_date_end" string="Timebox Date End" />
+            </group>
+            <group name="timebox_1_2" string="Latest Timebox" colspan="1" col="2">
+                <field name="timebox_latest_id" string="Timebox" />
+                <field name="timebox_latest_date_start" string="Timebox Date Start" />
+                <field name="timebox_latest_date_end" string="Timebox Date End" />
+            </group>
+        </group>
+    <button
+                name="action_open_task"
+                string="Tasks"
+                type="object"
+                icon="fa-bars"
+                class="oe_highlight"
+            />
+        <field name="task_ids" />
+    </page>
+</template>
+</odoo>
