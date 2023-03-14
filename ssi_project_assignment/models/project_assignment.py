@@ -104,7 +104,7 @@ class ProjectAssignment(models.Model):
         },
     )
     asignee_id = fields.Many2one(
-        string="Asignee",
+        string="Assignee",
         comodel_name="res.users",
         required=True,
         ondelete="restrict",
