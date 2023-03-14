@@ -211,45 +211,102 @@
                     </div>
                 </t>
                 <t t-set="card_body">
-                    <div class="mb-1">
-                        <strong>Document:</strong> <span
-                            t-field="project_assignment.name"
-                        />
+                    <div class="row mb-1">
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Document:</strong> <span
+                                t-field="project_assignment.name"
+                            />
+                        </div>
+                        <div
+                            class="col-12 col-md-6"
+                            t-if="project_assignment.date_assign"
+                        >
+                            <strong>Date Assign:</strong> <span
+                                t-field="project_assignment.date_assign"
+                                t-options='{"widget": "date"}'
+                            />
+                        </div>
                     </div>
-                    <div class="mb-1">
-                        <strong>Project:</strong> <span
-                            t-field="project_assignment.project_id"
-                        />
+                    <div class="row mb-1">
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Project:</strong> <span
+                                t-field="project_assignment.project_id"
+                            />
+                        </div>
+                        <div
+                            class="col-12 col-md-6"
+                            t-if="project_assignment.date_start"
+                        >
+                            <strong>Date Start:</strong> <span
+                                t-field="project_assignment.date_start"
+                                t-options='{"widget": "date"}'
+                            />
+                        </div>
                     </div>
-                    <div class="mb-1">
-                        <strong>Assignee:</strong> <span
-                            t-field="project_assignment.asignee_id"
-                        />
+                    <div class="row mb-1">
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Role:</strong> <span
+                                t-field="project_assignment.role_id"
+                            />
+                        </div>
+                        <div class="col-12 col-md-6" t-if="project_assignment.date_end">
+                            <strong>Date End:</strong> <span
+                                t-field="project_assignment.date_end"
+                                t-options='{"widget": "date"}'
+                            />
+                        </div>
                     </div>
-                    <div class="mb-1">
-                        <strong>Role:</strong> <span
-                            t-field="project_assignment.role_id"
-                        />
+                    <div class="row mb-1">
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Responsible:</strong> <span
+                                t-field="project_assignment.user_id"
+                            />
+                        </div>
                     </div>
-                    <div class="mb-1">
-                        <strong>Date Assign:</strong> <span
-                            t-field="project_assignment.date_assign"
-                        />
+                    <div class="row mb-1">
+                        <div
+                            class="col-12 col-md-6 mb-1"
+                            t-if="project_assignment.asignee_id"
+                        >
+                            <strong>Assignee:</strong>
+                            <div class="row">
+                                <div class="col flex-grow-0 pr-3">
+                                    <img
+                                        t-if="project_assignment.asignee_id.image_1024"
+                                        class="rounded-circle mt-1 o_portal_contact_img"
+                                        t-att-src="image_data_uri(project_assignment.asignee_id.image_1024)"
+                                        alt="Contact"
+                                    />
+                                    <img
+                                        t-else=""
+                                        class="rounded-circle mt-1 o_portal_contact_img"
+                                        src="/web/static/src/img/user_menu_avatar.png"
+                                        alt="Contact"
+                                    />
+                                </div>
+                                <div class="col pl-md-0">
+                                    <div
+                                        t-field="project_assignment.asignee_id"
+                                        t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-1">
-                        <strong>Date Start:</strong> <span
-                            t-field="project_assignment.date_start"
-                        />
-                    </div>
-                    <div class="mb-1">
-                        <strong>Date End:</strong> <span
-                            t-field="project_assignment.date_end"
-                        />
-                    </div>
-                    <div class="mb-1">
-                        <strong>Responsible:</strong> <span
-                            t-field="project_assignment.user_id"
-                        />
+                    <div class="row mb-1" t-if="project_assignment.note">
+                        <div
+                            t-if="project_assignment.note"
+                            t-attf-class="col-12 col-lg-7 mb-4 mb-md-0 {{'col-lg-7'}}"
+                        >
+                            <hr class="mb-1" />
+                            <div class="d-flex my-2">
+                                <strong>Notes</strong>
+                            </div>
+                            <div
+                                class="py-1 px-2 bg-100 medium"
+                                t-field="project_assignment.note"
+                            />
+                        </div>
                     </div>
                 </t>
             </t>
