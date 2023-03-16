@@ -140,6 +140,16 @@
                     domain="[('dependency_state','=','blocked')]"
                 />
             <filter
+                    name="kanban_blocked"
+                    string="Blocked"
+                    domain="[('kanban_state','=','blocked')]"
+                />
+            <filter
+                    name="kanban_not_blocked"
+                    string="Not Blocked"
+                    domain="[('kanban_state','!=','blocked')]"
+                />
+            <filter
                     name="not_blocked"
                     string="Not Blocked By Dependency"
                     domain="[('dependency_state','!=','blocked')]"
