@@ -103,6 +103,8 @@
     <field name="inherit_id" ref="project.view_task_search_form" />
     <field name="arch" type="xml">
         <xpath expr="//field[@name='stage_id']" position="after">
+            <field name="timebox_initial_id" />
+            <field name="timebox_upcoming_id" />
             <field name="timebox_latest_id" />
         </xpath>
         <xpath expr="//group" position="before">
