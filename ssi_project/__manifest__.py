@@ -4,7 +4,7 @@
 
 {
     "name": "Project Extension",
-    "version": "14.0.2.8.0",
+    "version": "14.0.2.9.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
