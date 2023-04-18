@@ -80,6 +80,7 @@
                             type="action"
                             icon="fa-file"
                             class="oe_highlight"
+                            style="margin-right:4px"
                         />
                          <field
                             name="sucessor_ids"
