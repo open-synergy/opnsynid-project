@@ -74,6 +74,13 @@
                               </tree>
                          </field>
                          <separator string="Sucessors" />
+                         <button
+                            name="%(create_sucessor_task_action)d"
+                            string="Sucessor Tasks"
+                            type="action"
+                            icon="fa-file"
+                            class="oe_highlight"
+                        />
                          <field
                             name="sucessor_ids"
                             create="false"

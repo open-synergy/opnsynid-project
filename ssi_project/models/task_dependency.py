@@ -54,26 +54,12 @@ class TaskDependency(models.Model):
     )
     task_state = fields.Selection(
         string="Task State",
-        selection=[
-            ("draft", "New"),
-            ("open", "In Progress"),
-            ("pending", "Pending"),
-            ("done", "Done"),
-            ("cancelled", "Cancelled"),
-        ],
         related="task_id.state",
         store=True,
         readonly=False,
     )
     predecessor_task_state = fields.Selection(
         string="Predecessor Task State",
-        selection=[
-            ("draft", "New"),
-            ("open", "In Progress"),
-            ("pending", "Pending"),
-            ("done", "Done"),
-            ("cancelled", "Cancelled"),
-        ],
         related="predecessor_task_id.state",
         store=True,
         readonly=False,

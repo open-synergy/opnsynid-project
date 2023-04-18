@@ -4,7 +4,7 @@
 
 {
     "name": "Project Extension",
-    "version": "14.0.2.9.0",
+    "version": "14.0.2.10.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
@@ -19,6 +19,7 @@
         "security/ir_model_access_data.xml",
         "security/ir_rule_data.xml",
         "menu.xml",
+        "wizards/create_sucessor_task.xml",
         "views/project_project_views.xml",
         "views/project_task_views.xml",
         "views/project_task_type_views.xml",
