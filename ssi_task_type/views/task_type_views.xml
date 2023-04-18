@@ -48,6 +48,16 @@
                     <field name="category_id" />
                 </xpath>
                 <xpath expr="//page[1]" position="before">
+                    <page name="sucessor" string="Sucessors">
+                        <field name="sucessor_ids">
+                            <tree editable="top">
+                                <field name="sequence" widget="handle" />
+                                <field name="project_id" />
+                                <field name="sucessor_type_id" />
+                                <field name="user_id" />
+                            </tree>
+                        </field>
+                    </page>
                     <page name="instruction" string="Instruction">
                          <field name="instruction_ids">
                               <tree editable="top">

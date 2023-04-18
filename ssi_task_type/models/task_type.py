@@ -21,3 +21,8 @@ class TaskType(models.Model):
         comodel_name="task_type.instruction",
         inverse_name="type_id",
     )
+    sucessor_ids = fields.One2many(
+        string="Task Type Sucessors",
+        comodel_name="task_type.sucessor",
+        inverse_name="type_id",
+    )

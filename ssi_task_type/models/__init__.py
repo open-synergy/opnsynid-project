@@ -7,4 +7,5 @@ from . import (
     project_task,
     task_type_category,
     task_type_instruction,
+    task_type_sucessor,
 )

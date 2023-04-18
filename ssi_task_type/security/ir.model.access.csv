@@ -5,3 +5,5 @@ access_task_type_instruction_all,task.type - all,model_task_type_instruction,,1,
 access_task_type_instruction_configurator,task.type - configuration,model_task_type_instruction,task_type_configurator_group,1,1,1,1
 access_task_type_category_all,task.type_category - all,model_task_type_category,,1,0,0,0
 access_task_type_category_configurator,task.type_category - configuration,model_task_type_category,task_type_category_configurator_group,1,1,1,1
+access_task_type_sucessor_all,task_type.sucessor - all,model_task_type_sucessor,,1,0,0,0
+access_task_type_sucessor_configurator,task_type.sucessor - configuration,model_task_type_sucessor,task_type_configurator_group,1,1,1,1
