@@ -45,6 +45,14 @@
                         domain="[('state','!=','done')]"
                     />
             <field name="move_forward" />
+            <field name="recompute_from_predecessor" />
+            <button
+                        name="action_recompute_timebox_from_predecessor"
+                        type="object"
+                        string="From Predecessor"
+                        class="oe_highlight"
+                        icon="fa-cogs"
+                    />
         </xpath>
         <xpath expr="//notebook" position="inside">
             <page name="timebox" string="Timebox">
@@ -93,6 +101,30 @@
                     </group>
                 </group>
             </page>
+        </xpath>
+        <xpath
+                    expr="//field[@name='predecessor_ids']/tree/field[@name='dependency_type']"
+                    position="after"
+                >
+            <field name="offset_from_predecessor" />
+            <field name="target_timebox_from_predecessor" />
+        </xpath>
+        <xpath expr="//field[@name='predecessor_ids']" position="after">
+            <group name="predecessor_footer" colspan="4" col="2">
+                <field name="max_predecessor_latest_timebox" />
+            </group>
+        </xpath>
+        <xpath
+                    expr="//button[@name='%(ssi_project.create_sucessor_task_action)d']"
+                    position="after"
+                >
+            <button
+                        name="action_recompute_sucessor_timebox"
+                        type="object"
+                        string="Timebox"
+                        class="oe_highlight"
+                        icon="fa-cogs"
+                    />
         </xpath>
     </field>
 </record>

@@ -5,4 +5,5 @@
 from . import (
     task_timebox,
     project_task,
+    task_dependency,
 )

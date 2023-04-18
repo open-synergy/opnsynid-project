@@ -128,14 +128,60 @@ class ProjectTask(models.Model):
         string="Move Forward",
         default=True,
     )
+    max_predecessor_latest_timebox = fields.Many2one(
+        string="Max Predecessor Latest Timebox",
+        comodel_name="task.timebox",
+        compute="_compute_max_predecessor_latest_timebox",
+        store=True,
+    )
+    recompute_from_predecessor = fields.Boolean(
+        string="Recompute From Predecessor",
+        default=True,
+    )
+
+    @api.depends(
+        "predecessor_ids",
+        "predecessor_ids.predecessor_task_id.timebox_latest_id",
+    )
+    def _compute_max_predecessor_latest_timebox(self):
+        for record in self:
+            result = False
+            if self.predecessor_ids:
+                latest_timeboxes = self.predecessor_ids.mapped(
+                    "target_timebox_from_predecessor"
+                ).sorted(key=lambda r: r.date_start)
+                if len(latest_timeboxes) > 0:
+                    result = latest_timeboxes[-1]
+            record.max_predecessor_latest_timebox = result
 
     def action_move_to_next(self):
-        for record in self:
+        for record in self.sudo():
             record._move_to_next()
 
     def action_move_to_previous(self):
-        for record in self:
+        for record in self.sudo():
             record._move_to_previous()
+
+    def action_recompute_timebox_from_predecessor(self):
+        for record in self.sudo():
+            record._recompute_timebox_from_predecessor()
+
+    def action_recompute_sucessor_timebox(self):
+        for record in self.sudo():
+            record._recompute_sucessor_timebox()
+
+    def _recompute_sucessor_timebox(self):
+        self.ensure_one()
+        for sucessor in self.sucessor_ids.filtered(
+            lambda r: r.task_id.recompute_from_predecessor
+        ):
+            sucessor.task_id.action_recompute_timebox_from_predecessor()
+
+    def _recompute_timebox_from_predecessor(self):
+        self.ensure_one()
+        if self.max_predecessor_latest_timebox:
+            target_timebox = self.max_predecessor_latest_timebox
+            self.write({"timebox_ids": [(4, target_timebox.id)]})
 
     def _move_to_next(self):
         self.ensure_one()
