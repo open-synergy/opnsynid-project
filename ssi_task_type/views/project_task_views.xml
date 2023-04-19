@@ -13,6 +13,7 @@
                <xpath expr="//field[@name='name']" position="after">
                     <field name="type_id" />
                     <field name="type_category_id" />
+
                </xpath>
                <xpath expr="//filter[@name='stage']" position="after">
                     <filter
@@ -52,11 +53,12 @@
      <field name="mode">extension</field>
      <field name="arch" type="xml">
           <data>
-               <xpath expr="//field[@name='project_id']" position="after">
+               <xpath expr="//field[@name='partner_id']" position="after">
                     <separator string="Task Type" colspan="2" />
                     <field name="type_id" />
                     <field name="type_category_id" />
                     <xpath expr="//field[@name='tag_ids']" position="move" />
+                    <field name="difficulty" widget="priority" />
                </xpath>
                <xpath expr="//field[@name='instruction_ids']" position="after">
                     <group name="type_instruction" string="Type" colspan="4" col="2" />

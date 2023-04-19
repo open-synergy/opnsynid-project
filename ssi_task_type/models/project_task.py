@@ -25,3 +25,15 @@ class ProjectTask(models.Model):
         related="type_id.instruction_ids",
         store=False,
     )
+    difficulty = fields.Selection(
+        string="Difficulty",
+        index=True,
+        selection=[
+            ("0", "Low"),
+            ("1", "Medium"),
+            ("2", "High"),
+            ("3", "Very High"),
+        ],
+        default="0",
+        required=True,
+    )
