@@ -14,6 +14,18 @@ class TaskType(models.Model):
     work_estimation = fields.Float(
         string="Work Estimation",
     )
+    work_estimation_offset_0 = fields.Float(
+        string="Work Estimation Offset for Low Difficulty",
+    )
+    work_estimation_offset_1 = fields.Float(
+        string="Work Estimation Offset for Medium Difficulty",
+    )
+    work_estimation_offset_2 = fields.Float(
+        string="Work Estimation Offset for High Difficulty",
+    )
+    work_estimation_offset_3 = fields.Float(
+        string="Work Estimation Offset for Very High Difficulty",
+    )
     match_aa_partner = fields.Boolean(
         string="Match AA Partner",
     )

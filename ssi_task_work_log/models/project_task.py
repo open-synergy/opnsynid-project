@@ -23,8 +23,12 @@ class ProjectTask(models.Model):
 
     @api.onchange(
         "type_id",
+        "difficulty",
     )
     def onchange_work_estimation(self):
         self.work_estimation = 0.0
         if self.type_id:
-            self.work_estimation = self.type_id.work_estimation
+            standard_work_estimation = self.type_id.work_estimation
+            field_name = "work_estimation_offset_" + self.difficulty
+            offset_work_estimation = getattr(self.type_id, field_name)
+            self.work_estimation = standard_work_estimation + offset_work_estimation

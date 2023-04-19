@@ -28,23 +28,57 @@
             <xpath expr="//page[1]" position="before">
                 <page name="work_log" string="Work Log">
                     <group name="work_log1" colspan="4" col="2">
-                        <field name="work_estimation" widget="float_time" />
-                        <field
-                                name="work_log_analytic_account_ids"
-                                widget="many2many_tags"
-                                string="Analytic Accounts"
-                            />
-                        <field
-                                name="work_log_analytic_group_ids"
-                                widget="many2many_tags"
-                                string="Analytic Groups"
-                            />
-                        <field
-                                name="work_log_product_ids"
-                                widget="many2many_tags"
-                                string="Products"
-                            />
-                        <field name="match_aa_partner" />
+                        <group
+                                name="work_log_1_1"
+                                colspan="1"
+                                col="2"
+                                string="Estimation"
+                            >
+                            <field name="work_estimation" widget="float_time" />
+                            <field
+                                    name="work_estimation_offset_0"
+                                    string="Low Offset"
+                                    widget="float_time"
+                                />
+                            <field
+                                    name="work_estimation_offset_1"
+                                    string="Medium Offset"
+                                    widget="float_time"
+                                />
+                            <field
+                                    name="work_estimation_offset_2"
+                                    string="High Offset"
+                                    widget="float_time"
+                                />
+                            <field
+                                    name="work_estimation_offset_3"
+                                    string="Very High Offset"
+                                    widget="float_time"
+                                />
+                        </group>
+                        <group
+                                name="work_log_1_2"
+                                colspan="1"
+                                col="2"
+                                string="AA Selection"
+                            >
+                            <field
+                                    name="work_log_analytic_account_ids"
+                                    widget="many2many_tags"
+                                    string="Analytic Accounts"
+                                />
+                            <field
+                                    name="work_log_analytic_group_ids"
+                                    widget="many2many_tags"
+                                    string="Analytic Groups"
+                                />
+                            <field
+                                    name="work_log_product_ids"
+                                    widget="many2many_tags"
+                                    string="Products"
+                                />
+                            <field name="match_aa_partner" />
+                        </group>
                     </group>
                 </page>
             </xpath>
