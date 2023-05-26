@@ -35,6 +35,7 @@ Contributors
 ------------
 
 * Andhitia Rama <andhitia.r@gmail.com>
+* Miftahussalam <miftahussalam08@gmail.com>
 
 Maintainer
 ----------

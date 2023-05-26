@@ -49,52 +49,66 @@ class ProjectTask(models.Model):
         TaskDependency = self.env["task.dependency"]
         for record in self:
             result = "normal"
-
-            if not record.predecessor_ids:
-                record.dependency_state = "normal"
-                continue
-
-            if record.state == "draft":
-                criteria = [
-                    ("task_id", "=", record.id),
-                    ("dependency_type", "in", ["start_start", "finish_start"]),
-                ]
-                count_all = TaskDependency.search_count(criteria)
-                criteria += [
-                    ("predecessor_task_state", "in", ["open", "done", "cancel"]),
-                ]
-                count_ok = TaskDependency.search_count(criteria)
-                if count_all == count_ok:
-                    result = "done"
-                else:
-                    result = "blocked"
-            elif record.state == "open":
-                criteria = [
-                    ("task_id", "=", record.id),
-                    ("dependency_type", "=", "start_finish"),
-                ]
-                count_all = TaskDependency.search_count(criteria)
-                criteria += [
-                    ("predecessor_task_state", "in", ["open", "done", "cancel"]),
-                ]
-                count_ok = TaskDependency.search_count(criteria)
-                if count_all == count_ok:
-                    result = "done"
-                else:
-                    result = "blocked"
-                criteria = [
-                    ("task_id", "=", record.id),
-                    ("dependency_type", "=", "finish_finish"),
-                ]
-                count_all = TaskDependency.search_count(criteria)
-                criteria += [
-                    ("predecessor_task_state", "in", ["done", "cancel"]),
-                ]
-                count_ok = TaskDependency.search_count(criteria)
-                if count_all == count_ok:
-                    result = "done"
-                else:
-                    result = "blocked"
+            if record.predecessor_ids:
+                print('\n record.state', record.state)
+                if record.state == "draft":
+                    criteria = [
+                        ("task_id", "=", record.id),
+                        ("dependency_type", "=", "start_start"),
+                    ]
+                    count_all = TaskDependency.search_count(criteria)
+                    criteria += [
+                        ("predecessor_task_state", "in", ["open", "done", "cancelled"]),
+                    ]
+                    count_ok = TaskDependency.search_count(criteria)
+                    if count_all == count_ok:
+                        result = "done"
+                    else:
+                        result = "blocked"
+                    # kalau sudah blocked tidak perlu dilanjutkan
+                    if result == "done":
+                        criteria = [
+                            ("task_id", "=", record.id),
+                            ("dependency_type", "=", "finish_start"),
+                        ]
+                        count_all = TaskDependency.search_count(criteria)
+                        criteria += [
+                            ("predecessor_task_state", "in", ["done", "cancelled"]),
+                        ]
+                        count_ok = TaskDependency.search_count(criteria)
+                        if count_all == count_ok:
+                            result = "done"
+                        else:
+                            result = "blocked"
+                elif record.state == "open":
+                    criteria = [
+                        ("task_id", "=", record.id),
+                        ("dependency_type", "=", "start_finish"),
+                    ]
+                    count_all = TaskDependency.search_count(criteria)
+                    criteria += [
+                        ("predecessor_task_state", "in", ["open", "done", "cancelled"]),
+                    ]
+                    count_ok = TaskDependency.search_count(criteria)
+                    if count_all == count_ok:
+                        result = "done"
+                    else:
+                        result = "blocked"
+                    # kalau sudah blocked tidak perlu dilanjutkan
+                    if result == "done":
+                        criteria = [
+                            ("task_id", "=", record.id),
+                            ("dependency_type", "=", "finish_finish"),
+                        ]
+                        count_all = TaskDependency.search_count(criteria)
+                        criteria += [
+                            ("predecessor_task_state", "in", ["done", "cancelled"]),
+                        ]
+                        count_ok = TaskDependency.search_count(criteria)
+                        if count_all == count_ok:
+                            result = "done"
+                        else:
+                            result = "blocked"
 
             record.dependency_state = result
 
