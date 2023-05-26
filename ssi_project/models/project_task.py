@@ -153,7 +153,7 @@ class ProjectTask(models.Model):
             domain = self._prepare_finish_to_start_domain()
         elif dependency_type == "start_finish":
             domain = self._prepare_start_to_finish_domain()
-        elif dependency_type == "finish_finish":
+        else:  # finish_finish
             domain = self._prepare_finish_to_finish_domain()
         task_count = TaskDependency.search_count(domain)
         if task_count > 0:
