@@ -7,16 +7,52 @@
 <record id="edit_project" model="ir.ui.view">
     <field name="name">project.project.form</field>
     <field name="model">project.project</field>
-    <field name="inherit_id" ref="project.edit_project"/>
+    <field name="inherit_id" ref="project.edit_project" />
     <field name="arch" type="xml">
 
         <xpath expr="//header" position="inside">
-            <button name="action_confirm" class="oe_highlight" confirm="Confirm data. Are you sure?" type="object" states="draft" string="Confirm"/>
-            <button name="action_pending" confirm="Pending data. Are you sure?" type="object" states="open" string="Pending"/>
-            <button name="action_done" class="oe_highlight" confirm="Finish data. Are you sure?" type="object" states="open" string="Done"/>
-            <button name="action_cancel" confirm="Cancel data. Are you sure?" type="object" states="draft,open,pending,done" string="Cancel"/>
-            <button name="action_draft" confirm="Restart data. Are you sure?" type="object" states="cancel" string="Restart"/>
-            <field name="state" widget="statusbar" statusbar_visible="draft,open,done"/>
+            <button
+                    name="action_confirm"
+                    class="oe_highlight"
+                    confirm="Confirm data. Are you sure?"
+                    type="object"
+                    states="draft"
+                    string="Confirm"
+                />
+            <button
+                    name="action_pending"
+                    confirm="Pending data. Are you sure?"
+                    type="object"
+                    states="open"
+                    string="Pending"
+                />
+            <button
+                    name="action_done"
+                    class="oe_highlight"
+                    confirm="Finish data. Are you sure?"
+                    type="object"
+                    states="open,pending"
+                    string="Done"
+                />
+            <button
+                    name="action_cancel"
+                    confirm="Cancel data. Are you sure?"
+                    type="object"
+                    states="draft,open,pending,done"
+                    string="Cancel"
+                />
+            <button
+                    name="action_draft"
+                    confirm="Restart data. Are you sure?"
+                    type="object"
+                    states="cancel"
+                    string="Restart"
+                />
+            <field
+                    name="state"
+                    widget="statusbar"
+                    statusbar_visible="draft,open,pending,done"
+                />
         </xpath>
 
     </field>
