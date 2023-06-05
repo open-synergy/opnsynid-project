@@ -14,10 +14,10 @@
             <button
                     name="action_confirm"
                     class="oe_highlight"
-                    confirm="Confirm data. Are you sure?"
+                    confirm="Start data. Are you sure?"
                     type="object"
                     states="draft"
-                    string="Confirm"
+                    string="Start"
                 />
             <button
                     name="action_pending"
