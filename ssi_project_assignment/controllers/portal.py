@@ -114,7 +114,23 @@ class CustomerPortal(CustomerPortal):
         values = self._project_assignment_get_page_view_values(
             project_assignment_sudo, access_token, **kw
         )
+        user_assignment_id = request.env['project.assignment'].search([
+            ('id', '=', assignment_id),
+        ])
         values.update({
-            'access_token': values.get('access_token', access_token)
+            'access_token': values.get('access_token', access_token),
+            'approve_ok': user_assignment_id.approve_ok,
+            'reject_ok': user_assignment_id.reject_ok,
         })
         return request.render("ssi_project_assignment.portal_my_project_assignment", values)
+
+    @http.route(['/my/project-assignment/<int:assignment_id>/approve'], type='http', auth="public", website=True)
+    def approve(self, assignment_id, access_token=None, **post):
+        try:
+            user_assignment_id = request.env['project.assignment'].search([
+                ('id', '=', assignment_id),
+            ])
+        except (AccessError, MissingError):
+            return request.redirect('/my')
+        user_assignment_id.action_approve_approval()
+        return request.redirect(f'/my/project-assignment/{assignment_id}')
