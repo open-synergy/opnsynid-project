@@ -78,6 +78,7 @@
                                     string="Products"
                                 />
                             <field name="match_aa_partner" />
+                            <field name="num_of_max_aa" />
                         </group>
                     </group>
                 </page>

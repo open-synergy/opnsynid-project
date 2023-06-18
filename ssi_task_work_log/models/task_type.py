@@ -29,6 +29,10 @@ class TaskType(models.Model):
     match_aa_partner = fields.Boolean(
         string="Match AA Partner",
     )
+    num_of_max_aa = fields.Integer(
+        string="Max Num. of AA",
+        default=0,
+    )
     work_log_analytic_account_ids = fields.Many2many(
         string="Work Log Analytic Account",
         comodel_name="account.analytic.account",
