@@ -4,6 +4,39 @@
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
 
+<record id="view_project_project_filter" model="ir.ui.view">
+     <field name="name">project.project search</field>
+     <field name="model">project.project</field>
+     <field name="inherit_id" ref="project.view_project_project_filter" />
+     <field name="mode">extension</field>
+     <field name="arch" type="xml">
+          <data>
+               <xpath expr="//field[@name='name']" position="after">
+                    <field name="state" />
+               </xpath>
+               <xpath expr="//filter[@name='Partner']" position="after">
+                   <filter
+                        name="grp_state"
+                        string="State"
+                        context="{'group_by': 'state'}"
+                    />
+               </xpath>
+          </data>
+     </field>
+</record>
+
+<record id="view_project" model="ir.ui.view">
+    <field name="name">project.project.tree</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.view_project" />
+    <field name="mode">extension</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='company_id']" position="after">
+            <field name="state" widget="badge" decoration-info="state == 'draft'" />
+        </xpath>
+    </field>
+</record>
+
 <record id="edit_project" model="ir.ui.view">
     <field name="name">project.project.form</field>
     <field name="model">project.project</field>
