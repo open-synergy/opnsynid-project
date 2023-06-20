@@ -41,7 +41,6 @@ class ProjectProject(models.Model):
         self.ensure_one()
         self._unlink_task_created_by_template()
         task_template_ids = self._get_parent_task_template_ids()
-        # raise UserError(_("%s") % (task_template_ids))
         for task_template in task_template_ids:
             for template in task_template:
                 template._create_task(self)
