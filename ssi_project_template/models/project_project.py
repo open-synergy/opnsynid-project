@@ -27,11 +27,24 @@ class ProjectProject(models.Model):
         for record in self:
             record._create_task_from_template()
 
+    def _get_parent_task_template_ids(self):
+        self.ensure_one()
+        task_template_ids = []
+        current_task_template = self.template_id
+        while current_task_template:
+            task_template_ids.insert(0, current_task_template.task_template_ids)
+            if not current_task_template.parent_id:
+                return task_template_ids
+            current_task_template = current_task_template.parent_id
+
     def _create_task_from_template(self):
         self.ensure_one()
         self._unlink_task_created_by_template()
-        for task_template in self.template_id.task_template_ids:
-            task_template._create_task(self)
+        task_template_ids = self._get_parent_task_template_ids()
+        # raise UserError(_("%s") % (task_template_ids))
+        for task_template in task_template_ids:
+            for template in task_template:
+                template._create_task(self)
 
     def _unlink_task_created_by_template(self):
         self.ensure_one()
