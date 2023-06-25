@@ -3,6 +3,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import api, fields, models
+import uuid
 
 
 class ProjectAssignment(models.Model):
@@ -73,6 +74,9 @@ class ProjectAssignment(models.Model):
     # Sequence attribute
     _create_sequence_state = "open"
 
+    def _default_access_token(self):
+        return str(uuid.uuid4())
+
     date_assign = fields.Date(
         string="Date Assign",
         required=True,
@@ -119,10 +123,12 @@ class ProjectAssignment(models.Model):
             ("confirm", "Waiting for Approval"),
             ("open", "In Progress"),
             ("done", "Done"),
+            ("reject", "Reject"),
             ("terminate", "Terminate"),
             ("cancel", "Cancelled"),
         ],
     )
+    access_token = fields.Char("Security Token", copy=False, default=_default_access_token)
 
     @api.model
     def _get_policy_field(self):
