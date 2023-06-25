@@ -118,7 +118,7 @@ class CustomerPortal(CustomerPortal):
             ('id', '=', assignment_id),
         ])
         values.update({
-            'access_token': values.get('access_token', access_token),
+            'access_token': values.get('access_token', user_assignment_id.access_token),
             'approve_ok': user_assignment_id.approve_ok,
             'reject_ok': user_assignment_id.reject_ok,
         })
@@ -133,4 +133,15 @@ class CustomerPortal(CustomerPortal):
         except (AccessError, MissingError):
             return request.redirect('/my')
         user_assignment_id.action_approve_approval()
+        return request.redirect(f'/my/project-assignment/{assignment_id}')
+
+    @http.route(['/my/project-assignment/<int:assignment_id>/reject'], type='http', auth="public", website=True)
+    def reject(self, assignment_id, access_token=None, **post):
+        try:
+            user_assignment_id = request.env['project.assignment'].search([
+                ('id', '=', assignment_id),
+            ])
+        except (AccessError, MissingError):
+            return request.redirect('/my')
+        user_assignment_id.action_reject_approval()
         return request.redirect(f'/my/project-assignment/{assignment_id}')
