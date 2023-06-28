@@ -22,7 +22,7 @@ class ProjectTask(models.Model):
     _sql_constraints = [
         (
             "project_task_unique_code",
-            "CHECK(id id <> 0)",
+            "CHECK(id <> 0)",
             _("The code must be unique!"),
         ),
     ]
