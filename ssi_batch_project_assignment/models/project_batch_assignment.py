@@ -110,6 +110,7 @@ class ProjectBatchAssignment(models.Model):
             ("done", "Done"),
             ("terminate", "Terminate"),
             ("cancel", "Cancelled"),
+            ("reject", "Rejected"),
         ],
     )
 
