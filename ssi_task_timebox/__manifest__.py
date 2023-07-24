@@ -4,7 +4,7 @@
 
 {
     "name": "Task Timebox",
-    "version": "14.0.1.8.0",
+    "version": "14.0.1.8.1",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
