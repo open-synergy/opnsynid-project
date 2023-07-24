@@ -4,7 +4,7 @@
 
 {
     "name": "Project Batch Assignment",
-    "version": "14.0.1.2.0",
+    "version": "14.0.1.2.1",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",

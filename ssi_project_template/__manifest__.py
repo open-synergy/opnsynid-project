@@ -4,7 +4,7 @@
 
 {
     "name": "Project and Task Template",
-    "version": "14.0.1.4.1",
+    "version": "14.0.1.4.2",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "LGPL-3",
