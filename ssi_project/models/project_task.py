@@ -1,6 +1,6 @@
 # Copyright 2022 OpenSynergy Indonesia
 # Copyright 2022 PT. Simetri Sinergi Indonesia
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -50,7 +50,7 @@ class ProjectTask(models.Model):
         for record in self:
             result = "normal"
             if record.predecessor_ids:
-                print('\n record.state', record.state)
+                # print("\n record.state", record.state)
                 if record.state == "draft":
                     criteria = [
                         ("task_id", "=", record.id),
