@@ -1,9 +1,10 @@
 # Copyright 2022 OpenSynergy Indonesia
 # Copyright 2022 PT. Simetri Sinergi Indonesia
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+import uuid
 
 from odoo import api, fields, models
-import uuid
 
 
 class ProjectAssignment(models.Model):
@@ -128,7 +129,9 @@ class ProjectAssignment(models.Model):
             ("cancel", "Cancelled"),
         ],
     )
-    access_token = fields.Char("Security Token", copy=False, default=_default_access_token)
+    access_token = fields.Char(
+        "Security Token", copy=False, default=_default_access_token
+    )
 
     @api.model
     def _get_policy_field(self):
