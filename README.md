@@ -30,6 +30,7 @@ addon | version | maintainers | summary
 [ssi_task_code](ssi_task_code/) | 14.0.1.3.0 |  | Task Code
 [ssi_task_mixin](ssi_task_mixin/) | 14.0.1.1.0 |  | Task Mixin
 [ssi_task_project_manager](ssi_task_project_manager/) | 14.0.1.1.0 |  | Project Manager Information on Task
+[ssi_task_quality_control](ssi_task_quality_control/) | 14.0.1.0.0 |  | Task - Quality Control Integration
 [ssi_task_timebox](ssi_task_timebox/) | 14.0.1.9.0 |  | Task Timebox
 [ssi_task_type](ssi_task_type/) | 14.0.1.9.0 |  | Task Type
 [ssi_task_work_log](ssi_task_work_log/) | 14.0.1.8.0 |  | Task - Work Log Integration
