@@ -28,6 +28,7 @@ addon | version | maintainers | summary
 [ssi_project_type](ssi_project_type/) | 14.0.1.3.0 |  | Project Type
 [ssi_project_work_log](ssi_project_work_log/) | 14.0.1.1.0 |  | Project - Work Log Integration
 [ssi_task_code](ssi_task_code/) | 14.0.1.3.0 |  | Task Code
+[ssi_task_data_requirement](ssi_task_data_requirement/) | 14.0.1.0.0 |  | Task - Data Requirement Integration
 [ssi_task_mixin](ssi_task_mixin/) | 14.0.1.1.0 |  | Task Mixin
 [ssi_task_project_manager](ssi_task_project_manager/) | 14.0.1.1.0 |  | Project Manager Information on Task
 [ssi_task_quality_control](ssi_task_quality_control/) | 14.0.1.0.0 |  | Task - Quality Control Integration
