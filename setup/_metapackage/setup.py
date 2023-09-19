@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo14-addon-ssi_project_type',
         'odoo14-addon-ssi_project_work_log',
         'odoo14-addon-ssi_task_code',
+        'odoo14-addon-ssi_task_data_requirement',
         'odoo14-addon-ssi_task_mixin',
         'odoo14-addon-ssi_task_project_manager',
         'odoo14-addon-ssi_task_quality_control',
