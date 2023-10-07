@@ -11,3 +11,4 @@ class ProjectProject(models.Model):
         "project.project",
         "mixin.custom_info",
     ]
+    _custom_info_create_page = True
