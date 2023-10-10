@@ -12,6 +12,7 @@ class ProjectTask(models.Model):
         "mixin.data_requirement",
     ]
     _data_requirement_create_page = True
+    _data_requirement_partner_field_name = "partner_id"
 
     data_requirement_ids = fields.Many2many(
         relation="rel_task_2_data_requirement",
