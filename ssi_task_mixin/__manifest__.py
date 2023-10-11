@@ -12,6 +12,7 @@
     "depends": [
         "ssi_task_timebox",
         "ssi_project_template",
+        "ssi_decorator",
     ],
     "data": [
         "templates/mixin_task_templates.xml",
