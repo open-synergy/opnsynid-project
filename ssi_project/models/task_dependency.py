@@ -4,6 +4,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.exceptions import Warning as UserError
 
 
 class TaskDependency(models.Model):
@@ -74,3 +75,23 @@ class TaskDependency(models.Model):
             raise ValidationError(
                 _("You can not select itself for predecessor/sucessor")
             )
+
+    # task T/10/23/004552
+    @api.constrains("predecessor_task_id")
+    def _check_predecessor_task_id(self):
+        for record in self:
+            checks = self.env["task.dependency"].search([
+                ('id', '!=', record.id),
+                ('predecessor_task_id', '=', record.predecessor_task_id.id)
+            ])
+            if checks:
+                error_message = _(
+                    """
+                Context: You can not select the same predecessor task
+                Database ID: %s
+                Problem: Predecessor task: %s is used
+                Solution: Use another predecessor task
+                """
+                    % (record.id, record.predecessor_task_id.name,)
+                )
+                raise UserError(error_message)
