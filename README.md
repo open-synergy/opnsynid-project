@@ -19,7 +19,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_batch_project_assignment](ssi_batch_project_assignment/) | 14.0.1.3.0 |  | Project Batch Assignment
-[ssi_project](ssi_project/) | 14.0.2.13.0 |  | Project Extension
+[ssi_project](ssi_project/) | 14.0.2.14.0 |  | Project Extension
 [ssi_project_assignment](ssi_project_assignment/) | 14.0.2.4.0 |  | Project Assignment
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.1.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.1.0 |  | Project Code
@@ -33,7 +33,7 @@ addon | version | maintainers | summary
 [ssi_task_project_manager](ssi_task_project_manager/) | 14.0.1.1.0 |  | Project Manager Information on Task
 [ssi_task_quality_control](ssi_task_quality_control/) | 14.0.1.0.0 |  | Task - Quality Control Integration
 [ssi_task_timebox](ssi_task_timebox/) | 14.0.1.9.0 |  | Task Timebox
-[ssi_task_type](ssi_task_type/) | 14.0.1.9.0 |  | Task Type
+[ssi_task_type](ssi_task_type/) | 14.0.1.10.0 |  | Task Type
 [ssi_task_work_log](ssi_task_work_log/) | 14.0.1.8.0 |  | Task - Work Log Integration
 
 [//]: # (end addons)
