@@ -8,7 +8,7 @@ from odoo.exceptions import ValidationError
 
 class TaskDependency(models.Model):
     _name = "task.dependency"
-    _descrption = "Task Dependency"
+    _description = "Task Dependency"
 
     task_id = fields.Many2one(
         string="Task",

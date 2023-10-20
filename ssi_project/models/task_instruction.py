@@ -7,7 +7,7 @@ from odoo import fields, models
 
 class TaskInstruction(models.Model):
     _name = "task.instruction"
-    _descrption = "Task Instruction"
+    _description = "Task Instruction"
     _order = "sequence, id"
 
     task_id = fields.Many2one(
