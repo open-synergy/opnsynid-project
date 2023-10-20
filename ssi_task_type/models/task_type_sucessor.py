@@ -7,7 +7,7 @@ from odoo import fields, models
 
 class TaskTypeSucessor(models.Model):
     _name = "task_type.sucessor"
-    _descrption = "Task Type Sucessor"
+    _description = "Task Type Sucessor"
     _order = "sequence, id"
 
     type_id = fields.Many2one(

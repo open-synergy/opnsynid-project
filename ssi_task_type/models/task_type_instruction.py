@@ -7,7 +7,7 @@ from odoo import fields, models
 
 class TaskTypeInstruction(models.Model):
     _name = "task_type.instruction"
-    _descrption = "Task Type Instruction"
+    _description = "Task Type Instruction"
     _order = "sequence, id"
 
     type_id = fields.Many2one(
