@@ -3,8 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import ValidationError, Warning as UserError
 
 
 class TaskDependency(models.Model):
@@ -80,18 +79,23 @@ class TaskDependency(models.Model):
     @api.constrains("predecessor_task_id")
     def _check_predecessor_task_id(self):
         for record in self:
-            checks = self.env["task.dependency"].search([
-                ('id', '!=', record.id),
-                ('predecessor_task_id', '=', record.predecessor_task_id.id)
-            ])
+            checks = self.env["task.dependency"].search(
+                [
+                    ("id", "!=", record.id),
+                    ("predecessor_task_id", "=", record.predecessor_task_id.id),
+                ]
+            )
             if checks:
                 error_message = _(
                     """
-                Context: You can not select the same predecessor task
+                Context: Create/update task
                 Database ID: %s
                 Problem: Predecessor task: %s is used
                 Solution: Use another predecessor task
                 """
-                    % (record.id, record.predecessor_task_id.name,)
+                    % (
+                        record.task_id.id,
+                        record.predecessor_task_id.name,
+                    )
                 )
                 raise UserError(error_message)
