@@ -19,7 +19,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_batch_project_assignment](ssi_batch_project_assignment/) | 14.0.1.3.0 |  | Project Batch Assignment
-[ssi_project](ssi_project/) | 14.0.2.14.0 |  | Project Extension
+[ssi_project](ssi_project/) | 14.0.2.15.0 |  | Project Extension
 [ssi_project_assignment](ssi_project_assignment/) | 14.0.2.4.0 |  | Project Assignment
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.1.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.1.0 |  | Project Code
