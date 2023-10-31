@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-ssi_batch_project_assignment',
+        'odoo14-addon-ssi_batch_project_assignment_quality_control',
         'odoo14-addon-ssi_project',
         'odoo14-addon-ssi_project_assignment',
         'odoo14-addon-ssi_project_autocreate_analytic_account',
