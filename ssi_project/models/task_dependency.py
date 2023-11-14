@@ -83,6 +83,7 @@ class TaskDependency(models.Model):
                 [
                     ("id", "!=", record.id),
                     ("predecessor_task_id", "=", record.predecessor_task_id.id),
+                    ("task_id", "=", record.task_id.id),
                 ]
             )
             if checks:
