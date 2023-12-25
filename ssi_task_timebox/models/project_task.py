@@ -124,6 +124,47 @@ class ProjectTask(models.Model):
         compute="_compute_timebox",
         store=True,
     )
+    baseline_method = fields.Selection(
+        string="Baseline Method",
+        selection=[
+            ("none", "None"),
+            ("project", "Project"),
+            ("task", "Task"),
+        ],
+        required=True,
+        default="none",
+    )
+    baseline_project_id = fields.Many2one(
+        string="Baseline Project",
+        comodel_name="project.project",
+    )
+    baseline_project_starting_timebox_id = fields.Many2one(
+        string="Baseline Project Starting Timebox",
+        related="baseline_project_id.timebox_starting_id",
+    )
+    baseline_task_id = fields.Many2one(
+        string="Baseline Task",
+        comodel_name="project.task",
+    )
+    baseline_task_upcoming_timebox_id = fields.Many2one(
+        string="Baseline Task Upcoming Timebox",
+        related="baseline_task_id.timebox_upcoming_id",
+    )
+    baseline_offset = fields.Integer(
+        string="Baseline Offset",
+        default=0,
+    )
+    baseline_target_upcoming_timebox_id = fields.Many2one(
+        string="Upcoming Timebox Based On Baseline",
+        comodel_name="task.timebox",
+        compute="_compute_baseline_target_upcoming_timebox_id",
+        store=True,
+    )
+    upcoming_timebox_diff = fields.Boolean(
+        string="Has Difference Upcoming Timebox From Baseline",
+        compute="_compute_upcoming_timebox_diff",
+        store=True,
+    )
     move_forward = fields.Boolean(
         string="Move Forward",
         default=True,
@@ -140,6 +181,42 @@ class ProjectTask(models.Model):
     )
 
     @api.depends(
+        "baseline_task_upcoming_timebox_id",
+        "baseline_project_starting_timebox_id",
+        "baseline_offset",
+    )
+    def _compute_baseline_target_upcoming_timebox_id(self):
+        for record in self:
+            record.baseline_target_upcoming_timebox_id = False
+            if record.baseline_method == "none":
+                continue
+
+            if record.baseline_method == "project":
+                result = record.baseline_project_starting_timebox_id
+            elif record.baseline_method == "task":
+                result = record.baseline_task_upcoming_timebox_id
+
+            if not result:
+                continue
+
+            if record.baseline_offset > 0:
+                result = result.find_next(record.baseline_offset)
+            elif record.baseline_offset < 0:
+                result = result.find_previous(abs(record.baseline_offset))
+            record.baseline_target_upcoming_timebox_id = result
+
+    @api.depends(
+        "baseline_target_upcoming_timebox_id",
+        "timebox_upcoming_id",
+    )
+    def _compute_upcoming_timebox_diff(self):
+        for record in self:
+            result = True
+            if record.baseline_target_upcoming_timebox_id == record.timebox_upcoming_id:
+                result = False
+            record.upcoming_timebox_diff = result
+
+    @api.depends(
         "predecessor_ids",
         "predecessor_ids.predecessor_task_id.timebox_latest_id",
     )
@@ -153,6 +230,18 @@ class ProjectTask(models.Model):
                 if len(latest_timeboxes) > 0:
                     result = latest_timeboxes[-1]
             record.max_predecessor_latest_timebox = result
+
+    @api.onchange(
+        "baseline_method",
+    )
+    def onchange_baseline_project_id(self):
+        self.baseline_project_id = False
+
+    @api.onchange(
+        "project_id",
+    )
+    def onchange_task_id(self):
+        self.task_id = False
 
     def action_move_to_next(self):
         for record in self.sudo():
@@ -169,6 +258,18 @@ class ProjectTask(models.Model):
     def action_recompute_sucessor_timebox(self):
         for record in self.sudo():
             record._recompute_sucessor_timebox()
+
+    def action_change_into_target_timebox(self):
+        for record in self.sudo():
+            record._change_into_target_timebox()
+
+    def _change_into_target_timebox(self):
+        self.ensure_one()
+        if not self.baseline_target_upcoming_timebox_id:
+            return True
+        timeboxes = self.timebox_ids.filtered(lambda r: r.state == "done")
+        timeboxes += self.baseline_target_upcoming_timebox_id
+        self.write({"timebox_ids": [(6, 0, timeboxes.ids)]})
 
     def _recompute_sucessor_timebox(self):
         self.ensure_one()

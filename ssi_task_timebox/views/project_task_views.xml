@@ -45,17 +45,46 @@
                         domain="[('state','!=','done')]"
                     />
             <field name="move_forward" />
-            <field name="recompute_from_predecessor" />
-            <button
-                        name="action_recompute_timebox_from_predecessor"
-                        type="object"
-                        string="From Predecessor"
-                        class="oe_highlight"
-                        icon="fa-cogs"
-                    />
         </xpath>
         <xpath expr="//notebook" position="inside">
             <page name="timebox" string="Timebox">
+                <group name="timebox_baseline_1" colspan="4" col="2">
+                    <group
+                                name="timebox_baseline_1"
+                                string="Baseline"
+                                colspan="1"
+                                col="2"
+                            >
+                        <field name="baseline_method" />
+                        <field
+                                    name="baseline_project_id"
+                                    attrs="{'invisible':[('baseline_method','=','none')], 'required':[('baseline_method','!=','none')]}"
+                                />
+                        <field
+                                    name="baseline_task_id"
+                                    domain="[('project_id','=',baseline_project_id)]"
+                                    attrs="{'invisible':[('baseline_method','!=','task')], 'required':[('baseline_method','=','task')]}"
+                                />
+                        <field name="baseline_offset" />
+                    </group>
+                    <group
+                                name="timebox_baseline_1"
+                                string="Target Timebox"
+                                colspan="1"
+                                col="2"
+                            >
+                        <field
+                                    name="baseline_project_starting_timebox_id"
+                                    attrs="{'invisible':[('baseline_method','!=','project')]}"
+                                />
+                        <field
+                                    name="baseline_task_upcoming_timebox_id"
+                                    attrs="{'invisible':[('baseline_method','!=','task')]}"
+                                />
+                        <field name="baseline_target_upcoming_timebox_id" />
+                        <field name="upcoming_timebox_diff" />
+                    </group>
+                </group>
                 <group name="timebox_1" colspan="4" col="2">
                     <group
                                 name="timebox_1_1"
@@ -101,30 +130,6 @@
                     </group>
                 </group>
             </page>
-        </xpath>
-        <xpath
-                    expr="//field[@name='predecessor_ids']/tree/field[@name='dependency_type']"
-                    position="after"
-                >
-            <field name="offset_from_predecessor" />
-            <field name="target_timebox_from_predecessor" />
-        </xpath>
-        <xpath expr="//field[@name='predecessor_ids']" position="after">
-            <group name="predecessor_footer" colspan="4" col="2">
-                <field name="max_predecessor_latest_timebox" />
-            </group>
-        </xpath>
-        <xpath
-                    expr="//button[@name='%(ssi_project.create_sucessor_task_action)d']"
-                    position="after"
-                >
-            <button
-                        name="action_recompute_sucessor_timebox"
-                        type="object"
-                        string="Timebox"
-                        class="oe_highlight"
-                        icon="fa-cogs"
-                    />
         </xpath>
     </field>
 </record>
