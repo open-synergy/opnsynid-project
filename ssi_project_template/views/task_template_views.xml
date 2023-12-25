@@ -52,6 +52,16 @@
                     <page name="description" string="Description">
                         <field name="description" />
                     </page>
+                    <page name="baseline" string="Baseline">
+                        <group name="baseline_1" colspan="4" col="2">
+                            <field name="baseline_method" />
+                            <field
+                                name="baseline_task_template_id"
+                                attrs="{'invisible':[('baseline_method','!=','task')],'required':[('baseline_method','=','task')]}"
+                            />
+                            <field name="baseline_offset" />
+                        </group>
+                    </page>
                 </xpath>
             </data>
         </field>
