@@ -13,13 +13,15 @@
                <xpath expr="//field[@name='user_id']" position="before">
                     <field name="role_id" />
                     <field
-                        name="allowed_user_ids"
+                        name="allowed_assigned_ids"
                         widget="many2many_tags_avatar"
                         invisible="1"
                     />
                </xpath>
                <xpath expr="//field[@name='user_id']" position="attributes">
-                    <attribute name="domain">[('id','in',allowed_user_ids)]</attribute>
+                    <attribute
+                        name="domain"
+                    >[('id','in',allowed_assigned_ids)]</attribute>
                </xpath>
           </data>
      </field>
