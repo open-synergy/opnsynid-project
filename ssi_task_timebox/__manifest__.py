@@ -13,6 +13,7 @@
         "ssi_project",
         "ssi_master_data_mixin",
         "ssi_duration_mixin",
+        "base_automation",
     ],
     "data": [
         "security/res_group_data.xml",
