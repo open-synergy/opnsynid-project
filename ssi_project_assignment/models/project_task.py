@@ -19,7 +19,7 @@ class ProjectTask(models.Model):
         "type_id",
         "role_id",
     )
-    def _compute_allowed_user_ids(self):
+    def _compute_allowed_assigned_ids(self):
         User = self.env["res.users"]
         for record in self:
             result = User.search([]).ids
@@ -31,12 +31,12 @@ class ProjectTask(models.Model):
                     .mapped("user_id")
                     .ids
                 )
-            record.allowed_user_ids = result
+            record.allowed_assigned_ids = result
 
-    allowed_user_ids = fields.Many2many(
+    allowed_assigned_ids = fields.Many2many(
         string="Allowed Users",
         comodel_name="res.users",
-        compute="_compute_allowed_user_ids",
+        compute="_compute_allowed_assigned_ids",
         store=False,
     )
 
