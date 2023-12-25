@@ -1,0 +1,15 @@
+<odoo>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<data>
+<record id="automated_action_change_into_target_timebox" model="base.automation">
+    <field name="action_server_id" ref="server_action_change_into_target_timebox" />
+    <field name="trigger">on_create_or_write</field>
+    <field name="filter_pre_domain">[]</field>
+    <field
+                name="filter_domain"
+            >[('upcoming_timebox_diff','=',True),('baseline_method','!=','none')]</field>
+</record>
+</data>
+</odoo>

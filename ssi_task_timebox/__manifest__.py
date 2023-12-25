@@ -17,9 +17,12 @@
     "data": [
         "security/res_group_data.xml",
         "security/ir.model.access.csv",
+        "data/ir_actions_server_data.xml",
+        "data/base_automation_data.xml",
         "wizards/create_sucessor_task.xml",
         "views/task_timebox_views.xml",
         "views/project_task_views.xml",
+        "views/project_project_views.xml",
     ],
     "demo": [],
 }
