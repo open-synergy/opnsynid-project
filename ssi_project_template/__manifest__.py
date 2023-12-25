@@ -12,6 +12,7 @@
     "depends": [
         "ssi_project_type",
         "ssi_task_type",
+        "ssi_task_timebox",
     ],
     "data": [
         "security/res_group_data.xml",

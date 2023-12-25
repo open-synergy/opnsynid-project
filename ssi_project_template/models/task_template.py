@@ -2,7 +2,7 @@
 # Copyright 2022 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class TaskTemplate(models.Model):
@@ -23,6 +23,30 @@ class TaskTemplate(models.Model):
     description = fields.Html(
         string="Description",
     )
+    baseline_method = fields.Selection(
+        string="Baseline Method",
+        selection=[
+            ("none", "None"),
+            ("project", "Project"),
+            ("task", "Task"),
+        ],
+        required=True,
+        default="none",
+    )
+    baseline_task_template_id = fields.Many2one(
+        string="Baseline Task Template",
+        comodel_name="task.template",
+    )
+    baseline_offset = fields.Integer(
+        string="Baseline Offset",
+        default=0,
+    )
+
+    @api.onchange(
+        "baseline_method",
+    )
+    def onchange_baseline_task_template_id(self):
+        self.baseline_task_template_id = False
 
     def _create_task(self, project):
         self.ensure_one()

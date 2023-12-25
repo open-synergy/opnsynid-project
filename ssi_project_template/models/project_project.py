@@ -44,6 +44,18 @@ class ProjectProject(models.Model):
         for task_template in task_template_ids:
             for template in task_template:
                 template._create_task(self)
+        self._compute_task_timebox_baseline()
+
+    def _compute_task_timebox_baseline(self):
+        self.ensure_one()
+        criteria = [
+            ("project_id", "=", self.id),
+            ("template_id", "!=", False),
+        ]
+        Task = self.env["project.task"]
+        tasks = Task.search(criteria)
+        for task in tasks:
+            task._compute_task_timebox_baseline_from_template()
 
     def _unlink_task_created_by_template(self):
         self.ensure_one()
