@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.1.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.1.0 |  | Project Code
 [ssi_project_custom_information](ssi_project_custom_information/) | 14.0.1.1.1 |  | Project + Custom Information Integration
-[ssi_project_template](ssi_project_template/) | 14.0.1.5.0 |  | Project and Task Template
+[ssi_project_template](ssi_project_template/) | 14.0.2.0.0 |  | Project and Task Template
 [ssi_project_type](ssi_project_type/) | 14.0.1.3.0 |  | Project Type
 [ssi_project_work_log](ssi_project_work_log/) | 14.0.1.1.0 |  | Project - Work Log Integration
 [ssi_task_code](ssi_task_code/) | 14.0.1.3.0 |  | Task Code
