@@ -21,7 +21,7 @@ addon | version | maintainers | summary
 [ssi_batch_project_assignment](ssi_batch_project_assignment/) | 14.0.1.3.0 |  | Project Batch Assignment
 [ssi_batch_project_assignment_quality_control](ssi_batch_project_assignment_quality_control/) | 14.0.1.0.0 |  | Project Batch Assignment - Quality Control Integration
 [ssi_project](ssi_project/) | 14.0.2.15.1 |  | Project Extension
-[ssi_project_assignment](ssi_project_assignment/) | 14.0.2.5.0 |  | Project Assignment
+[ssi_project_assignment](ssi_project_assignment/) | 14.0.2.6.0 |  | Project Assignment
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.1.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.1.0 |  | Project Code
 [ssi_project_custom_information](ssi_project_custom_information/) | 14.0.1.1.1 |  | Project + Custom Information Integration
