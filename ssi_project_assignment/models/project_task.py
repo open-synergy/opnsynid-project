@@ -28,7 +28,7 @@ class ProjectTask(models.Model):
                     record.project_id.active_assignment_ids.filtered(
                         lambda r: r.role_id.id == record.role_id.id
                     )
-                    .mapped("user_id")
+                    .mapped("asignee_id")
                     .ids
                 )
             record.allowed_assigned_ids = result
