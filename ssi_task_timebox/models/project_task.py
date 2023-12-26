@@ -238,10 +238,10 @@ class ProjectTask(models.Model):
         self.baseline_project_id = False
 
     @api.onchange(
-        "project_id",
+        "baseline_project_id",
     )
-    def onchange_task_id(self):
-        self.task_id = False
+    def onchange_baseline_task_id(self):
+        self.baseline_task_id = False
 
     def action_move_to_next(self):
         for record in self.sudo():
