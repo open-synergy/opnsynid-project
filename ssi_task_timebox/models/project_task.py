@@ -236,6 +236,8 @@ class ProjectTask(models.Model):
     )
     def onchange_baseline_project_id(self):
         self.baseline_project_id = False
+        if self.baseline_method in ["project", "task"] and self.project_id:
+            self.baseline_project_id = self.project_id
 
     @api.onchange(
         "baseline_project_id",
