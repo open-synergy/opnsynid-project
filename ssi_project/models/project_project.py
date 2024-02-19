@@ -2,7 +2,7 @@
 # Copyright 2023 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class ProjectProject(models.Model):
@@ -57,3 +57,12 @@ class ProjectProject(models.Model):
     def action_draft(self):
         for rec in self.filtered(lambda p: p.state == "cancel"):
             rec.write(rec._prepare_draft_data())
+
+    @api.model
+    def default_get(self, fields):
+        res = super(ProjectProject, self).default_get(fields)
+        default_task_ids = self.env['project.task.type'].search([
+            ('is_default', '=', True)
+        ])
+        res['type_ids'] = [(6, 0, default_task_ids.ids)]
+        return res
