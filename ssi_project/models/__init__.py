@@ -7,4 +7,5 @@ from . import (
     task_instruction,
     project_task,
     project_project,
+    mail_compose_message,
 )
