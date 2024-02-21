@@ -34,7 +34,7 @@ class CustomerPortal(CustomerPortal):
             values,
             "my_project_assignments_history",
             False,
-            **kwargs
+            **kwargs,
         )
 
     @http.route(
@@ -95,7 +95,9 @@ class CustomerPortal(CustomerPortal):
                 "sortby": sortby,
             }
         )
-        return request.render("ssi_project_assignment.portal_my_project_assignments", values)
+        return request.render(
+            "ssi_project_assignment.portal_my_project_assignments", values
+        )
 
     @http.route(
         ["/my/project-assignment/<int:assignment_id>"],
@@ -114,34 +116,56 @@ class CustomerPortal(CustomerPortal):
         values = self._project_assignment_get_page_view_values(
             project_assignment_sudo, access_token, **kw
         )
-        user_assignment_id = request.env['project.assignment'].search([
-            ('id', '=', assignment_id),
-        ])
-        values.update({
-            'access_token': values.get('access_token', user_assignment_id.access_token),
-            'approve_ok': user_assignment_id.approve_ok,
-            'reject_ok': user_assignment_id.reject_ok,
-        })
-        return request.render("ssi_project_assignment.portal_my_project_assignment", values)
+        user_assignment_id = request.env["project.assignment"].search(
+            [
+                ("id", "=", assignment_id),
+            ]
+        )
+        values.update(
+            {
+                "access_token": values.get(
+                    "access_token", user_assignment_id.access_token
+                ),
+                "approve_ok": user_assignment_id.approve_ok,
+                "reject_ok": user_assignment_id.reject_ok,
+            }
+        )
+        return request.render(
+            "ssi_project_assignment.portal_my_project_assignment", values
+        )
 
-    @http.route(['/my/project-assignment/<int:assignment_id>/approve'], type='http', auth="public", website=True)
+    @http.route(
+        ["/my/project-assignment/<int:assignment_id>/approve"],
+        type="http",
+        auth="public",
+        website=True,
+    )
     def approve(self, assignment_id, access_token=None, **post):
         try:
-            user_assignment_id = request.env['project.assignment'].search([
-                ('id', '=', assignment_id),
-            ])
+            user_assignment_id = request.env["project.assignment"].search(
+                [
+                    ("id", "=", assignment_id),
+                ]
+            )
         except (AccessError, MissingError):
-            return request.redirect('/my')
+            return request.redirect("/my")
         user_assignment_id.action_approve_approval()
-        return request.redirect(f'/my/project-assignment/{assignment_id}')
+        return request.redirect(f"/my/project-assignment/{assignment_id}")
 
-    @http.route(['/my/project-assignment/<int:assignment_id>/reject'], type='http', auth="public", website=True)
+    @http.route(
+        ["/my/project-assignment/<int:assignment_id>/reject"],
+        type="http",
+        auth="public",
+        website=True,
+    )
     def reject(self, assignment_id, access_token=None, **post):
         try:
-            user_assignment_id = request.env['project.assignment'].search([
-                ('id', '=', assignment_id),
-            ])
+            user_assignment_id = request.env["project.assignment"].search(
+                [
+                    ("id", "=", assignment_id),
+                ]
+            )
         except (AccessError, MissingError):
-            return request.redirect('/my')
+            return request.redirect("/my")
         user_assignment_id.action_reject_approval()
-        return request.redirect(f'/my/project-assignment/{assignment_id}')
+        return request.redirect(f"/my/project-assignment/{assignment_id}")
