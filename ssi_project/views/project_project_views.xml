@@ -88,6 +88,10 @@
                 />
         </xpath>
 
+        <xpath expr="//field[@name='privacy_visibility']" position="after">
+            <field name="type_ids" widget="many2many_tags" />
+        </xpath>
+
     </field>
 </record>
 

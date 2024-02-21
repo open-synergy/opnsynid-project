@@ -2,11 +2,22 @@
 # Copyright 2023 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
     _inherit = "project.project"
+
+    @api.model
+    def _default_type_ids(self):
+        default_task_ids = self.env["project.task.type"].search(
+            [("is_default", "=", True)]
+        )
+        return default_task_ids and default_task_ids.ids or []
+
+    type_ids = fields.Many2many(
+        default=lambda self: self._default_type_ids(),
+    )
 
     state = fields.Selection(
         string="State",

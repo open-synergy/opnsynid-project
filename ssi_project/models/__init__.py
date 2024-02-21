@@ -5,6 +5,7 @@
 from . import (
     task_dependency,
     task_instruction,
+    project_task_type,
     project_task,
     project_project,
 )
