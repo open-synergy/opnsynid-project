@@ -8,6 +8,17 @@ from odoo import api, fields, models
 class ProjectProject(models.Model):
     _inherit = "project.project"
 
+    @api.model
+    def _default_type_ids(self):
+        default_task_ids = self.env["project.task.type"].search(
+            [("is_default", "=", True)]
+        )
+        return default_task_ids and default_task_ids.ids or []
+
+    type_ids = fields.Many2many(
+        default=lambda self: self._default_type_ids(),
+    )
+
     state = fields.Selection(
         string="State",
         selection=[
@@ -57,12 +68,3 @@ class ProjectProject(models.Model):
     def action_draft(self):
         for rec in self.filtered(lambda p: p.state == "cancel"):
             rec.write(rec._prepare_draft_data())
-
-    @api.model
-    def default_get(self, fields):
-        res = super(ProjectProject, self).default_get(fields)
-        default_task_ids = self.env["project.task.type"].search(
-            [("is_default", "=", True)]
-        )
-        res["type_ids"] = [(6, 0, default_task_ids.ids)]
-        return res
