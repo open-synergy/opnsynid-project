@@ -2,7 +2,7 @@
 # Copyright 2023 PT. Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -61,8 +61,8 @@ class ProjectProject(models.Model):
     @api.model
     def default_get(self, fields):
         res = super(ProjectProject, self).default_get(fields)
-        default_task_ids = self.env['project.task.type'].search([
-            ('is_default', '=', True)
-        ])
-        res['type_ids'] = [(6, 0, default_task_ids.ids)]
+        default_task_ids = self.env["project.task.type"].search(
+            [("is_default", "=", True)]
+        )
+        res["type_ids"] = [(6, 0, default_task_ids.ids)]
         return res
