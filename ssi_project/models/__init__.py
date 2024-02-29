@@ -8,4 +8,5 @@ from . import (
     project_task_type,
     project_task,
     project_project,
+    mail_compose_message,
 )
