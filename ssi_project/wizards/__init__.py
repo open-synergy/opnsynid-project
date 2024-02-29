@@ -4,4 +4,5 @@
 
 from . import (
     create_sucessor_task,
+    mail_compose_message,
 )
