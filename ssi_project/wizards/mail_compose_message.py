@@ -11,5 +11,6 @@ class MailComposeMessage(models.TransientModel):
     @api.model
     def default_get(self, fields_list):
         res = super(MailComposeMessage, self).default_get(fields_list)
-        res.setdefault("partner_ids", False)
+        if self.env.context.get("default_model") == "project.task":
+            res["partner_ids"] = False
         return res
