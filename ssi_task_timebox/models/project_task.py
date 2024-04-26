@@ -63,6 +63,12 @@ class ProjectTask(models.Model):
             document.timebox_upcoming_date_end = timebox_upcoming_date_end
             document.on_running_timebox = on_running_timebox
 
+    @api.depends("timebox_ids.state")
+    def _compute_num_timebox(self):
+        for rec in self:
+            rec.num_of_draft_timebox = len(rec.timebox_ids.filtered(lambda t: t.state == 'new'))
+            rec.num_of_done_timebox = len(rec.timebox_ids.filtered(lambda t: t.state == 'done'))
+
     timebox_ids = fields.Many2many(
         string="Timeboxes",
         comodel_name="task.timebox",
@@ -178,6 +184,16 @@ class ProjectTask(models.Model):
     recompute_from_predecessor = fields.Boolean(
         string="Recompute From Predecessor",
         default=True,
+    )
+    num_of_draft_timebox = fields.Integer(
+        string="Num of Draft Timebox",
+        compute='_compute_num_timebox',
+        store=True
+    )
+    num_of_done_timebox = fields.Integer(
+        string="Num of Done Timebox",
+        compute='_compute_num_timebox',
+        store=True
     )
 
     @api.depends(

@@ -128,6 +128,15 @@
                                     string="Timebox Date Stop"
                                 />
                     </group>
+                    <group
+                                name="timebox_1_4"
+                                string="Num of Timebox"
+                                colspan="1"
+                                col="2"
+                            >
+                        <field name="num_of_draft_timebox" />
+                        <field name="num_of_done_timebox" />
+                    </group>
                 </group>
             </page>
         </xpath>
