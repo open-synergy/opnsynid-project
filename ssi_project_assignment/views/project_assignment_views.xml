@@ -53,6 +53,16 @@
                 <field name="date_end" />
                 <field name="date_assign" />
             </xpath>
+            <xpath expr="//notebook/page[1]" position="before">
+                <page string="Tasks" name="task">
+                    <group>
+                        <group>
+                            <field name="manual_task_work_hour"/>
+                        </group>
+                    </group>
+                    <field name="task_ids"/>
+                </page>
+            </xpath>
         </data>
     </field>
 </record>
