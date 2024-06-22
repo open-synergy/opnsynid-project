@@ -22,7 +22,7 @@ addon | version | maintainers | summary
 [ssi_batch_project_assignment_quality_control](ssi_batch_project_assignment_quality_control/) | 14.0.1.0.0 |  | Project Batch Assignment - Quality Control Integration
 [ssi_batch_project_assignment_work_log](ssi_batch_project_assignment_work_log/) | 14.0.1.0.0 |  | Project Batch Assignment - Work Log Integration
 [ssi_project](ssi_project/) | 14.0.2.17.1 |  | Project Extension
-[ssi_project_assignment](ssi_project_assignment/) | 14.0.2.7.0 |  | Project Assignment
+[ssi_project_assignment](ssi_project_assignment/) | 14.0.3.0.0 |  | Project Assignment
 [ssi_project_assignment_work_log](ssi_project_assignment_work_log/) | 14.0.1.0.0 |  | Project Assignment - Work Log Integration
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.1.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.1.0 |  | Project Code
@@ -35,7 +35,7 @@ addon | version | maintainers | summary
 [ssi_task_mixin](ssi_task_mixin/) | 14.0.2.0.0 |  | Task Mixin
 [ssi_task_project_manager](ssi_task_project_manager/) | 14.0.1.1.0 |  | Project Manager Information on Task
 [ssi_task_quality_control](ssi_task_quality_control/) | 14.0.1.0.0 |  | Task - Quality Control Integration
-[ssi_task_timebox](ssi_task_timebox/) | 14.0.3.0.0 |  | Task Timebox
+[ssi_task_timebox](ssi_task_timebox/) | 14.0.4.0.0 |  | Task Timebox
 [ssi_task_type](ssi_task_type/) | 14.0.1.10.0 |  | Task Type
 [ssi_task_work_log](ssi_task_work_log/) | 14.0.1.8.0 |  | Task - Work Log Integration
 
