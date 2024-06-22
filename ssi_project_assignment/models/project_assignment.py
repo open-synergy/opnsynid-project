@@ -132,6 +132,19 @@ class ProjectAssignment(models.Model):
     access_token = fields.Char(
         "Security Token", copy=False, default=_default_access_token
     )
+    manual_task_work_hour = fields.Float(
+        string="Manual Task Work Hour",
+        readonly=True,
+        states={
+            "open": [("readonly", False)],
+        },
+    )
+    task_ids = fields.One2many(
+        comodel_name="project.task",
+        inverse_name="project_assignment_id",
+        string="Tasks",
+        readonly=True,
+    )
 
     @api.model
     def _get_policy_field(self):

@@ -23,6 +23,9 @@
                         name="domain"
                     >[('id','in',allowed_assigned_ids)]</attribute>
                </xpath>
+               <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="project_assignment_id" />
+               </xpath>
           </data>
      </field>
 </record>
