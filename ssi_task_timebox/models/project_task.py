@@ -66,8 +66,12 @@ class ProjectTask(models.Model):
     @api.depends("timebox_ids.state")
     def _compute_num_timebox(self):
         for rec in self:
-            rec.num_of_draft_timebox = len(rec.timebox_ids.filtered(lambda t: t.state == 'new'))
-            rec.num_of_done_timebox = len(rec.timebox_ids.filtered(lambda t: t.state == 'done'))
+            rec.num_of_draft_timebox = len(
+                rec.timebox_ids.filtered(lambda t: t.state == "new")
+            )
+            rec.num_of_done_timebox = len(
+                rec.timebox_ids.filtered(lambda t: t.state == "done")
+            )
 
     timebox_ids = fields.Many2many(
         string="Timeboxes",
@@ -186,14 +190,10 @@ class ProjectTask(models.Model):
         default=True,
     )
     num_of_draft_timebox = fields.Integer(
-        string="Num of Draft Timebox",
-        compute='_compute_num_timebox',
-        store=True
+        string="Num of Draft Timebox", compute="_compute_num_timebox", store=True
     )
     num_of_done_timebox = fields.Integer(
-        string="Num of Done Timebox",
-        compute='_compute_num_timebox',
-        store=True
+        string="Num of Done Timebox", compute="_compute_num_timebox", store=True
     )
 
     @api.depends(
