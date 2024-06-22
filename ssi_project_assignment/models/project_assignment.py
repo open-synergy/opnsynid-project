@@ -143,7 +143,7 @@ class ProjectAssignment(models.Model):
         comodel_name="project.task",
         inverse_name="project_assignment_id",
         string="Tasks",
-        readonly=True
+        readonly=True,
     )
 
     @api.model

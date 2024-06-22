@@ -57,10 +57,10 @@
                 <page string="Tasks" name="task">
                     <group>
                         <group>
-                            <field name="manual_task_work_hour"/>
+                            <field name="manual_task_work_hour" />
                         </group>
                     </group>
-                    <field name="task_ids"/>
+                    <field name="task_ids" />
                 </page>
             </xpath>
         </data>
