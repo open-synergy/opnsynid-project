@@ -18,13 +18,15 @@ class ProjectTask(models.Model):
         for rec in self:
             project_assignment_id = self.env["project.assignment"]
             if rec.project_id and rec.user_id and rec.role_id:
-                project_assignment_id = self.env["project.assignment"].search([
-                    ("project_id", "=", rec.project_id.id),
-                    ("user_id", "=", rec.user_id.id),
-                    ("role_id", "=", rec.role_id.id),
-                    ("company_id", "=", rec.company_id.id),
-                    ("state", "not in", ["reject", "cancel"]),
-                ], limit=1)
+                project_assignment_id = self.env["project.assignment"].search(
+                    [
+                        ("project_id", "=", rec.project_id.id),
+                        ("asignee_id", "=", rec.user_id.id),
+                        ("role_id", "=", rec.role_id.id),
+                        ("state", "not in", ["reject", "cancel"]),
+                    ],
+                    limit=1,
+                )
             rec.project_assignment_id = project_assignment_id.id
 
     role_id = fields.Many2one(
