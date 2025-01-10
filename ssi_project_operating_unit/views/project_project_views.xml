@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="project_project_view_tree" model="ir.ui.view">
+    <field name="name">project.project tree</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.view_project" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field
+                        name="operating_unit_id"
+                        groups="operating_unit.group_multi_operating_unit"
+                        optional="hide"
+                    />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+
+
+
+<record id="project_project_view_search" model="ir.ui.view">
+    <field name="name">project.project search</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.view_project_project_filter" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field
+                        name="operating_unit_id"
+                        groups="operating_unit.group_multi_operating_unit"
+                        optional="hide"
+                    />
+            </xpath>
+            <xpath expr="//filter[@name='Partner']" position="after">
+                <filter
+                        name="grp_ou"
+                        string="Operating Unit"
+                        context="{'group_by':'operating_unit_id'}"
+                        groups="operating_unit.group_multi_operating_unit"
+                    />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="project_project_view_form" model="ir.ui.view">
+    <field name="name">project.project form</field>
+    <field name="model">project.project</field>
+    <field name="inherit_id" ref="project.edit_project" />
+    <field name="arch" type="xml">
+      <data>
+          <xpath expr="//field[@name='company_id']" position="after">
+              <field
+                        name="operating_unit_id"
+                        groups="operating_unit.group_multi_operating_unit"
+                        optional="hide"
+                    />
+          </xpath>
+      </data>
+    </field>
+</record>
+</odoo>
