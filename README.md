@@ -19,14 +19,17 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_batch_project_assignment](ssi_batch_project_assignment/) | 14.0.1.3.0 |  | Project Batch Assignment
+[ssi_batch_project_assignment_operating_unit](ssi_batch_project_assignment_operating_unit/) | 14.0.1.0.0 |  | Project Batch Assignment + Operating Unit
 [ssi_batch_project_assignment_quality_control](ssi_batch_project_assignment_quality_control/) | 14.0.1.0.0 |  | Project Batch Assignment - Quality Control Integration
 [ssi_batch_project_assignment_work_log](ssi_batch_project_assignment_work_log/) | 14.0.1.0.0 |  | Project Batch Assignment - Work Log Integration
 [ssi_project](ssi_project/) | 14.0.2.17.1 |  | Project Extension
 [ssi_project_assignment](ssi_project_assignment/) | 14.0.3.0.0 |  | Project Assignment
+[ssi_project_assignment_operating_unit](ssi_project_assignment_operating_unit/) | 14.0.1.0.0 |  | Project Assignment + Operating Unit
 [ssi_project_assignment_work_log](ssi_project_assignment_work_log/) | 14.0.1.0.0 |  | Project Assignment - Work Log Integration
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.1.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.1.0 |  | Project Code
 [ssi_project_custom_information](ssi_project_custom_information/) | 14.0.1.1.1 |  | Project + Custom Information Integration
+[ssi_project_operating_unit](ssi_project_operating_unit/) | 14.0.1.0.0 |  | Project + Operating Unit
 [ssi_project_template](ssi_project_template/) | 14.0.2.0.0 |  | Project and Task Template
 [ssi_project_type](ssi_project_type/) | 14.0.1.3.0 |  | Project Type
 [ssi_project_work_log](ssi_project_work_log/) | 14.0.1.1.0 |  | Project - Work Log Integration
