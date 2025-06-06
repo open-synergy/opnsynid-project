@@ -1,0 +1,798 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_project
+#: code:addons/ssi_project/models/task_dependency.py:0
+#, python-format
+msgid ""
+"\n"
+"                Context: Create/update task\n"
+"                Database ID: %s\n"
+"                Problem: Predecessor task: %s is used\n"
+"                Solution: Use another predecessor task\n"
+"                "
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__active
+msgid "Active"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_all_group
+#: model:res.groups,name:ssi_project.task_all_group
+msgid "All"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__allowed_parent_ids
+msgid "Allowed Parent Milestones"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
+msgid "Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__user_id
+msgid "Assigned To"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Assignment"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_task__dependency_state__blocked
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Blocked"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Blocked By Dependency"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__cancel
+#: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Cancel"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Cancel data. Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__code
+msgid "Code"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_company_group
+#: model:res.groups,name:ssi_project.task_company_group
+msgid "Company"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_company_child_group
+#: model:res.groups,name:ssi_project.task_company_child_group
+msgid "Company and All Child Companies"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
+msgid "Confirm"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.actions.act_window,name:ssi_project.create_sucessor_task_action
+#: model:ir.model,name:ssi_project.model_create_sucessor_task
+msgid "Create Sucessor Tasks"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_create_sucessor_task_detail
+msgid "Create Sucessor Tasks - Detail"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Dependency"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__dependency_state
+msgid "Dependency Status"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__dependency_type
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__dependency_type
+msgid "Dependency Type"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__detail_ids
+msgid "Details"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_mail_compose_message__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_task_type__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__done
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Done"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Finish data. Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__create_sucessor_task_detail__dependency_type__finish_finish
+#: model:ir.model.fields.selection,name:ssi_project.selection__task_dependency__dependency_type__finish_finish
+msgid "Finish-To-Finish"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__create_sucessor_task_detail__dependency_type__finish_start
+#: model:ir.model.fields.selection,name:ssi_project.selection__task_dependency__dependency_type__finish_start
+msgid "Finish-To-Start"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__id
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__id
+#: model:ir.model.fields,field_description:ssi_project.field_mail_compose_message__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_task_type__id
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__id
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__message_needaction
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__open
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_task__dependency_state__normal
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "In Progress"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Instruction"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__name
+msgid "Instruction Name"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__url
+msgid "Instruction URL"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task_type__is_default
+msgid "Is Default?"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_mail_compose_message____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_project____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_task____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_task_type____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__active
+msgid ""
+"Master data status\n"
+"\n"
+"* Inactive data can not be selected when creating new transaction\n"
+"* Transaction with inactive master data can still be viewed\n"
+"* Set master data as inactive if master data no longger needed,\n"
+"but master data already used on transaction"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__code
+msgid ""
+"Master data unique identifier.\n"
+"\n"
+"* Fill with '/' if You do not need unique identifier\n"
+"* Click 'Generate Code' button to automatically assign code.\n"
+"  Sequence template mush be set to perform this action\n"
+"  Only master data with '/' code will be assign automatic code"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__milestone_id
+msgid "Milestone"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.ui.menu,name:ssi_project.menu_project_milestone
+msgid "Milestones"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__name
+msgid "Name"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__draft
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "New"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Not Blocked"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Not Blocked By Dependency"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__number_of_task
+msgid "Num. of Task"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__number_of_task_done
+msgid "Num. of Task Done"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__parent_id
+msgid "Parent Milestone"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__pending
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
+msgid "Pending"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Pending data. Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: code:addons/ssi_project/models/project_task.py:0
+#, python-format
+msgid "Please finish/cancel all predecessors with finish-to-finish dependency"
+msgstr ""
+
+#. module: ssi_project
+#: code:addons/ssi_project/models/project_task.py:0
+#, python-format
+msgid "Please finish/cancel all predecessors with finish-to-start dependency"
+msgstr ""
+
+#. module: ssi_project
+#: code:addons/ssi_project/models/project_task.py:0
+#, python-format
+msgid ""
+"Please start/finish/cancel all predecessors with start-to-finish dependency"
+msgstr ""
+
+#. module: ssi_project
+#: code:addons/ssi_project/models/project_task.py:0
+#, python-format
+msgid ""
+"Please start/finish/cancel all predecessors with start-to-start dependency"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__predecessor_ids
+msgid "Predecessor"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__predecessor_task_id
+msgid "Predecessor Task"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__predecessor_task_stage_id
+msgid "Predecessor Task Stage"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__predecessor_task_state
+msgid "Predecessor Task State"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Predecessors"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__project_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__project_id
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__project_id
+#: model:ir.module.category,name:ssi_project.pm_data_ownership_module_category
+#: model:ir.module.category,name:ssi_project.pm_workflow_module_category
+#: model:ir.module.category,name:ssi_project.project_module_category
+#: model:ir.ui.menu,name:ssi_project.menu_project_root_configuration
+#: model:res.groups,name:ssi_project.task_project_group
+msgid "Project"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.module.category,name:ssi_project.project_configurator_module_category
+msgid "Project - Configurator"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.module.category,name:ssi_project.project_data_ownership_module_category
+msgid "Project - Data Ownership"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.module.category,name:ssi_project.project_wizard_module_category
+msgid "Project - Wizard"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.module.category,name:ssi_project.project_workflow_module_category
+msgid "Project - Workflow"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_milestone
+#: model:res.groups,name:ssi_project.project_milestone_configurator_group
+msgid "Project Milestone"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.actions.act_window,name:ssi_project.project_milestone_action
+msgid "Project Milestones"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_stage_configurator_group
+msgid "Project Stage"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_tag_configurator_group
+msgid "Project Tag"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_task__dependency_state__done
+msgid "Ready"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Restart"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Restart data. Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__specification
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Specification"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Start"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Start data. Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__create_sucessor_task_detail__dependency_type__start_finish
+#: model:ir.model.fields.selection,name:ssi_project.selection__task_dependency__dependency_type__start_finish
+msgid "Start-To-Finish"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__create_sucessor_task_detail__dependency_type__start_start
+#: model:ir.model.fields.selection,name:ssi_project.selection__task_dependency__dependency_type__start_start
+msgid "Start-To-Start"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__state
+#: model_terms:ir.ui.view,arch_db:ssi_project.view_project_project_filter
+msgid "State"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__sucessor_ids
+msgid "Sucessor"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Sucessor Tasks"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Sucessors"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_task
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__task_id
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__task_id
+#: model:ir.model.fields,field_description:ssi_project.field_task_instruction__task_id
+#: model:ir.module.category,name:ssi_project.task_data_ownership_module_category
+#: model:ir.module.category,name:ssi_project.task_workflow_module_category
+#: model:ir.ui.menu,name:ssi_project.menu_task_root_configuration
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Task"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__task_completion_percentage
+msgid "Task Completion Percentage"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_task_dependency
+msgid "Task Dependency"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_task_instruction
+msgid "Task Instruction"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__instruction_ids
+msgid "Task Instructions"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_task_type
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__task_stage_id
+msgid "Task Stage"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_task_dependency__task_state
+msgid "Task State"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__name
+msgid "Task Summary"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__task_ids
+msgid "Tasks"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__type_ids
+msgid "Tasks Stages"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
+msgid "Time Constrains"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_user_group
+#: model:res.groups,name:ssi_project.task_user_group
+msgid "User"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_validator_group
+#: model:res.groups,name:ssi_project.task_validator_group
+msgid "Validator"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_viewer_group
+#: model:res.groups,name:ssi_project.task_viewer_group
+msgid "Viewer"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: ssi_project
+#: code:addons/ssi_project/models/task_dependency.py:0
+#, python-format
+msgid "You can not select itself for predecessor/sucessor"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
+msgid "or"
+msgstr ""
