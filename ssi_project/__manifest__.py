@@ -24,6 +24,7 @@
         "views/project_task_views.xml",
         "views/project_task_type_views.xml",
         "views/project_tags_views.xml",
+        "views/project_milestone_views.xml",
         "views/mail_activity_type_views.xml",
     ],
     "demo": [],

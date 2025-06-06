@@ -17,3 +17,5 @@ access_task_instruction_viewer,task.instruction - viewer,model_task_instruction,
 access_task_instruction_user,task.instruction - user,model_task_instruction,task_user_group,1,1,1,1
 access_create_sucessor_task_user,create_sucessor_task - all,model_create_sucessor_task,task_user_group,1,1,1,1
 access_create_sucessor_task_detail_user,create_sucessor_task_detail - all,model_create_sucessor_task_detail,task_user_group,1,1,1,1
+access_project_milestone_all,project_milestone - all,model_project_milestone,,1,0,0,0
+access_project_milestone_configurator,project_milestone - configurator,model_project_milestone,project_milestone_configurator_group,1,1,1,1

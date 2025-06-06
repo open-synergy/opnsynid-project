@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="project_milestone_view_search" model="ir.ui.view">
+        <field name="name">project_milestone search</field>
+        <field name="model">project_milestone</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_milestone_view_tree" model="ir.ui.view">
+        <field name="name">project_milestone tree</field>
+        <field name="model">project_milestone</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="project_id" />
+                    <field name="parent_id" />
+                    <field name="number_of_task" optional="hide" />
+                    <field name="number_of_task_done" optional="hide" />
+                    <field name="task_completion_percentage" widget="percentage" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_milestone_view_form" model="ir.ui.view">
+        <field name="name">project_milestone form</field>
+        <field name="model">project_milestone</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="project_id" />
+                    <field name="allowed_parent_ids" widget="many2many_tags" />
+                    <field name="parent_id" domain="[('id','in',allowed_parent_ids)]" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_milestone_action" model="ir.actions.act_window">
+          <field name="name">Project Milestones</field>
+          <field name="res_model">project_milestone</field>
+          <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_project_milestone"
+        name="Milestones"
+        parent="menu_project_root_configuration"
+        action="project_milestone_action"
+        groups="project_milestone_configurator_group"
+    />
+</odoo>
