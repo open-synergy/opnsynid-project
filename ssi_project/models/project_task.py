@@ -10,6 +10,10 @@ class ProjectTask(models.Model):
     _name = "project.task"
     _inherit = "project.task"
 
+    milestone_id = fields.Many2one(
+        string="Milestone",
+        comodel_name="project_milestone",
+    )
     specification = fields.Text(
         string="Specification",
     )
@@ -38,6 +42,12 @@ class ProjectTask(models.Model):
         compute="_compute_dependency_state",
         store=True,
     )
+
+    @api.onchange(
+        "project_id",
+    )
+    def onchange_milestone_id(self):
+        self.milestone_id = False
 
     @api.depends(
         "stage_id",
