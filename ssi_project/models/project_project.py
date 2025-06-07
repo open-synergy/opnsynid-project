@@ -19,6 +19,28 @@ class ProjectProject(models.Model):
         default=lambda self: self._default_type_ids(),
     )
 
+    milestone_ids = fields.One2many(
+        string="Milestones",
+        comodel_name="project_milestone",
+        inverse_name="project_id",
+    )
+    deliverable_ids = fields.One2many(
+        string="Deliverables",
+        comodel_name="project_deliverable",
+        inverse_name="project_id",
+    )
+    num_of_milestone = fields.Integer(
+        string="Num. of Milestone",
+        compute="_compute_num_of_milestone",
+        store=True,
+        compute_sudo=True,
+    )
+    num_of_deliverable = fields.Integer(
+        string="Num. of Deliverable",
+        compute="_compute_num_of_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
     state = fields.Selection(
         string="State",
         selection=[
@@ -31,6 +53,30 @@ class ProjectProject(models.Model):
         default="draft",
         copy=False,
     )
+
+    @api.depends(
+        "milestone_ids",
+        "milestone_ids.project_id",
+    )
+    def _compute_num_of_milestone(self):
+        Milestone = self.env["project_milestone"]
+        for record in self:
+            result = 0
+            criteria = [("project_id", "=", record.id)]
+            result = Milestone.search_count(criteria)
+            record.num_of_milestone = result
+
+    @api.depends(
+        "deliverable_ids",
+        "deliverable_ids.project_id",
+    )
+    def _compute_num_of_deliverable(self):
+        Deliverable = self.env["project_deliverable"]
+        for record in self:
+            result = 0
+            criteria = [("project_id", "=", record.id)]
+            result = Deliverable.search_count(criteria)
+            record.num_of_deliverable = result
 
     def _prepare_confirm_data(self):
         return {"state": "open"}
@@ -68,3 +114,41 @@ class ProjectProject(models.Model):
     def action_draft(self):
         for rec in self.filtered(lambda p: p.state == "cancel"):
             rec.write(rec._prepare_draft_data())
+
+    def action_open_milestone(self):
+        for record in self.sudo():
+            result = record._open_milestone()
+        return result
+
+    def action_open_deliverable(self):
+        for record in self.sudo():
+            result = record._open_deliverable()
+        return result
+
+    def _open_milestone(self):
+        self.ensure_one()
+        waction = self.env.ref("ssi_project.project_milestone_action").read()[0]
+        waction.update(
+            {
+                "view_mode": "tree,form",
+                "domain": [("id", "in", self.milestone_ids.ids)],
+                "context": {
+                    "default_project_id": self.id,
+                },
+            }
+        )
+        return waction
+
+    def _open_deliverable(self):
+        self.ensure_one()
+        waction = self.env.ref("ssi_project.project_deliverable_action").read()[0]
+        waction.update(
+            {
+                "view_mode": "tree,form",
+                "domain": [("id", "in", self.deliverable_ids.ids)],
+                "context": {
+                    "default_project_id": self.id,
+                },
+            }
+        )
+        return waction

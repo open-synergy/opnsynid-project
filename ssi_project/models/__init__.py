@@ -7,6 +7,7 @@ from . import (
     task_instruction,
     project_task_type,
     project_milestone,
+    project_deliverable,
     project_task,
     project_project,
 )
