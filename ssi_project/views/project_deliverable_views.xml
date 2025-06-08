@@ -63,7 +63,10 @@
         <data>
             <xpath expr="//group[@name='header_left']" position="inside">
                 <field name="project_id" />
-                <field name="phase_id" domain="[('project_id','=','project_id')]" />
+                <field
+                        name="phase_id"
+                        domain="[('project_id','=',project_id),('state','=','open')]"
+                    />
                 <field name="ttype" />
                 <field name="category_id" />
                 <field name="type_id" domain="[('category_id','=',category_id)]" />
