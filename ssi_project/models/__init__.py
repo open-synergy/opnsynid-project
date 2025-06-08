@@ -10,4 +10,6 @@ from . import (
     project_deliverable,
     project_task,
     project_project,
+    project_deliverable_type_category,
+    project_deliverable_type,
 )

@@ -13,10 +13,12 @@ class ProjectTask(models.Model):
     milestone_id = fields.Many2one(
         string="Milestone",
         comodel_name="project_milestone",
+        ondelete="restrict",
     )
     deliverable_id = fields.Many2one(
         string="Deliverable",
         comodel_name="project_deliverable",
+        ondelete="restrict",
     )
     specification = fields.Text(
         string="Specification",

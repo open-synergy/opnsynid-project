@@ -88,6 +88,7 @@
                 />
         </xpath>
         <xpath expr="//div[@name='button_box']" position="inside">
+        <!--
             <button
                     class="oe_stat_button"
                     name="action_open_milestone"
@@ -96,6 +97,7 @@
                 >
                 <field string="Milestones" name="num_of_milestone" widget="statinfo" />
             </button>
+        -->
             <button
                     class="oe_stat_button"
                     name="action_open_deliverable"

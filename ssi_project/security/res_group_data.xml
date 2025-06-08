@@ -31,8 +31,17 @@
         />
 </record>
 
-<record id="project_deliverable_configurator_group" model="res.groups">
-    <field name="name">Project Deliverable</field>
+<record id="project_deliverable_type_configurator_group" model="res.groups">
+    <field name="name">Project Deliverable Type</field>
+    <field name="category_id" ref="ssi_project.project_configurator_module_category" />
+    <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+</record>
+
+<record id="project_deliverable_type_category_configurator_group" model="res.groups">
+    <field name="name">Project Deliverable Type Category</field>
     <field name="category_id" ref="ssi_project.project_configurator_module_category" />
     <field
             name="users"
