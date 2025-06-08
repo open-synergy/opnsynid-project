@@ -73,11 +73,7 @@
                         widget="many2many_tags"
                         invisible="1"
                     />
-                <field
-                        name="parent_id"
-                        domain="[('id','in',allowed_parent_ids)]"
-                        attrs="{'required':[('ttype','=','single')]}"
-                    />
+                <field name="parent_id" domain="[('id','in',allowed_parent_ids)]" />
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
                 <field name="date" />
