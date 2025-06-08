@@ -21,4 +21,20 @@
 <record id="project.menu_main_pm" model="ir.ui.menu">
   <field name="groups_id" eval="[(6, 0, [])]" />
 </record>
+
+<record id="project.menu_projects" model="ir.ui.menu">
+    <field
+            name="groups_id"
+            eval="[(6, 0, [ref('ssi_project.original_project_group')])]"
+        />
+</record>
+
+
+
+<menuitem
+        id="menu_project_root_menu"
+        name="Project"
+        parent="project.menu_main_pm"
+        sequence="0"
+    />
 </odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="sequence_project_phase" model="ir.sequence">
+    <field name="name">Project Phase</field>
+    <field name="code">project.phase</field>
+    <field name="padding">6</field>
+    <field name="prefix">PP/%(range_year)s/</field>
+    <field eval="1" name="number_next" />
+    <field eval="1" name="number_increment" />
+    <field name="use_date_range" eval="1" />
+</record>
+</odoo>
