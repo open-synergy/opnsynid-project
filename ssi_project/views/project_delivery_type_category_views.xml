@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="project_deliverable_type_category_view_search" model="ir.ui.view">
+        <field name="name">project_deliverable_type_category search</field>
+        <field name="model">project_deliverable_type_category</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_deliverable_type_category_view_tree" model="ir.ui.view">
+        <field name="name">project_deliverable_type_category tree</field>
+        <field name="model">project_deliverable_type_category</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_deliverable_type_category_view_form" model="ir.ui.view">
+        <field name="name">project_deliverable_type_category form</field>
+        <field name="model">project_deliverable_type_category</field>
+        <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <data>
+            </data>
+        </field>
+    </record>
+
+    <record id="project_deliverable_type_category_action" model="ir.actions.act_window">
+          <field name="name">Project Deliverable Type Categories</field>
+          <field name="res_model">project_deliverable_type_category</field>
+          <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_project_deliverable_type_category"
+        name="Deliverable Type Categories"
+        parent="ssi_project.menu_project_root_configuration"
+        action="project_deliverable_type_category_action"
+        groups="project_deliverable_type_category_configurator_group"
+    />
+</odoo>

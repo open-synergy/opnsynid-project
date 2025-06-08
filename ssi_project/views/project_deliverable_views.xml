@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="project_deliverable_view_search" model="ir.ui.view">
+    <field name="name">project_deliverable - search</field>
+    <field name="model">project_deliverable</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="project_deliverable_view_tree" model="ir.ui.view">
+    <field name="name">project_deliverable -tree</field>
+    <field name="model">project_deliverable</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="project_id" />
+                <field name="ttype" />
+                <field name="category_id" />
+                <field name="type_id" />
+                <field name="parent_id" />
+                <field name="date" />
+                <field name="date_due" />
+                <field name="number_of_task" optional="hide" />
+                <field name="number_of_task_done" optional="hide" />
+                <field
+                        name="task_completion_percentage"
+                        widget="percentage"
+                        optional="hide"
+                    />
+                <field name="number_of_child" optional="hide" />
+                <field name="number_of_child_done" optional="hide" />
+                <field
+                        name="child_completion_percentage"
+                        widget="percentage"
+                        optional="hide"
+                    />
+                <field name="completion_percentage" widget="percentage" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="project_deliverable_view_form" model="ir.ui.view">
+    <field name="name">project_deliverable - form</field>
+    <field name="model">project_deliverable</field>
+    <field name="mode">primary</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@name='header_left']" position="inside">
+                    <field name="project_id" />
+                    <field name="ttype" />
+                <field name="category_id" />
+                <field name="type_id" domain="[('category_id','=',category_id)]" />
+                    <field
+                        name="allowed_parent_ids"
+                        widget="many2many_tags"
+                        invisible="1"
+                    />
+                    <field
+                        name="parent_id"
+                        domain="[('id','in',allowed_parent_ids)]"
+                        attrs="{'required':[('ttype','=','single')]}"
+                    />
+            </xpath>
+            <xpath expr="//group[@name='header_right']" position="inside">
+                <field name="date" />
+                <field name="duration_id" />
+                <field name="date_due" />
+            </xpath>
+            <xpath expr="//group[@name='header_center']" position="inside">
+                <label for="title" colspan="2" />
+                <field name="title" nolabel="1" colspan="2" />
+            </xpath>
+            <xpath expr="//notebook/page[1]" position="before">
+                <page name="todo" string="To-Do">
+                    <group
+                            name="todo_1"
+                            colspan="4"
+                            col="2"
+                            string="Child Deliverables"
+                            attrs="{'invisible':[('ttype','=','single')]}"
+                        >
+                        <field name="number_of_child" string="All" />
+                        <field name="number_of_child_done" string="Done" />
+                        <field
+                                name="child_completion_percentage"
+                                widget="percentage"
+                                string="Percentage"
+                            />
+                    </group>
+                    <group
+                            name="todo_2"
+                            colspan="4"
+                            col="2"
+                            string="Tasks"
+                            attrs="{'invisible':[('ttype','=','group')]}"
+                        >
+                        <field name="number_of_task" string="All" />
+                        <field name="number_of_task_done" string="Done" />
+                        <field
+                                name="task_completion_percentage"
+                                widget="percentage"
+                                string="Percentage"
+                            />
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="project_deliverable_action" model="ir.actions.act_window">
+        <field name="name">Project Deliverables</field>
+        <field name="res_model">project_deliverable</field>
+        <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="menu_project_deliverable"
+        name="Deliverables"
+        parent="project.menu_main_pm"
+        action="project_deliverable_action"
+        groups="project_deliverable_viewer_group"
+    />
+</odoo>

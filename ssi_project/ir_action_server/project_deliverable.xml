@@ -1,0 +1,23 @@
+<odoo>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<data>
+<record id="project_deliverable_action_done" model="ir.actions.server">
+    <field name="name">Action Done</field>
+    <field name="model_id" ref="model_project_deliverable" />
+    <field name="state">code</field>
+    <field
+                name="code"
+            >records.with_context(bypass_policy_check=True).action_done()</field>
+</record>
+<record id="project_deliverable_action_open" model="ir.actions.server">
+    <field name="name">Action Open</field>
+    <field name="model_id" ref="model_project_deliverable" />
+    <field name="state">code</field>
+    <field
+                name="code"
+            >records.with_context(bypass_policy_check=True).action_open()</field>
+</record>
+</data>
+</odoo>
