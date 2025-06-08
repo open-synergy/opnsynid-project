@@ -88,21 +88,23 @@
                 />
         </xpath>
         <xpath expr="//div[@name='button_box']" position="inside">
-        <!--
+
             <button
                     class="oe_stat_button"
-                    name="action_open_milestone"
+                    name="action_open_phase"
                     type="object"
                     icon="fa-calendar"
+                    groups="ssi_project.project_phase_viewer_group"
                 >
-                <field string="Milestones" name="num_of_milestone" widget="statinfo" />
+                <field string="Phases" name="num_of_milestone" widget="statinfo" />
             </button>
-        -->
+
             <button
                     class="oe_stat_button"
                     name="action_open_deliverable"
                     type="object"
                     icon="fa-bullseye"
+                    groups="ssi_project.project_deliverable_viewer_group"
                 >
                 <field
                         string="Deliverables"
@@ -132,7 +134,7 @@
         action="project.open_view_project_all_config"
         id="project.menu_projects_config"
         name="Projects"
-        parent="project.menu_project_config"
+        parent="menu_project_root_menu"
         sequence="10"
         groups="base.group_no_one"
     />

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 OpenSynergy Indonesia
+     Copyright 2022 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="project_phase_all_access" model="ir.model.access">
+    <field name="name">project_phase - all</field>
+    <field name="model_id" ref="model_project_phase" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="0" />
+    <field name="perm_write" eval="0" />
+    <field name="perm_unlink" eval="0" />
+</record>
+<record id="project_phase_user_access" model="ir.model.access">
+    <field name="name">project_phase - user</field>
+    <field name="model_id" ref="model_project_phase" />
+    <field name="group_id" ref="project_phase_user_group" />
+    <field name="perm_read" eval="1" />
+    <field name="perm_create" eval="1" />
+    <field name="perm_write" eval="1" />
+    <field name="perm_unlink" eval="1" />
+</record>
+</odoo>

@@ -9,8 +9,8 @@ from odoo import api, fields, models
 from odoo.addons.ssi_decorator import ssi_decorator
 
 
-class ProjectDeliverable(models.Model):
-    _name = "project_deliverable"
+class ProjectPhase(models.Model):
+    _name = "project_phase"
     _inherit = [
         "mixin.transaction_cancel",
         "mixin.transaction_terminate",
@@ -19,7 +19,7 @@ class ProjectDeliverable(models.Model):
         "mixin.transaction_confirm",
         "mixin.transaction_date_due",
     ]
-    _description = "Project Deliverable"
+    _description = "Project Phase"
 
     # Multiple Approval Attribute
     _approval_from_state = "draft"
@@ -93,6 +93,21 @@ class ProjectDeliverable(models.Model):
             ],
         },
     )
+    ttype = fields.Selection(
+        string="Group/Single?",
+        selection=[
+            ("group", "Group of Phase"),
+            ("single", "Single Phase"),
+        ],
+        required=True,
+        default="group",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+        },
+    )
     project_id = fields.Many2one(
         string="Project",
         comodel_name="project.project",
@@ -104,63 +119,16 @@ class ProjectDeliverable(models.Model):
             ],
         },
     )
-    phase_id = fields.Many2one(
-        string="Phase",
-        comodel_name="project_phase",
-        readonly=True,
-        states={
-            "draft": [
-                ("readonly", False),
-            ],
-        },
-    )
-    category_id = fields.Many2one(
-        string="Category ",
-        comodel_name="project_deliverable_type_category",
-        required=True,
-        readonly=True,
-        states={
-            "draft": [
-                ("readonly", False),
-            ],
-        },
-    )
-    type_id = fields.Many2one(
-        string="Type",
-        comodel_name="project_deliverable_type",
-        required=True,
-        readonly=True,
-        states={
-            "draft": [
-                ("readonly", False),
-            ],
-        },
-    )
-    ttype = fields.Selection(
-        string="Group/Single?",
-        selection=[
-            ("group", "Group of Deliverable"),
-            ("single", "Single Deliverable"),
-        ],
-        required=True,
-        default="group",
-        readonly=True,
-        states={
-            "draft": [
-                ("readonly", False),
-            ],
-        },
-    )
     allowed_parent_ids = fields.Many2many(
         string="Allowed Parent Deliverable",
-        comodel_name="project_deliverable",
+        comodel_name="project_phase",
         compute="_compute_allowed_parent_ids",
         store=False,
         compute_sudo=True,
     )
     parent_id = fields.Many2one(
-        string="Parent Deliverable",
-        comodel_name="project_deliverable",
+        string="Parent Phase",
+        comodel_name="project_phase",
         readonly=True,
         states={
             "draft": [
@@ -171,25 +139,25 @@ class ProjectDeliverable(models.Model):
 
     # Child deliverable
     child_ids = fields.One2many(
-        string="Child Deliverables",
-        comodel_name="project_deliverable",
+        string="Child Phases",
+        comodel_name="project_phase",
         inverse_name="parent_id",
     )
     number_of_child = fields.Integer(
-        string="Num. of Child Deliverables",
-        compute="_compute_number_of_child_deliverable",
+        string="Num. of Child Phases",
+        compute="_compute_number_of_child",
         store=True,
         compute_sudo=True,
     )
     number_of_child_done = fields.Integer(
-        string="Num. of Child Deliverables Done",
-        compute="_compute_number_of_child_deliverable",
+        string="Num. of Child Phases Done",
+        compute="_compute_number_of_child",
         store=True,
         compute_sudo=True,
     )
     child_completion_percentage = fields.Float(
-        string="Child Deliverables Completion Percentage",
-        compute="_compute_child_deliverable_completion_percentage",
+        string="Child Phases Completion Percentage",
+        compute="_compute_child_completion_percentage",
         store=True,
         compute_sudo=True,
     )
@@ -198,7 +166,7 @@ class ProjectDeliverable(models.Model):
     task_ids = fields.One2many(
         string="Tasks",
         comodel_name="project.task",
-        inverse_name="deliverable_id",
+        inverse_name="phase_id",
     )
     number_of_task = fields.Integer(
         string="Num. of Task",
@@ -219,6 +187,31 @@ class ProjectDeliverable(models.Model):
         compute_sudo=True,
     )
 
+    # Deliverable
+    deliverable_ids = fields.One2many(
+        string="Deliverables",
+        comodel_name="project_deliverable",
+        inverse_name="phase_id",
+    )
+    number_of_deliverable = fields.Integer(
+        string="Num. of Deliverables",
+        compute="_compute_number_of_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    number_of_deliverable_done = fields.Integer(
+        string="Num. of Deliverable Done",
+        compute="_compute_number_of_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    deliverable_completion_percentage = fields.Float(
+        string="Deliverable Completion Percentage",
+        compute="_compute_deliverable_completion_percentage",
+        store=True,
+        compute_sudo=True,
+    )
+
     completion_percentage = fields.Float(
         string="Completion Percentage",
         compute="_compute_completion_percentage",
@@ -228,7 +221,7 @@ class ProjectDeliverable(models.Model):
 
     @api.depends(
         "task_ids",
-        "task_ids.deliverable_id",
+        "task_ids.phase_id",
         "task_ids.state",
     )
     def _compute_number_of_task(self):
@@ -236,7 +229,7 @@ class ProjectDeliverable(models.Model):
         for record in self:
             all_task = done_task = 0
             criteria = [
-                ("deliverable_id", "=", record.id),
+                ("phase_id", "=", record.id),
             ]
             all_task = Task.search_count(criteria)
             criteria += [
@@ -265,19 +258,19 @@ class ProjectDeliverable(models.Model):
         "child_ids.state",
         "child_ids.parent_id",
     )
-    def _compute_number_of_child_deliverable(self):
-        Deliverable = self.env["project_deliverable"]
+    def _compute_number_of_child(self):
+        Phase = self.env["project_phase"]
         for record in self:
             all_child = done_child = 0
             criteria = [
                 ("parent_id", "=", record.id),
                 ("state", "in", ["open", "done"]),
             ]
-            all_child = Deliverable.search_count(criteria)
+            all_child = Phase.search_count(criteria)
             criteria += [
                 ("completion_percentage", "=", 1.0),
             ]
-            done_child = Deliverable.search_count(criteria)
+            done_child = Phase.search_count(criteria)
             record.number_of_child = all_child
             record.number_of_child_done = done_child
 
@@ -285,7 +278,7 @@ class ProjectDeliverable(models.Model):
         "number_of_child",
         "number_of_child_done",
     )
-    def _compute_child_deliverable_completion_percentage(self):
+    def _compute_child_completion_percentage(self):
         for record in self:
             result = 0.0
             try:
@@ -293,6 +286,43 @@ class ProjectDeliverable(models.Model):
             except ZeroDivisionError:
                 result = 0.0
             record.child_completion_percentage = result
+
+    @api.depends(
+        "deliverable_ids",
+        "deliverable_ids.state",
+        "deliverable_ids.phase_id",
+    )
+    def _compute_number_of_deliverable(self):
+        Deliverable = self.env["project_deliverable"]
+        for record in self:
+            all_child = done_child = 0
+            criteria = [
+                ("phase_id", "=", record.id),
+                ("state", "in", ["open", "done"]),
+            ]
+            all_child = Deliverable.search_count(criteria)
+            criteria = [
+                ("phase_id", "=", record.id),
+                ("state", "=", "done"),
+            ]
+            done_child = Deliverable.search_count(criteria)
+            record.number_of_child = all_child
+            record.number_of_child_done = done_child
+
+    @api.depends(
+        "number_of_deliverable",
+        "number_of_deliverable_done",
+    )
+    def _compute_deliverable_completion_percentage(self):
+        for record in self:
+            result = 0.0
+            try:
+                result = (
+                    record.number_of_deliverable_done / record.number_of_deliverable
+                )
+            except ZeroDivisionError:
+                result = 0.0
+            record.deliverable_completion_percentage = result
 
     @api.depends(
         "child_completion_percentage",
@@ -307,23 +337,29 @@ class ProjectDeliverable(models.Model):
         "child_ids.state",
         "child_ids.parent_id",
         "task_ids",
-        "task_ids.deliverable_id",
+        "task_ids.phase_id",
         "task_ids.state",
         "task_ids.stage_id",
+        "deliverable_ids",
+        "deliverable_ids.state",
+        "deliverable_ids.phase_id",
     )
     def _compute_completion_percentage(self):
         for record in self:
             if record.ttype == "group":
                 result = record.child_completion_percentage
             else:
-                result = record.task_completion_percentage
+                result = (
+                    record.task_completion_percentage
+                    + record.deliverable_completion_percentage
+                ) / 2.0
             record.completion_percentage = result
 
     @api.depends(
         "project_id",
     )
     def _compute_allowed_parent_ids(self):
-        Deliverable = self.env["project_deliverable"]
+        Deliverable = self.env["project_phase"]
         for record in self:
             result = []
             if record.project_id:
@@ -337,18 +373,6 @@ class ProjectDeliverable(models.Model):
     )
     def onchange_parent_id(self):
         self.parent_id = False
-
-    @api.onchange(
-        "category_id",
-    )
-    def onchange_type_id(self):
-        self.type_id = False
-
-    @api.onchange(
-        "project_id",
-    )
-    def onchange_phase_id(self):
-        self.phase_id = False
 
     @api.model
     def _get_policy_field(self):

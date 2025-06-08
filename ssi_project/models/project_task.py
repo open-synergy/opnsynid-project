@@ -15,6 +15,11 @@ class ProjectTask(models.Model):
         comodel_name="project_milestone",
         ondelete="restrict",
     )
+    phase_id = fields.Many2one(
+        string="Phase",
+        comodel_name="project_phase",
+        ondelete="restrict",
+    )
     deliverable_id = fields.Many2one(
         string="Deliverable",
         comodel_name="project_deliverable",

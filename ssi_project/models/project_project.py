@@ -29,6 +29,11 @@ class ProjectProject(models.Model):
         comodel_name="project_deliverable",
         inverse_name="project_id",
     )
+    phase_ids = fields.One2many(
+        string="Phases",
+        comodel_name="project_phase",
+        inverse_name="project_id",
+    )
     num_of_milestone = fields.Integer(
         string="Num. of Milestone",
         compute="_compute_num_of_milestone",
@@ -38,6 +43,12 @@ class ProjectProject(models.Model):
     num_of_deliverable = fields.Integer(
         string="Num. of Deliverable",
         compute="_compute_num_of_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    num_of_phase = fields.Integer(
+        string="Num. of Phase",
+        compute="_compute_num_of_phase",
         store=True,
         compute_sudo=True,
     )
@@ -74,9 +85,27 @@ class ProjectProject(models.Model):
         Deliverable = self.env["project_deliverable"]
         for record in self:
             result = 0
-            criteria = [("project_id", "=", record.id)]
+            criteria = [
+                ("project_id", "=", record.id),
+                ("state", "in", ["open", "done", "terminate"]),
+            ]
             result = Deliverable.search_count(criteria)
             record.num_of_deliverable = result
+
+    @api.depends(
+        "phase_ids",
+        "phase_ids.project_id",
+    )
+    def _compute_num_of_phase(self):
+        Phase = self.env["project_phase"]
+        for record in self:
+            result = 0
+            criteria = [
+                ("project_id", "=", record.id),
+                ("state", "in", ["open", "done", "terminate"]),
+            ]
+            result = Phase.search_count(criteria)
+            record.num_of_phase = result
 
     def _prepare_confirm_data(self):
         return {"state": "open"}
@@ -125,6 +154,11 @@ class ProjectProject(models.Model):
             result = record._open_deliverable()
         return result
 
+    def action_open_phase(self):
+        for record in self.sudo():
+            result = record._open_phase()
+        return result
+
     def _open_milestone(self):
         self.ensure_one()
         waction = self.env.ref("ssi_project.project_milestone_action").read()[0]
@@ -132,6 +166,20 @@ class ProjectProject(models.Model):
             {
                 "view_mode": "tree,form",
                 "domain": [("id", "in", self.milestone_ids.ids)],
+                "context": {
+                    "default_project_id": self.id,
+                },
+            }
+        )
+        return waction
+
+    def _open_phase(self):
+        self.ensure_one()
+        waction = self.env.ref("ssi_project.project_phase_action").read()[0]
+        waction.update(
+            {
+                "view_mode": "tree,form",
+                "domain": [("id", "in", self.phase_ids.ids)],
                 "context": {
                     "default_project_id": self.id,
                 },

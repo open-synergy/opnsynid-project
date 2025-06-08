@@ -12,4 +12,5 @@ from . import (
     project_project,
     project_deliverable_type_category,
     project_deliverable_type,
+    project_phase,
 )
