@@ -26,44 +26,142 @@ msgid ""
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__name
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__name
+msgid "# Document"
+msgstr ""
+
+#. module: ssi_project
+#: model:base.automation,name:ssi_project.project_deliverable_open_2_done
+#: model:ir.actions.server,name:ssi_project.project_deliverable_action_done
+msgid "Action Done"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_needaction
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_needaction
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_needaction
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_needaction
 msgid "Action Needed"
 msgstr ""
 
 #. module: ssi_project
-#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__active
+#: model:base.automation,name:ssi_project.project_deliverable_done_2_open
+#: model:ir.actions.server,name:ssi_project.project_deliverable_action_open
+msgid "Action Open"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__active
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__active
 msgid "Active"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__active_approval_ids
+msgid "Active Approvals"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__active_approver_partner_ids
+msgid "Active Partners"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__active_approver_user_ids
+msgid "Active Users"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_ids
 msgid "Activities"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_exception_decoration
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_exception_decoration
 msgid "Activity Exception Decoration"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_state
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_state
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_state
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_state
 msgid "Activity State"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_type_icon
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_type_icon
 msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ssi_project
 #: model:res.groups,name:ssi_project.project_all_group
+#: model:res.groups,name:ssi_project.project_deliverable_all_group
 #: model:res.groups,name:ssi_project.task_all_group
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
 msgid "All"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__allowed_parent_ids
+msgid "Allowed Parent Deliverable"
 msgstr ""
 
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__allowed_parent_ids
 msgid "Allowed Parent Milestones"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__allowed_policy_template_ids
+msgid "Allowed Policy Templates"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__approval_template_id
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__approval_template_id
+msgid "Approval Configuration"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__approval_template_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__approval_template_id
+msgid "Approval Template"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__approval_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__approval_ids
+msgid "Approvals"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__approve_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__approve_ok
+msgid ""
+"Approve policy\n"
+"\n"
+"* If active user can see and execute 'Approve' button"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__approved
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__approved
+msgid "Approved"
 msgstr ""
 
 #. module: ssi_project
@@ -82,6 +180,9 @@ msgid "Assignment"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_attachment_count
 msgid "Attachment Count"
 msgstr ""
@@ -98,6 +199,66 @@ msgid "Blocked By Dependency"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__approve_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__approve_ok
+msgid "Can Approve"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__cancel_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__cancel_ok
+msgid "Can Cancel"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__confirm_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__confirm_ok
+msgid "Can Confirm"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__done_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__done_ok
+msgid "Can Finished"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__manual_number_ok
+msgid "Can Input Manual Document Number"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__reject_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__reject_ok
+msgid "Can Reject"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__restart_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__restart_ok
+msgid "Can Restart"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__restart_approval_ok
+msgid "Can Restart Approval"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__open_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__open_ok
+msgid "Can Start"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__terminate_ok
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__terminate_ok
+msgid "Can Terminate"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__cancel
 #: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
@@ -106,30 +267,101 @@ msgid "Cancel"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__cancel_reason_id
+msgid "Cancel Reason"
+msgstr ""
+
+#. module: ssi_project
 #: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
 msgid "Cancel data. Are you sure?"
 msgstr ""
 
 #. module: ssi_project
-#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__code
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__cancel_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__cancel_ok
+msgid ""
+"Cancel policy\n"
+"\n"
+"* If active user can see and execute 'Cancel' button"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__category_id
+msgid "Category"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__category_id
+msgid "Category "
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__child_ids
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
+msgid "Child Deliverables"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__child_completion_percentage
+msgid "Child Deliverables Completion Percentage"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__code
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__code
 msgid "Code"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__company_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__company_id
 #: model:res.groups,name:ssi_project.project_company_group
+#: model:res.groups,name:ssi_project.project_deliverable_company_group
 #: model:res.groups,name:ssi_project.task_company_group
 msgid "Company"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__company_partner_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__company_partner_id
+msgid "Company Partner"
+msgstr ""
+
+#. module: ssi_project
 #: model:res.groups,name:ssi_project.project_company_child_group
+#: model:res.groups,name:ssi_project.project_deliverable_company_child_group
 #: model:res.groups,name:ssi_project.task_company_child_group
 msgid "Company and All Child Companies"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__company_id
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__company_id
+msgid ""
+"Company that own the document\n"
+"\n"
+"* Automatically filled with user's company.\n"
+"  Default company can be changed"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__completion_percentage
+msgid "Completion Percentage"
+msgstr ""
+
+#. module: ssi_project
 #: model_terms:ir.ui.view,arch_db:ssi_project.create_sucessor_task_view_form
 msgid "Confirm"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__confirm_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__confirm_ok
+msgid ""
+"Confirm policy\n"
+"\n"
+"* If active user can see and execute 'Confirm' button"
 msgstr ""
 
 #. module: ssi_project
@@ -146,6 +378,9 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__create_uid
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__create_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__create_uid
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__create_uid
 #: model:ir.model.fields,field_description:ssi_project.field_task_dependency__create_uid
 #: model:ir.model.fields,field_description:ssi_project.field_task_instruction__create_uid
@@ -155,10 +390,46 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__create_date
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__create_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__create_date
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__create_date
 #: model:ir.model.fields,field_description:ssi_project.field_task_dependency__create_date
 #: model:ir.model.fields,field_description:ssi_project.field_task_instruction__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__date
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__date
+msgid "Date"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__date_due
+msgid "Date Due"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_task__deliverable_id
+msgid "Deliverable"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.ui.menu,name:ssi_project.menu_project_deliverable_type_category
+msgid "Deliverable Type Categories"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.ui.menu,name:ssi_project.menu_project_deliverable_type
+msgid "Deliverable Types"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__deliverable_ids
+#: model:ir.ui.menu,name:ssi_project.menu_project_deliverable
+#: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+msgid "Deliverables"
 msgstr ""
 
 #. module: ssi_project
@@ -186,6 +457,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__display_name
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__display_name
 #: model:ir.model.fields,field_description:ssi_project.field_mail_compose_message__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__display_name
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__display_name
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__display_name
 #: model:ir.model.fields,field_description:ssi_project.field_project_project__display_name
 #: model:ir.model.fields,field_description:ssi_project.field_project_task__display_name
@@ -198,8 +472,23 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model.fields.selection,name:ssi_project.selection__project_project__state__done
 #: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
 msgid "Done"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__done_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__done_ok
+msgid ""
+"Done policy\n"
+"\n"
+"* If active user can see and execute 'Done' button"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__duration_id
+msgid "Duration"
 msgstr ""
 
 #. module: ssi_project
@@ -225,29 +514,54 @@ msgid "Finish-To-Start"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_follower_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_follower_ids
 msgid "Followers"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_channel_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_channel_ids
 msgid "Followers (Channels)"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_partner_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__activity_type_icon
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__activity_type_icon
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__activity_type_icon
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_deliverable__ttype__group
+msgid "Group of Deliverable"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__ttype
+msgid "Group/Single?"
 msgstr ""
 
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__id
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__id
 #: model:ir.model.fields,field_description:ssi_project.field_mail_compose_message__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__id
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__id
 #: model:ir.model.fields,field_description:ssi_project.field_project_project__id
 #: model:ir.model.fields,field_description:ssi_project.field_project_task__id
@@ -258,22 +572,37 @@ msgid "ID"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_exception_icon
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_exception_icon
 msgid "Icon"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__activity_exception_icon
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__activity_exception_icon
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__activity_exception_icon
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_exception_icon
 msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__message_needaction
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__message_unread
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__message_needaction
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__message_unread
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__message_needaction
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__message_unread
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__message_needaction
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__message_has_error
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__message_has_error
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__message_has_error
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
@@ -306,6 +635,9 @@ msgid "Is Default?"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_is_follower
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_is_follower
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_is_follower
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_is_follower
 msgid "Is Follower"
 msgstr ""
@@ -314,6 +646,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task____last_update
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail____last_update
 #: model:ir.model.fields,field_description:ssi_project.field_mail_compose_message____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type____last_update
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category____last_update
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone____last_update
 #: model:ir.model.fields,field_description:ssi_project.field_project_project____last_update
 #: model:ir.model.fields,field_description:ssi_project.field_project_task____last_update
@@ -326,6 +661,9 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__write_uid
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__write_uid
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__write_uid
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__write_uid
 #: model:ir.model.fields,field_description:ssi_project.field_task_dependency__write_uid
 #: model:ir.model.fields,field_description:ssi_project.field_task_instruction__write_uid
@@ -335,6 +673,9 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task__write_date
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__write_date
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__write_date
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__write_date
 #: model:ir.model.fields,field_description:ssi_project.field_task_dependency__write_date
 #: model:ir.model.fields,field_description:ssi_project.field_task_instruction__write_date
@@ -342,12 +683,25 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_main_attachment_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_main_attachment_id
 msgid "Main Attachment"
 msgstr ""
 
 #. module: ssi_project
-#: model:ir.model.fields,help:ssi_project.field_project_milestone__active
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__manual_number_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__manual_number_ok
+msgid ""
+"Manual number assignment policy\n"
+"\n"
+"* If active user can edit document number"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__active
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__active
 msgid ""
 "Master data status\n"
 "\n"
@@ -358,7 +712,8 @@ msgid ""
 msgstr ""
 
 #. module: ssi_project
-#: model:ir.model.fields,help:ssi_project.field_project_milestone__code
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__code
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__code
 msgid ""
 "Master data unique identifier.\n"
 "\n"
@@ -369,11 +724,17 @@ msgid ""
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_has_error
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_has_error
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_has_error
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_ids
 msgid "Messages"
 msgstr ""
@@ -384,18 +745,29 @@ msgid "Milestone"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__milestone_ids
 #: model:ir.ui.menu,name:ssi_project.menu_project_milestone
 msgid "Milestones"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__my_activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr ""
 
 #. module: ssi_project
-#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__name
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__name
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__name
 msgid "Name"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__need_validation
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__need_validation
+msgid "Need Validation"
 msgstr ""
 
 #. module: ssi_project
@@ -405,18 +777,33 @@ msgid "New"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_date_deadline
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_summary
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_summary
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_summary
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_summary
 msgid "Next Activity Summary"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_type_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_type_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_type_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_type_id
 msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__next_approval_ids
+msgid "Next Approvals"
 msgstr ""
 
 #. module: ssi_project
@@ -430,46 +817,87 @@ msgid "Not Blocked By Dependency"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__note
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__note
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__note
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__note
 msgid "Note"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__number_of_child
+msgid "Num. of Child Deliverables"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__number_of_child_done
+msgid "Num. of Child Deliverables Done"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__num_of_deliverable
+msgid "Num. of Deliverable"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__num_of_milestone
+msgid "Num. of Milestone"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__number_of_task
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__number_of_task
 msgid "Num. of Task"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__number_of_task_done
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__number_of_task_done
 msgid "Num. of Task Done"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_needaction_counter
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_has_error_counter
 msgid "Number of errors"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__message_needaction_counter
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__message_needaction_counter
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__message_needaction_counter
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__message_needaction_counter
 msgid "Number of messages which requires an action"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__message_has_error_counter
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__message_has_error_counter
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__message_has_error_counter
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__message_unread_counter
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__message_unread_counter
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__message_unread_counter
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__message_unread_counter
 msgid "Number of unread messages"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__parent_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__parent_id
 msgid "Parent Milestone"
 msgstr ""
@@ -484,6 +912,11 @@ msgstr ""
 #. module: ssi_project
 #: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
 msgid "Pending data. Are you sure?"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
+msgid "Percentage"
 msgstr ""
 
 #. module: ssi_project
@@ -510,6 +943,12 @@ msgstr ""
 #, python-format
 msgid ""
 "Please start/finish/cancel all predecessors with start-to-start dependency"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__policy_template_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__policy_template_id
+msgid "Policy Template"
 msgstr ""
 
 #. module: ssi_project
@@ -540,6 +979,7 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model,name:ssi_project.model_project_project
 #: model:ir.model.fields,field_description:ssi_project.field_create_sucessor_task_detail__project_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__project_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__project_id
 #: model:ir.model.fields,field_description:ssi_project.field_task_dependency__project_id
 #: model:ir.module.category,name:ssi_project.pm_data_ownership_module_category
@@ -571,6 +1011,45 @@ msgid "Project - Workflow"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_deliverable
+#: model:ir.module.category,name:ssi_project.project_deliverable_data_ownership_module_category
+#: model:ir.module.category,name:ssi_project.project_deliverable_workflow_module_category
+msgid "Project Deliverable"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_deliverable_type
+#: model:res.groups,name:ssi_project.project_deliverable_type_configurator_group
+msgid "Project Deliverable Type"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.actions.act_window,name:ssi_project.project_deliverable_type_category_action
+msgid "Project Deliverable Type Categories"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model,name:ssi_project.model_project_deliverable_type_category
+#: model:res.groups,name:ssi_project.project_deliverable_type_category_configurator_group
+msgid "Project Deliverable Type Category"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.actions.act_window,name:ssi_project.project_deliverable_type_action
+msgid "Project Deliverable Types"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.actions.act_window,name:ssi_project.project_deliverable_action
+msgid "Project Deliverables"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_deliverable_project_group
+msgid "Project Manager"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model,name:ssi_project.model_project_milestone
 #: model:res.groups,name:ssi_project.project_milestone_configurator_group
 msgid "Project Milestone"
@@ -597,6 +1076,30 @@ msgid "Ready"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__reject_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__reject_ok
+msgid ""
+"Reject policy\n"
+"\n"
+"* If active user can see and execute 'Reject' button"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__rejected
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__user_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__activity_user_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__activity_user_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__activity_user_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__activity_user_id
 msgid "Responsible User"
 msgstr ""
@@ -607,13 +1110,36 @@ msgid "Restart"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__restart_approval_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__restart_approval_ok
+msgid ""
+"Restart approval policy\n"
+"\n"
+"* If active user can see and execute 'Restart Approval' button"
+msgstr ""
+
+#. module: ssi_project
 #: model_terms:ir.ui.view,arch_db:ssi_project.edit_project
 msgid "Restart data. Are you sure?"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__restart_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__restart_ok
+msgid ""
+"Restart policy\n"
+"\n"
+"* If active user can see and execute 'Restart' button"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_task_instruction__sequence
 msgid "Sequence"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields.selection,name:ssi_project.selection__project_deliverable__ttype__single
+msgid "Single Deliverable"
 msgstr ""
 
 #. module: ssi_project
@@ -633,6 +1159,15 @@ msgid "Start data. Are you sure?"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__open_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__open_ok
+msgid ""
+"Start policy\n"
+"\n"
+"* If active user can see and execute 'Start' button"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields.selection,name:ssi_project.selection__create_sucessor_task_detail__dependency_type__start_finish
 #: model:ir.model.fields.selection,name:ssi_project.selection__task_dependency__dependency_type__start_finish
 msgid "Start-To-Finish"
@@ -645,12 +1180,17 @@ msgid "Start-To-Start"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__state
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__state
 #: model:ir.model.fields,field_description:ssi_project.field_project_project__state
 #: model_terms:ir.ui.view,arch_db:ssi_project.view_project_project_filter
 msgid "State"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__activity_state
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__activity_state
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__activity_state
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_state
 msgid ""
 "Status based on activities\n"
@@ -688,6 +1228,7 @@ msgid "Task"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__task_completion_percentage
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__task_completion_percentage
 msgid "Task Completion Percentage"
 msgstr ""
@@ -724,7 +1265,9 @@ msgid "Task Summary"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__task_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__task_ids
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
 msgid "Tasks"
 msgstr ""
 
@@ -734,49 +1277,128 @@ msgid "Tasks Stages"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__terminate_reason_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__terminate_reason_id
+msgid "Terminate Reason"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__terminate_ok
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__terminate_ok
+msgid ""
+"Terminate policy\n"
+"\n"
+"* If active user can see and execute 'Terminate' button"
+msgstr ""
+
+#. module: ssi_project
 #: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_form
 msgid "Time Constrains"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__title
+msgid "Title"
+msgstr ""
+
+#. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
+msgid "To-Do"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__name
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__name
+msgid ""
+"Transaction/document number\n"
+"\n"
+"* Unique indentifer of transaction\n"
+"* Leave '/' to automatically generate number\n"
+"* Change '/' into any number/identifier to manually assign number.\n"
+"  Manual number assignment can be done in 'Draft' state\n"
+"  Only user with 'Can Manualy Assign Number' policy can manually assign number.\n"
+"* Transaction with number other than '/' can not be deleted."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__type_id
+msgid "Type"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_unread
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_unread
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_unread
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_unread
 msgid "Unread Messages"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__message_unread_counter
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: ssi_project
+#: model:res.groups,name:ssi_project.project_deliverable_user_group
 #: model:res.groups,name:ssi_project.project_user_group
 #: model:res.groups,name:ssi_project.task_user_group
 msgid "User"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__user_id
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__user_id
+msgid ""
+"User that responsible for document\n"
+"\n"
+"* Create user can be different with responsible user\n"
+"* Automatically filled with user that initiate document creation.\n"
+"  Default responsible can be changed."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__active_approver_user_ids
+msgid "Users that can approve/reject document"
+msgstr ""
+
+#. module: ssi_project
+#: model:res.groups,name:ssi_project.project_deliverable_validator_group
 #: model:res.groups,name:ssi_project.project_validator_group
 #: model:res.groups,name:ssi_project.task_validator_group
 msgid "Validator"
 msgstr ""
 
 #. module: ssi_project
+#: model:res.groups,name:ssi_project.project_deliverable_viewer_group
 #: model:res.groups,name:ssi_project.project_viewer_group
 #: model:res.groups,name:ssi_project.task_viewer_group
 msgid "Viewer"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__website_message_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type__website_message_ids
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable_type_category__website_message_ids
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__website_message_ids
 msgid "Website Messages"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__website_message_ids
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type__website_message_ids
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable_type_category__website_message_ids
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__website_message_ids
 msgid "Website communication history"
 msgstr ""
