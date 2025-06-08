@@ -25,6 +25,7 @@
     <field name="arch" type="xml">
         <data>
             <xpath expr="//field[@name='display_name']" position="after">
+                <field name="title" />
                 <field name="project_id" />
                 <field name="phase_id" />
                 <field name="ttype" />

@@ -222,7 +222,7 @@ class ProjectPhase(models.Model):
     @api.depends(
         "task_ids",
         "task_ids.phase_id",
-        "task_ids.state",
+        "task_ids.stage_id",
     )
     def _compute_number_of_task(self):
         Task = self.env["project.task"]
@@ -338,7 +338,7 @@ class ProjectPhase(models.Model):
         "child_ids.parent_id",
         "task_ids",
         "task_ids.phase_id",
-        "task_ids.state",
+        "task_ids.stage_id",
         "task_ids.stage_id",
         "deliverable_ids",
         "deliverable_ids.state",
