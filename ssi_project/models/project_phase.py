@@ -255,7 +255,7 @@ class ProjectPhase(models.Model):
     @api.depends(
         "child_ids",
         "child_ids.completion_percentage",
-        "child_ids.stage_id",
+        "child_ids.state",
         "child_ids.parent_id",
     )
     def _compute_number_of_child(self):
