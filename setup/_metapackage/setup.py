@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo14-addon-ssi_project',
         'odoo14-addon-ssi_project_assignment',
         'odoo14-addon-ssi_project_assignment_operating_unit',
+        'odoo14-addon-ssi_project_assignment_revenue_recognition',
         'odoo14-addon-ssi_project_assignment_work_log',
         'odoo14-addon-ssi_project_autocreate_analytic_account',
         'odoo14-addon-ssi_project_code',
