@@ -1309,6 +1309,13 @@ msgid ""
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__reviewer_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__reviewer_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_phase__reviewer_id
+msgid "Reviewer"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_task_instruction__sequence
 msgid "Sequence"
 msgstr ""
@@ -1567,6 +1574,16 @@ msgid ""
 "* Create user can be different with responsible user\n"
 "* Automatically filled with user that initiate document creation.\n"
 "  Default responsible can be changed."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_deliverable__reviewer_id
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__reviewer_id
+#: model:ir.model.fields,help:ssi_project.field_project_phase__reviewer_id
+msgid ""
+"User that responsible to review document\n"
+"\n"
+"* Unless it configured to approve reviewer does not equal to approver"
 msgstr ""
 
 #. module: ssi_project
