@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="project_assignment_view_tree" model="ir.ui.view">
+    <field name="name">project.assignment tree</field>
+    <field name="model">project.assignment</field>
+    <field
+            name="inherit_id"
+            ref="ssi_project_assignment.project_assignment_view_tree"
+        />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="pob_id" />
+                <field name="contract_id" />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+
+
+
+<record id="project_assignment_view_search" model="ir.ui.view">
+    <field name="name">project.assignment search</field>
+    <field name="model">project.assignment</field>
+    <field
+            name="inherit_id"
+            ref="ssi_project_assignment.project_assignment_view_search"
+        />
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="pob_id" />
+                <field name="contract_id" />
+            </xpath>
+            <xpath expr="//filter[@name='grp_company']" position="after">
+                <filter name="grp_pob" string="# PoB" context="{'group_by':'pob_id'}" />
+                <filter
+                        name="grp_contract"
+                        string="# Contract"
+                        context="{'group_by':'contract_id'}"
+                    />
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="project_assignment_view_form" model="ir.ui.view">
+    <field name="name">project.assignment form</field>
+    <field name="model">project.assignment</field>
+    <field
+            name="inherit_id"
+            ref="ssi_project_assignment.project_assignment_view_form"
+        />
+    <field name="arch" type="xml">
+      <data>
+          <xpath expr="/form/sheet/notebook/page[last()]" position="after">
+            <page name="revenue_recognition" string="Revenue Recognition">
+                <group name="revenue_recognition_1" colspan="4" col="2">
+                    <group name="revenue_recognition_1_1" colspan="1" col="2">
+                        <field name="pob_id" />
+                        <field name="contract_id" />
+                    </group>
+                    <group name="revenue_recognition_1_2" colspan="1" col="2">
+                    </group>
+                </group>
+            </page>
+          </xpath>
+      </data>
+    </field>
+</record>
+</odoo>
