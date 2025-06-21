@@ -6,15 +6,17 @@ import uuid
 
 from odoo import api, fields, models
 
+from odoo.addons.ssi_decorator import ssi_decorator
+
 
 class ProjectAssignment(models.Model):
     _name = "project.assignment"
     _inherit = [
-        "mixin.transaction_confirm",
         "mixin.transaction_cancel",
-        "mixin.transaction_open",
-        "mixin.transaction_done",
         "mixin.transaction_terminate",
+        "mixin.transaction_done",
+        "mixin.transaction_open",
+        "mixin.transaction_confirm",
         "mixin.date_duration",
     ]
     _description = "Project Assignment"
@@ -39,7 +41,7 @@ class ProjectAssignment(models.Model):
 
     # Attributes related to add element on form view automatically
     _automatically_insert_multiple_approval_page = True
-    _statusbar_visible_label = "draft,confirm,open,done"
+    _statusbar_visible_label = "draft,confirm,open"
     _policy_field_order = [
         "confirm_ok",
         "approve_ok",
@@ -118,17 +120,6 @@ class ProjectAssignment(models.Model):
             "draft": [("readonly", False)],
         },
     )
-    state = fields.Selection(
-        selection=[
-            ("draft", "Draft"),
-            ("confirm", "Waiting for Approval"),
-            ("open", "In Progress"),
-            ("done", "Done"),
-            ("reject", "Reject"),
-            ("terminate", "Terminate"),
-            ("cancel", "Cancelled"),
-        ],
-    )
     access_token = fields.Char(
         "Security Token", copy=False, default=_default_access_token
     )
@@ -148,7 +139,7 @@ class ProjectAssignment(models.Model):
 
     @api.model
     def _get_policy_field(self):
-        res = super(ProjectAssignment, self)._get_policy_field()
+        res = super()._get_policy_field()
         policy_field = [
             "confirm_ok",
             "approve_ok",
@@ -169,3 +160,9 @@ class ProjectAssignment(models.Model):
     def onchange_policy_template_id(self):
         template_id = self._get_template_policy()
         self.policy_template_id = template_id
+
+    @ssi_decorator.insert_on_form_view()
+    def _insert_form_element(self, view_arch):
+        if self._automatically_insert_view_element:
+            view_arch = self._reconfigure_statusbar_visible(view_arch)
+        return view_arch
