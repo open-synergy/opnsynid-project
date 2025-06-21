@@ -4,15 +4,17 @@
 
 from odoo import api, fields, models
 
+from odoo.addons.ssi_decorator import ssi_decorator
+
 
 class ProjectBatchAssignment(models.Model):
     _name = "project.batch_assignment"
     _inherit = [
-        "mixin.transaction_confirm",
         "mixin.transaction_cancel",
-        "mixin.transaction_open",
-        "mixin.transaction_done",
         "mixin.transaction_terminate",
+        "mixin.transaction_done",
+        "mixin.transaction_open",
+        "mixin.transaction_confirm",
         "mixin.date_duration",
     ]
     _description = "Project Batch Assignment"
@@ -102,21 +104,9 @@ class ProjectBatchAssignment(models.Model):
         },
     )
 
-    state = fields.Selection(
-        selection=[
-            ("draft", "Draft"),
-            ("confirm", "Waiting for Approval"),
-            ("open", "In Progress"),
-            ("done", "Done"),
-            ("terminate", "Terminate"),
-            ("cancel", "Cancelled"),
-            ("reject", "Rejected"),
-        ],
-    )
-
     @api.model
     def _get_policy_field(self):
-        res = super(ProjectBatchAssignment, self)._get_policy_field()
+        res = super()._get_policy_field()
         policy_field = [
             "confirm_ok",
             "approve_ok",
@@ -133,7 +123,7 @@ class ProjectBatchAssignment(models.Model):
         return res
 
     def action_confirm(self):
-        _super = super(ProjectBatchAssignment, self)
+        _super = super()
         _super.action_confirm()
 
         for record in self.sudo():
@@ -142,35 +132,35 @@ class ProjectBatchAssignment(models.Model):
             record._confirm_project_assignment()
 
     def action_open(self):
-        _super = super(ProjectBatchAssignment, self)
+        _super = super()
         _super.action_open()
 
         for record in self.sudo():
             record._open_project_assignment()
 
     def action_done(self):
-        _super = super(ProjectBatchAssignment, self)
+        _super = super()
         _super.action_done()
 
         for record in self.sudo():
             record._done_project_assignment()
 
     def action_restart(self):
-        _super = super(ProjectBatchAssignment, self)
+        _super = super()
         _super.action_restart()
 
         for record in self.sudo():
             record._restart_project_assignment()
 
     def action_cancel(self, cancel_reason=False):
-        _super = super(ProjectBatchAssignment, self)
+        _super = super()
         _super.action_cancel(cancel_reason=cancel_reason)
 
         for record in self.sudo():
             record._cancel_project_assignment(cancel_reason=cancel_reason)
 
     def action_terminate(self, terminate_reason=False):
-        _super = super(ProjectBatchAssignment, self)
+        _super = super()
         _super.action_terminate(terminate_reason=terminate_reason)
 
         for record in self.sudo():
@@ -215,3 +205,9 @@ class ProjectBatchAssignment(models.Model):
         self.ensure_one()
         for assignee in self.assignee_ids:
             assignee._terminate_project_assignment(terminate_reason=terminate_reason)
+
+    @ssi_decorator.insert_on_form_view()
+    def _insert_form_element(self, view_arch):
+        if self._automatically_insert_view_element:
+            view_arch = self._reconfigure_statusbar_visible(view_arch)
+        return view_arch
