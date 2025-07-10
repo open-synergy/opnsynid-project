@@ -196,11 +196,6 @@ msgid ""
 msgstr ""
 
 #. module: ssi_batch_project_assignment
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__cancel
-msgid "Cancelled"
-msgstr ""
-
-#. module: ssi_batch_project_assignment
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment.field_project_batch_assignment__company_id
 #: model:res.groups,name:ssi_batch_project_assignment.project_batch_assignment_company_group
 msgid "Company"
@@ -268,21 +263,11 @@ msgid "Display Name"
 msgstr ""
 
 #. module: ssi_batch_project_assignment
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__done
-msgid "Done"
-msgstr ""
-
-#. module: ssi_batch_project_assignment
 #: model:ir.model.fields,help:ssi_batch_project_assignment.field_project_batch_assignment__done_ok
 msgid ""
 "Done policy\n"
 "\n"
 "* If active user can see and execute 'Done' button"
-msgstr ""
-
-#. module: ssi_batch_project_assignment
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__draft
-msgid "Draft"
 msgstr ""
 
 #. module: ssi_batch_project_assignment
@@ -331,11 +316,6 @@ msgstr ""
 #. module: ssi_batch_project_assignment
 #: model:ir.model.fields,help:ssi_batch_project_assignment.field_project_batch_assignment__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
-
-#. module: ssi_batch_project_assignment
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__open
-msgid "In Progress"
 msgstr ""
 
 #. module: ssi_batch_project_assignment
@@ -487,7 +467,6 @@ msgstr ""
 
 #. module: ssi_batch_project_assignment
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment.field_project_batch_assignment__rejected
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__reject
 msgid "Rejected"
 msgstr ""
 
@@ -552,11 +531,6 @@ msgid ""
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
-msgstr ""
-
-#. module: ssi_batch_project_assignment
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__terminate
-msgid "Terminate"
 msgstr ""
 
 #. module: ssi_batch_project_assignment
@@ -636,11 +610,6 @@ msgstr ""
 #. module: ssi_batch_project_assignment
 #: model:res.groups,name:ssi_batch_project_assignment.project_batch_assignment_viewer_group
 msgid "Viewer"
-msgstr ""
-
-#. module: ssi_batch_project_assignment
-#: model:ir.model.fields.selection,name:ssi_batch_project_assignment.selection__project_batch_assignment__state__confirm
-msgid "Waiting for Approval"
 msgstr ""
 
 #. module: ssi_batch_project_assignment
