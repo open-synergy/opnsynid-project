@@ -32,6 +32,30 @@
     <field name="restrict_additional" eval="0" />
 </record>
 
+<!-- Done -->
+<record id="policy_template_project_deliverable_done" model="policy.template_detail">
+    <field name="template_id" ref="policy_template_project_deliverable" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','project_deliverable'),('name','=','done_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','project_deliverable'),('value','=','open')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('project_deliverable_user_group')])]" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if document.ttype == "group" and document.number_of_child == 0:
+    result = True
+elif document.ttype == "single" and document.number_of_task == 0:
+    result = True
+    </field>
+</record>
+
 <!-- Terminate -->
 <record
         id="policy_template_project_deliverable_terminate"
