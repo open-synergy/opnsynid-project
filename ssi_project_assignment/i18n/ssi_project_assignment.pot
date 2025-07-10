@@ -399,11 +399,6 @@ msgid ""
 msgstr ""
 
 #. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__cancel
-msgid "Cancelled"
-msgstr ""
-
-#. module: ssi_project_assignment
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_role__code
 msgid "Code"
 msgstr ""
@@ -487,21 +482,11 @@ msgid "Display Name"
 msgstr ""
 
 #. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__done
-msgid "Done"
-msgstr ""
-
-#. module: ssi_project_assignment
 #: model:ir.model.fields,help:ssi_project_assignment.field_project_assignment__done_ok
 msgid ""
 "Done policy\n"
 "\n"
 "* If active user can see and execute 'Done' button"
-msgstr ""
-
-#. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__draft
-msgid "Draft"
 msgstr ""
 
 #. module: ssi_project_assignment
@@ -562,11 +547,6 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_project_assignment.field_project_assignment__message_has_error
 #: model:ir.model.fields,help:ssi_project_assignment.field_project_role__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
-
-#. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__open
-msgid "In Progress"
 msgstr ""
 
 #. module: ssi_project_assignment
@@ -767,11 +747,6 @@ msgid "Project Role"
 msgstr ""
 
 #. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__reject
-msgid "Reject"
-msgstr ""
-
-#. module: ssi_project_assignment
 #: model:ir.model.fields,help:ssi_project_assignment.field_project_assignment__reject_ok
 msgid ""
 "Reject policy\n"
@@ -896,11 +871,6 @@ msgid "Teams"
 msgstr ""
 
 #. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__terminate
-msgid "Terminate"
-msgstr ""
-
-#. module: ssi_project_assignment
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_assignment__terminate_reason_id
 msgid "Terminate Reason"
 msgstr ""
@@ -985,11 +955,6 @@ msgstr ""
 #. module: ssi_project_assignment
 #: model:res.groups,name:ssi_project_assignment.project_assignment_viewer_group
 msgid "Viewer"
-msgstr ""
-
-#. module: ssi_project_assignment
-#: model:ir.model.fields.selection,name:ssi_project_assignment.selection__project_assignment__state__confirm
-msgid "Waiting for Approval"
 msgstr ""
 
 #. module: ssi_project_assignment
