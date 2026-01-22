@@ -52,6 +52,7 @@ class ProjectTask(models.Model):
         ],
         compute="_compute_dependency_state",
         store=True,
+        compute_sudo=True,
     )
 
     @api.onchange(
