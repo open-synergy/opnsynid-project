@@ -263,6 +263,11 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ssi_project_assignment
+#: model:project.role,name:ssi_project_assignment.demo_project_role4
+msgid "Administration - (test)"
+msgstr ""
+
+#. module: ssi_project_assignment
 #: model:res.groups,name:ssi_project_assignment.project_assignment_all_group
 #: model_terms:ir.ui.view,arch_db:ssi_project_assignment.project_project_view_form
 msgid "All"
@@ -556,6 +561,11 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: ssi_project_assignment
+#: model:project.role,name:ssi_project_assignment.demo_project_role2
+msgid "Junior Consultant - (test)"
+msgstr ""
+
+#. module: ssi_project_assignment
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_assignment____last_update
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_project____last_update
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_role____last_update
@@ -747,6 +757,11 @@ msgid "Project Role"
 msgstr ""
 
 #. module: ssi_project_assignment
+#: model:project.role,name:ssi_project_assignment.demo_project_role3
+msgid "QA Officer - (test)"
+msgstr ""
+
+#. module: ssi_project_assignment
 #: model:ir.model.fields,help:ssi_project_assignment.field_project_assignment__reject_ok
 msgid ""
 "Reject policy\n"
@@ -814,6 +829,11 @@ msgstr ""
 #. module: ssi_project_assignment
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_assignment__access_token
 msgid "Security Token"
+msgstr ""
+
+#. module: ssi_project_assignment
+#: model:project.role,name:ssi_project_assignment.demo_project_role1
+msgid "Senior Consultant - (test)"
 msgstr ""
 
 #. module: ssi_project_assignment
