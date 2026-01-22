@@ -14,4 +14,5 @@ class ProjectTask(models.Model):
         comodel_name="res.users",
         related="project_id.user_id",
         store=True,
+        compute_sudo=True,
     )
