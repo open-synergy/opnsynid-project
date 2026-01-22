@@ -15,4 +15,5 @@ class ProjectTask(models.Model):
     operating_unit_id = fields.Many2one(
         related="project_id.operating_unit_id",
         store=True,
+        compute_sudo=True,
     )
