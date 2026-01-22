@@ -18,21 +18,13 @@ class ProjectTask(models.Model):
     )
     def _compute_timebox(self):
         for document in self:
-            timebox_latest_id = (
-                timebox_date_start
-            ) = (
-                timebox_date_end
-            ) = (
+            timebox_latest_id = timebox_date_start = timebox_date_end = (
                 timebox_initial_id
-            ) = (
-                timebox_initial_date_start
-            ) = (
-                timebox_initial_date_end
-            ) = (
+            ) = timebox_initial_date_start = timebox_initial_date_end = (
                 timebox_upcoming_id
-            ) = (
-                timebox_upcoming_date_start
-            ) = timebox_upcoming_date_end = on_running_timebox = False
+            ) = timebox_upcoming_date_start = timebox_upcoming_date_end = (
+                on_running_timebox
+            ) = False
             if len(document.timebox_ids) > 0:
                 timebox_latest_id = document.timebox_ids[-1]
                 timebox_date_start = timebox_latest_id.date_start
@@ -151,6 +143,7 @@ class ProjectTask(models.Model):
     baseline_project_starting_timebox_id = fields.Many2one(
         string="Baseline Project Starting Timebox",
         related="baseline_project_id.timebox_starting_id",
+        compute_sudo=True,
     )
     baseline_task_id = fields.Many2one(
         string="Baseline Task",
@@ -159,6 +152,7 @@ class ProjectTask(models.Model):
     baseline_task_upcoming_timebox_id = fields.Many2one(
         string="Baseline Task Upcoming Timebox",
         related="baseline_task_id.timebox_upcoming_id",
+        compute_sudo=True,
     )
     baseline_offset = fields.Integer(
         string="Baseline Offset",

@@ -42,11 +42,13 @@ class ResponSibleTaskMixin(models.AbstractModel):
         string="Responsible Task Stage",
         related="responsible_task_id.stage_id",
         store=True,
+        compute_sudo=True,
     )
     responsible_state = fields.Selection(
         string="Responsible Task State",
         related="responsible_task_id.state",
         store=True,
+        compute_sudo=True,
     )
 
     def action_create_responsible_task(self):

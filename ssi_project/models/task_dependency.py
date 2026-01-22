@@ -44,6 +44,7 @@ class TaskDependency(models.Model):
         related="task_id.stage_id",
         store=False,
         readonly=False,
+        compute_sudo=True,
     )
     predecessor_task_stage_id = fields.Many2one(
         string="Predecessor Task Stage",
@@ -51,18 +52,21 @@ class TaskDependency(models.Model):
         related="predecessor_task_id.stage_id",
         store=False,
         readonly=False,
+        compute_sudo=True,
     )
     task_state = fields.Selection(
         string="Task State",
         related="task_id.state",
         store=True,
         readonly=False,
+        compute_sudo=True,
     )
     predecessor_task_state = fields.Selection(
         string="Predecessor Task State",
         related="predecessor_task_id.state",
         store=True,
         readonly=False,
+        compute_sudo=True,
     )
 
     @api.constrains(
