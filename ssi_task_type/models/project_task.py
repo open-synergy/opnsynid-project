@@ -18,12 +18,14 @@ class ProjectTask(models.Model):
         comodel_name="task.type_category",
         related="type_id.category_id",
         store=True,
+        compute_sudo=True,
     )
     type_instruction_ids = fields.One2many(
         string="Task Type Instructions",
         comodel_name="task_type.instruction",
         related="type_id.instruction_ids",
         store=False,
+        compute_sudo=True,
     )
     difficulty = fields.Selection(
         string="Difficulty",
