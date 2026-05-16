@@ -1,0 +1,25 @@
+scenarios:
+  - name: "Task Quality Control - Create task with quality control fields"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "QC Project"
+
+      - step: "Create task"
+        action: "create"
+        model: "project.task"
+        save_as: "task"
+        values:
+          name: "QC Task"
+          project_id: "EVAL: registry['project'].id"
+
+      - step: "Assert task created"
+        action: "assert"
+        target: "task"
+        asserts:
+          name:
+            type: "value"
+            expected: "QC Task"
