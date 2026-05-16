@@ -26,10 +26,16 @@ scenarios:
           date_assign: "2024-01-15"
           date_start: "2024-01-15"
           date_end: "2024-12-31"
-          assignee_ids:
-            - role_id: "EVAL: registry['role'].id"
-              assignee_id: "REF: base.user_admin"
-              sequence: 10
+
+      - step: "Create batch assignee"
+        action: "create"
+        model: "project.batch_assignment_assignee"
+        save_as: "assignee"
+        values:
+          batch_id: "EVAL: registry['batch'].id"
+          role_id: "EVAL: registry['role'].id"
+          assignee_id: "REF: base.user_admin"
+          sequence: 10
 
       - step: "Assert batch created"
         action: "assert"
