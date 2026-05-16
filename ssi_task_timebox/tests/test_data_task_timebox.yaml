@@ -1,0 +1,95 @@
+scenarios:
+  - name: "Task Timebox - Create and transition states"
+    steps:
+      - step: "Create task timebox"
+        action: "create"
+        model: "task.timebox"
+        save_as: "timebox"
+        values:
+          name: "Sprint 1"
+          code: "SP001"
+          date_start: "2024-01-01"
+          date_end: "2024-01-14"
+
+      - step: "Assert timebox in new state"
+        action: "assert"
+        target: "timebox"
+        asserts:
+          name:
+            type: "value"
+            expected: "Sprint 1"
+          state:
+            type: "value"
+            expected: "new"
+
+      - step: "Open timebox"
+        action: "call"
+        target: "timebox"
+        method: "action_open"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Done timebox"
+        action: "call"
+        target: "timebox"
+        method: "action_done"
+
+      - step: "Invalidate cache after done"
+        action: "call"
+        target: "timebox"
+        method: "invalidate_cache"
+
+      - step: "Assert timebox done"
+        action: "assert"
+        target: "timebox"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "Task Timebox - Restart from done"
+    steps:
+      - step: "Create task timebox"
+        action: "create"
+        model: "task.timebox"
+        save_as: "timebox"
+        values:
+          name: "Sprint 2"
+          code: "SP002"
+          date_start: "2024-02-01"
+          date_end: "2024-02-14"
+
+      - step: "Open timebox"
+        action: "call"
+        target: "timebox"
+        method: "action_open"
+
+      - step: "Done timebox"
+        action: "call"
+        target: "timebox"
+        method: "action_done"
+
+      - step: "Invalidate cache after done"
+        action: "call"
+        target: "timebox"
+        method: "invalidate_cache"
+
+      - step: "Restart timebox"
+        action: "call"
+        target: "timebox"
+        method: "action_restart"
+
+      - step: "Invalidate cache after restart"
+        action: "call"
+        target: "timebox"
+        method: "invalidate_cache"
+
+      - step: "Assert timebox restarted"
+        action: "assert"
+        target: "timebox"
+        asserts:
+          state:
+            type: "value"
+            expected: "new"
