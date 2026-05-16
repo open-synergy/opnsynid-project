@@ -9,7 +9,7 @@ class ProjectAssignment(models.Model):
     _name = "project.assignment"
     _inherit = [
         "project.assignment",
-        "mixin.documenso_signing",
+        "mixin.documenso_signing_approval",
     ]
 
     _documenso_signing_create_page = True
