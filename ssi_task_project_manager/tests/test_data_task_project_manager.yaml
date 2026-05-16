@@ -1,0 +1,29 @@
+scenarios:
+  - name: "Task Project Manager - Create task with project manager"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "PM Project"
+
+      - step: "Create task with project manager"
+        action: "create"
+        model: "project.task"
+        save_as: "task"
+        values:
+          name: "Task with PM"
+          project_id: "EVAL: registry['project'].id"
+          project_manager_id: "REF: base.user_admin"
+
+      - step: "Assert task created with project manager"
+        action: "assert"
+        target: "task"
+        asserts:
+          name:
+            type: "value"
+            expected: "Task with PM"
+          project_manager_id:
+            type: "value"
+            operator: "is_truthy"
