@@ -1,0 +1,17 @@
+scenarios:
+  - name: "Project Work Log - Create project and verify work log fields"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Work Log Project"
+
+      - step: "Assert project created with work log fields"
+        action: "assert"
+        target: "project"
+        asserts:
+          name:
+            type: "value"
+            expected: "Work Log Project"
