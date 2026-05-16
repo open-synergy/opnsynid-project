@@ -2,8 +2,7 @@
 <!-- Copyright 2020 OpenSynergy Indonesia
      Copyright 2020 PT. Simetri Sinergi Indonesia
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
-<data>
+<odoo>
 <record id="project_project_view_form" model="ir.ui.view">
     <field name="name">project.project form</field>
     <field name="model">project.project</field>
@@ -14,6 +13,4 @@
         </xpath>
     </field>
 </record>
-
-</data>
-</openerp>
+</odoo>
