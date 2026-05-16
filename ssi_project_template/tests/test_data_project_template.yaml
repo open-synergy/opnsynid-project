@@ -1,0 +1,52 @@
+scenarios:
+  - name: "Project Template - Create master data"
+    steps:
+      - step: "Create project template"
+        action: "create"
+        model: "project.template"
+        save_as: "template"
+        values:
+          name: "Standard Project Template"
+          code: "SPT001"
+
+      - step: "Assert template created"
+        action: "assert"
+        target: "template"
+        asserts:
+          name:
+            type: "value"
+            expected: "Standard Project Template"
+          code:
+            type: "value"
+            expected: "SPT001"
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Project Template - With task templates"
+    steps:
+      - step: "Create task template"
+        action: "create"
+        model: "task.template"
+        save_as: "task_template"
+        values:
+          name: "Task Template 1"
+          code: "TT001"
+
+      - step: "Create project template with task template"
+        action: "create"
+        model: "project.template"
+        save_as: "template"
+        values:
+          name: "Project Template with Tasks"
+          code: "PTT001"
+          task_template_ids:
+            - "EVAL: registry['task_template'].id"
+
+      - step: "Assert template created with task template"
+        action: "assert"
+        target: "template"
+        asserts:
+          name:
+            type: "value"
+            expected: "Project Template with Tasks"
