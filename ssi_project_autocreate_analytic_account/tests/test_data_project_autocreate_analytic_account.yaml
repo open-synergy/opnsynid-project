@@ -1,0 +1,27 @@
+scenarios:
+  - name: "Project Autocreate Analytic Account - Create analytic account from project"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Analytic Project"
+
+      - step: "Call action to create analytic account"
+        action: "call"
+        target: "project"
+        method: "action_create_analytic_account"
+
+      - step: "Invalidate cache"
+        action: "call"
+        target: "project"
+        method: "invalidate_cache"
+
+      - step: "Assert analytic account created"
+        action: "assert"
+        target: "project"
+        asserts:
+          analytic_account_id:
+            type: "value"
+            operator: "is_truthy"
