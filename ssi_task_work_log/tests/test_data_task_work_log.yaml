@@ -1,0 +1,25 @@
+scenarios:
+  - name: "Task Work Log - Create task with work log fields"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Work Log Task Project"
+
+      - step: "Create task"
+        action: "create"
+        model: "project.task"
+        save_as: "task"
+        values:
+          name: "Work Log Task"
+          project_id: "EVAL: registry['project'].id"
+
+      - step: "Assert task created with work log fields"
+        action: "assert"
+        target: "task"
+        asserts:
+          name:
+            type: "value"
+            expected: "Work Log Task"
