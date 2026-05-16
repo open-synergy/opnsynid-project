@@ -1,0 +1,54 @@
+scenarios:
+  - name: "Task Type - Create with category"
+    steps:
+      - step: "Create task type category"
+        action: "create"
+        model: "task.type_category"
+        save_as: "category"
+        values:
+          name: "Test Category"
+          code: "TC001"
+
+      - step: "Create task type"
+        action: "create"
+        model: "task.type"
+        save_as: "task_type"
+        values:
+          name: "Test Task Type"
+          code: "TTT"
+          category_id: "EVAL: registry['category'].id"
+
+      - step: "Assert task type created"
+        action: "assert"
+        target: "task_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Task Type"
+          code:
+            type: "value"
+            expected: "TTT"
+          category_id:
+            type: "value"
+            operator: "is_truthy"
+
+  - name: "Task Type - Create without category"
+    steps:
+      - step: "Create task type without category"
+        action: "create"
+        model: "task.type"
+        save_as: "task_type"
+        values:
+          name: "Simple Task Type"
+          code: "STT"
+
+      - step: "Assert task type created"
+        action: "assert"
+        target: "task_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Simple Task Type"
+          active:
+            type: "value"
+            expected: true
