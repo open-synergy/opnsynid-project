@@ -14,6 +14,46 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__active_approval_ids
+msgid "Active Approvals"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__active_approver_partner_ids
+msgid "Active Partners"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__active_approver_user_ids
+msgid "Active Users"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,help:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__approval_template_id
+msgid "Approval Configuration"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__approval_signature_request_id
+msgid "Approval Signature Request"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__approval_template_id
+msgid "Approval Template"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__approval_ids
+msgid "Approvals"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__approved
+msgid "Approved"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__display_name
 msgid "Display Name"
 msgstr ""
@@ -29,6 +69,16 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__need_validation
+msgid "Need Validation"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__next_approval_ids
+msgid "Next Approvals"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__signature_request_count
 msgid "Num. of Signature Requests"
 msgstr ""
@@ -39,6 +89,24 @@ msgid "Project Batch Assignment"
 msgstr ""
 
 #. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__signature_request_ids
 msgid "Signature Requests"
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,help:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__approval_signature_request_id
+msgid ""
+"The specific signature request used to determine approval status. Set "
+"automatically when the approval template uses a Documenso signing template. "
+"Other signature requests on this document are not affected."
+msgstr ""
+
+#. module: ssi_batch_project_assignment_documenso_signing
+#: model:ir.model.fields,help:ssi_batch_project_assignment_documenso_signing.field_project_batch_assignment__active_approver_user_ids
+msgid "Users that can approve/reject document"
 msgstr ""
