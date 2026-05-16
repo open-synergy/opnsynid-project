@@ -15,6 +15,7 @@ msgstr ""
 
 #. module: ssi_project
 #: code:addons/ssi_project/models/task_dependency.py:0
+#: code:addons/ssi_project/models/task_dependency.py:0
 #, python-format
 msgid ""
 "\n"
@@ -1075,11 +1076,13 @@ msgstr ""
 
 #. module: ssi_project
 #: code:addons/ssi_project/models/project_task.py:0
+#: code:addons/ssi_project/models/project_task.py:0
 #, python-format
 msgid "Please finish/cancel all predecessors with finish-to-finish dependency"
 msgstr ""
 
 #. module: ssi_project
+#: code:addons/ssi_project/models/project_task.py:0
 #: code:addons/ssi_project/models/project_task.py:0
 #, python-format
 msgid "Please finish/cancel all predecessors with finish-to-start dependency"
@@ -1087,12 +1090,14 @@ msgstr ""
 
 #. module: ssi_project
 #: code:addons/ssi_project/models/project_task.py:0
+#: code:addons/ssi_project/models/project_task.py:0
 #, python-format
 msgid ""
 "Please start/finish/cancel all predecessors with start-to-finish dependency"
 msgstr ""
 
 #. module: ssi_project
+#: code:addons/ssi_project/models/project_task.py:0
 #: code:addons/ssi_project/models/project_task.py:0
 #, python-format
 msgid ""
@@ -1633,6 +1638,7 @@ msgid "Wizard"
 msgstr ""
 
 #. module: ssi_project
+#: code:addons/ssi_project/models/task_dependency.py:0
 #: code:addons/ssi_project/models/task_dependency.py:0
 #, python-format
 msgid "You can not select itself for predecessor/sucessor"
