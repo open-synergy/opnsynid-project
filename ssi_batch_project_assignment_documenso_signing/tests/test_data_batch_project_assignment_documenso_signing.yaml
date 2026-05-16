@@ -44,3 +44,9 @@ scenarios:
           state:
             type: "value"
             expected: "draft"
+          signature_request_ids:
+            type: "value"
+            operator: "is_falsy"
+          approval_signature_request_id:
+            type: "value"
+            operator: "is_falsy"

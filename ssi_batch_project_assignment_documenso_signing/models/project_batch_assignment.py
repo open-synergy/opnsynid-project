@@ -9,7 +9,7 @@ class ProjectBatchAssignment(models.Model):
     _name = "project.batch_assignment"
     _inherit = [
         "project.batch_assignment",
-        "mixin.documenso_signing",
+        "mixin.documenso_signing_approval",
     ]
 
     _documenso_signing_create_page = True
