@@ -1,0 +1,38 @@
+scenarios:
+  - name: "Project Assignment Revenue Recognition - Verify revenue recognition fields"
+    steps:
+      - step: "Create project role"
+        action: "create"
+        model: "project.role"
+        save_as: "role"
+        values:
+          name: "RR Role"
+          code: "RRROLE"
+
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "RR Project"
+
+      - step: "Create project assignment"
+        action: "create"
+        model: "project.assignment"
+        save_as: "assignment"
+        as_user: "base.user_admin"
+        values:
+          project_id: "EVAL: registry['project'].id"
+          role_id: "EVAL: registry['role'].id"
+          asignee_id: "REF: base.user_admin"
+          date_assign: "2024-01-15"
+          date_start: "2024-01-15"
+          date_end: "2024-12-31"
+
+      - step: "Assert assignment created with revenue recognition fields"
+        action: "assert"
+        target: "assignment"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"

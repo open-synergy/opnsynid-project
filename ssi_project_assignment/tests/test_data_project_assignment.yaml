@@ -1,0 +1,150 @@
+scenarios:
+  - name: "Project Assignment - Full workflow draft to done"
+    steps:
+      - step: "Create project role"
+        action: "create"
+        model: "project.role"
+        save_as: "role"
+        values:
+          name: "Test Developer Role"
+          code: "DEV001"
+
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Project PA"
+
+      - step: "Create project assignment"
+        action: "create"
+        model: "project.assignment"
+        save_as: "assignment"
+        as_user: "base.user_admin"
+        values:
+          project_id: "EVAL: registry['project'].id"
+          role_id: "EVAL: registry['role'].id"
+          asignee_id: "REF: base.user_admin"
+          date_assign: "2024-01-15"
+          date_start: "2024-01-15"
+          date_end: "2024-12-31"
+
+      - step: "Assert assignment created in draft"
+        action: "assert"
+        target: "assignment"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+      - step: "Confirm assignment"
+        action: "call"
+        target: "assignment"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Invalidate cache after confirm"
+        action: "call"
+        target: "assignment"
+        method: "invalidate_cache"
+
+      - step: "Approve assignment"
+        action: "call"
+        target: "assignment"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Invalidate cache after open"
+        action: "call"
+        target: "assignment"
+        method: "invalidate_cache"
+
+      - step: "Mark assignment as done"
+        action: "call"
+        target: "assignment"
+        method: "action_done"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "Project Assignment - Draft then cancel"
+    steps:
+      - step: "Create project role"
+        action: "create"
+        model: "project.role"
+        save_as: "role"
+        values:
+          name: "Test QA Role"
+          code: "QA001"
+
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Project Cancel"
+
+      - step: "Create project assignment"
+        action: "create"
+        model: "project.assignment"
+        save_as: "assignment"
+        as_user: "base.user_admin"
+        values:
+          project_id: "EVAL: registry['project'].id"
+          role_id: "EVAL: registry['role'].id"
+          asignee_id: "REF: base.user_admin"
+          date_assign: "2024-01-15"
+          date_start: "2024-01-15"
+          date_end: "2024-12-31"
+
+      - step: "Assert assignment in draft"
+        action: "assert"
+        target: "assignment"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+      - step: "Confirm assignment"
+        action: "call"
+        target: "assignment"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+
+      - step: "Invalidate cache"
+        action: "call"
+        target: "assignment"
+        method: "invalidate_cache"
+
+      - step: "Reject approval"
+        action: "call"
+        target: "assignment"
+        method: "action_reject_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+
+      - step: "Invalidate cache after reject"
+        action: "call"
+        target: "assignment"
+        method: "invalidate_cache"
+
+      - step: "Assert assignment rejected"
+        action: "assert"
+        target: "assignment"
+        asserts:
+          state:
+            type: "value"
+            expected: "reject"

@@ -1,0 +1,17 @@
+scenarios:
+  - name: "Project Operating Unit - Create project with operating unit"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Operating Unit Project"
+
+      - step: "Assert project created"
+        action: "assert"
+        target: "project"
+        asserts:
+          name:
+            type: "value"
+            expected: "Operating Unit Project"

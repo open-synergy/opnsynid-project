@@ -18,13 +18,21 @@ class ProjectTask(models.Model):
     )
     def _compute_timebox(self):
         for document in self:
-            timebox_latest_id = timebox_date_start = timebox_date_end = (
+            timebox_latest_id = (
+                timebox_date_start
+            ) = (
+                timebox_date_end
+            ) = (
                 timebox_initial_id
-            ) = timebox_initial_date_start = timebox_initial_date_end = (
+            ) = (
+                timebox_initial_date_start
+            ) = (
+                timebox_initial_date_end
+            ) = (
                 timebox_upcoming_id
-            ) = timebox_upcoming_date_start = timebox_upcoming_date_end = (
-                on_running_timebox
-            ) = False
+            ) = (
+                timebox_upcoming_date_start
+            ) = timebox_upcoming_date_end = on_running_timebox = False
             if len(document.timebox_ids) > 0:
                 timebox_latest_id = document.timebox_ids[-1]
                 timebox_date_start = timebox_latest_id.date_start

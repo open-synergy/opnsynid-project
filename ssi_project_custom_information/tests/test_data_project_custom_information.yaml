@@ -1,0 +1,20 @@
+scenarios:
+  - name: "Project Custom Information - Create project and verify custom info fields"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Custom Info Project"
+
+      - step: "Assert project created"
+        action: "assert"
+        target: "project"
+        asserts:
+          name:
+            type: "value"
+            expected: "Custom Info Project"
+          custom_info_ids:
+            type: "value"
+            operator: "is_falsy"

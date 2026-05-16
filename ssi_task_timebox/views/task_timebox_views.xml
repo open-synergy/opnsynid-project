@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <odoo>
-<data>
 <record id="task_timebox_view_form" model="ir.ui.view">
     <field name="name">task.timebox form</field>
     <field name="model">task.timebox</field>
@@ -10,32 +9,32 @@
         <data>
             <xpath expr="//header" position="inside">
                 <button
-                            name="action_open"
-                            type="object"
-                            string="Start"
-                            attrs="{'invisible':[('state','!=','new')]}"
-                            confirm="Start Timebox. Are you sure?"
-                        />
+                        name="action_open"
+                        type="object"
+                        string="Start"
+                        attrs="{'invisible':[('state','!=','new')]}"
+                        confirm="Start Timebox. Are you sure?"
+                    />
                 <button
-                            name="action_done"
-                            type="object"
-                            string="Finish"
-                            attrs="{'invisible':[('state','=','done')]}"
-                            confirm="Finish Timebox. Are you sure?"
-                        />
+                        name="action_done"
+                        type="object"
+                        string="Finish"
+                        attrs="{'invisible':[('state','=','done')]}"
+                        confirm="Finish Timebox. Are you sure?"
+                    />
                 <button
-                            name="action_restart"
-                            type="object"
-                            string="Restart"
-                            class="oe_highlight"
-                            attrs="{'invisible':[('state','=','new')]}"
-                            confirm="Restart Timebox. Are you sure?"
-                        />
+                        name="action_restart"
+                        type="object"
+                        string="Restart"
+                        class="oe_highlight"
+                        attrs="{'invisible':[('state','=','new')]}"
+                        confirm="Restart Timebox. Are you sure?"
+                    />
                 <field
-                            name="state"
-                            widget="statusbar"
-                            statusbar_visible="new,open,done"
-                        />
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="new,open,done"
+                    />
             </xpath>
             <xpath expr="//field[@name='active']" position="after">
                 <field name="date_start" />
@@ -71,9 +70,9 @@
     <field name="model">task.timebox</field>
     <field name="mode">primary</field>
     <field
-                name="inherit_id"
-                ref="ssi_master_data_mixin.mixin_master_data_view_search"
-            />
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
     <field name="arch" type="xml">
         <data />
     </field>
@@ -87,14 +86,11 @@
 </record>
 
 <menuitem
-            id="task_timebox_menu"
-            name="Timeboxes"
-            parent="ssi_project.menu_task_root_configuration"
-            action="task_timebox_action"
-            groups="task_timebox_configurator_group"
-            sequence="10"
-        />
-
-
-</data>
+        id="task_timebox_menu"
+        name="Timeboxes"
+        parent="ssi_project.menu_task_root_configuration"
+        action="task_timebox_action"
+        groups="task_timebox_configurator_group"
+        sequence="10"
+    />
 </odoo>

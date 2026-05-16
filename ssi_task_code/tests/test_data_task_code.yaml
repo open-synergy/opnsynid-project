@@ -1,0 +1,28 @@
+scenarios:
+  - name: "Task Code - Create task and verify auto-generated code"
+    steps:
+      - step: "Create project for task"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Task Code Project"
+
+      - step: "Create task"
+        action: "create"
+        model: "project.task"
+        save_as: "task"
+        values:
+          name: "Test Task with Code"
+          project_id: "EVAL: registry['project'].id"
+
+      - step: "Assert task code was auto-generated"
+        action: "assert"
+        target: "task"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Task with Code"
+          code:
+            type: "value"
+            operator: "is_truthy"

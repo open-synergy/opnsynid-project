@@ -1,3 +1,4 @@
+odoo-yaml-test
 odoo14-addon-ssi-operating-unit-mixin
 odoo14-addon-ssi-revenue-recognition-project
 odoo14-addon-ssi-revenue-recognition

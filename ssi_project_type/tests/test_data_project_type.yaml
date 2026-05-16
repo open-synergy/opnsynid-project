@@ -1,0 +1,48 @@
+scenarios:
+  - name: "Project Type - Create and verify master data"
+    steps:
+      - step: "Create project type"
+        action: "create"
+        model: "project.type"
+        save_as: "project_type"
+        values:
+          name: "Test Project Type"
+          code: "TPT"
+
+      - step: "Assert project type created"
+        action: "assert"
+        target: "project_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Test Project Type"
+          code:
+            type: "value"
+            expected: "TPT"
+          active:
+            type: "value"
+            expected: true
+
+  - name: "Project Type - Update master data"
+    steps:
+      - step: "Create project type to update"
+        action: "create"
+        model: "project.type"
+        save_as: "project_type"
+        values:
+          name: "Original Name"
+          code: "ORI"
+
+      - step: "Update project type name"
+        action: "write"
+        target: "project_type"
+        values:
+          name: "Updated Name"
+
+      - step: "Assert name updated"
+        action: "assert"
+        target: "project_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Updated Name"

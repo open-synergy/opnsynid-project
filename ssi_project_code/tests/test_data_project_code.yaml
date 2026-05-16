@@ -1,0 +1,38 @@
+scenarios:
+  - name: "Project Code - Create project with code"
+    steps:
+      - step: "Create project with code"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Coded Project"
+          code: "PRJ001"
+
+      - step: "Assert project code set"
+        action: "assert"
+        target: "project"
+        asserts:
+          name:
+            type: "value"
+            expected: "Coded Project"
+          code:
+            type: "value"
+            expected: "PRJ001"
+
+  - name: "Project Code - Create project without code"
+    steps:
+      - step: "Create project without code"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Project Without Code"
+
+      - step: "Assert project created"
+        action: "assert"
+        target: "project"
+        asserts:
+          name:
+            type: "value"
+            expected: "Project Without Code"

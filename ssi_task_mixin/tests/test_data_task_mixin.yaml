@@ -1,0 +1,17 @@
+scenarios:
+  - name: "Task Mixin - Verify responsible task mixin model fields"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Mixin Project"
+
+      - step: "Assert project created"
+        action: "assert"
+        target: "project"
+        asserts:
+          name:
+            type: "value"
+            expected: "Mixin Project"

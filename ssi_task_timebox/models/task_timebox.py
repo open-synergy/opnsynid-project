@@ -117,4 +117,5 @@ class TaskTimebox(models.Model):
             ("id", "in", self.task_ids.ids),
         ]
         next_timebox = self.find_next()
-        Task.search(criteria).write({"timebox_ids": [(4, next_timebox.id)]})
+        if next_timebox:
+            Task.search(criteria).write({"timebox_ids": [(4, next_timebox.id)]})

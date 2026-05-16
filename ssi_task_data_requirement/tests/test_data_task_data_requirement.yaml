@@ -1,0 +1,28 @@
+scenarios:
+  - name: "Task Data Requirement - Create task and verify data requirement field"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Data Requirement Project"
+
+      - step: "Create task"
+        action: "create"
+        model: "project.task"
+        save_as: "task"
+        values:
+          name: "Data Requirement Task"
+          project_id: "EVAL: registry['project'].id"
+
+      - step: "Assert task created with data requirement field"
+        action: "assert"
+        target: "task"
+        asserts:
+          name:
+            type: "value"
+            expected: "Data Requirement Task"
+          data_requirement_ids:
+            type: "value"
+            operator: "is_falsy"
