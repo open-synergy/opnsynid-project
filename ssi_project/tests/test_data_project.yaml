@@ -1,0 +1,103 @@
+scenarios:
+  - name: "Project Milestone - Full workflow draft to done"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Milestone Project"
+
+      - step: "Create project milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        as_user: "base.user_admin"
+        values:
+          name: "Test Milestone"
+          project_id: "EVAL: registry['project'].id"
+          date: "2024-12-31"
+
+      - step: "Assert milestone in draft"
+        action: "assert"
+        target: "milestone"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+      - step: "Confirm milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Invalidate cache after confirm"
+        action: "call"
+        target: "milestone"
+        method: "invalidate_cache"
+
+      - step: "Approve milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Invalidate cache after open"
+        action: "call"
+        target: "milestone"
+        method: "invalidate_cache"
+
+      - step: "Mark milestone as done"
+        action: "call"
+        target: "milestone"
+        method: "action_done"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "Project Deliverable Type - Create master data"
+    steps:
+      - step: "Create deliverable type category"
+        action: "create"
+        model: "project_deliverable_type_category"
+        save_as: "category"
+        values:
+          name: "Software Deliverable"
+          code: "SD001"
+
+      - step: "Create deliverable type"
+        action: "create"
+        model: "project_deliverable_type"
+        save_as: "deliverable_type"
+        values:
+          name: "Source Code"
+          code: "SC001"
+          category_id: "EVAL: registry['category'].id"
+
+      - step: "Assert deliverable type created"
+        action: "assert"
+        target: "deliverable_type"
+        asserts:
+          name:
+            type: "value"
+            expected: "Source Code"
+          active:
+            type: "value"
+            expected: true
