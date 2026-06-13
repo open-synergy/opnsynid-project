@@ -4,7 +4,7 @@
 
 {
     "name": "Project Assignment + Revenue Recognition",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.2.0",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
     "license": "AGPL-3",
@@ -12,6 +12,7 @@
     "depends": [
         "ssi_revenue_recognition_project",
         "ssi_project_assignment",
+        "ssi_service",
     ],
     "data": [
         "views/project_assignment_views.xml",
