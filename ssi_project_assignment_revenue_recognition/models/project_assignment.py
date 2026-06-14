@@ -13,7 +13,7 @@ class ProjectAssignment(models.Model):
 
     pob_id = fields.Many2one(
         string="# PoB",
-        comodel_name="service_contract.performance_obligation",
+        comodel_name="performance_obligation",
         compute="_compute_revenue_recognition_field",
         store=True,
         compute_sudo=True,
@@ -30,7 +30,8 @@ class ProjectAssignment(models.Model):
         "project_id",
     )
     def _compute_revenue_recognition_field(self):
-        PoB = self.env["service_contract.performance_obligation"]
+        PoB = self.env["performance_obligation"]
+        Contract = self.env["service.contract"]
         for record in self:
             pob = contract = False
             if record.project_id:
@@ -40,6 +41,19 @@ class ProjectAssignment(models.Model):
                 pobs = PoB.search(criteria)
                 if len(pobs) > 0:
                     pob = pobs[0]
-                    contract = pob.contract_id
+                    # Performance obligation is no longer linked to a service
+                    # contract directly. Resolve the originating contract through
+                    # the shared analytic account instead.
+                    if pob.source_analytic_account_id:
+                        contract = Contract.search(
+                            [
+                                (
+                                    "analytic_account_id",
+                                    "=",
+                                    pob.source_analytic_account_id.id,
+                                )
+                            ],
+                            limit=1,
+                        )
             record.pob_id = pob
             record.contract_id = contract
