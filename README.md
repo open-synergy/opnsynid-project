@@ -22,13 +22,13 @@ addon | version | maintainers | summary
 [ssi_batch_project_assignment_documenso_signing](ssi_batch_project_assignment_documenso_signing/) | 14.0.2.0.0 |  | Project Batch Assignment - Documenso Signing Integration
 [ssi_batch_project_assignment_operating_unit](ssi_batch_project_assignment_operating_unit/) | 14.0.1.2.0 |  | Project Batch Assignment + Operating Unit
 [ssi_batch_project_assignment_quality_control](ssi_batch_project_assignment_quality_control/) | 14.0.1.1.0 |  | Project Batch Assignment - Quality Control Integration
-[ssi_batch_project_assignment_revenue_recognition](ssi_batch_project_assignment_revenue_recognition/) | 14.0.1.1.0 |  | Batch Project Assignment + Revenue Recognition
+[ssi_batch_project_assignment_revenue_recognition](ssi_batch_project_assignment_revenue_recognition/) | 14.0.1.2.0 |  | Batch Project Assignment + Revenue Recognition
 [ssi_batch_project_assignment_work_log](ssi_batch_project_assignment_work_log/) | 14.0.1.1.0 |  | Project Batch Assignment - Work Log Integration
 [ssi_project](ssi_project/) | 14.0.3.7.0 |  | Project Extension
 [ssi_project_assignment](ssi_project_assignment/) | 14.0.3.2.0 |  | Project Assignment
 [ssi_project_assignment_documenso_signing](ssi_project_assignment_documenso_signing/) | 14.0.2.0.0 |  | Project Assignment - Documenso Signing Integration
 [ssi_project_assignment_operating_unit](ssi_project_assignment_operating_unit/) | 14.0.1.2.0 |  | Project Assignment + Operating Unit
-[ssi_project_assignment_revenue_recognition](ssi_project_assignment_revenue_recognition/) | 14.0.1.1.0 |  | Project Assignment + Revenue Recognition
+[ssi_project_assignment_revenue_recognition](ssi_project_assignment_revenue_recognition/) | 14.0.1.2.0 |  | Project Assignment + Revenue Recognition
 [ssi_project_assignment_work_log](ssi_project_assignment_work_log/) | 14.0.1.1.0 |  | Project Assignment - Work Log Integration
 [ssi_project_autocreate_analytic_account](ssi_project_autocreate_analytic_account/) | 14.0.1.2.0 |  | Project Auto Create Analytic Account
 [ssi_project_code](ssi_project_code/) | 14.0.1.2.0 |  | Project Code
