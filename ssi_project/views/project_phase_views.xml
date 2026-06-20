@@ -13,6 +13,28 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="project_id" />
+                <field name="ttype" />
+                <field name="parent_id" />
+            </xpath>
+            <xpath expr="//filter[@name='grp_responsible']" position="after">
+                <filter
+                        name="grp_project"
+                        string="Project"
+                        context="{'group_by':'project_id'}"
+                    />
+                <filter
+                        name="grp_ttype"
+                        string="Phase Type"
+                        context="{'group_by':'ttype'}"
+                    />
+                <filter
+                        name="grp_parent"
+                        string="Parent"
+                        context="{'group_by':'parent_id'}"
+                    />
+            </xpath>
         </data>
     </field>
 </record>

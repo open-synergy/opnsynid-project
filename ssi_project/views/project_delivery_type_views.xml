@@ -13,6 +13,18 @@
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <data>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="category_id" />
+                </xpath>
+                <xpath expr="//group[@name='dom_active']" position="after">
+                    <group expand="0" string="Group By">
+                        <filter
+                            name="grp_category"
+                            string="Category"
+                            context="{'group_by':'category_id'}"
+                        />
+                    </group>
+                </xpath>
             </data>
         </field>
     </record>
