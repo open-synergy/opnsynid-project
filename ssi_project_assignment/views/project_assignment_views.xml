@@ -13,6 +13,36 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <data>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="project_id" />
+                <field name="asignee_id" />
+                <field name="role_id" />
+                <field name="date_assign" />
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//filter[@name='grp_responsible']" position="after">
+                <filter
+                        name="grp_project"
+                        string="Project"
+                        context="{'group_by':'project_id'}"
+                    />
+                <filter
+                        name="grp_asignee"
+                        string="Assignee"
+                        context="{'group_by':'asignee_id'}"
+                    />
+                <filter
+                        name="grp_role"
+                        string="Role"
+                        context="{'group_by':'role_id'}"
+                    />
+                <filter
+                        name="grp_date_assign"
+                        string="Date Assign"
+                        context="{'group_by':'date_assign'}"
+                    />
+            </xpath>
         </data>
     </field>
 </record>
