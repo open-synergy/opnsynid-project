@@ -152,6 +152,12 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_project_template
+#: model_terms:ir.ui.view,arch_db:ssi_project_template.project_template_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_project_template.task_template_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: ssi_project_template
 #: model:ir.model.fields,field_description:ssi_project_template.field_project_project__id
 #: model:ir.model.fields,field_description:ssi_project_template.field_project_task__id
 #: model:ir.model.fields,field_description:ssi_project_template.field_project_template__id
@@ -331,6 +337,7 @@ msgstr ""
 
 #. module: ssi_project_template
 #: model:ir.model.fields,field_description:ssi_project_template.field_project_template__parent_id
+#: model_terms:ir.ui.view,arch_db:ssi_project_template.project_template_view_search
 msgid "Parent"
 msgstr ""
 
@@ -359,6 +366,11 @@ msgstr ""
 #. module: ssi_project_template
 #: model:ir.model.fields,field_description:ssi_project_template.field_project_template__type_id
 msgid "Project Type"
+msgstr ""
+
+#. module: ssi_project_template
+#: model_terms:ir.ui.view,arch_db:ssi_project_template.task_template_view_search
+msgid "Responsible"
 msgstr ""
 
 #. module: ssi_project_template
@@ -422,6 +434,8 @@ msgstr ""
 #. module: ssi_project_template
 #: model:ir.model.fields,field_description:ssi_project_template.field_task_template__type_id
 #: model_terms:ir.ui.view,arch_db:ssi_project_template.project_task_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_project_template.project_template_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_project_template.task_template_view_search
 msgid "Type"
 msgstr ""
 
