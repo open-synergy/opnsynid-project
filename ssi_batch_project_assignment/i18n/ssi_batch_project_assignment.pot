@@ -242,6 +242,7 @@ msgstr ""
 
 #. module: ssi_batch_project_assignment
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment.field_project_batch_assignment__date_assign
+#: model_terms:ir.ui.view,arch_db:ssi_batch_project_assignment.project_batch_assignment_view_search
 msgid "Date Assign"
 msgstr ""
 
@@ -432,6 +433,7 @@ msgstr ""
 
 #. module: ssi_batch_project_assignment
 #: model:ir.model.fields,field_description:ssi_batch_project_assignment.field_project_batch_assignment__project_id
+#: model_terms:ir.ui.view,arch_db:ssi_batch_project_assignment.project_batch_assignment_view_search
 msgid "Project"
 msgstr ""
 
