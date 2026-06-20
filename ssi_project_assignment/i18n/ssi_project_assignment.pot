@@ -324,6 +324,7 @@ msgstr ""
 #. module: ssi_project_assignment
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_assignment__asignee_id
 #: model_terms:ir.ui.view,arch_db:ssi_project_assignment.portal_my_project_assignments
+#: model_terms:ir.ui.view,arch_db:ssi_project_assignment.project_assignment_view_search
 msgid "Assignee"
 msgstr ""
 
@@ -461,6 +462,7 @@ msgstr ""
 #. module: ssi_project_assignment
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_assignment__date_assign
 #: model_terms:ir.ui.view,arch_db:ssi_project_assignment.portal_my_project_assignments
+#: model_terms:ir.ui.view,arch_db:ssi_project_assignment.project_assignment_view_search
 msgid "Date Assign"
 msgstr ""
 
@@ -730,6 +732,7 @@ msgstr ""
 #: model:ir.model,name:ssi_project_assignment.model_project_project
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_assignment__project_id
 #: model_terms:ir.ui.view,arch_db:ssi_project_assignment.portal_my_project_assignments
+#: model_terms:ir.ui.view,arch_db:ssi_project_assignment.project_assignment_view_search
 msgid "Project"
 msgstr ""
 
@@ -817,6 +820,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_project_task__role_id
 #: model:ir.model.fields,field_description:ssi_project_assignment.field_task_type__role_id
 #: model_terms:ir.ui.view,arch_db:ssi_project_assignment.portal_my_project_assignments
+#: model_terms:ir.ui.view,arch_db:ssi_project_assignment.project_assignment_view_search
 msgid "Role"
 msgstr ""
 
