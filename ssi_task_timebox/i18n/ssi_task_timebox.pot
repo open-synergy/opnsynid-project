@@ -135,11 +135,13 @@ msgstr ""
 
 #. module: ssi_task_timebox
 #: model:ir.model.fields,field_description:ssi_task_timebox.field_task_timebox__date_end
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
 msgid "Date End"
 msgstr ""
 
 #. module: ssi_task_timebox
 #: model:ir.model.fields,field_description:ssi_task_timebox.field_task_timebox__date_start
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
 msgid "Date Start"
 msgstr ""
 
@@ -154,6 +156,7 @@ msgstr ""
 
 #. module: ssi_task_timebox
 #: model:ir.model.fields.selection,name:ssi_task_timebox.selection__task_timebox__state__done
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
 msgid "Done"
 msgstr ""
 
@@ -185,6 +188,11 @@ msgstr ""
 #. module: ssi_task_timebox
 #: model:ir.model.fields,help:ssi_task_timebox.field_task_timebox__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_task_timebox
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
+msgid "Group By"
 msgstr ""
 
 #. module: ssi_task_timebox
@@ -362,6 +370,7 @@ msgstr ""
 
 #. module: ssi_task_timebox
 #: model:ir.model.fields.selection,name:ssi_task_timebox.selection__task_timebox__state__new
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
 msgid "New"
 msgstr ""
 
@@ -453,6 +462,11 @@ msgid "Only 1 timebox can be opened"
 msgstr ""
 
 #. module: ssi_task_timebox
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
+msgid "Open"
+msgstr ""
+
+#. module: ssi_task_timebox
 #: model:ir.model,name:ssi_task_timebox.model_project_project
 #: model:ir.model.fields.selection,name:ssi_task_timebox.selection__project_task__baseline_method__project
 msgid "Project"
@@ -495,6 +509,7 @@ msgstr ""
 
 #. module: ssi_task_timebox
 #: model:ir.model.fields,field_description:ssi_task_timebox.field_task_timebox__state
+#: model_terms:ir.ui.view,arch_db:ssi_task_timebox.task_timebox_view_search
 msgid "State"
 msgstr ""
 
