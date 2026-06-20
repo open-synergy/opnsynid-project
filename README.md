@@ -18,14 +18,14 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_batch_project_assignment](ssi_batch_project_assignment/) | 14.0.1.5.0 |  | Project Batch Assignment
+[ssi_batch_project_assignment](ssi_batch_project_assignment/) | 14.0.1.6.0 |  | Project Batch Assignment
 [ssi_batch_project_assignment_documenso_signing](ssi_batch_project_assignment_documenso_signing/) | 14.0.2.0.0 |  | Project Batch Assignment - Documenso Signing Integration
 [ssi_batch_project_assignment_operating_unit](ssi_batch_project_assignment_operating_unit/) | 14.0.1.2.0 |  | Project Batch Assignment + Operating Unit
 [ssi_batch_project_assignment_quality_control](ssi_batch_project_assignment_quality_control/) | 14.0.1.1.0 |  | Project Batch Assignment - Quality Control Integration
-[ssi_batch_project_assignment_revenue_recognition](ssi_batch_project_assignment_revenue_recognition/) | 14.0.1.2.0 |  | Batch Project Assignment + Revenue Recognition
+[ssi_batch_project_assignment_revenue_recognition](ssi_batch_project_assignment_revenue_recognition/) | 14.0.1.3.0 |  | Batch Project Assignment + Revenue Recognition
 [ssi_batch_project_assignment_work_log](ssi_batch_project_assignment_work_log/) | 14.0.1.1.0 |  | Project Batch Assignment - Work Log Integration
-[ssi_project](ssi_project/) | 14.0.3.7.0 |  | Project Extension
-[ssi_project_assignment](ssi_project_assignment/) | 14.0.3.2.0 |  | Project Assignment
+[ssi_project](ssi_project/) | 14.0.3.8.0 |  | Project Extension
+[ssi_project_assignment](ssi_project_assignment/) | 14.0.3.3.0 |  | Project Assignment
 [ssi_project_assignment_documenso_signing](ssi_project_assignment_documenso_signing/) | 14.0.2.0.0 |  | Project Assignment - Documenso Signing Integration
 [ssi_project_assignment_operating_unit](ssi_project_assignment_operating_unit/) | 14.0.1.2.0 |  | Project Assignment + Operating Unit
 [ssi_project_assignment_revenue_recognition](ssi_project_assignment_revenue_recognition/) | 14.0.1.2.0 |  | Project Assignment + Revenue Recognition
@@ -34,7 +34,7 @@ addon | version | maintainers | summary
 [ssi_project_code](ssi_project_code/) | 14.0.1.2.0 |  | Project Code
 [ssi_project_custom_information](ssi_project_custom_information/) | 14.0.1.2.0 |  | Project + Custom Information Integration
 [ssi_project_operating_unit](ssi_project_operating_unit/) | 14.0.1.2.0 |  | Project + Operating Unit
-[ssi_project_template](ssi_project_template/) | 14.0.2.1.0 |  | Project and Task Template
+[ssi_project_template](ssi_project_template/) | 14.0.2.2.0 |  | Project and Task Template
 [ssi_project_type](ssi_project_type/) | 14.0.1.4.0 |  | Project Type
 [ssi_project_work_log](ssi_project_work_log/) | 14.0.1.2.0 |  | Project - Work Log Integration
 [ssi_task_code](ssi_task_code/) | 14.0.1.4.0 |  | Task Code
@@ -42,8 +42,8 @@ addon | version | maintainers | summary
 [ssi_task_mixin](ssi_task_mixin/) | 14.0.2.2.0 |  | Task Mixin
 [ssi_task_project_manager](ssi_task_project_manager/) | 14.0.1.3.0 |  | Project Manager Information on Task
 [ssi_task_quality_control](ssi_task_quality_control/) | 14.0.1.1.0 |  | Task - Quality Control Integration
-[ssi_task_timebox](ssi_task_timebox/) | 14.0.4.2.0 |  | Task Timebox
-[ssi_task_type](ssi_task_type/) | 14.0.1.12.0 |  | Task Type
+[ssi_task_timebox](ssi_task_timebox/) | 14.0.4.3.0 |  | Task Timebox
+[ssi_task_type](ssi_task_type/) | 14.0.1.13.0 |  | Task Type
 [ssi_task_work_log](ssi_task_work_log/) | 14.0.1.9.0 |  | Task - Work Log Integration
 
 [//]: # (end addons)
