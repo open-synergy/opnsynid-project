@@ -62,6 +62,7 @@ msgstr ""
 
 #. module: ssi_task_type
 #: model:ir.model.fields,field_description:ssi_task_type.field_task_type__category_id
+#: model_terms:ir.ui.view,arch_db:ssi_task_type.task_type_view_search
 msgid "Category"
 msgstr ""
 
@@ -129,6 +130,11 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_task_type.field_task_type__activity_type_icon
 #: model:ir.model.fields,help:ssi_task_type.field_task_type_category__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_task_type
+#: model_terms:ir.ui.view,arch_db:ssi_task_type.task_type_view_search
+msgid "Group By"
 msgstr ""
 
 #. module: ssi_task_type
