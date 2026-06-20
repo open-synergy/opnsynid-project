@@ -74,7 +74,37 @@
             ref="ssi_master_data_mixin.mixin_master_data_view_search"
         />
     <field name="arch" type="xml">
-        <data />
+        <data>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="date_start" />
+                <field name="date_end" />
+            </xpath>
+            <xpath expr="//group[@name='dom_active']" position="before">
+                <filter name="dom_new" string="New" domain="[('state','=','new')]" />
+                <filter name="dom_open" string="Open" domain="[('state','=','open')]" />
+                <filter name="dom_done" string="Done" domain="[('state','=','done')]" />
+                <separator />
+            </xpath>
+            <xpath expr="//group[@name='dom_active']" position="after">
+                <group expand="0" string="Group By">
+                    <filter
+                            name="grp_state"
+                            string="State"
+                            context="{'group_by':'state'}"
+                        />
+                    <filter
+                            name="grp_date_start"
+                            string="Date Start"
+                            context="{'group_by':'date_start'}"
+                        />
+                    <filter
+                            name="grp_date_end"
+                            string="Date End"
+                            context="{'group_by':'date_end'}"
+                        />
+                </group>
+            </xpath>
+        </data>
     </field>
 </record>
 
