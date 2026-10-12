@@ -50,7 +50,13 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         return [
             {
                 content: "Open the record",
-                trigger: ".o_data_row:contains(" + name + ") .o_data_cell[name='name']",
+                // 14.0 cells carry no name attribute: match the cell by its text.
+                trigger:
+                    ".o_data_row:contains(" +
+                    name +
+                    ") .o_data_cell:contains(" +
+                    name +
+                    ")",
                 extra_trigger: ".o_list_view",
             },
             {
