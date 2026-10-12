@@ -96,7 +96,7 @@
                     icon="fa-calendar"
                     groups="ssi_project.project_phase_viewer_group"
                 >
-                <field string="Phases" name="num_of_milestone" widget="statinfo" />
+                <field string="Phases" name="num_of_phase" widget="statinfo" />
             </button>
 
             <button
