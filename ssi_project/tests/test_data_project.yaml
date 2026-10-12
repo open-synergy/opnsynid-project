@@ -101,3 +101,348 @@ scenarios:
           active:
             type: "value"
             expected: true
+
+  - name: "Project Milestone - Completion without tasks is zero"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Milestone Empty Project"
+
+      - step: "Create project milestone without task"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        as_user: "base.user_admin"
+        values:
+          name: "Empty Milestone"
+          project_id: "REC: project.id"
+          date: "2024-12-31"
+
+      - step: "Assert zero tasks and zero percentage"
+        action: "assert"
+        target: "milestone"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 0
+          task_completion_percentage:
+            type: "value"
+            expected: 0.0
+
+  - name: "Project Phase - Deliverable counts of a single phase"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Deliverable Count Project"
+
+      - step: "Create phase phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "phase"
+        as_user: "base.user_admin"
+        values:
+          name: "Single Phase"
+          title: "Single Phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+
+      - step: "Create deliverable type category"
+        action: "create"
+        model: "project_deliverable_type_category"
+        save_as: "category"
+        values:
+          name: "Count Category"
+          code: "CNTC1"
+
+      - step: "Create deliverable type"
+        action: "create"
+        model: "project_deliverable_type"
+        save_as: "deliverable_type"
+        values:
+          name: "Count Type"
+          code: "CNTT1"
+          category_id: "REC: category.id"
+
+      - step: "Create deliverable_1"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "deliverable_1"
+        as_user: "base.user_admin"
+        values:
+          name: "deliverable_1"
+          title: "deliverable_1"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          phase_id: "REC: phase.id"
+          category_id: "REC: category.id"
+          type_id: "REC: deliverable_type.id"
+
+      - step: "Confirm deliverable_1"
+        action: "call"
+        target: "deliverable_1"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Approve deliverable_1"
+        action: "call"
+        target: "deliverable_1"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Create deliverable_2"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "deliverable_2"
+        as_user: "base.user_admin"
+        values:
+          name: "deliverable_2"
+          title: "deliverable_2"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          phase_id: "REC: phase.id"
+          category_id: "REC: category.id"
+          type_id: "REC: deliverable_type.id"
+
+      - step: "Confirm deliverable_2"
+        action: "call"
+        target: "deliverable_2"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Approve deliverable_2"
+        action: "call"
+        target: "deliverable_2"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Mark deliverable_2 as done"
+        action: "call"
+        target: "deliverable_2"
+        method: "action_done"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+      - step: "Assert deliverable counts and percentage"
+        action: "assert"
+        target: "phase"
+        asserts:
+          number_of_deliverable:
+            type: "value"
+            expected: 2
+          number_of_deliverable_done:
+            type: "value"
+            expected: 1
+          deliverable_completion_percentage:
+            type: "value"
+            expected: 0.5
+          number_of_child:
+            type: "value"
+            expected: 0
+
+  - name: "Project Phase - Child phase count of a group phase"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Child Phase Project"
+
+      - step: "Create phase parent_phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "parent_phase"
+        as_user: "base.user_admin"
+        values:
+          name: "Parent Phase"
+          title: "Parent Phase"
+          ttype: "group"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+
+      - step: "Create phase child_phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "child_phase"
+        as_user: "base.user_admin"
+        values:
+          name: "Child Phase"
+          title: "Child Phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          parent_id: "REC: parent_phase.id"
+
+      - step: "Confirm child_phase"
+        action: "call"
+        target: "child_phase"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Approve child_phase"
+        action: "call"
+        target: "child_phase"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Assert child phase counted"
+        action: "assert"
+        target: "parent_phase"
+        asserts:
+          number_of_child:
+            type: "value"
+            expected: 1
+          number_of_deliverable:
+            type: "value"
+            expected: 0
+
+  - name: "Project Phase - Single phase without deliverable"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Empty Phase Project"
+
+      - step: "Create phase phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "phase"
+        as_user: "base.user_admin"
+        values:
+          name: "Empty Phase"
+          title: "Empty Phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+
+      - step: "Assert zero deliverables without error"
+        action: "assert"
+        target: "phase"
+        asserts:
+          number_of_deliverable:
+            type: "value"
+            expected: 0
+          number_of_deliverable_done:
+            type: "value"
+            expected: 0
+          deliverable_completion_percentage:
+            type: "value"
+            expected: 0.0
+
+  - name: "Project - Number of phase for stat button"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Test Num Phase Project"
+
+      - step: "Create phase phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "phase"
+        as_user: "base.user_admin"
+        values:
+          name: "Counted Phase"
+          title: "Counted Phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+
+      - step: "Confirm phase"
+        action: "call"
+        target: "phase"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Approve phase"
+        action: "call"
+        target: "phase"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Recompute number of phase"
+        action: "call"
+        target: "project"
+        method: "_compute_num_of_phase"
+
+      - step: "Assert one phase counted"
+        action: "assert"
+        target: "project"
+        asserts:
+          num_of_phase:
+            type: "value"
+            expected: 1

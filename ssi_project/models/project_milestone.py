@@ -150,7 +150,7 @@ class ProjectMilestone(models.Model):
             try:
                 result = record.number_of_task_done / record.number_of_task
             except ZeroDivisionError:
-                result = 7.0
+                result = 0.0
             record.task_completion_percentage = result
 
     @api.depends(

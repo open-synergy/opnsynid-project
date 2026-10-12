@@ -293,19 +293,19 @@ class ProjectPhase(models.Model):
     def _compute_number_of_deliverable(self):
         Deliverable = self.env["project_deliverable"]
         for record in self:
-            all_child = done_child = 0
+            all_deliverable = done_deliverable = 0
             criteria = [
                 ("phase_id", "=", record.id),
                 ("state", "in", ["open", "done"]),
             ]
-            all_child = Deliverable.search_count(criteria)
+            all_deliverable = Deliverable.search_count(criteria)
             criteria = [
                 ("phase_id", "=", record.id),
                 ("state", "=", "done"),
             ]
-            done_child = Deliverable.search_count(criteria)
-            record.number_of_child = all_child
-            record.number_of_child_done = done_child
+            done_deliverable = Deliverable.search_count(criteria)
+            record.number_of_deliverable = all_deliverable
+            record.number_of_deliverable_done = done_deliverable
 
     @api.depends(
         "number_of_deliverable",
