@@ -20,6 +20,7 @@
         "ssi_transaction_cancel_mixin",
         "ssi_transaction_date_due_mixin",
         "base_automation",
+        "web_tour",
     ],
     "data": [
         "security/ir_module_category_data.xml",
@@ -61,6 +62,7 @@
         "views/project_deliverable_views.xml",
         "views/project_phase_views.xml",
         "views/mail_activity_type_views.xml",
+        "views/assets.xml",
     ],
     "demo": [],
 }

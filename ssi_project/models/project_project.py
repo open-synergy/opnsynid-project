@@ -52,6 +52,23 @@ class ProjectProject(models.Model):
         store=True,
         compute_sudo=True,
     )
+    unit_partner_ids = fields.Many2many(
+        string="Units",
+        comodel_name="res.partner",
+        relation="project_project_unit_partner_rel",
+        column1="project_id",
+        column2="partner_id",
+        help="Client-side units (organizations or sub-contacts) that form "
+        "the denominator of the project Definition of Done.",
+    )
+    next_reporting_date = fields.Date(
+        string="Next Reporting Date",
+        compute="_compute_next_reporting_date",
+        store=True,
+        compute_sudo=True,
+        help="Earliest reporting date among the pending reporting point "
+        "milestones of this project.",
+    )
     state = fields.Selection(
         string="State",
         selection=[
@@ -106,6 +123,31 @@ class ProjectProject(models.Model):
             ]
             result = Phase.search_count(criteria)
             record.num_of_phase = result
+
+    @api.depends(
+        "milestone_ids",
+        "milestone_ids.reporting_date",
+        "milestone_ids.is_reporting_point",
+        "milestone_ids.state",
+    )
+    def _compute_next_reporting_date(self):
+        """Compute the earliest pending reporting date of the project.
+
+        Only reporting point milestones whose state is not done, cancel
+        or terminate are considered.
+
+        :return: nothing; assigns ``next_reporting_date``
+        """
+        for record in self:
+            result = False
+            dates = record.milestone_ids.filtered(
+                lambda m: m.is_reporting_point
+                and m.reporting_date
+                and m.state not in ["done", "cancel", "terminate"]
+            ).mapped("reporting_date")
+            if dates:
+                result = min(dates)
+            record.next_reporting_date = result
 
     def _prepare_confirm_data(self):
         return {"state": "open"}

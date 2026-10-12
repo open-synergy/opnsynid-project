@@ -4,7 +4,8 @@
 
 from datetime import date as datetime_date
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class ProjectMilestone(models.Model):
@@ -96,6 +97,40 @@ class ProjectMilestone(models.Model):
         string="Parent Milestone",
         comodel_name="project_milestone",
     )
+    phase_id = fields.Many2one(
+        string="Phase",
+        comodel_name="project_phase",
+        ondelete="restrict",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+        },
+        help="Project phase that is closed by this milestone.",
+    )
+    is_reporting_point = fields.Boolean(
+        string="Reporting Point",
+        default=False,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+        },
+        help="Check this box if the project must be reported at this milestone.",
+    )
+    reporting_date = fields.Date(
+        string="Reporting Date",
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+        },
+        help="Date on which the project is reported for this milestone. "
+        "Required when the milestone is a reporting point.",
+    )
     task_ids = fields.One2many(
         string="Tasks",
         comodel_name="project.task",
@@ -170,6 +205,35 @@ class ProjectMilestone(models.Model):
     )
     def onchange_parent_id(self):
         self.parent_id = False
+
+    @api.onchange(
+        "project_id",
+    )
+    def onchange_phase_id(self):
+        self.phase_id = False
+
+    @api.constrains(
+        "is_reporting_point",
+        "reporting_date",
+    )
+    def _check_reporting_date(self):
+        """Ensure a reporting point milestone has a reporting date.
+
+        :raises ValidationError: if ``is_reporting_point`` is set and
+            ``reporting_date`` is empty
+        """
+        for record in self:
+            if record.is_reporting_point and not record.reporting_date:
+                error_message = _(
+                    """
+Context: Save project milestone
+Database ID: %s
+Problem: Reporting date is empty on a reporting point milestone
+Solution: Fill the reporting date or uncheck the reporting point
+"""
+                    % (record.id)
+                )
+                raise ValidationError(error_message)
 
     @api.model
     def _get_policy_field(self):

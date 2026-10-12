@@ -16,8 +16,26 @@
             <xpath expr="//field[@name='user_id']" position="after">
                 <field name="project_id" />
                 <field name="parent_id" />
+                <field name="phase_id" />
+            </xpath>
+            <xpath expr="//separator[@name='state']" position="before">
+                <filter
+                        name="dom_reporting_point"
+                        string="Reporting Point"
+                        domain="[('is_reporting_point','=',True)]"
+                    />
             </xpath>
             <xpath expr="//filter[@name='grp_responsible']" position="after">
+                <filter
+                        name="grp_phase"
+                        string="Phase"
+                        context="{'group_by':'phase_id'}"
+                    />
+                <filter
+                        name="grp_reporting_date"
+                        string="Reporting Date"
+                        context="{'group_by':'reporting_date:month'}"
+                    />
                 <filter
                         name="grp_project"
                         string="Project"
@@ -43,6 +61,9 @@
             <xpath expr="//field[@name='display_name']" position="after">
                 <field name="project_id" />
                 <field name="parent_id" />
+                <field name="phase_id" />
+                <field name="is_reporting_point" />
+                <field name="reporting_date" />
                 <field name="number_of_task" optional="hide" />
                 <field name="number_of_task_done" optional="hide" />
                 <field name="task_completion_percentage" widget="percentage" />
@@ -62,9 +83,14 @@
                 <field name="project_id" />
                 <field name="allowed_parent_ids" widget="many2many_tags" />
                 <field name="parent_id" domain="[('id','in',allowed_parent_ids)]" />
+                <field name="phase_id" domain="[('project_id','=',project_id)]" />
             </xpath>
             <xpath expr="//group[@name='header_right']" position="inside">
-
+                <field name="is_reporting_point" />
+                <field
+                        name="reporting_date"
+                        attrs="{'required': [('is_reporting_point', '=', True)]}"
+                    />
             </xpath>
         </data>
     </field>
