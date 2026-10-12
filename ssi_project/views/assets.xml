@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 OpenSynergy Indonesia
+     Copyright 2026 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<template
+        id="assets_tests"
+        name="ssi_project assets tests"
+        inherit_id="web.assets_tests"
+    >
+    <xpath expr="." position="inside">
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_milestone_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_project_tour.js"
+            />
+    </xpath>
+</template>
+</odoo>

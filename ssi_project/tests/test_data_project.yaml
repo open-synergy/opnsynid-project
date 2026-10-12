@@ -446,3 +446,312 @@ scenarios:
           num_of_phase:
             type: "value"
             expected: 1
+
+  - name: "Reporting Point - Next reporting date from single pending milestone"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Reporting Single Project"
+
+      - step: "Create milestone Reporting Single"
+        action: "create"
+        model: "project_milestone"
+        save_as: "m1"
+        as_user: "base.user_admin"
+        values:
+          name: "Reporting Single"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          is_reporting_point: true
+          reporting_date: "2026-03-31"
+
+      - step: "Assert next reporting date"
+        action: "assert"
+        target: "project"
+        refresh: true
+        asserts:
+          next_reporting_date:
+            type: "value"
+            expected: "EVAL: date(2026, 3, 31)"
+
+  - name: "Reporting Point - Earliest pending date moves on after done"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Reporting Earliest Project"
+
+      - step: "Create milestone Reporting First"
+        action: "create"
+        model: "project_milestone"
+        save_as: "m1"
+        as_user: "base.user_admin"
+        values:
+          name: "Reporting First"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          is_reporting_point: true
+          reporting_date: "2026-03-31"
+
+      - step: "Create milestone Reporting Second"
+        action: "create"
+        model: "project_milestone"
+        save_as: "m2"
+        as_user: "base.user_admin"
+        values:
+          name: "Reporting Second"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          is_reporting_point: true
+          reporting_date: "2026-06-30"
+
+      - step: "Assert earliest date is picked"
+        action: "assert"
+        target: "project"
+        refresh: true
+        asserts:
+          next_reporting_date:
+            type: "value"
+            expected: "EVAL: date(2026, 3, 31)"
+
+      - step: "Confirm first milestone"
+        action: "call"
+        target: "m1"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Approve first milestone"
+        action: "call"
+        target: "m1"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Finish first milestone"
+        action: "call"
+        target: "m1"
+        method: "action_done"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+      - step: "Assert next date advances to the second"
+        action: "assert"
+        target: "project"
+        refresh: true
+        asserts:
+          next_reporting_date:
+            type: "value"
+            expected: "EVAL: date(2026, 6, 30)"
+
+  - name: "Reporting Point - Cancelled and non reporting milestones are ignored"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Reporting Ignore Project"
+
+      - step: "Create milestone Reporting Cancel"
+        action: "create"
+        model: "project_milestone"
+        save_as: "m1"
+        as_user: "base.user_admin"
+        values:
+          name: "Reporting Cancel"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          is_reporting_point: true
+          reporting_date: "2026-09-30"
+
+      - step: "Create milestone Reporting Not A Point"
+        action: "create"
+        model: "project_milestone"
+        save_as: "m2"
+        as_user: "base.user_admin"
+        values:
+          name: "Reporting Not A Point"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          is_reporting_point: false
+          reporting_date: "2026-01-31"
+
+      - step: "Assert only the reporting point is counted"
+        action: "assert"
+        target: "project"
+        refresh: true
+        asserts:
+          next_reporting_date:
+            type: "value"
+            expected: "EVAL: date(2026, 9, 30)"
+
+      - step: "Cancel the reporting point"
+        action: "call"
+        target: "m1"
+        method: "action_cancel"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+
+      - step: "Assert next reporting date is empty"
+        action: "assert"
+        target: "project"
+        refresh: true
+        asserts:
+          next_reporting_date:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Reporting Point - Phase link and reset on project change"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Phase Link Project"
+
+      - step: "Create another project"
+        action: "create"
+        model: "project.project"
+        save_as: "other_project"
+        values:
+          name: "Phase Link Other Project"
+
+      - step: "Create phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "phase"
+        as_user: "base.user_admin"
+        values:
+          name: "Phase Link Phase"
+          title: "Phase Link Phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2026-12-31"
+
+      - step: "Create milestone closing the phase"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        as_user: "base.user_admin"
+        values:
+          name: "Phase Link Milestone"
+          project_id: "REC: project.id"
+          phase_id: "REC: phase.id"
+          date: "2026-01-01"
+
+      - step: "Assert phase is stored"
+        action: "assert"
+        target: "milestone"
+        asserts:
+          phase_id:
+            type: "m2o"
+            expected: "REC: phase"
+
+      - step: "Changing the project clears the phase"
+        action: "form"
+        target: "milestone"
+        save: false
+        values:
+          project_id: "REC: other_project"
+        asserts:
+          phase_id:
+            type: "value"
+            operator: "is_falsy"
+
+  - name: "Reporting Point - Project units"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Units Project"
+
+      - step: "Create unit organization"
+        action: "create"
+        model: "res.partner"
+        save_as: "unit_org"
+        values:
+          name: "Units School Organization"
+          is_company: true
+
+      - step: "Create unit department contact"
+        action: "create"
+        model: "res.partner"
+        save_as: "unit_child"
+        values:
+          name: "Units School Department"
+          parent_id: "REC: unit_org.id"
+
+      - step: "Assign units to project"
+        action: "write"
+        target: "project"
+        values:
+          unit_partner_ids:
+            "EVAL: [(6, 0, [registry['unit_org'].id, registry['unit_child'].id])]"
+
+      - step: "Assert both units are stored"
+        action: "assert"
+        target: "project"
+        asserts:
+          unit_partner_ids:
+            type: "m2m"
+            check: "exact"
+            expected_records:
+              - "REC: unit_org"
+              - "REC: unit_child"
+
+  - name: "Reporting Point - Reporting date is mandatory"
+    options: {auto_refresh: true}
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Reporting Mandatory Project"
+
+      - step: "Reporting point without reporting date is rejected"
+        action: "create"
+        model: "project_milestone"
+        as_user: "base.user_admin"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "Reporting date is empty"
+        values:
+          name: "Reporting Missing Date"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          is_reporting_point: true

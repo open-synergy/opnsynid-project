@@ -7,6 +7,19 @@ Project Extension
 =================
 
 
+Work Instruction
+================
+
+* `Create Project Milestone <docs/project_milestone/index.html>`_
+* `Edit Project Milestone <docs/project_milestone/index.html>`_
+* `Delete Project Milestone <docs/project_milestone/index.html>`_
+* `Create Project (Units) <docs/project.project/index.html>`_
+* `Start Project <docs/project.project/index.html>`_
+* `Pending Project <docs/project.project/index.html>`_
+* `Finish Project <docs/project.project/index.html>`_
+* `Cancel Project <docs/project.project/index.html>`_
+* `Restart Project <docs/project.project/index.html>`_
+
 Installation
 ============
 
