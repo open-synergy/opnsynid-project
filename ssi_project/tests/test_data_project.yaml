@@ -153,6 +153,7 @@ scenarios:
           title: "Single Phase"
           ttype: "single"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
 
       - step: "Create deliverable type category"
         action: "create"
@@ -181,6 +182,7 @@ scenarios:
           title: "deliverable_1"
           ttype: "single"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
           phase_id: "REC: phase.id"
           category_id: "REC: category.id"
           type_id: "REC: deliverable_type.id"
@@ -219,6 +221,7 @@ scenarios:
           title: "deliverable_2"
           ttype: "single"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
           phase_id: "REC: phase.id"
           category_id: "REC: category.id"
           type_id: "REC: deliverable_type.id"
@@ -297,6 +300,7 @@ scenarios:
           title: "Parent Phase"
           ttype: "group"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
 
       - step: "Create phase child_phase"
         action: "create"
@@ -308,6 +312,7 @@ scenarios:
           title: "Child Phase"
           ttype: "single"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
           parent_id: "REC: parent_phase.id"
 
       - step: "Confirm child_phase"
@@ -366,6 +371,7 @@ scenarios:
           title: "Empty Phase"
           ttype: "single"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
 
       - step: "Assert zero deliverables without error"
         action: "assert"
@@ -402,6 +408,7 @@ scenarios:
           title: "Counted Phase"
           ttype: "single"
           project_id: "REC: project.id"
+          date_due: "2024-12-31"
 
       - step: "Confirm phase"
         action: "call"
