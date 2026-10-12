@@ -27,6 +27,18 @@ msgid ""
 msgstr ""
 
 #. module: ssi_project
+#: code:addons/ssi_project/models/project_milestone.py:0
+#: code:addons/ssi_project/models/project_milestone.py:0
+#, python-format
+msgid ""
+"\n"
+"Context: Save project milestone\n"
+"Database ID: %s\n"
+"Problem: Reporting date is empty on a reporting point milestone\n"
+"Solution: Fill the reporting date or uncheck the reporting point\n"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__name
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__name
 #: model:ir.model.fields,field_description:ssi_project.field_project_phase__name
@@ -335,6 +347,11 @@ msgid "Category "
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__is_reporting_point
+msgid "Check this box if the project must be reported at this milestone."
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__child_ids
 #: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_form
 msgid "Child Deliverables"
@@ -354,6 +371,13 @@ msgstr ""
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_project_phase__child_completion_percentage
 msgid "Child Phases Completion Percentage"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_project__unit_partner_ids
+msgid ""
+"Client-side units (organizations or sub-contacts) that form the denominator "
+"of the project Definition of Done."
 msgstr ""
 
 #. module: ssi_project
@@ -471,6 +495,13 @@ msgid "Date Due"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__reporting_date
+msgid ""
+"Date on which the project is reported for this milestone. Required when the "
+"milestone is a reporting point."
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_project_task__deliverable_id
 msgid "Deliverable"
 msgstr ""
@@ -565,6 +596,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__duration_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_phase__duration_id
 msgid "Duration"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_project__next_reporting_date
+msgid ""
+"Earliest reporting date among the pending reporting point milestones of this"
+" project."
 msgstr ""
 
 #. module: ssi_project
@@ -918,6 +956,11 @@ msgid "Next Approvals"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__next_reporting_date
+msgid "Next Reporting Date"
+msgstr ""
+
+#. module: ssi_project
 #: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_search
 msgid "Not Blocked"
 msgstr ""
@@ -1082,8 +1125,10 @@ msgstr ""
 
 #. module: ssi_project
 #: model:ir.model.fields,field_description:ssi_project.field_project_deliverable__phase_id
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__phase_id
 #: model:ir.model.fields,field_description:ssi_project.field_project_task__phase_id
 #: model_terms:ir.ui.view,arch_db:ssi_project.project_deliverable_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_milestone_view_search
 msgid "Phase"
 msgstr ""
 
@@ -1274,6 +1319,11 @@ msgid "Project Tag"
 msgstr ""
 
 #. module: ssi_project
+#: model:ir.model.fields,help:ssi_project.field_project_milestone__phase_id
+msgid "Project phase that is closed by this milestone."
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model.fields.selection,name:ssi_project.selection__project_task__dependency_state__done
 msgid "Ready"
 msgstr ""
@@ -1293,6 +1343,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_project.field_project_milestone__rejected
 #: model:ir.model.fields,field_description:ssi_project.field_project_phase__rejected
 msgid "Rejected"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__reporting_date
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_milestone_view_search
+msgid "Reporting Date"
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_milestone__is_reporting_point
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_milestone_view_search
+msgid "Reporting Point"
 msgstr ""
 
 #. module: ssi_project
@@ -1570,6 +1632,11 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_project.field_project_milestone__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_project.field_project_phase__activity_exception_decoration
 msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_project
+#: model:ir.model.fields,field_description:ssi_project.field_project_project__unit_partner_ids
+msgid "Units"
 msgstr ""
 
 #. module: ssi_project
