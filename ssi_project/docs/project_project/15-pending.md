@@ -5,12 +5,12 @@
 > **Menu:** Project > Projects\
 > **Actor:** user in group _Project Validator_\
 > **State:** `open` → `pending`\
-> **Extends:** project — model `project.project`, aksi `15-pending`
+> **Requires:** `07-start`
 
 ## Pre-Condition
 
 - **Record:** Status is **In Progress**.
-- **Access:** User is in group _Project Validator_ (or _Project User_).
+- **Access:** User is in group _Project Validator_.
 
 ## Flow
 

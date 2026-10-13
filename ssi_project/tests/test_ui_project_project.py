@@ -42,41 +42,41 @@ class TestUiProjectProject(HttpSavepointCase):
     def test_create(self):
         """Run the create tour for ``project.project``.
 
-        IK: docs/project.project/01-create.md
+        IK: docs/project_project/01-create.md
         """
         self.start_tour("/web", "ssi_project_project_project_create", login="admin")
 
     def test_start(self):
         """Run the start tour for ``project.project``.
 
-        IK: docs/project.project/07-start.md
+        IK: docs/project_project/07-start.md
         """
         self.start_tour("/web", "ssi_project_project_project_start", login="admin")
 
     def test_pending(self):
         """Run the pending tour for ``project.project``.
 
-        IK: docs/project.project/15-pending.md
+        IK: docs/project_project/15-pending.md
         """
         self.start_tour("/web", "ssi_project_project_project_pending", login="admin")
 
     def test_finish(self):
         """Run the finish tour for ``project.project``.
 
-        IK: docs/project.project/09-finish.md
+        IK: docs/project_project/09-finish.md
         """
         self.start_tour("/web", "ssi_project_project_project_finish", login="admin")
 
     def test_cancel(self):
         """Run the cancel tour for ``project.project``.
 
-        IK: docs/project.project/10-cancel.md
+        IK: docs/project_project/10-cancel.md
         """
         self.start_tour("/web", "ssi_project_project_project_cancel", login="admin")
 
     def test_restart(self):
         """Run the restart tour for ``project.project``.
 
-        IK: docs/project.project/12-restart.md
+        IK: docs/project_project/12-restart.md
         """
         self.start_tour("/web", "ssi_project_project_project_restart", login="admin")
