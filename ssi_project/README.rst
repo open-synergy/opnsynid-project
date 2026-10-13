@@ -13,6 +13,14 @@ Work Instruction
 * `Create Project Milestone <docs/project_milestone/index.html>`_
 * `Edit Project Milestone <docs/project_milestone/index.html>`_
 * `Delete Project Milestone <docs/project_milestone/index.html>`_
+* `Confirm Project Milestone <docs/project_milestone/index.html>`_
+* `Approve Project Milestone <docs/project_milestone/index.html>`_
+* `Reject Project Milestone <docs/project_milestone/index.html>`_
+* `Finish Project Milestone <docs/project_milestone/index.html>`_
+* `Cancel Project Milestone <docs/project_milestone/index.html>`_
+* `Terminate Project Milestone <docs/project_milestone/index.html>`_
+* `Restart Project Milestone <docs/project_milestone/index.html>`_
+* `Reset Document Number of Project Milestone <docs/project_milestone/index.html>`_
 * `Create Project (Units) <docs/project.project/index.html>`_
 * `Start Project <docs/project.project/index.html>`_
 * `Pending Project <docs/project.project/index.html>`_

@@ -2,18 +2,19 @@
 
 > **Module:** `ssi_project`\
 > **Model:** `project_milestone`\
-> **Menu:** Project > Configuration > Project > Milestones\
-> **Actor:** user in group _Project Milestone_ (configurator)\
+> **Menu:** Project > Project > Milestones\
+> **Actor:** user in group _Project Milestone User_\
 > **Requires:** `01-create`
 
 ## Pre-Condition
 
 - **Record:** Status is **Draft**.
-- **Access:** User is in group _Project Milestone_.
+- **Access:** User is in group _Project Milestone User_ (or _Project Milestone
+  Validator_).
 
 ## Flow
 
-1. Open the **Project > Configuration > Project > Milestones** menu.
+1. Open the **Project > Project > Milestones** menu.
 2. Find and open the record to edit.
 3. Click the **Edit** button.
 4. Change the required fields:

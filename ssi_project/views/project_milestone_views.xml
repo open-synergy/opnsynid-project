@@ -105,8 +105,9 @@
 <menuitem
         id="menu_project_milestone"
         name="Milestones"
-        parent="menu_project_root_configuration"
+        parent="menu_project_root_menu"
         action="project_milestone_action"
-        groups="project_milestone_configurator_group"
+        groups="project_milestone_viewer_group"
+        sequence="40"
     />
 </odoo>
