@@ -1532,6 +1532,11 @@ msgid "Task Dependency"
 msgstr ""
 
 #. module: ssi_project
+#: model_terms:ir.ui.view,arch_db:ssi_project.project_task_view_ssi_gantt
+msgid "Task Gantt"
+msgstr ""
+
+#. module: ssi_project
 #: model:ir.model,name:ssi_project.model_task_instruction
 msgid "Task Instruction"
 msgstr ""
