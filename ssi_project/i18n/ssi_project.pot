@@ -1287,6 +1287,7 @@ msgstr ""
 
 #. module: ssi_project
 #: model:ir.model,name:ssi_project.model_project_milestone
+#: model:ir.module.category,name:ssi_project.project_milestone_workflow_module_category
 #: model:res.groups,name:ssi_project.project_milestone_configurator_group
 msgid "Project Milestone"
 msgstr ""
@@ -1659,6 +1660,7 @@ msgstr ""
 
 #. module: ssi_project
 #: model:res.groups,name:ssi_project.project_deliverable_user_group
+#: model:res.groups,name:ssi_project.project_milestone_user_group
 #: model:res.groups,name:ssi_project.project_phase_user_group
 #: model:res.groups,name:ssi_project.project_user_group
 #: model:res.groups,name:ssi_project.task_user_group
@@ -1696,6 +1698,7 @@ msgstr ""
 
 #. module: ssi_project
 #: model:res.groups,name:ssi_project.project_deliverable_validator_group
+#: model:res.groups,name:ssi_project.project_milestone_validator_group
 #: model:res.groups,name:ssi_project.project_phase_validator_group
 #: model:res.groups,name:ssi_project.project_validator_group
 #: model:res.groups,name:ssi_project.task_validator_group
@@ -1704,6 +1707,7 @@ msgstr ""
 
 #. module: ssi_project
 #: model:res.groups,name:ssi_project.project_deliverable_viewer_group
+#: model:res.groups,name:ssi_project.project_milestone_viewer_group
 #: model:res.groups,name:ssi_project.project_phase_viewer_group
 #: model:res.groups,name:ssi_project.project_viewer_group
 #: model:res.groups,name:ssi_project.task_viewer_group
