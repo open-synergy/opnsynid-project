@@ -29,6 +29,22 @@
                 type="text/javascript"
                 src="/ssi_project/static/tests/tours/project_tags_tour.js"
             />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_phase_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_deliverable_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_deliverable_type_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_deliverable_type_category_tour.js"
+            />
     </xpath>
 </template>
 </odoo>
