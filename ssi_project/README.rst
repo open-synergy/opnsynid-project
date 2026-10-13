@@ -21,12 +21,32 @@ Work Instruction
 * `Terminate Project Milestone <docs/project_milestone/index.html>`_
 * `Restart Project Milestone <docs/project_milestone/index.html>`_
 * `Reset Document Number of Project Milestone <docs/project_milestone/index.html>`_
-* `Create Project (Units) <docs/project.project/index.html>`_
-* `Start Project <docs/project.project/index.html>`_
-* `Pending Project <docs/project.project/index.html>`_
-* `Finish Project <docs/project.project/index.html>`_
-* `Cancel Project <docs/project.project/index.html>`_
-* `Restart Project <docs/project.project/index.html>`_
+* `Create Project <docs/project_project/index.html>`_
+* `Edit Project <docs/project_project/index.html>`_
+* `Delete Project <docs/project_project/index.html>`_
+* `Deactivate Project <docs/project_project/index.html>`_
+* `Activate Project <docs/project_project/index.html>`_
+* `Start Project <docs/project_project/index.html>`_
+* `Done Project <docs/project_project/index.html>`_
+* `Cancel Project <docs/project_project/index.html>`_
+* `Restart Project <docs/project_project/index.html>`_
+* `Pending Project <docs/project_project/index.html>`_
+* `Share Project <docs/project_project/index.html>`_
+* `Create Task <docs/project_task/index.html>`_
+* `Edit Task <docs/project_task/index.html>`_
+* `Delete Task <docs/project_task/index.html>`_
+* `Deactivate Task <docs/project_task/index.html>`_
+* `Activate Task <docs/project_task/index.html>`_
+* `Change Task Stage <docs/project_task/index.html>`_
+* `Create Successor Tasks <docs/project_task/index.html>`_
+* `Create Task Stage <docs/project_task_type/index.html>`_
+* `Edit Task Stage <docs/project_task_type/index.html>`_
+* `Delete Task Stage <docs/project_task_type/index.html>`_
+* `Deactivate Task Stage <docs/project_task_type/index.html>`_
+* `Activate Task Stage <docs/project_task_type/index.html>`_
+* `Create Project Tag <docs/project_tags/index.html>`_
+* `Edit Project Tag <docs/project_tags/index.html>`_
+* `Delete Project Tag <docs/project_tags/index.html>`_
 
 Installation
 ============

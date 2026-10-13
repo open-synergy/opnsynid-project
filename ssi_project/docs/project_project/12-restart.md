@@ -5,12 +5,12 @@
 > **Menu:** Project > Projects\
 > **Actor:** user in group _Project Validator_\
 > **State:** `cancel` → `draft`\
-> **Extends:** project — model `project.project`, aksi `12-restart`
+> **Requires:** `10-cancel`
 
 ## Pre-Condition
 
 - **Record:** Status is **Cancel**.
-- **Access:** User is in group _Project Validator_ (or _Project User_).
+- **Access:** User is in group _Project Validator_.
 
 ## Flow
 

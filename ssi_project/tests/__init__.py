@@ -5,3 +5,6 @@
 from . import test_project  # noqa: F401
 from . import test_ui_project_milestone  # noqa: F401
 from . import test_ui_project_project  # noqa: F401
+from . import test_ui_project_tags  # noqa: F401
+from . import test_ui_project_task  # noqa: F401
+from . import test_ui_project_task_type  # noqa: F401

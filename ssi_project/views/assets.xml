@@ -17,6 +17,18 @@
                 type="text/javascript"
                 src="/ssi_project/static/tests/tours/project_project_tour.js"
             />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_task_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_task_type_tour.js"
+            />
+        <script
+                type="text/javascript"
+                src="/ssi_project/static/tests/tours/project_tags_tour.js"
+            />
     </xpath>
 </template>
 </odoo>

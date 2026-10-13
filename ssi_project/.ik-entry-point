@@ -1,0 +1,9 @@
+# Titik masuk IK untuk model milik Odoo core/OCA yang di-inherit modul ini.
+# Format: <model.bertitik> -- <alasan satu baris>
+# Lihat skill odoo-development-instruksi-kerja, references/modul-extension.md
+# §"Model milik Odoo core / OCA — deklarasi titik masuk".
+
+project.project -- ssi_project menyediakan menu Project > Projects, grup Viewer/User/Validator, dan tombol state (Start, Pending, Done, Cancel, Restart) sebagai pintu masuk pengguna untuk model core ini
+project.task -- ssi_project menyediakan menu Project > Tasks, grup Task Viewer/User/Validator, serta tab Dependency dan Instruction sebagai pintu masuk pengguna untuk model core ini
+project.task.type -- ssi_project menyediakan menu Project > Configuration > Project > Stages dan group configurator Project Stage sebagai pintu masuk pengguna untuk model core ini (diperluas OCA project_stage_state)
+project.tags -- ssi_project menyediakan menu Project > Configuration > Project > Tags dan group configurator Project Tag sebagai pintu masuk pengguna untuk model core ini

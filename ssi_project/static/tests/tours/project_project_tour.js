@@ -102,7 +102,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         ];
     }
 
-    // IK: docs/project.project/01-create.md
+    // IK: docs/project_project/01-create.md
     tour.register(
         "ssi_project_project_project_create",
         {
@@ -131,7 +131,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
                     trigger: ".o_field_widget[name='name']",
                     run: "text TOUR-PRJ-CREATE",
                 },
-                // ── Flow 3 — On the Settings tab, select the Units.
+                // ── Flow 3 — Enter the project name; Flow 4 — Settings tab, select the Units.
                 {
                     content: "Open the Settings tab",
                     trigger: ".o_notebook .nav-link:contains(Settings)",
@@ -146,7 +146,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
                     trigger: ".ui-autocomplete .ui-menu-item a:contains(TOUR-UNIT-ORG)",
                     in_modal: false,
                 },
-                // ── Flow 4 — Click Save.
+                // ── Flow 5 — Click Save.
                 {
                     content: "Save the record",
                     trigger: ".o_form_button_save",
@@ -171,7 +171,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         )
     );
 
-    // IK: docs/project.project/07-start.md
+    // IK: docs/project_project/07-start.md
     tour.register(
         "ssi_project_project_project_start",
         {
@@ -188,7 +188,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         )
     );
 
-    // IK: docs/project.project/15-pending.md
+    // IK: docs/project_project/15-pending.md
     tour.register(
         "ssi_project_project_project_pending",
         {
@@ -205,7 +205,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         )
     );
 
-    // IK: docs/project.project/09-finish.md
+    // IK: docs/project_project/09-finish.md
     tour.register(
         "ssi_project_project_project_finish",
         {
@@ -222,7 +222,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         )
     );
 
-    // IK: docs/project.project/10-cancel.md
+    // IK: docs/project_project/10-cancel.md
     tour.register(
         "ssi_project_project_project_cancel",
         {
@@ -239,7 +239,7 @@ odoo.define("ssi_project.project_project_tour", function (require) {
         )
     );
 
-    // IK: docs/project.project/12-restart.md
+    // IK: docs/project_project/12-restart.md
     tour.register(
         "ssi_project_project_project_restart",
         {
