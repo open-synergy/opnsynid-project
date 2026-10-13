@@ -1027,6 +1027,15 @@ scenarios:
             type: "value"
             expected: "cancel"
 
+      - step: "Refresh the cancelled milestone before restarting"
+        action: "assert"
+        target: "milestone"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+
       - step: "Restart milestone"
         action: "call"
         target: "milestone"
