@@ -21,6 +21,42 @@ Work Instruction
 * `Terminate Project Milestone <docs/project_milestone/index.html>`_
 * `Restart Project Milestone <docs/project_milestone/index.html>`_
 * `Reset Document Number of Project Milestone <docs/project_milestone/index.html>`_
+* `Create Project Phase <docs/project_phase/index.html>`_
+* `Edit Project Phase <docs/project_phase/index.html>`_
+* `Delete Project Phase <docs/project_phase/index.html>`_
+* `Confirm Project Phase <docs/project_phase/index.html>`_
+* `Approve Project Phase <docs/project_phase/index.html>`_
+* `Reject Project Phase <docs/project_phase/index.html>`_
+* `Finish Project Phase <docs/project_phase/index.html>`_
+* `Cancel Project Phase <docs/project_phase/index.html>`_
+* `Terminate Project Phase <docs/project_phase/index.html>`_
+* `Restart Project Phase <docs/project_phase/index.html>`_
+* `Reset Document Number of Project Phase <docs/project_phase/index.html>`_
+* `Automatic Done of Project Phase <docs/project_phase/index.html>`_
+* `Automatic Reopen of Project Phase <docs/project_phase/index.html>`_
+* `Create Project Deliverable <docs/project_deliverable/index.html>`_
+* `Edit Project Deliverable <docs/project_deliverable/index.html>`_
+* `Delete Project Deliverable <docs/project_deliverable/index.html>`_
+* `Confirm Project Deliverable <docs/project_deliverable/index.html>`_
+* `Approve Project Deliverable <docs/project_deliverable/index.html>`_
+* `Reject Project Deliverable <docs/project_deliverable/index.html>`_
+* `Finish Project Deliverable <docs/project_deliverable/index.html>`_
+* `Cancel Project Deliverable <docs/project_deliverable/index.html>`_
+* `Terminate Project Deliverable <docs/project_deliverable/index.html>`_
+* `Restart Project Deliverable <docs/project_deliverable/index.html>`_
+* `Reset Document Number of Project Deliverable <docs/project_deliverable/index.html>`_
+* `Automatic Done of Project Deliverable <docs/project_deliverable/index.html>`_
+* `Automatic Reopen of Project Deliverable <docs/project_deliverable/index.html>`_
+* `Create Deliverable Type <docs/project_deliverable_type/index.html>`_
+* `Edit Deliverable Type <docs/project_deliverable_type/index.html>`_
+* `Delete Deliverable Type <docs/project_deliverable_type/index.html>`_
+* `Deactivate Deliverable Type <docs/project_deliverable_type/index.html>`_
+* `Activate Deliverable Type <docs/project_deliverable_type/index.html>`_
+* `Create Deliverable Type Category <docs/project_deliverable_type_category/index.html>`_
+* `Edit Deliverable Type Category <docs/project_deliverable_type_category/index.html>`_
+* `Delete Deliverable Type Category <docs/project_deliverable_type_category/index.html>`_
+* `Deactivate Deliverable Type Category <docs/project_deliverable_type_category/index.html>`_
+* `Activate Deliverable Type Category <docs/project_deliverable_type_category/index.html>`_
 * `Create Project <docs/project_project/index.html>`_
 * `Edit Project <docs/project_project/index.html>`_
 * `Delete Project <docs/project_project/index.html>`_
