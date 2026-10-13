@@ -2,19 +2,20 @@
 
 > **Module:** `ssi_project`\
 > **Model:** `project_milestone`\
-> **Menu:** Project > Configuration > Project > Milestones\
-> **Actor:** user in group _Project Milestone_ (configurator)\
+> **Menu:** Project > Project > Milestones\
+> **Actor:** user in group _Project Milestone User_\
 > **State:** `—` → `draft`
 
 ## Pre-Condition
 
 - **Data:** A project exists.
 - **Data:** Optionally, a phase of that project exists, if the milestone closes a phase.
-- **Access:** User is in group _Project Milestone_.
+- **Access:** User is in group _Project Milestone User_ (or _Project Milestone
+  Validator_).
 
 ## Flow
 
-1. Open the **Project > Configuration > Project > Milestones** menu.
+1. Open the **Project > Project > Milestones** menu.
 2. Click the **New** button. **(14.0: "Create")**
 3. Fill in the required fields:
    - **Project** _(required)_: Select the project of the milestone.

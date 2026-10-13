@@ -8,8 +8,9 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
     var tour = require("web_tour.tour");
 
     /**
-     * Steps that open the Project > Configuration > Project > Milestones menu.
-     * "Project" (level 3) is a grouping header without action, so it has no step.
+     * Steps that open the Project > Project > Milestones menu.
+     * "Project" (level 2) is a section without action: its step only opens the
+     * dropdown that holds the Milestones leaf.
      */
     function openMilestoneMenuSteps() {
         return [
@@ -19,9 +20,9 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
                 trigger: '.o_app[data-menu-xmlid="project.menu_main_pm"]',
             },
             {
-                content: "Open the Configuration menu",
+                content: "Open the Project menu",
                 trigger:
-                    '.o_menu_sections [data-menu-xmlid="project.menu_project_config"]',
+                    '.o_menu_sections [data-menu-xmlid="ssi_project.menu_project_root_menu"]',
             },
             {
                 content: "Open the Milestones menu",
@@ -40,6 +41,67 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
         ];
     }
 
+    /**
+     * Steps that open a milestone from the list.
+     *
+     * @param {String} name unique milestone name
+     * @returns {Array} tour steps
+     */
+    function openMilestoneSteps(name) {
+        return [
+            {
+                content: "Open the record",
+                trigger:
+                    ".o_data_row:contains(" +
+                    name +
+                    ") .o_data_cell:contains(" +
+                    name +
+                    ")",
+                extra_trigger: ".o_list_view",
+            },
+            {
+                trigger: ".o_form_view",
+                run: function () {
+                    // Assertion only.
+                },
+            },
+        ];
+    }
+
+    /**
+     * Steps that click a header button, confirm the dialog and assert the state.
+     *
+     * @param {String} button technical name of the button
+     * @param {String} label button label
+     * @param {String} state expected state key
+     * @returns {Array} tour steps
+     */
+    function actionSteps(button, label, state) {
+        return [
+            {
+                content: "Click the " + label + " button",
+                trigger: ".o_statusbar_buttons button[name='" + button + "']",
+                extra_trigger: ".o_form_view",
+            },
+            {
+                content: "Confirm the dialog",
+                trigger: ".modal-footer button.btn-primary",
+                in_modal: true,
+            },
+            {
+                content: "Status changed",
+                trigger:
+                    ".o_statusbar_status .o_arrow_button[data-value='" +
+                    state +
+                    "'].btn-primary",
+                extra_trigger: "body:not(:has(.modal))",
+                run: function () {
+                    // Assertion only.
+                },
+            },
+        ];
+    }
+
     // IK: docs/project_milestone/01-create.md
     tour.register(
         "ssi_project_project_milestone_create",
@@ -48,7 +110,7 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
             url: "/web",
         },
         [].concat(
-            // ── Flow 1 — Open the Project > Configuration > Project > Milestones menu.
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
             openMilestoneMenuSteps(),
             [
                 // ── Flow 2 — Click the New button.
@@ -131,7 +193,7 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
             url: "/web",
         },
         [].concat(
-            // ── Flow 1 — Open the Project > Configuration > Project > Milestones menu.
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
             openMilestoneMenuSteps(),
             [
                 // ── Flow 2 — Find and open the record to edit.
@@ -196,7 +258,7 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
             url: "/web",
         },
         [].concat(
-            // ── Flow 1 — Open the Project > Configuration > Project > Milestones menu.
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
             openMilestoneMenuSteps(),
             [
                 // ── Flow 2 — Find and open the record to delete.
@@ -248,6 +310,110 @@ odoo.define("ssi_project.project_milestone_tour", function (require) {
                     trigger:
                         ".o_list_view:not(:has(.o_data_row:contains(TOUR-MSD-PROJECT)))",
                     extra_trigger: ".o_data_row",
+                    run: function () {
+                        // Assertion only.
+                    },
+                },
+            ]
+        )
+    );
+
+    // IK: docs/project_milestone/04-confirm.md
+    tour.register(
+        "ssi_project_project_milestone_confirm",
+        {
+            test: true,
+            url: "/web",
+        },
+        [].concat(
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
+            openMilestoneMenuSteps(),
+            // ── Flow 2 — Open the record to confirm.
+            openMilestoneSteps("TOUR-MS-CONFIRM"),
+            // ── Flow 3-4 — Click Confirm, click OK, check the status.
+            actionSteps("action_confirm", "Confirm", "confirm")
+        )
+    );
+
+    // IK: docs/project_milestone/05-approve.md
+    tour.register(
+        "ssi_project_project_milestone_approve",
+        {
+            test: true,
+            url: "/web",
+        },
+        [].concat(
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
+            openMilestoneMenuSteps(),
+            // ── Flow 2 — Open the record to approve.
+            openMilestoneSteps("TOUR-MS-APPROVE"),
+            // ── Flow 3-4 — Click Approve, click OK, check the status.
+            actionSteps("action_approve_approval", "Approve", "open")
+        )
+    );
+
+    // IK: docs/project_milestone/09-finish.md
+    tour.register(
+        "ssi_project_project_milestone_finish",
+        {
+            test: true,
+            url: "/web",
+        },
+        [].concat(
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
+            openMilestoneMenuSteps(),
+            // ── Flow 2 — Open the record to finish.
+            openMilestoneSteps("TOUR-MS-FINISH"),
+            // ── Flow 3-4 — Click Done, click OK, check the status.
+            actionSteps("action_done", "Done", "done")
+        )
+    );
+
+    // IK: docs/project_milestone/10-cancel.md
+    tour.register(
+        "ssi_project_project_milestone_cancel",
+        {
+            test: true,
+            url: "/web",
+        },
+        [].concat(
+            // ── Flow 1 — Open the Project > Project > Milestones menu.
+            openMilestoneMenuSteps(),
+            // ── Flow 2 — Open the record to cancel.
+            openMilestoneSteps("TOUR-MS-CANCEL"),
+            [
+                // ── Flow 3 — Click the Cancel button. It is a type="action"
+                // button: its name is a numeric id in the DOM, so it is
+                // targeted by label.
+                {
+                    content: "Click the Cancel button",
+                    trigger: ".o_statusbar_buttons button:enabled:contains('Cancel')",
+                    extra_trigger: ".o_form_view",
+                },
+                // ── Flow 4 — Select the Cancel Reason (radio widget).
+                {
+                    content: "Select the Cancel Reason",
+                    trigger:
+                        ".o_field_widget[name='cancel_reason_id'] .o_radio_item:contains(Tour Milestone Cancel Reason) input",
+                    in_modal: true,
+                },
+                // ── Flow 5 — Click Confirm in the wizard.
+                {
+                    content: "Confirm the wizard",
+                    trigger: ".modal-footer button[name='action_confirm']",
+                },
+                // ── Flow 6 — Click OK on the stacked confirmation dialog.
+                {
+                    content: "Confirm the dialog",
+                    trigger: ".modal-footer button.btn-primary",
+                    in_modal: true,
+                },
+                // ── Post-Condition — Status changes to Cancelled.
+                {
+                    content: "Status is Cancelled",
+                    trigger:
+                        ".o_statusbar_status .o_arrow_button[data-value='cancel'].btn-primary",
+                    extra_trigger: "body:not(:has(.modal))",
                     run: function () {
                         // Assertion only.
                     },

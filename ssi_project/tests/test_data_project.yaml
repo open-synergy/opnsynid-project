@@ -755,3 +755,432 @@ scenarios:
           project_id: "REC: project.id"
           date: "2026-01-01"
           is_reporting_point: true
+
+  # ------------------------------------------------------------------
+  # Milestone workflow driven by real groups (no bypass_policy_check)
+  # ------------------------------------------------------------------
+  - name: "Milestone Policy - User confirms and Validator approves"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Confirm Project"
+      - step: "Create user ms_user_a"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_user_a"
+        values:
+          name: "Milestone ms_user_a"
+          login: "ms_policy_user_a@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_user_group"
+      - step: "Create user ms_validator_a"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_validator_a"
+        values:
+          name: "Milestone ms_validator_a"
+          login: "ms_policy_validator_a@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_validator_group"
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Confirm"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_user_a.id"
+      - step: "Confirm milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "ms_user_a"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_approve_approval"
+        as_user: "ms_validator_a"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+  - name: "Milestone Policy - User finishes an open milestone"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Done Project"
+      - step: "Create user ms_user_b"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_user_b"
+        values:
+          name: "Milestone ms_user_b"
+          login: "ms_policy_user_b@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_user_group"
+      - step: "Create user ms_validator_b"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_validator_b"
+        values:
+          name: "Milestone ms_validator_b"
+          login: "ms_policy_validator_b@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_validator_group"
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Done"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_user_b.id"
+      - step: "Confirm milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "ms_user_b"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_approve_approval"
+        as_user: "ms_validator_b"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Finish milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_done"
+        as_user: "ms_user_b"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "Milestone Policy - User terminates an open milestone"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Terminate Project"
+      - step: "Create user ms_user_c"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_user_c"
+        values:
+          name: "Milestone ms_user_c"
+          login: "ms_policy_user_c@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_user_group"
+      - step: "Create user ms_validator_c"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_validator_c"
+        values:
+          name: "Milestone ms_validator_c"
+          login: "ms_policy_validator_c@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_validator_group"
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Terminate"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_user_c.id"
+      - step: "Confirm milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "ms_user_c"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_approve_approval"
+        as_user: "ms_validator_c"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Terminate milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_terminate"
+        as_user: "ms_user_c"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "terminate"
+
+  - name: "Milestone Policy - Validator cancels through the reason wizard and restarts"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Cancel Project"
+      - step: "Create user ms_user_d"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_user_d"
+        values:
+          name: "Milestone ms_user_d"
+          login: "ms_policy_user_d@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_user_group"
+      - step: "Create user ms_validator_d"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_validator_d"
+        values:
+          name: "Milestone ms_validator_d"
+          login: "ms_policy_validator_d@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_validator_group"
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Cancel"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_user_d.id"
+      - step: "Create a cancel reason"
+        action: "create"
+        model: "base.cancel_reason"
+        save_as: "reason"
+        values:
+          name: "Milestone Policy Cancel Reason"
+          code: "/"
+
+      - step: "Cancel through the reason wizard as Validator"
+        action: "wizard"
+        model: "base.select_cancel_reason"
+        target: "milestone"
+        as_user: "ms_validator_d"
+        values:
+          cancel_reason_id: "REC: reason"
+        method: "action_confirm"
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+
+      - step: "Restart milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_restart"
+        as_user: "ms_validator_d"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+  - name:
+      "Milestone Policy - Configurator group member approves through implied Validator"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Configurator Project"
+      - step: "Create user ms_configurator"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_configurator"
+        values:
+          name: "Milestone ms_configurator"
+          login: "ms_policy_configurator@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_configurator_group"
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Configurator"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_configurator.id"
+      - step: "Confirm milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "ms_configurator"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_approve_approval"
+        as_user: "ms_configurator"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+  - name: "Milestone Policy - User without milestone group cannot confirm"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Denied Project"
+      - step: "Create user ms_outsider"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_outsider"
+        values:
+          name: "Milestone ms_outsider"
+          login: "ms_policy_outsider@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Denied"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_outsider.id"
+
+      - step: "Outsider cannot confirm"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "ms_outsider"
+        expect_error:
+          type: "UserError"
+          message_contains: "not allowed to confirm"
+
+  - name: "Milestone Policy - User who is not an approver cannot approve"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "MS Policy Not Approver Project"
+      - step: "Create user ms_user_e"
+        action: "create"
+        model: "res.users"
+        save_as: "ms_user_e"
+        values:
+          name: "Milestone ms_user_e"
+          login: "ms_policy_user_e@example.com"
+          groups_id:
+            - - 6
+              - 0
+              - - "REF: base.group_user"
+                - "REF: ssi_project.project_milestone_user_group"
+      - step: "Create milestone"
+        action: "create"
+        model: "project_milestone"
+        save_as: "milestone"
+        values:
+          name: "MS Policy Not Approver"
+          project_id: "REC: project.id"
+          date: "2026-01-01"
+          user_id: "REC: ms_user_e.id"
+      - step: "Confirm milestone"
+        action: "call"
+        target: "milestone"
+        method: "action_confirm"
+        as_user: "ms_user_e"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Plain user cannot approve"
+        action: "call"
+        target: "milestone"
+        method: "action_approve_approval"
+        as_user: "ms_user_e"
+        expect_error:
+          type: "UserError"
+          message_contains: "not allowed to approve"
+
+      - step: "Milestone stays in confirm"
+        action: "assert"
+        target: "milestone"
+        refresh: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
