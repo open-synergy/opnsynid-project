@@ -193,19 +193,19 @@ class ProjectPhase(models.Model):
     )
     number_of_deliverable = fields.Integer(
         string="Num. of Deliverables",
-        compute="_compute_number_of_deliverable",
+        compute="_compute_deliverable",
         store=True,
         compute_sudo=True,
     )
     number_of_deliverable_done = fields.Integer(
         string="Num. of Deliverable Done",
-        compute="_compute_number_of_deliverable",
+        compute="_compute_deliverable",
         store=True,
         compute_sudo=True,
     )
     deliverable_completion_percentage = fields.Float(
         string="Deliverable Completion Percentage",
-        compute="_compute_deliverable_completion_percentage",
+        compute="_compute_deliverable",
         store=True,
         compute_sudo=True,
     )
@@ -288,38 +288,31 @@ class ProjectPhase(models.Model):
     @api.depends(
         "deliverable_ids",
         "deliverable_ids.state",
-        "deliverable_ids.phase_id",
     )
-    def _compute_number_of_deliverable(self):
-        Deliverable = self.env["project_deliverable"]
+    def _compute_deliverable(self):
+        """Compute deliverable counters and completion percentage.
+
+        Deliverables in state ``open`` or ``done`` are counted; those in
+        ``done`` are counted as done. All three fields are filled in one
+        pass from ``deliverable_ids`` so the percentage never reads stale
+        counters.
+
+        :return: nothing; assigns ``number_of_deliverable``,
+            ``number_of_deliverable_done`` and
+            ``deliverable_completion_percentage``
+        """
         for record in self:
-            all_deliverable = done_deliverable = 0
-            criteria = [
-                ("phase_id", "=", record.id),
-                ("state", "in", ["open", "done"]),
-            ]
-            all_deliverable = Deliverable.search_count(criteria)
-            criteria = [
-                ("phase_id", "=", record.id),
-                ("state", "=", "done"),
-            ]
-            done_deliverable = Deliverable.search_count(criteria)
+            valid_deliverables = record.deliverable_ids.filtered(
+                lambda d: d.state in ["open", "done"]
+            )
+            done_deliverables = valid_deliverables.filtered(lambda d: d.state == "done")
+            all_deliverable = len(valid_deliverables)
+            done_deliverable = len(done_deliverables)
+            result = 0.0
+            if all_deliverable:
+                result = done_deliverable / all_deliverable
             record.number_of_deliverable = all_deliverable
             record.number_of_deliverable_done = done_deliverable
-
-    @api.depends(
-        "number_of_deliverable",
-        "number_of_deliverable_done",
-    )
-    def _compute_deliverable_completion_percentage(self):
-        for record in self:
-            result = 0.0
-            try:
-                result = (
-                    record.number_of_deliverable_done / record.number_of_deliverable
-                )
-            except ZeroDivisionError:
-                result = 0.0
             record.deliverable_completion_percentage = result
 
     @api.depends(
