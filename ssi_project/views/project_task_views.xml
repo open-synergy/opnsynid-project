@@ -180,6 +180,36 @@
 </record>
 
 
+<record id="project_task_view_ssi_gantt" model="ir.ui.view">
+    <field name="name">project.task.ssi.gantt</field>
+    <field name="model">project.task</field>
+    <field name="type">ssi_gantt</field>
+    <field name="arch" type="xml">
+        <ssi_gantt
+                string="Task Gantt"
+                date_start="date_assign"
+                date_stop="date_end"
+                default_group_by="project_id"
+                default_scale="week"
+                scales="day,week,month,quarter"
+                dependency_model="task.dependency"
+                dependency_predecessor_field="predecessor_task_id"
+                dependency_successor_field="task_id"
+                dependency_type_field="dependency_type"
+                dependency_type_map="sf:start_finish;ss:start_start;fs:finish_start;ff:finish_finish"
+            >
+            <field name="project_id" />
+            <field name="stage_id" />
+        </ssi_gantt>
+    </field>
+</record>
+
+<record id="project.action_view_all_task" model="ir.actions.act_window">
+    <field
+            name="view_mode"
+        >tree,kanban,form,calendar,pivot,graph,activity,ssi_gantt</field>
+</record>
+
 <menuitem
         name="Tasks"
         id="project.menu_project_management"

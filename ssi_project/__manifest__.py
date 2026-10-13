@@ -21,6 +21,7 @@
         "ssi_transaction_date_due_mixin",
         "base_automation",
         "web_tour",
+        "ssi_web_gantt",
     ],
     "data": [
         "security/ir_module_category_data.xml",

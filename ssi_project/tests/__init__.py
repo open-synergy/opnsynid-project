@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import test_project  # noqa: F401
+from . import test_task_dependency  # noqa: F401
 from . import test_ui_project_deliverable  # noqa: F401
 from . import test_ui_project_deliverable_type  # noqa: F401
 from . import test_ui_project_deliverable_type_category  # noqa: F401

@@ -1,0 +1,349 @@
+scenarios:
+  - name: "Task Dependency - finish_start type is stored"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project finish_start"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor finish_start"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor finish_start"
+          project_id: "REC: project.id"
+
+      - step: "Create finish_start dependency"
+        action: "create"
+        model: "task.dependency"
+        save_as: "dep"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "finish_start"
+
+      - step: "Assert dependency type and tasks"
+        action: "assert"
+        target: "dep"
+        asserts:
+          dependency_type:
+            type: "value"
+            expected: "finish_start"
+          task_id:
+            type: "m2o"
+            expected: "REC: succ"
+          predecessor_task_id:
+            type: "m2o"
+            expected: "REC: pred"
+
+  - name: "Task Dependency - start_start type is stored"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project start_start"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor start_start"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor start_start"
+          project_id: "REC: project.id"
+
+      - step: "Create start_start dependency"
+        action: "create"
+        model: "task.dependency"
+        save_as: "dep"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "start_start"
+
+      - step: "Assert dependency type and tasks"
+        action: "assert"
+        target: "dep"
+        asserts:
+          dependency_type:
+            type: "value"
+            expected: "start_start"
+          task_id:
+            type: "m2o"
+            expected: "REC: succ"
+          predecessor_task_id:
+            type: "m2o"
+            expected: "REC: pred"
+
+  - name: "Task Dependency - finish_finish type is stored"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project finish_finish"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor finish_finish"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor finish_finish"
+          project_id: "REC: project.id"
+
+      - step: "Create finish_finish dependency"
+        action: "create"
+        model: "task.dependency"
+        save_as: "dep"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "finish_finish"
+
+      - step: "Assert dependency type and tasks"
+        action: "assert"
+        target: "dep"
+        asserts:
+          dependency_type:
+            type: "value"
+            expected: "finish_finish"
+          task_id:
+            type: "m2o"
+            expected: "REC: succ"
+          predecessor_task_id:
+            type: "m2o"
+            expected: "REC: pred"
+
+  - name: "Task Dependency - start_finish type is stored"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project start_finish"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor start_finish"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor start_finish"
+          project_id: "REC: project.id"
+
+      - step: "Create start_finish dependency"
+        action: "create"
+        model: "task.dependency"
+        save_as: "dep"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "start_finish"
+
+      - step: "Assert dependency type and tasks"
+        action: "assert"
+        target: "dep"
+        asserts:
+          dependency_type:
+            type: "value"
+            expected: "start_finish"
+          task_id:
+            type: "m2o"
+            expected: "REC: succ"
+          predecessor_task_id:
+            type: "m2o"
+            expected: "REC: pred"
+
+  - name: "Task Dependency - Task cannot depend on itself"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project self"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor self"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor self"
+          project_id: "REC: project.id"
+
+      - step: "Create self dependency"
+        action: "create"
+        model: "task.dependency"
+        expect_error:
+          type: "ValidationError"
+          message_contains: "predecessor/sucessor"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: pred.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "finish_start"
+
+  - name: "Task Dependency - Duplicate predecessor is rejected"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project dup"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor dup"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor dup"
+          project_id: "REC: project.id"
+
+      - step: "Create first dependency"
+        action: "create"
+        model: "task.dependency"
+        save_as: "dep"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "finish_start"
+
+      - step: "Create duplicate dependency"
+        action: "create"
+        model: "task.dependency"
+        expect_error:
+          type: "UserError"
+          message_contains: "Predecessor task"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "start_start"
+
+  - name: "Task Dependency - Deleting successor task cascades"
+    options:
+      auto_refresh: true
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Dependency Project cascade"
+
+      - step: "Create predecessor task"
+        action: "create"
+        model: "project.task"
+        save_as: "pred"
+        values:
+          name: "Predecessor cascade"
+          project_id: "REC: project.id"
+
+      - step: "Create successor task"
+        action: "create"
+        model: "project.task"
+        save_as: "succ"
+        values:
+          name: "Successor cascade"
+          project_id: "REC: project.id"
+
+      - step: "Create dependency"
+        action: "create"
+        model: "task.dependency"
+        save_as: "dep"
+        values:
+          project_id: "REC: project.id"
+          task_id: "REC: succ.id"
+          predecessor_task_id: "REC: pred.id"
+          dependency_type: "finish_start"
+
+      - step: "Dependency exists before delete"
+        action: "search"
+        model: "task.dependency"
+        domain:
+          - ["predecessor_task_id", "=", "REC: pred.id"]
+        save_as: "before"
+        expect_count: 1
+
+      - step: "Delete successor task"
+        action: "unlink"
+        target: "succ"
+
+      - step: "Dependency is gone after delete"
+        action: "search"
+        model: "task.dependency"
+        domain:
+          - ["predecessor_task_id", "=", "REC: pred.id"]
+        save_as: "after"
+        expect_count: 0
