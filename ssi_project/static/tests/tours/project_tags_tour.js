@@ -48,8 +48,8 @@ odoo.define("ssi_project.project_tags_tour", function (require) {
                 extra_trigger: ".o_list_view",
             },
             {
-                content: "Form is open in edit mode",
-                trigger: ".o_form_view.o_form_editable",
+                content: "An editable row is added to the list",
+                trigger: ".o_list_view .o_selected_row",
                 run: function () {
                     // Assertion only.
                 },
@@ -57,25 +57,19 @@ odoo.define("ssi_project.project_tags_tour", function (require) {
             // ── Flow 3 — Fill in the required fields.
             {
                 content: "Enter the tag name",
-                trigger: ".o_field_widget[name='name']",
+                trigger: ".o_selected_row .o_field_widget[name='name']",
                 run: "text TOUR-TAG-CREATE",
             },
             // ── Flow 4 — Click Save.
             {
-                content: "Save the record",
-                trigger: ".o_form_button_save",
+                content: "Save the row",
+                trigger: ".o_list_button_save",
             },
+            // ── Post-Condition — The new tag is listed.
             {
-                content: "Record is saved",
-                trigger: ".o_form_view.o_form_readonly",
-                run: function () {
-                    // Assertion only.
-                },
-            },
-            // ── Post-Condition — The new tag exists.
-            {
-                content: "The new tag is shown",
-                trigger: ".o_field_widget[name='name']:contains(TOUR-TAG-CREATE)",
+                content: "The new tag is listed",
+                trigger:
+                    ".o_list_view .o_data_row:not(.o_selected_row) .o_data_cell:contains(TOUR-TAG-CREATE)",
                 run: function () {
                     // Assertion only.
                 },

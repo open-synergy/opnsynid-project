@@ -12,11 +12,11 @@
 ## Flow
 
 1. Open the **Project > Configuration > Project > Tags** menu.
-2. Click the **New** button. **(14.0: "Create")**
-3. Fill in the required fields:
+2. Click the **New** button. **(14.0: "Create")** An editable row is added at the bottom
+   of the list.
+3. Fill in the required fields in the new row:
    - **Name** _(required)_: Enter the name of the tag.
-   - **Color**: Select the color of the tag. Optional.
-4. Click **Save**.
+4. Click the **Save** button of the list.
 
 ## Post-Condition
 
