@@ -155,7 +155,7 @@ class ProjectPhase(models.Model):
     )
     child_completion_percentage = fields.Float(
         string="Child Phases Completion Percentage",
-        compute="_compute_child_completion_percentage",
+        compute="_compute_number_of_child",
         store=True,
         compute_sudo=True,
     )
@@ -180,7 +180,7 @@ class ProjectPhase(models.Model):
     )
     task_completion_percentage = fields.Float(
         string="Task Completion Percentage",
-        compute="_compute_task_completion_percentage",
+        compute="_compute_number_of_task",
         store=True,
         compute_sudo=True,
     )
@@ -219,70 +219,61 @@ class ProjectPhase(models.Model):
 
     @api.depends(
         "task_ids",
-        "task_ids.phase_id",
+        "task_ids.state",
         "task_ids.stage_id",
     )
     def _compute_number_of_task(self):
-        Task = self.env["project.task"]
+        """Compute task counters and completion percentage.
+
+        All tasks in ``task_ids`` are counted; those whose ``state`` is
+        ``done`` are counted as done. All three fields are filled in one
+        pass from ``task_ids`` so the percentage never reads stale
+        counters.
+
+        :return: nothing; assigns ``number_of_task``,
+            ``number_of_task_done`` and ``task_completion_percentage``
+        """
         for record in self:
-            all_task = done_task = 0
-            criteria = [
-                ("phase_id", "=", record.id),
-            ]
-            all_task = Task.search_count(criteria)
-            criteria += [
-                ("state", "=", "done"),
-            ]
-            done_task = Task.search_count(criteria)
+            done_tasks = record.task_ids.filtered(lambda t: t.state == "done")
+            all_task = len(record.task_ids)
+            done_task = len(done_tasks)
+            result = 0.0
+            if all_task:
+                result = done_task / all_task
             record.number_of_task = all_task
             record.number_of_task_done = done_task
-
-    @api.depends(
-        "number_of_task",
-        "number_of_task_done",
-    )
-    def _compute_task_completion_percentage(self):
-        for record in self:
-            result = 0.0
-            try:
-                result = record.number_of_task_done / record.number_of_task
-            except ZeroDivisionError:
-                result = 0.0
             record.task_completion_percentage = result
 
     @api.depends(
         "child_ids",
-        "child_ids.completion_percentage",
         "child_ids.state",
-        "child_ids.parent_id",
+        "child_ids.completion_percentage",
     )
     def _compute_number_of_child(self):
-        Phase = self.env["project_phase"]
+        """Compute child phase counters and completion percentage.
+
+        Child phases in state ``open`` or ``done`` are counted; those
+        with ``completion_percentage`` equal to 1.0 are counted as done.
+        All three fields are filled in one pass from ``child_ids`` so the
+        percentage never reads stale counters.
+
+        :return: nothing; assigns ``number_of_child``,
+            ``number_of_child_done`` and ``child_completion_percentage``
+        """
         for record in self:
-            all_child = done_child = 0
-            criteria = [
-                ("parent_id", "=", record.id),
-                ("state", "in", ["open", "done"]),
-            ]
-            all_child = Phase.search_count(criteria)
-            criteria += [
-                ("completion_percentage", "=", 1.0),
-            ]
-            done_child = Phase.search_count(criteria)
+            valid_children = record.child_ids.filtered(
+                lambda c: c.state in ["open", "done"]
+            )
+            done_children = valid_children.filtered(
+                lambda c: c.completion_percentage == 1.0
+            )
+            all_child = len(valid_children)
+            done_child = len(done_children)
+            result = 0.0
+            if all_child:
+                result = done_child / all_child
             record.number_of_child = all_child
             record.number_of_child_done = done_child
-
-    @api.depends(
-        "number_of_child",
-        "number_of_child_done",
-    )
-    def _compute_child_completion_percentage(self):
-        for record in self:
-            result = 0.0
-            try:
-                result = record.number_of_child_done / record.number_of_child
-            except ZeroDivisionError:
-                result = 0.0
             record.child_completion_percentage = result
 
     @api.depends(

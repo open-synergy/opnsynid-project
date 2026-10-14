@@ -1,0 +1,574 @@
+options:
+  auto_refresh: true
+
+scenarios:
+  - name: "Project Phase - Task counts and percentage of a single phase"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Completion Project PT"
+      - step: "Create stage done"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_done"
+        values:
+          name: "Done PT"
+          state: "done"
+      - step: "Create stage open"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_open"
+        values:
+          name: "Open PT"
+          state: "open"
+      - step: "Create phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "phase"
+        as_user: "base.user_admin"
+        values:
+          name: "phase"
+          title: "phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+      - step: "Create task_1"
+        action: "create"
+        model: "project.task"
+        save_as: "task_1"
+        values:
+          name: "Task task_1 PT"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_open.id"
+          phase_id: "REC: phase.id"
+      - step: "Create task_2"
+        action: "create"
+        model: "project.task"
+        save_as: "task_2"
+        values:
+          name: "Task task_2 PT"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_open.id"
+          phase_id: "REC: phase.id"
+      - step: "Move task_1 to done stage"
+        action: "write"
+        target: "task_1"
+        values:
+          stage_id: "REC: stage_done.id"
+      - step: "Assert half of tasks done"
+        action: "assert"
+        target: "phase"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 2
+          number_of_task_done:
+            type: "value"
+            expected: 1
+          task_completion_percentage:
+            type: "value"
+            expected: 0.5
+      - step: "Move task_2 to done stage"
+        action: "write"
+        target: "task_2"
+        values:
+          stage_id: "REC: stage_done.id"
+      - step: "Assert all tasks done"
+        action: "assert"
+        target: "phase"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 2
+          number_of_task_done:
+            type: "value"
+            expected: 2
+          task_completion_percentage:
+            type: "value"
+            expected: 1.0
+
+  - name: "Project Phase - Task percentage without task is zero"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Completion Project PE"
+      - step: "Create phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "phase"
+        as_user: "base.user_admin"
+        values:
+          name: "phase"
+          title: "phase"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+      - step: "Assert zero tasks without error"
+        action: "assert"
+        target: "phase"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 0
+          number_of_task_done:
+            type: "value"
+            expected: 0
+          task_completion_percentage:
+            type: "value"
+            expected: 0.0
+
+  - name: "Project Phase - Child counts and percentage of a group phase"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Completion Project PC"
+      - step: "Create stage done"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_done"
+        values:
+          name: "Done PC"
+          state: "done"
+      - step: "Create stage open"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_open"
+        values:
+          name: "Open PC"
+          state: "open"
+      - step: "Create parent_phase"
+        action: "create"
+        model: "project_phase"
+        save_as: "parent_phase"
+        as_user: "base.user_admin"
+        values:
+          name: "parent_phase"
+          title: "parent_phase"
+          ttype: "group"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+      - step: "Create child_1"
+        action: "create"
+        model: "project_phase"
+        save_as: "child_1"
+        as_user: "base.user_admin"
+        values:
+          name: "child_1"
+          title: "child_1"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          parent_id: "REC: parent_phase.id"
+      - step: "Create child_2"
+        action: "create"
+        model: "project_phase"
+        save_as: "child_2"
+        as_user: "base.user_admin"
+        values:
+          name: "child_2"
+          title: "child_2"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          parent_id: "REC: parent_phase.id"
+      - step: "Create child_draft"
+        action: "create"
+        model: "project_phase"
+        save_as: "child_draft"
+        as_user: "base.user_admin"
+        values:
+          name: "child_draft"
+          title: "child_draft"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          parent_id: "REC: parent_phase.id"
+      - step: "Confirm child_1"
+        action: "call"
+        target: "child_1"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve child_1"
+        action: "call"
+        target: "child_1"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Confirm child_2"
+        action: "call"
+        target: "child_2"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve child_2"
+        action: "call"
+        target: "child_2"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Create task_1"
+        action: "create"
+        model: "project.task"
+        save_as: "task_1"
+        values:
+          name: "Task task_1 PC"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_done.id"
+          phase_id: "REC: child_1.id"
+      - step: "Assert only completed child is done"
+        action: "assert"
+        target: "parent_phase"
+        asserts:
+          number_of_child:
+            type: "value"
+            expected: 2
+          number_of_child_done:
+            type: "value"
+            expected: 1
+          child_completion_percentage:
+            type: "value"
+            expected: 0.5
+
+  - name: "Project Deliverable - Task counts and percentage of a single deliverable"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Completion Project DT"
+      - step: "Create stage done"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_done"
+        values:
+          name: "Done DT"
+          state: "done"
+      - step: "Create stage open"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_open"
+        values:
+          name: "Open DT"
+          state: "open"
+      - step: "Create deliverable type category"
+        action: "create"
+        model: "project_deliverable_type_category"
+        save_as: "category"
+        values:
+          name: "Category DT"
+          code: "DTC"
+      - step: "Create deliverable type"
+        action: "create"
+        model: "project_deliverable_type"
+        save_as: "dtype"
+        values:
+          name: "Type DT"
+          code: "DTT"
+          category_id: "REC: category.id"
+      - step: "Create deliverable"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "deliverable"
+        as_user: "base.user_admin"
+        values:
+          name: "deliverable"
+          title: "deliverable"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+      - step: "Create task_1"
+        action: "create"
+        model: "project.task"
+        save_as: "task_1"
+        values:
+          name: "Task task_1 DT"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_open.id"
+          deliverable_id: "REC: deliverable.id"
+      - step: "Create task_2"
+        action: "create"
+        model: "project.task"
+        save_as: "task_2"
+        values:
+          name: "Task task_2 DT"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_open.id"
+          deliverable_id: "REC: deliverable.id"
+      - step: "Move task_1 to done stage"
+        action: "write"
+        target: "task_1"
+        values:
+          stage_id: "REC: stage_done.id"
+      - step: "Assert half of tasks done"
+        action: "assert"
+        target: "deliverable"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 2
+          number_of_task_done:
+            type: "value"
+            expected: 1
+          task_completion_percentage:
+            type: "value"
+            expected: 0.5
+      - step: "Move task_2 to done stage"
+        action: "write"
+        target: "task_2"
+        values:
+          stage_id: "REC: stage_done.id"
+      - step: "Assert all tasks done"
+        action: "assert"
+        target: "deliverable"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 2
+          number_of_task_done:
+            type: "value"
+            expected: 2
+          task_completion_percentage:
+            type: "value"
+            expected: 1.0
+
+  - name: "Project Deliverable - Task percentage without task is zero"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Completion Project DE"
+      - step: "Create deliverable type category"
+        action: "create"
+        model: "project_deliverable_type_category"
+        save_as: "category"
+        values:
+          name: "Category DE"
+          code: "DEC"
+      - step: "Create deliverable type"
+        action: "create"
+        model: "project_deliverable_type"
+        save_as: "dtype"
+        values:
+          name: "Type DE"
+          code: "DET"
+          category_id: "REC: category.id"
+      - step: "Create deliverable"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "deliverable"
+        as_user: "base.user_admin"
+        values:
+          name: "deliverable"
+          title: "deliverable"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+      - step: "Assert zero tasks without error"
+        action: "assert"
+        target: "deliverable"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 0
+          number_of_task_done:
+            type: "value"
+            expected: 0
+          task_completion_percentage:
+            type: "value"
+            expected: 0.0
+
+  - name: "Project Deliverable - Child counts and percentage of a group deliverable"
+    steps:
+      - step: "Create project"
+        action: "create"
+        model: "project.project"
+        save_as: "project"
+        values:
+          name: "Completion Project DC"
+      - step: "Create stage done"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_done"
+        values:
+          name: "Done DC"
+          state: "done"
+      - step: "Create stage open"
+        action: "create"
+        model: "project.task.type"
+        save_as: "stage_open"
+        values:
+          name: "Open DC"
+          state: "open"
+      - step: "Create deliverable type category"
+        action: "create"
+        model: "project_deliverable_type_category"
+        save_as: "category"
+        values:
+          name: "Category DC"
+          code: "DCC"
+      - step: "Create deliverable type"
+        action: "create"
+        model: "project_deliverable_type"
+        save_as: "dtype"
+        values:
+          name: "Type DC"
+          code: "DCT"
+          category_id: "REC: category.id"
+      - step: "Create parent_deliverable"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "parent_deliverable"
+        as_user: "base.user_admin"
+        values:
+          name: "parent_deliverable"
+          title: "parent_deliverable"
+          ttype: "group"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+      - step: "Create child_1"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "child_1"
+        as_user: "base.user_admin"
+        values:
+          name: "child_1"
+          title: "child_1"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+          parent_id: "REC: parent_deliverable.id"
+      - step: "Create child_2"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "child_2"
+        as_user: "base.user_admin"
+        values:
+          name: "child_2"
+          title: "child_2"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+          parent_id: "REC: parent_deliverable.id"
+      - step: "Create child_draft"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "child_draft"
+        as_user: "base.user_admin"
+        values:
+          name: "child_draft"
+          title: "child_draft"
+          ttype: "single"
+          project_id: "REC: project.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+          parent_id: "REC: parent_deliverable.id"
+      - step: "Confirm child_1"
+        action: "call"
+        target: "child_1"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve child_1"
+        action: "call"
+        target: "child_1"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Confirm child_2"
+        action: "call"
+        target: "child_2"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve child_2"
+        action: "call"
+        target: "child_2"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Create task_1"
+        action: "create"
+        model: "project.task"
+        save_as: "task_1"
+        values:
+          name: "Task task_1 DC"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_done.id"
+          deliverable_id: "REC: child_1.id"
+      - step: "Assert only completed child is done"
+        action: "assert"
+        target: "parent_deliverable"
+        asserts:
+          number_of_child:
+            type: "value"
+            expected: 2
+          number_of_child_done:
+            type: "value"
+            expected: 1
+          child_completion_percentage:
+            type: "value"
+            expected: 0.5
