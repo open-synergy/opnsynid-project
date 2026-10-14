@@ -643,7 +643,7 @@ scenarios:
           project_id: "REC: project.id"
           stage_id: "REC: stage_done.id"
           deliverable_id: "REC: child_1.id"
-      - step: "Diagnose child_1 before asserting parent"
+      - step: "Assert child_1 is fully completed"
         action: "assert"
         target: "child_1"
         asserts:

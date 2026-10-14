@@ -143,19 +143,19 @@ class ProjectPhase(models.Model):
     )
     number_of_child = fields.Integer(
         string="Num. of Child Phases",
-        compute="_compute_number_of_child",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
     number_of_child_done = fields.Integer(
         string="Num. of Child Phases Done",
-        compute="_compute_number_of_child",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
     child_completion_percentage = fields.Float(
         string="Child Phases Completion Percentage",
-        compute="_compute_number_of_child",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
@@ -168,19 +168,19 @@ class ProjectPhase(models.Model):
     )
     number_of_task = fields.Integer(
         string="Num. of Task",
-        compute="_compute_number_of_task",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
     number_of_task_done = fields.Integer(
         string="Num. of Task Done",
-        compute="_compute_number_of_task",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
     task_completion_percentage = fields.Float(
         string="Task Completion Percentage",
-        compute="_compute_number_of_task",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
@@ -193,19 +193,19 @@ class ProjectPhase(models.Model):
     )
     number_of_deliverable = fields.Integer(
         string="Num. of Deliverables",
-        compute="_compute_deliverable",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
     number_of_deliverable_done = fields.Integer(
         string="Num. of Deliverable Done",
-        compute="_compute_deliverable",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
     deliverable_completion_percentage = fields.Float(
         string="Deliverable Completion Percentage",
-        compute="_compute_deliverable",
+        compute="_compute_completion_percentage",
         store=True,
         compute_sudo=True,
     )
@@ -218,123 +218,87 @@ class ProjectPhase(models.Model):
     )
 
     @api.depends(
+        "ttype",
         "task_ids",
         "task_ids.state",
         "task_ids.stage_id",
-    )
-    def _compute_number_of_task(self):
-        """Compute task counters and completion percentage.
-
-        All tasks in ``task_ids`` are counted; those whose ``state`` is
-        ``done`` are counted as done. All three fields are filled in one
-        pass from ``task_ids`` so the percentage never reads stale
-        counters.
-
-        :return: nothing; assigns ``number_of_task``,
-            ``number_of_task_done`` and ``task_completion_percentage``
-        """
-        for record in self:
-            done_tasks = record.task_ids.filtered(lambda t: t.state == "done")
-            all_task = len(record.task_ids)
-            done_task = len(done_tasks)
-            result = 0.0
-            if all_task:
-                result = done_task / all_task
-            record.number_of_task = all_task
-            record.number_of_task_done = done_task
-            record.task_completion_percentage = result
-
-    @api.depends(
         "child_ids",
         "child_ids.state",
         "child_ids.completion_percentage",
+        "deliverable_ids",
+        "deliverable_ids.state",
     )
-    def _compute_number_of_child(self):
-        """Compute child phase counters and completion percentage.
+    def _compute_completion_percentage(self):
+        """Compute the counters and percentages of tasks, children,
+        deliverables and the overall completion percentage.
 
-        Child phases in state ``open`` or ``done`` are counted; those
-        with ``completion_percentage`` equal to 1.0 are counted as done.
-        All three fields are filled in one pass from ``child_ids`` so the
-        percentage never reads stale counters.
+        All ten fields are filled in one pass because the base
+        automations (open to done) read ``completion_percentage`` while
+        the source group is still being computed; a separate compute
+        would read stale source percentages. ``completion_percentage``
+        is built from local variables, never from stored fields.
 
-        :return: nothing; assigns ``number_of_child``,
-            ``number_of_child_done`` and ``child_completion_percentage``
+        * Tasks: all ``task_ids`` are counted; those with ``state`` equal
+          to ``done`` are done.
+        * Children: ``child_ids`` in state ``open`` or ``done`` are
+          counted; those with ``completion_percentage`` equal to 1.0 are
+          done.
+        * Deliverables: ``deliverable_ids`` in state ``open`` or ``done``
+          are counted; those in ``done`` are done.
+        * Completion: the child percentage for a group phase, otherwise
+          the mean of the task and deliverable percentages.
+
+        :return: nothing; assigns ``number_of_task``,
+            ``number_of_task_done``, ``task_completion_percentage``,
+            ``number_of_child``, ``number_of_child_done``,
+            ``child_completion_percentage``, ``number_of_deliverable``,
+            ``number_of_deliverable_done``,
+            ``deliverable_completion_percentage`` and
+            ``completion_percentage``
         """
         for record in self:
+            all_task = len(record.task_ids)
+            done_task = len(record.task_ids.filtered(lambda t: t.state == "done"))
+            task_result = 0.0
+            if all_task:
+                task_result = done_task / all_task
+
             valid_children = record.child_ids.filtered(
                 lambda c: c.state in ["open", "done"]
             )
-            done_children = valid_children.filtered(
-                lambda c: c.completion_percentage == 1.0
-            )
             all_child = len(valid_children)
-            done_child = len(done_children)
-            result = 0.0
+            done_child = len(
+                valid_children.filtered(lambda c: c.completion_percentage == 1.0)
+            )
+            child_result = 0.0
             if all_child:
-                result = done_child / all_child
-            record.number_of_child = all_child
-            record.number_of_child_done = done_child
-            record.child_completion_percentage = result
+                child_result = done_child / all_child
 
-    @api.depends(
-        "deliverable_ids",
-        "deliverable_ids.state",
-    )
-    def _compute_deliverable(self):
-        """Compute deliverable counters and completion percentage.
-
-        Deliverables in state ``open`` or ``done`` are counted; those in
-        ``done`` are counted as done. All three fields are filled in one
-        pass from ``deliverable_ids`` so the percentage never reads stale
-        counters.
-
-        :return: nothing; assigns ``number_of_deliverable``,
-            ``number_of_deliverable_done`` and
-            ``deliverable_completion_percentage``
-        """
-        for record in self:
             valid_deliverables = record.deliverable_ids.filtered(
                 lambda d: d.state in ["open", "done"]
             )
-            done_deliverables = valid_deliverables.filtered(lambda d: d.state == "done")
             all_deliverable = len(valid_deliverables)
-            done_deliverable = len(done_deliverables)
-            result = 0.0
+            done_deliverable = len(
+                valid_deliverables.filtered(lambda d: d.state == "done")
+            )
+            deliverable_result = 0.0
             if all_deliverable:
-                result = done_deliverable / all_deliverable
+                deliverable_result = done_deliverable / all_deliverable
+
+            if record.ttype == "group":
+                result = child_result
+            else:
+                result = (task_result + deliverable_result) / 2.0
+
+            record.number_of_task = all_task
+            record.number_of_task_done = done_task
+            record.task_completion_percentage = task_result
+            record.number_of_child = all_child
+            record.number_of_child_done = done_child
+            record.child_completion_percentage = child_result
             record.number_of_deliverable = all_deliverable
             record.number_of_deliverable_done = done_deliverable
-            record.deliverable_completion_percentage = result
-
-    @api.depends(
-        "child_completion_percentage",
-        "task_completion_percentage",
-        "ttype",
-        "number_of_child",
-        "number_of_child_done",
-        "number_of_task",
-        "number_of_task_done",
-        "child_ids",
-        "child_ids.completion_percentage",
-        "child_ids.state",
-        "child_ids.parent_id",
-        "task_ids",
-        "task_ids.phase_id",
-        "task_ids.stage_id",
-        "task_ids.stage_id",
-        "deliverable_ids",
-        "deliverable_ids.state",
-        "deliverable_ids.phase_id",
-    )
-    def _compute_completion_percentage(self):
-        for record in self:
-            if record.ttype == "group":
-                result = record.child_completion_percentage
-            else:
-                result = (
-                    record.task_completion_percentage
-                    + record.deliverable_completion_percentage
-                ) / 2.0
+            record.deliverable_completion_percentage = deliverable_result
             record.completion_percentage = result
 
     @api.depends(
