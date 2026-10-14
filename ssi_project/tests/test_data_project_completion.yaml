@@ -104,7 +104,7 @@ scenarios:
         save_as: "phase"
         as_user: "base.user_admin"
         values:
-          name: "phase"
+          name: "phase_empty"
           title: "phase"
           ttype: "single"
           project_id: "REC: project.id"
@@ -245,6 +245,90 @@ scenarios:
           project_id: "REC: project.id"
           stage_id: "REC: stage_done.id"
           phase_id: "REC: child_1.id"
+      - step: "Create deliverable type category"
+        action: "create"
+        model: "project_deliverable_type_category"
+        save_as: "category"
+        values:
+          name: "Category PC"
+          code: "PCC"
+      - step: "Create deliverable type"
+        action: "create"
+        model: "project_deliverable_type"
+        save_as: "dtype"
+        values:
+          name: "Type PC"
+          code: "PCT"
+          category_id: "REC: category.id"
+      - step: "Create deliverable of child_1"
+        action: "create"
+        model: "project_deliverable"
+        save_as: "deliverable_1"
+        as_user: "base.user_admin"
+        values:
+          name: "deliverable_child_1"
+          title: "deliverable_child_1"
+          ttype: "single"
+          project_id: "REC: project.id"
+          phase_id: "REC: child_1.id"
+          date_due: "2024-12-31"
+          category_id: "REC: category.id"
+          type_id: "REC: dtype.id"
+      - step: "Confirm deliverable_1"
+        action: "call"
+        target: "deliverable_1"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+      - step: "Approve deliverable_1"
+        action: "call"
+        target: "deliverable_1"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+      - step: "Create task of deliverable_1"
+        action: "create"
+        model: "project.task"
+        save_as: "task_deliverable_1"
+        values:
+          name: "Task deliverable_1 PC"
+          project_id: "REC: project.id"
+          stage_id: "REC: stage_done.id"
+          deliverable_id: "REC: deliverable_1.id"
+      - step: "Finish deliverable_1"
+        action: "call"
+        target: "deliverable_1"
+        method: "action_done"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+      - step: "Assert child_1 is fully complete"
+        action: "assert"
+        target: "child_1"
+        asserts:
+          task_completion_percentage:
+            type: "value"
+            expected: 1.0
+          deliverable_completion_percentage:
+            type: "value"
+            expected: 1.0
+          completion_percentage:
+            type: "value"
+            expected: 1.0
       - step: "Assert only completed child is done"
         action: "assert"
         target: "parent_phase"
@@ -393,7 +477,7 @@ scenarios:
         save_as: "deliverable"
         as_user: "base.user_admin"
         values:
-          name: "deliverable"
+          name: "deliverable_empty"
           title: "deliverable"
           ttype: "single"
           project_id: "REC: project.id"
@@ -559,6 +643,22 @@ scenarios:
           project_id: "REC: project.id"
           stage_id: "REC: stage_done.id"
           deliverable_id: "REC: child_1.id"
+      - step: "Diagnose child_1 before asserting parent"
+        action: "assert"
+        target: "child_1"
+        asserts:
+          number_of_task:
+            type: "value"
+            expected: 1
+          number_of_task_done:
+            type: "value"
+            expected: 1
+          task_completion_percentage:
+            type: "value"
+            expected: 1.0
+          completion_percentage:
+            type: "value"
+            expected: 1.0
       - step: "Assert only completed child is done"
         action: "assert"
         target: "parent_deliverable"
