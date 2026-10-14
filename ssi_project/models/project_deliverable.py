@@ -176,18 +176,21 @@ class ProjectDeliverable(models.Model):
     number_of_child = fields.Integer(
         string="Num. of Child Deliverables",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
     number_of_child_done = fields.Integer(
         string="Num. of Child Deliverables Done",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
     child_completion_percentage = fields.Float(
         string="Child Deliverables Completion Percentage",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
@@ -201,18 +204,21 @@ class ProjectDeliverable(models.Model):
     number_of_task = fields.Integer(
         string="Num. of Task",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
     number_of_task_done = fields.Integer(
         string="Num. of Task Done",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
     task_completion_percentage = fields.Float(
         string="Task Completion Percentage",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
@@ -220,6 +226,7 @@ class ProjectDeliverable(models.Model):
     completion_percentage = fields.Float(
         string="Completion Percentage",
         compute="_compute_completion_percentage",
+        recursive=True,
         store=True,
         compute_sudo=True,
     )
@@ -242,6 +249,11 @@ class ProjectDeliverable(models.Model):
         the source group is still being computed; a separate compute
         would read stale source percentages. ``completion_percentage``
         is built from local variables, never from stored fields.
+
+        Every field of the group is ``recursive=True`` so the ORM
+        recomputes record by record. In batch mode a parent and its
+        children are computed together under protection and the
+        parent would read the stale value of the child counters.
 
         * Tasks: all ``task_ids`` are counted; those with ``state`` equal
           to ``done`` are done.
